@@ -23,12 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowSince
            
         let mainNavigation = UINavigationController(rootViewController: QueueController())
-//        mainNavigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        mainNavigation.navigationBar.shadowImage = UIImage()
-//        mainNavigation.navigationBar.isTranslucent = true
-    
-        //mainNavigation.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Account", style: .done, target: QueueController(), action: #selector(QueueController.pushToAccount))
-           
         window?.rootViewController = mainNavigation
         window?.makeKeyAndVisible()
     }

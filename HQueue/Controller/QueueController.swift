@@ -25,7 +25,8 @@ class QueueController: UIViewController {
     }
     
     @objc func pushToAccount() {
-        
+        let loginVC = Login()
+        self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
     required init?(coder: NSCoder) {
