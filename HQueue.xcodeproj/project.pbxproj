@@ -103,8 +103,8 @@
 			children = (
 				95091E4A2372B02B00EA0782 /* AppDelegate.swift */,
 				95091E4C2372B02B00EA0782 /* SceneDelegate.swift */,
-				95091E4E2372B02B00EA0782 /* ViewController.swift */,
-				95091E502372B02B00EA0782 /* Main.storyboard */,
+				95091E842372B67F00EA0782 /* Controller */,
+				95091E832372B62500EA0782 /* View */,
 				95091E562372B02E00EA0782 /* Assets.xcassets */,
 				95091E582372B02E00EA0782 /* LaunchScreen.storyboard */,
 				95091E5B2372B02E00EA0782 /* Info.plist */,
@@ -129,6 +129,22 @@
 				95091E712372B02E00EA0782 /* Info.plist */,
 			);
 			path = HQueueUITests;
+			sourceTree = "<group>";
+		};
+		95091E832372B62500EA0782 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95091E502372B02B00EA0782 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95091E842372B67F00EA0782 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				95091E4E2372B02B00EA0782 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
