@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
            window = UIWindow(frame: windowSince.coordinateSpace.bounds)
            window?.windowScene = windowSince
            
-           let mainNavigation = UINavigationController(rootViewController: QueueController())
+           let mainNavigation = UINavigationController(rootViewController: Login())
            mainNavigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
            mainNavigation.navigationBar.shadowImage = UIImage()
            mainNavigation.navigationBar.isTranslucent = true
