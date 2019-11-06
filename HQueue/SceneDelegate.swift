@@ -17,18 +17,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-         guard let windowSince = (scene as? UIWindowScene) else { return }
+        guard let windowSince = (scene as? UIWindowScene) else { return }
         
-           window = UIWindow(frame: windowSince.coordinateSpace.bounds)
-           window?.windowScene = windowSince
+        window = UIWindow(frame: windowSince.coordinateSpace.bounds)
+        window?.windowScene = windowSince
            
-           let mainNavigation = UINavigationController(rootViewController: QueueController())
-           mainNavigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
-           mainNavigation.navigationBar.shadowImage = UIImage()
-           mainNavigation.navigationBar.isTranslucent = true
+        let mainNavigation = UINavigationController(rootViewController: QueueController())
+//        mainNavigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        mainNavigation.navigationBar.shadowImage = UIImage()
+//        mainNavigation.navigationBar.isTranslucent = true
+    
+        //mainNavigation.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Account", style: .done, target: QueueController(), action: #selector(QueueController.pushToAccount))
            
-           window?.rootViewController = mainNavigation
-           window?.makeKeyAndVisible()
+        window?.rootViewController = mainNavigation
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

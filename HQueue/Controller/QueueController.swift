@@ -19,7 +19,13 @@ class QueueController: UIViewController {
         
         self.navigationItem.title = "Queue"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        // Do any additional setup after loading the view.
+
+        let rightBarButton = UIBarButtonItem(title: "Account", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.pushToAccount))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    @objc func pushToAccount() {
+        
     }
     
     required init?(coder: NSCoder) {
