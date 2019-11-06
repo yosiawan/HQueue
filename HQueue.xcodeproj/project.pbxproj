@@ -17,6 +17,8 @@
 		95091E5A2372B02E00EA0782 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95091E582372B02E00EA0782 /* LaunchScreen.storyboard */; };
 		95091E652372B02E00EA0782 /* HQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E642372B02E00EA0782 /* HQueueTests.swift */; };
 		95091E702372B02E00EA0782 /* HQueueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E6F2372B02E00EA0782 /* HQueueUITests.swift */; };
+		95091E8F2372C93400EA0782 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E8D2372C93400EA0782 /* Register.swift */; };
+		95091E902372C93400EA0782 /* Register.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091E8E2372C93400EA0782 /* Register.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		95091E6B2372B02E00EA0782 /* HQueueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HQueueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95091E6F2372B02E00EA0782 /* HQueueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQueueUITests.swift; sourceTree = "<group>"; };
 		95091E712372B02E00EA0782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95091E8D2372C93400EA0782 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		95091E8E2372C93400EA0782 /* Register.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Register.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +140,7 @@
 		95091E832372B62500EA0782 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95091E502372B02B00EA0782 /* Main.storyboard */,
+				95091E8E2372C93400EA0782 /* Register.xib */,
 				7F8998162372BA0500A2085A /* QueueView.xib */,
 			);
 			path = View;
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				95091E4E2372B02B00EA0782 /* ViewController.swift */,
+				95091E8D2372C93400EA0782 /* Register.swift */,
 				7F8998142372B9DA00A2085A /* QueueController.swift */,
 			);
 			path = Controller;
@@ -257,8 +262,8 @@
 			files = (
 				95091E5A2372B02E00EA0782 /* LaunchScreen.storyboard in Resources */,
 				95091E572372B02E00EA0782 /* Assets.xcassets in Resources */,
+				95091E902372C93400EA0782 /* Register.xib in Resources */,
 				7F8998172372BA0500A2085A /* QueueView.xib in Resources */,
-				95091E522372B02B00EA0782 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95091E8F2372C93400EA0782 /* Register.swift in Sources */,
 				7F8998152372B9DA00A2085A /* QueueController.swift in Sources */,
 				95091E552372B02B00EA0782 /* HQueue.xcdatamodeld in Sources */,
 				95091E4F2372B02B00EA0782 /* ViewController.swift in Sources */,
