@@ -15,6 +15,7 @@ class AccountController: UIViewController {
     @IBOutlet var loggedView: UIView!
     @IBOutlet var guestView: UIView!
     
+    @IBOutlet weak var registerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -33,6 +34,10 @@ class AccountController: UIViewController {
 
     @IBAction func signupAction(_ sender: Any) {
         let vc = RegisterController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func signinAction(_ sender: Any) {
+        let vc = Login()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

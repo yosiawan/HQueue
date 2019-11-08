@@ -18,6 +18,8 @@
 		7F5FE05A23741674004569C4 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FE05823741674004569C4 /* RegisterController.xib */; };
 		7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE05C23742B44004569C4 /* FieldForm.swift */; };
 		7F5FE05F23742B54004569C4 /* FieldForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FE05E23742B54004569C4 /* FieldForm.xib */; };
+		7F5FE06423757FA4004569C4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E892372C52B00EA0782 /* Login.swift */; };
+		7F5FE06523757FBE004569C4 /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091E8A2372C52B00EA0782 /* Login.xib */; };
 		7F8998152372B9DA00A2085A /* QueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8998142372B9DA00A2085A /* QueueController.swift */; };
 		7F8998172372BA0500A2085A /* QueueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8998162372BA0500A2085A /* QueueView.xib */; };
 		95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4A2372B02B00EA0782 /* AppDelegate.swift */; };
@@ -28,8 +30,6 @@
 		95091E5A2372B02E00EA0782 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95091E582372B02E00EA0782 /* LaunchScreen.storyboard */; };
 		95091E652372B02E00EA0782 /* HQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E642372B02E00EA0782 /* HQueueTests.swift */; };
 		95091E702372B02E00EA0782 /* HQueueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E6F2372B02E00EA0782 /* HQueueUITests.swift */; };
-		95091E8B2372C52B00EA0782 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E892372C52B00EA0782 /* Login.swift */; };
-		95091E8C2372C52B00EA0782 /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091E8A2372C52B00EA0782 /* Login.xib */; };
 		95091E942372CFD100EA0782 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E932372CFD100EA0782 /* NetworkRouter.swift */; };
 		95091E962373F93000EA0782 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E952373F93000EA0782 /* Router.swift */; };
 		95091E982374023200EA0782 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E972374023200EA0782 /* EndPointType.swift */; };
@@ -125,6 +125,7 @@
 		7F5FE04F2374129C004569C4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				95091E8A2372C52B00EA0782 /* Login.xib */,
 				7F5FE0442374036A004569C4 /* AccountController.xib */,
 				7F5FE04C2374127B004569C4 /* IdentityController.xib */,
 				7F5FE05823741674004569C4 /* RegisterController.xib */,
@@ -140,6 +141,7 @@
 				7F5FE0432374036A004569C4 /* AccountController.swift */,
 				7F5FE05123741573004569C4 /* CredentialController.swift */,
 				7F5FE05723741674004569C4 /* RegisterController.swift */,
+				95091E892372C52B00EA0782 /* Login.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -210,7 +212,6 @@
 		95091E832372B62500EA0782 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95091E8A2372C52B00EA0782 /* Login.xib */,
 				7F5FE05B23742A08004569C4 /* Components */,
 				7F5FE04F2374129C004569C4 /* Account */,
 				7F8998162372BA0500A2085A /* QueueView.xib */,
@@ -224,7 +225,6 @@
 				7F5FE05023741517004569C4 /* Account */,
 				95091E4E2372B02B00EA0782 /* ViewController.swift */,
 				7F8998142372B9DA00A2085A /* QueueController.swift */,
-				95091E892372C52B00EA0782 /* Login.swift */,
 				7F5FE04723740F52004569C4 /* MainNavigationController.swift */,
 			);
 			path = Controller;
@@ -375,11 +375,11 @@
 			files = (
 				7F5FE04E2374127B004569C4 /* IdentityController.xib in Resources */,
 				7F5FE05A23741674004569C4 /* RegisterController.xib in Resources */,
+				7F5FE06523757FBE004569C4 /* Login.xib in Resources */,
 				95091E5A2372B02E00EA0782 /* LaunchScreen.storyboard in Resources */,
 				7F5FE05423741573004569C4 /* CredentialController.xib in Resources */,
 				95091E572372B02E00EA0782 /* Assets.xcassets in Resources */,
 				7F8998172372BA0500A2085A /* QueueView.xib in Resources */,
-				95091E8C2372C52B00EA0782 /* Login.xib in Resources */,
 				7F5FE05F23742B54004569C4 /* FieldForm.xib in Resources */,
 				7F5FE0462374036A004569C4 /* AccountController.xib in Resources */,
 			);
@@ -417,13 +417,13 @@
 				7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */,
 				7F5FE05923741674004569C4 /* RegisterController.swift in Sources */,
 				95091EA42374037400EA0782 /* JSONParameterEncoder.swift in Sources */,
+				7F5FE06423757FA4004569C4 /* Login.swift in Sources */,
 				95091E962373F93000EA0782 /* Router.swift in Sources */,
 				95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */,
 				95091E9A2374025500EA0782 /* HTTPMethod.swift in Sources */,
 				95091E9C2374029400EA0782 /* HTTPTask.swift in Sources */,
 				95091EA22374035400EA0782 /* URLParameterEncoder.swift in Sources */,
 				95091E4F2372B02B00EA0782 /* ViewController.swift in Sources */,
-				95091E8B2372C52B00EA0782 /* Login.swift in Sources */,
 				95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */,
 				95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */,
 			);

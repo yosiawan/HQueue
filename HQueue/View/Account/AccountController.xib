@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="guestView" destination="i5M-Pr-FkT" id="f37-K9-Ouw"/>
                 <outlet property="loggedView" destination="HCK-bp-mAf" id="15a-M1-GbJ"/>
+                <outlet property="registerButton" destination="A74-bt-qco" id="Zt5-2B-GkC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -41,6 +42,9 @@
                     <rect key="frame" x="185" y="580" width="45" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Masuk"/>
+                    <connections>
+                        <action selector="signinAction:" destination="-1" eventType="touchUpInside" id="c7d-Kg-gqd"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A74-bt-qco">
                     <rect key="frame" x="186" y="628" width="43" height="30"/>

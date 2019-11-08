@@ -25,7 +25,7 @@ class QueueController: UIViewController {
     }
     
     @objc func pushToAccount() {
-        let loginVC = Login()
+        let loginVC = AccountController()
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
