@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FieldForm" customModule="HQueue" customModuleProvider="target">
+            <connections>
+                <outlet property="formField" destination="eGM-hX-2Zx" id="onx-Sd-gLK"/>
+                <outlet property="formImg" destination="2dW-i9-9St" id="eKZ-6k-SzA"/>
+                <outlet property="view" destination="iN0-l3-epB" id="l4F-C3-WRv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="FieldForm" customModule="HQueue" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2dW-i9-9St">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="d2n-Z9-aC1"/>
+                        <constraint firstAttribute="width" constant="42" id="l1X-y0-aR6"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Lengkap" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-hX-2Zx">
+                    <rect key="frame" x="57" y="15" width="342" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LV4-m7-vAx">
+                    <rect key="frame" x="0.0" y="52" width="414" height="1"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Omd-R6-NJ8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2dW-i9-9St" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FPS-33-chO"/>
+                <constraint firstAttribute="trailing" secondItem="LV4-m7-vAx" secondAttribute="trailing" id="P8h-E1-WVh"/>
+                <constraint firstItem="LV4-m7-vAx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cJd-Y6-sQa"/>
+                <constraint firstAttribute="bottom" secondItem="eGM-hX-2Zx" secondAttribute="bottom" constant="17" id="gIY-D6-fRa"/>
+                <constraint firstItem="eGM-hX-2Zx" firstAttribute="leading" secondItem="2dW-i9-9St" secondAttribute="trailing" constant="15" id="l5u-Y3-xOn"/>
+                <constraint firstAttribute="bottom" secondItem="LV4-m7-vAx" secondAttribute="bottom" id="r39-er-eP4"/>
+                <constraint firstAttribute="trailing" secondItem="eGM-hX-2Zx" secondAttribute="trailing" constant="15" id="sXz-AA-3jW"/>
+                <constraint firstItem="2dW-i9-9St" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sg0-PL-c2x"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="formField" destination="eGM-hX-2Zx" id="9cx-rp-TCs"/>
+                <outlet property="formImg" destination="2dW-i9-9St" id="SXt-NC-pgH"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="152.34375"/>
+        </view>
+    </objects>
+</document>
