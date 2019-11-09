@@ -10,15 +10,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QueueController" customModule="HQueue" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="iN0-l3-epB" id="NW9-dJ-ldA"/>
+                <outlet property="wellcomeLabel" destination="AxG-y6-bUj" id="Zct-DE-uf9"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxG-y6-bUj">
+                    <rect key="frame" x="20" y="44" width="374" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AxG-y6-bUj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="PoA-vp-zVp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AxG-y6-bUj" secondAttribute="trailing" constant="20" id="RBq-Az-Hrw"/>
+                <constraint firstItem="AxG-y6-bUj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zHI-kh-9WY"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="139" y="142"/>
+            <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>
         </view>
     </objects>
 </document>

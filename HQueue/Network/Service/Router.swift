@@ -15,6 +15,11 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         let session = URLSession.shared
         do {
             let request = try self.buildRequest(from: route)
+            
+            //Debug
+            //print(request.allHTTPHeaderFields)
+            //print(String(bytes: request.httpBody!, encoding: .utf8))
+            
             task = session.dataTask(with: request, completionHandler: { data, response, error in completion(data, response, error)})
         } catch {
             completion(nil, nil, error)
@@ -63,6 +68,8 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 case .request:
                     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 case .requestParameters(let bodyParameters, let urlParameters):
+                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("application/json", forHTTPHeaderField: "Accept")
                     try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
                 case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let additionalHeaders):
                     self.addAdditionalHeaders(additionalHeaders, request: &request)
