@@ -9,13 +9,12 @@
 import UIKit
 
 class RegisterController: UIViewController {
-
-    @IBOutlet weak var nameField: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
 
     @IBAction func nextAction(_ sender: Any) {

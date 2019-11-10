@@ -17,29 +17,224 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-am-rSJ">
-                    <rect key="frame" x="0.0" y="44" width="414" height="211"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Regist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAm-19-iUK">
-                    <rect key="frame" x="163" y="263" width="88" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w72-ke-wdT">
-                    <rect key="frame" x="168" y="832" width="79" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Selanjutnya"/>
-                    <connections>
-                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="b22-PQ-Icy"/>
-                    </connections>
-                </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwl-Af-zIo">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZX-jC-sb5">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pablo-come-back-later" translatesAutoresizingMaskIntoConstraints="NO" id="ojB-cQ-E2p">
+                                    <rect key="frame" x="0.0" y="44" width="414" height="197"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="197" id="xp9-49-0td"/>
+                                    </constraints>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayo isi data diri anda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9M-mX-WYR">
+                                    <rect key="frame" x="0.0" y="256" width="414" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="22" id="LXR-JW-ZJW"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="textColor" red="0.11764705882352941" green="0.25882352941176467" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3nF-M3-Zii">
+                                    <rect key="frame" x="22" y="293" width="370" height="418"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBA-wl-sXv" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="53"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="Ak9-HN-iax">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama lengkap" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ukg-dN-a5R">
+                                                    <rect key="frame" x="54" y="0.0" width="308" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCP-lm-uOv">
+                                                    <rect key="frame" x="0.0" y="52" width="370" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="pDj-VY-XZd"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kh-fa-0fZ" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="73" width="370" height="53"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="AU8-NH-rHJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama ibu kandung" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFx-ZM-g3h">
+                                                    <rect key="frame" x="55" y="0.0" width="335" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cD-XG-Nac">
+                                                    <rect key="frame" x="0.0" y="52" width="370" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="3qs-eC-rWb"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGk-H6-OOc" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="146" width="370" height="53"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="9IA-8f-lFw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pilih jenis kelamin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Or1-LO-VYN">
+                                                    <rect key="frame" x="55" y="0.0" width="335" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hz5-y4-iTZ">
+                                                    <rect key="frame" x="0.0" y="52" width="370" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="5fP-wq-dfZ"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLx-0A-JeS" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="219" width="370" height="53"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="oTz-DT-uhh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tanggal lahir" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rnj-4r-nP4">
+                                                    <rect key="frame" x="55" y="0.0" width="335" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ejo-9X-LnK">
+                                                    <rect key="frame" x="0.0" y="52" width="370" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="HcY-pO-2CJ"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ql-VK-Bl7" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="292" width="370" height="53"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="m0r-jO-uag">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gologan darah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-Ag-jhI">
+                                                    <rect key="frame" x="55" y="0.0" width="335" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6mr-aL-juw">
+                                                    <rect key="frame" x="0.0" y="52" width="370" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="aHE-Ek-MoD"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtl-DD-Ja4" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="365" width="370" height="53"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="g84-26-vhk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Asuransi pribadi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYU-WN-L2e">
+                                                    <rect key="frame" x="55" y="0.0" width="335" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rcQ-x1-qp0">
+                                                    <rect key="frame" x="0.0" y="52" width="370" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="e3S-Yw-jYx"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyv-OE-Coh">
+                                    <rect key="frame" x="120" y="763" width="174" height="45"/>
+                                    <color key="backgroundColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="174" id="v7Q-yY-5O8"/>
+                                        <constraint firstAttribute="height" constant="45" id="ye7-eO-Uiq"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Selanjutnya"/>
+                                    <connections>
+                                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="jW1-53-9HD"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1000" id="9hh-XJ-cmV"/>
+                                <constraint firstItem="ojB-cQ-E2p" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" id="AeF-1j-cf3"/>
+                                <constraint firstAttribute="trailing" secondItem="3nF-M3-Zii" secondAttribute="trailing" constant="22" id="C0A-fl-zth"/>
+                                <constraint firstAttribute="trailing" secondItem="ojB-cQ-E2p" secondAttribute="trailing" id="EYx-Wp-e19"/>
+                                <constraint firstItem="3nF-M3-Zii" firstAttribute="top" secondItem="H9M-mX-WYR" secondAttribute="bottom" constant="15" id="Jz2-3i-S80"/>
+                                <constraint firstItem="H9M-mX-WYR" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" id="MU6-iR-S0a"/>
+                                <constraint firstItem="Yyv-OE-Coh" firstAttribute="centerX" secondItem="yZX-jC-sb5" secondAttribute="centerX" id="UuC-sA-b0n"/>
+                                <constraint firstItem="3nF-M3-Zii" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" constant="22" id="ehS-hw-ccb"/>
+                                <constraint firstAttribute="trailing" secondItem="H9M-mX-WYR" secondAttribute="trailing" id="hWN-o8-b5b"/>
+                                <constraint firstItem="Yyv-OE-Coh" firstAttribute="top" secondItem="3nF-M3-Zii" secondAttribute="bottom" constant="52" id="vRv-vw-9vl"/>
+                                <constraint firstItem="H9M-mX-WYR" firstAttribute="top" secondItem="ojB-cQ-E2p" secondAttribute="bottom" constant="15" id="vdS-jj-ib2"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="yZX-jC-sb5" secondAttribute="bottom" id="Ea3-6c-e19"/>
+                        <constraint firstItem="yZX-jC-sb5" firstAttribute="leading" secondItem="lwl-Af-zIo" secondAttribute="leading" id="IWF-Lr-HSo"/>
+                        <constraint firstItem="yZX-jC-sb5" firstAttribute="top" secondItem="lwl-Af-zIo" secondAttribute="top" id="VbN-7R-mq5"/>
+                        <constraint firstAttribute="trailing" secondItem="yZX-jC-sb5" secondAttribute="trailing" id="djp-Qb-i0S"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yZX-jC-sb5" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="1k0-7E-dCY"/>
+                <constraint firstAttribute="bottom" secondItem="lwl-Af-zIo" secondAttribute="bottom" id="2pv-Td-IqV"/>
+                <constraint firstItem="lwl-Af-zIo" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="P8t-te-pD6"/>
+                <constraint firstItem="ojB-cQ-E2p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="U66-Eh-Ab8"/>
+                <constraint firstItem="lwl-Af-zIo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dwT-eW-21V"/>
+                <constraint firstItem="lwl-Af-zIo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jMu-U1-GX1"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="icons8-employee_card" width="25" height="34"/>
+        <image name="pablo-come-back-later" width="414" height="239"/>
+    </resources>
 </document>
