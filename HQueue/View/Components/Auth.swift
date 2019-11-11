@@ -16,8 +16,7 @@ public enum HQAuthAPI {
 
 extension HQAuthAPI: EndPointType {
     var baseURL: URL {
-        //guard let url = URL(string: "http://167.71.203.148/api/v1") else { fatalError("Base URL not configured") }
-        guard let url = URL(string: "http://127.0.0.1:8000/api/v1") else { fatalError("Base URL not configured") }
+        guard let url = URL(string: "http://167.71.203.148/api/v1") else { fatalError("Base URL not configured") }
         return url
     }
     
