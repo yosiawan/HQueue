@@ -16,12 +16,12 @@ class QueueController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.title = "Queue"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-
-        let rightBarButton = UIBarButtonItem(title: "Account", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.pushToAccount))
-        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    @IBAction func test(_ sender: UITapGestureRecognizer) {
+        let loginVC = AccountController()
+            
+        self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
     @objc func pushToAccount() {

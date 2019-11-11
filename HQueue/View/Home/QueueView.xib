@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QueueController" customModule="HQueue" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="NW9-dJ-ldA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cA3-Gi-ilg" customClass="AccountThumbnail" customModule="HQueue" customModuleProvider="target">
+                    <rect key="frame" x="339" y="74" width="50" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izF-xZ-GfM">
+                            <rect key="frame" x="15" y="14" width="20" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.11764705882352941" green="0.2627450980392157" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="2B6-ka-sjd"/>
+                        <constraint firstItem="izF-xZ-GfM" firstAttribute="top" secondItem="cA3-Gi-ilg" secondAttribute="top" constant="10" id="Dgs-I6-YuF"/>
+                        <constraint firstItem="izF-xZ-GfM" firstAttribute="leading" secondItem="cA3-Gi-ilg" secondAttribute="leading" constant="15" id="HbN-lV-8Yd"/>
+                        <constraint firstAttribute="height" constant="50" id="qYL-U6-EcI"/>
+                        <constraint firstAttribute="trailing" secondItem="izF-xZ-GfM" secondAttribute="trailing" constant="15" id="y7E-fZ-8HN"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="RUB-bJ-wmL" appends="YES" id="CMM-wC-a1M"/>
+                    </connections>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_4x" translatesAutoresizingMaskIntoConstraints="NO" id="bbH-YS-02K">
+                    <rect key="frame" x="0.0" y="124" width="414" height="473"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siP-IN-shJ" customClass="QueueArea" customModule="HQueue" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="494" width="414" height="402"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antrian Kamu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-T4-Bjb">
+                            <rect key="frame" x="25" y="35" width="184" height="36"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="~ 09:00-10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynn-rX-ma7">
+                            <rect key="frame" x="252" y="35" width="137" height="33"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="0.42745098039215684" green="0.44705882352941173" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQQ-Qu-01F" customClass="QueueNumberArea" customModule="HQueue" customModuleProvider="target">
+                            <rect key="frame" x="25" y="106" width="88" height="136"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sisa Antrian" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWN-yM-YCQ">
+                                    <rect key="frame" x="12" y="8" width="64" height="53"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL9-tv-EIb">
+                                    <rect key="frame" x="26" y="69" width="37" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                    <color key="textColor" red="1" green="0.6705882352941176" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.98431372549019602" green="0.96862745098039216" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="88" id="b6A-VU-F76"/>
+                                <constraint firstAttribute="height" constant="136" id="f4n-1h-SGG"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS Parido Has A Long N…" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l4-Bk-4N3">
+                            <rect key="frame" x="138" y="116" width="251" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poli Anak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCW-bK-fKY">
+                            <rect key="frame" x="138" y="156" width="251" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Faridha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGC-8p-jTw">
+                            <rect key="frame" x="138" y="187" width="251" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.42745098039215684" green="0.44705882352941173" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="WGC-8p-jTw" firstAttribute="leading" secondItem="YQQ-Qu-01F" secondAttribute="trailing" constant="25" id="1Nx-wt-UiY"/>
+                        <constraint firstItem="YQQ-Qu-01F" firstAttribute="leading" secondItem="siP-IN-shJ" secondAttribute="leading" constant="25" id="6eW-h3-i5O"/>
+                        <constraint firstItem="ynn-rX-ma7" firstAttribute="top" secondItem="siP-IN-shJ" secondAttribute="top" constant="35" id="EwV-kx-5Xq"/>
+                        <constraint firstAttribute="trailing" secondItem="4l4-Bk-4N3" secondAttribute="trailing" constant="25" id="MHz-g5-zwa"/>
+                        <constraint firstAttribute="trailing" secondItem="UCW-bK-fKY" secondAttribute="trailing" constant="25" id="QFI-NG-HXd"/>
+                        <constraint firstItem="UCW-bK-fKY" firstAttribute="leading" secondItem="YQQ-Qu-01F" secondAttribute="trailing" constant="25" id="QXS-23-5t9"/>
+                        <constraint firstAttribute="trailing" secondItem="WGC-8p-jTw" secondAttribute="trailing" constant="25" id="S8b-FT-zJI"/>
+                        <constraint firstItem="UUs-T4-Bjb" firstAttribute="top" secondItem="siP-IN-shJ" secondAttribute="top" constant="35" id="a6n-Uk-2wf"/>
+                        <constraint firstItem="UUs-T4-Bjb" firstAttribute="leading" secondItem="siP-IN-shJ" secondAttribute="leading" constant="25" id="abZ-Yd-XqO"/>
+                        <constraint firstAttribute="trailing" secondItem="ynn-rX-ma7" secondAttribute="trailing" constant="25" id="awY-JK-rmT"/>
+                        <constraint firstItem="YQQ-Qu-01F" firstAttribute="top" secondItem="UUs-T4-Bjb" secondAttribute="bottom" constant="35" id="dZ2-x3-K20"/>
+                        <constraint firstItem="4l4-Bk-4N3" firstAttribute="leading" secondItem="YQQ-Qu-01F" secondAttribute="trailing" constant="25" id="fgk-IL-4Ia"/>
+                        <constraint firstAttribute="height" constant="402" id="iER-K2-lUX"/>
+                        <constraint firstItem="UCW-bK-fKY" firstAttribute="top" secondItem="4l4-Bk-4N3" secondAttribute="bottom" constant="10" id="nmP-b7-mfz"/>
+                        <constraint firstItem="4l4-Bk-4N3" firstAttribute="top" secondItem="UUs-T4-Bjb" secondAttribute="bottom" constant="45" id="ryx-AZ-rYL"/>
+                        <constraint firstItem="WGC-8p-jTw" firstAttribute="top" secondItem="UCW-bK-fKY" secondAttribute="bottom" constant="10" id="uAj-M6-Bk5"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, Nadya!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Awn-cZ-P9Y">
+                    <rect key="frame" x="28" y="74" width="139" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="siP-IN-shJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1VB-4t-HAg"/>
+                <constraint firstAttribute="bottom" secondItem="siP-IN-shJ" secondAttribute="bottom" id="3NT-ai-2t9"/>
+                <constraint firstItem="bbH-YS-02K" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cJw-uc-NJK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cA3-Gi-ilg" secondAttribute="trailing" constant="25" id="e1r-Wq-Py1"/>
+                <constraint firstItem="bbH-YS-02K" firstAttribute="top" secondItem="cA3-Gi-ilg" secondAttribute="bottom" id="eGI-Uo-gFb"/>
+                <constraint firstItem="bbH-YS-02K" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="naW-1J-HUM"/>
+                <constraint firstItem="siP-IN-shJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="qn7-Rm-qXg"/>
+                <constraint firstItem="cA3-Gi-ilg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="rmu-aL-QgJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>
+        </view>
+        <tapGestureRecognizer id="RUB-bJ-wmL">
+            <connections>
+                <action selector="test:" destination="-1" id="nr7-xw-XFv"/>
+                <outlet property="delegate" destination="cA3-Gi-ilg" id="IpX-tS-F19"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="doctor_4x" width="414" height="473"/>
+    </resources>
+</document>

@@ -38,6 +38,9 @@
 		95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E9F2374030300EA0782 /* ParameterEncoding.swift */; };
 		95091EA22374035400EA0782 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EA12374035400EA0782 /* URLParameterEncoder.swift */; };
 		95091EA42374037400EA0782 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EA32374037400EA0782 /* JSONParameterEncoder.swift */; };
+		B73FC69D237955B6000B4A67 /* QueueArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC69C237955B6000B4A67 /* QueueArea.swift */; };
+		B73FC69F237956A8000B4A67 /* AccountThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC69E237956A8000B4A67 /* AccountThumbnail.swift */; };
+		B73FC6A123795A83000B4A67 /* QueueNumberArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		95091E9F2374030300EA0782 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		95091EA12374035400EA0782 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		95091EA32374037400EA0782 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		B73FC69C237955B6000B4A67 /* QueueArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueArea.swift; sourceTree = "<group>"; };
+		B73FC69E237956A8000B4A67 /* AccountThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountThumbnail.swift; sourceTree = "<group>"; };
+		B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueNumberArea.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,9 +218,9 @@
 		95091E832372B62500EA0782 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B73FC69A237954DE000B4A67 /* Home */,
 				7F5FE05B23742A08004569C4 /* Components */,
 				7F5FE04F2374129C004569C4 /* Account */,
-				7F8998162372BA0500A2085A /* QueueView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 		95091E842372B67F00EA0782 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B73FC69B23795592000B4A67 /* Home */,
 				7F5FE05023741517004569C4 /* Account */,
 				95091E4E2372B02B00EA0782 /* ViewController.swift */,
 				7F8998142372B9DA00A2085A /* QueueController.swift */,
@@ -267,6 +274,24 @@
 			children = (
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		B73FC69A237954DE000B4A67 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7F8998162372BA0500A2085A /* QueueView.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B73FC69B23795592000B4A67 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B73FC69C237955B6000B4A67 /* QueueArea.swift */,
+				B73FC69E237956A8000B4A67 /* AccountThumbnail.swift */,
+				B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,11 +435,13 @@
 				7F5FE05323741573004569C4 /* CredentialController.swift in Sources */,
 				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
 				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
+				B73FC69D237955B6000B4A67 /* QueueArea.swift in Sources */,
 				7F8998152372B9DA00A2085A /* QueueController.swift in Sources */,
 				7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */,
 				95091E942372CFD100EA0782 /* NetworkRouter.swift in Sources */,
 				95091E552372B02B00EA0782 /* HQueue.xcdatamodeld in Sources */,
 				7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */,
+				B73FC6A123795A83000B4A67 /* QueueNumberArea.swift in Sources */,
 				7F5FE05923741674004569C4 /* RegisterController.swift in Sources */,
 				95091EA42374037400EA0782 /* JSONParameterEncoder.swift in Sources */,
 				7F5FE06423757FA4004569C4 /* Login.swift in Sources */,
@@ -425,6 +452,7 @@
 				95091EA22374035400EA0782 /* URLParameterEncoder.swift in Sources */,
 				95091E4F2372B02B00EA0782 /* ViewController.swift in Sources */,
 				95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */,
+				B73FC69F237956A8000B4A67 /* AccountThumbnail.swift in Sources */,
 				95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,7 +550,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -576,7 +604,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
