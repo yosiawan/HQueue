@@ -12,5 +12,14 @@ class CredentialController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.isModalInPresentation = true
+        let rightBarButton = UIBarButtonItem(title: "Selesai", style: .plain, target: self, action: #selector(self.doneAction))
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
+    
+    @objc func doneAction() {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

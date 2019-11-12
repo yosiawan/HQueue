@@ -20,7 +20,7 @@ class AccountController: UIViewController {
     }
     
     fileprivate func checkLogged() {
-        if let token = UserDefaults.standard.string(forKey: "authToken") {
+        if UserDefaults.standard.string(forKey: "authToken") != nil {
             self.view = loggedView
         }else{
             self.view = guestView
@@ -36,8 +36,12 @@ class AccountController: UIViewController {
     }
 
     @IBAction func signupAction(_ sender: Any) {
-        let vc = RegisterController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = UINavigationController(rootViewController: RegisterController())
+        vc.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        vc.navigationBar.shadowImage = UIImage()
+        vc.navigationBar.isTranslucent = true
+        vc.view.backgroundColor = .clear
+        self.present(vc, animated: true, completion: nil)
     }
     @IBAction func signinAction(_ sender: Any) {
         let vc = Login()

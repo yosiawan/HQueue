@@ -182,19 +182,6 @@
                                         </view>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyv-OE-Coh">
-                                    <rect key="frame" x="120" y="763" width="174" height="45"/>
-                                    <color key="backgroundColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="174" id="v7Q-yY-5O8"/>
-                                        <constraint firstAttribute="height" constant="45" id="ye7-eO-Uiq"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <state key="normal" title="Selanjutnya"/>
-                                    <connections>
-                                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="jW1-53-9HD"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
@@ -204,10 +191,8 @@
                                 <constraint firstAttribute="trailing" secondItem="ojB-cQ-E2p" secondAttribute="trailing" id="EYx-Wp-e19"/>
                                 <constraint firstItem="3nF-M3-Zii" firstAttribute="top" secondItem="H9M-mX-WYR" secondAttribute="bottom" constant="15" id="Jz2-3i-S80"/>
                                 <constraint firstItem="H9M-mX-WYR" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" id="MU6-iR-S0a"/>
-                                <constraint firstItem="Yyv-OE-Coh" firstAttribute="centerX" secondItem="yZX-jC-sb5" secondAttribute="centerX" id="UuC-sA-b0n"/>
                                 <constraint firstItem="3nF-M3-Zii" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" constant="22" id="ehS-hw-ccb"/>
                                 <constraint firstAttribute="trailing" secondItem="H9M-mX-WYR" secondAttribute="trailing" id="hWN-o8-b5b"/>
-                                <constraint firstItem="Yyv-OE-Coh" firstAttribute="top" secondItem="3nF-M3-Zii" secondAttribute="bottom" constant="52" id="vRv-vw-9vl"/>
                                 <constraint firstItem="H9M-mX-WYR" firstAttribute="top" secondItem="ojB-cQ-E2p" secondAttribute="bottom" constant="15" id="vdS-jj-ib2"/>
                             </constraints>
                         </view>
