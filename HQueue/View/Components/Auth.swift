@@ -10,7 +10,7 @@ import Foundation
 
 public enum HQAuthAPI {
     case signin(email: String, password: String)
-    case signup(email: String, name: String, password: String)
+    case signup(email: String, name: String, password: String, phoneNumber: String)
     case getProfile
 }
 
@@ -25,7 +25,7 @@ extension HQAuthAPI: EndPointType {
         case .signin:
             return "/login"
         case .signup:
-            return "/login"
+            return "/register"
         case .getProfile:
             return "/user"
         }
@@ -46,8 +46,8 @@ extension HQAuthAPI: EndPointType {
         switch self {
         case .signin(let email, let password):
             return .requestParameters(bodyParameters: ["email": email, "password": password], urlParameters: nil)
-        case .signup(let email, let name, let password):
-            return .requestParameters(bodyParameters: ["email": email, "name": name, "password": password, "c_password": password], urlParameters: nil)
+        case .signup(let email, let name, let password, let phoneNumber):
+            return .requestParameters(bodyParameters: ["email": email, "name": name, "password": password, "c_password": password, "phone_number": phoneNumber], urlParameters: nil)
         case .getProfile:
             return .request
         }

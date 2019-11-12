@@ -55,6 +55,35 @@ struct NetworkManager {
             }
         })
     }
+    
+    func sigupAndCretePatient(newAuth: HQAuth, newPass: String, patientData: Patient, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> ()) {
+        print([newAuth, patientData])
+        router.request(.signup(email: newAuth.email, name: newAuth.name, password: newPass, phoneNumber: newAuth.phoneNumber), completion: {data, response, error in
+            if error != nil {
+                completion(nil, "Please check your connection")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result =  self .handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        //print( String(bytes: responseData, encoding: .utf8) )
+                        let data = try JSONDecoder().decode(HQAuth.self, from: responseData)
+                        completion(data, nil)
+                    } catch {
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        });
+    }
 }
 
 enum NetworkResponse: String {

@@ -12,7 +12,7 @@ struct HQAuth {
     let name: String
     let phoneNumber: String
     let email: String
-    let token: String
+    let token: String?
 }
 
 extension HQAuth: Decodable {
