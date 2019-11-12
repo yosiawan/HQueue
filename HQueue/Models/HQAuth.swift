@@ -10,6 +10,7 @@ import Foundation
 
 struct HQAuth {
     let name: String
+    let phoneNumber: String
     let email: String
     let token: String
 }
@@ -19,6 +20,7 @@ extension HQAuth: Decodable {
         case name = "name"
         case email = "email"
         case token = "token"
+        case phoneNumber = "phone_number"
     }
     
     init(from decoder: Decoder) throws {
@@ -26,5 +28,6 @@ extension HQAuth: Decodable {
         name = try hqauthContainer.decode(String.self, forKey: .name)
         email = try hqauthContainer.decode(String.self, forKey: .email)
         token = try hqauthContainer.decode(String.self, forKey: .token)
+        phoneNumber = try hqauthContainer.decode(String.self, forKey: .phoneNumber)
     }
 }
