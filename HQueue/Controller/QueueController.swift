@@ -20,12 +20,12 @@ class QueueController: UIViewController {
         self.navigationItem.title = "Queue"
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
-        let rightBarButton = UIBarButtonItem(title: "Account", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.pushToAccount))
+        let rightBarButton = UIBarButtonItem(title: "Doctor Details", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.pushToAccount))
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     @objc func pushToAccount() {
-        let loginVC = AccountController()
+        let loginVC = DoctorDetail()
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
