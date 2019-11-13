@@ -16,8 +16,12 @@ class AccountController: UIViewController {
     @IBOutlet var guestView: UIView!
     
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
     }
     
     override func viewDidAppear(_ animated: Bool) {
