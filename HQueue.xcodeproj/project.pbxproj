@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F283D90237AAF7700724AC9 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F283D8F237AAF7700724AC9 /* Patient.swift */; };
 		7F5FE0452374036A004569C4 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE0432374036A004569C4 /* AccountController.swift */; };
 		7F5FE0462374036A004569C4 /* AccountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FE0442374036A004569C4 /* AccountController.xib */; };
 		7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE04723740F52004569C4 /* MainNavigationController.swift */; };
@@ -20,6 +21,9 @@
 		7F5FE05F23742B54004569C4 /* FieldForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FE05E23742B54004569C4 /* FieldForm.xib */; };
 		7F5FE06423757FA4004569C4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E892372C52B00EA0782 /* Login.swift */; };
 		7F5FE06523757FBE004569C4 /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091E8A2372C52B00EA0782 /* Login.xib */; };
+		7F5FE0672375839D004569C4 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE0662375839D004569C4 /* Auth.swift */; };
+		7F5FE06A237585E2004569C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE069237585E2004569C4 /* NetworkManager.swift */; };
+		7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE06E2375873F004569C4 /* HQAuth.swift */; };
 		7F8998152372B9DA00A2085A /* QueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8998142372B9DA00A2085A /* QueueController.swift */; };
 		7F8998172372BA0500A2085A /* QueueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8998162372BA0500A2085A /* QueueView.xib */; };
 		95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4A2372B02B00EA0782 /* AppDelegate.swift */; };
@@ -58,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F283D8F237AAF7700724AC9 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		7F5FE0432374036A004569C4 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		7F5FE0442374036A004569C4 /* AccountController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountController.xib; sourceTree = "<group>"; };
 		7F5FE04723740F52004569C4 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -69,6 +74,9 @@
 		7F5FE05823741674004569C4 /* RegisterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		7F5FE05C23742B44004569C4 /* FieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldForm.swift; sourceTree = "<group>"; };
 		7F5FE05E23742B54004569C4 /* FieldForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldForm.xib; sourceTree = "<group>"; };
+		7F5FE0662375839D004569C4 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = HQueue/View/Components/Auth.swift; sourceTree = SOURCE_ROOT; };
+		7F5FE069237585E2004569C4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7F5FE06E2375873F004569C4 /* HQAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQAuth.swift; sourceTree = "<group>"; };
 		7F8998142372B9DA00A2085A /* QueueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueController.swift; sourceTree = "<group>"; };
 		7F8998162372BA0500A2085A /* QueueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueueView.xib; sourceTree = "<group>"; };
 		95091E472372B02B00EA0782 /* HQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +165,23 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		7F5FE068237585CE004569C4 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7F5FE069237585E2004569C4 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7F5FE06B237586CF004569C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F5FE06E2375873F004569C4 /* HQAuth.swift */,
+				7F283D8F237AAF7700724AC9 /* Patient.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		95091E3E2372B02B00EA0782 = {
 			isa = PBXGroup;
 			children = (
@@ -180,8 +205,8 @@
 		95091E492372B02B00EA0782 /* HQueue */ = {
 			isa = PBXGroup;
 			children = (
+				7F5FE06B237586CF004569C4 /* Models */,
 				95091EAE2375648100EA0782 /* HQueue.entitlements */,
-				95091EAB2374250700EA0782 /* Models */,
 				95091E922372CFBE00EA0782 /* Network */,
 				95091E842372B67F00EA0782 /* Controller */,
 				95091E832372B62500EA0782 /* View */,
@@ -237,6 +262,7 @@
 		95091E922372CFBE00EA0782 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7F5FE068237585CE004569C4 /* Manager */,
 				95091EA52374045500EA0782 /* Endpoints */,
 				95091E9E237402F300EA0782 /* Encoding */,
 				95091E9D237402DE00EA0782 /* Service */,
@@ -269,6 +295,7 @@
 		95091EA52374045500EA0782 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				7F5FE0662375839D004569C4 /* Auth.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -429,6 +456,9 @@
 				7F5FE05323741573004569C4 /* CredentialController.swift in Sources */,
 				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
 				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
+				7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */,
+				7F283D90237AAF7700724AC9 /* Patient.swift in Sources */,
+				7F5FE06A237585E2004569C4 /* NetworkManager.swift in Sources */,
 				7F8998152372B9DA00A2085A /* QueueController.swift in Sources */,
 				7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */,
 				95091E942372CFD100EA0782 /* NetworkRouter.swift in Sources */,
@@ -436,6 +466,7 @@
 				7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */,
 				7F5FE05923741674004569C4 /* RegisterController.swift in Sources */,
 				95091EA42374037400EA0782 /* JSONParameterEncoder.swift in Sources */,
+				7F5FE0672375839D004569C4 /* Auth.swift in Sources */,
 				7F5FE06423757FA4004569C4 /* Login.swift in Sources */,
 				95091E962373F93000EA0782 /* Router.swift in Sources */,
 				95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */,
