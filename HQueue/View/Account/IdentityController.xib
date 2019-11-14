@@ -17,29 +17,143 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4v-vT-mtg">
-                    <rect key="frame" x="0.0" y="44" width="414" height="197"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Identitas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlG-SC-SU5">
-                    <rect key="frame" x="154" y="249" width="107" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lu4-sT-4OY">
-                    <rect key="frame" x="168" y="832" width="79" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Selanjutnya"/>
-                    <connections>
-                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="9dk-Ai-Hru"/>
-                    </connections>
-                </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-GP-RFF">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bcp-nv-mb0">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pablo-come-back-later" translatesAutoresizingMaskIntoConstraints="NO" id="Lp8-JT-DbA">
+                                    <rect key="frame" x="0.0" y="44" width="414" height="197"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="197" id="PjX-od-EH3"/>
+                                    </constraints>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayo isi data diri anda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeU-kv-tf9">
+                                    <rect key="frame" x="0.0" y="256" width="414" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="22" id="4fn-Yt-r5S"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="textColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bal-Mv-AAj">
+                                    <rect key="frame" x="22" y="293" width="370" height="239"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-ck-XYt" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="53"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="MB8-Gl-3gC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat lengkap" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZp-e2-elN">
+                                                    <rect key="frame" x="54" y="0.0" width="308" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJU-aN-evL">
+                                                    <rect key="frame" x="0.0" y="52" width="370" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="YiH-pS-Uy8"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-la-UGf" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="73" width="370" height="53"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="9Lu-Hz-vB2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor KTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ad-i5-CMg">
+                                                    <rect key="frame" x="55" y="0.0" width="335" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Om8-NT-84S">
+                                                    <rect key="frame" x="0.0" y="52" width="370" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="vQx-Nb-yvu"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mS-wY-Njx">
+                                            <rect key="frame" x="0.0" y="146" width="370" height="93"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="93" id="5o8-wa-Ief"/>
+                                            </constraints>
+                                            <state key="normal" title="    Unggah foto KTP" image="icons8-camera">
+                                                <color key="titleColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFP-ZQ-RxZ">
+                                    <rect key="frame" x="120" y="811" width="174" height="45"/>
+                                    <color key="backgroundColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="C6Q-4y-0iD"/>
+                                        <constraint firstAttribute="width" constant="174" id="VxK-V9-WsF"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="pai-uq-jFe"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="KFP-ZQ-RxZ" secondAttribute="bottom" constant="40" id="5LA-5w-cq5"/>
+                                <constraint firstAttribute="trailing" secondItem="Lp8-JT-DbA" secondAttribute="trailing" id="6A8-nQ-Fnx"/>
+                                <constraint firstItem="bal-Mv-AAj" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" constant="22" id="CZ6-4G-XUa"/>
+                                <constraint firstItem="NeU-kv-tf9" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" id="I7n-bD-6rM"/>
+                                <constraint firstItem="KFP-ZQ-RxZ" firstAttribute="centerX" secondItem="Bcp-nv-mb0" secondAttribute="centerX" id="L2M-Tj-ZpU"/>
+                                <constraint firstItem="Lp8-JT-DbA" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" id="Nzu-ER-bbS"/>
+                                <constraint firstItem="bal-Mv-AAj" firstAttribute="top" secondItem="NeU-kv-tf9" secondAttribute="bottom" constant="15" id="Rhj-S6-d9V"/>
+                                <constraint firstAttribute="trailing" secondItem="bal-Mv-AAj" secondAttribute="trailing" constant="22" id="XbN-ge-4Wp"/>
+                                <constraint firstAttribute="trailing" secondItem="NeU-kv-tf9" secondAttribute="trailing" id="cdV-FV-3sk"/>
+                                <constraint firstItem="NeU-kv-tf9" firstAttribute="top" secondItem="Lp8-JT-DbA" secondAttribute="bottom" constant="15" id="cl8-Mc-HTh"/>
+                                <constraint firstAttribute="height" constant="896" id="qa6-o6-69a"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Bcp-nv-mb0" firstAttribute="leading" secondItem="wIJ-GP-RFF" secondAttribute="leading" id="O9t-Zr-LJt"/>
+                        <constraint firstAttribute="trailing" secondItem="Bcp-nv-mb0" secondAttribute="trailing" id="W3W-T8-avc"/>
+                        <constraint firstItem="Bcp-nv-mb0" firstAttribute="top" secondItem="wIJ-GP-RFF" secondAttribute="top" id="WM3-Fj-v1A"/>
+                        <constraint firstAttribute="bottom" secondItem="Bcp-nv-mb0" secondAttribute="bottom" id="qFE-xH-1T7"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Lp8-JT-DbA" secondAttribute="top" id="1Oq-bc-wkv"/>
+                <constraint firstItem="wIJ-GP-RFF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4IB-0S-POv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wIJ-GP-RFF" secondAttribute="bottom" id="7rO-Wz-SCZ"/>
+                <constraint firstItem="Bcp-nv-mb0" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="KiY-wf-oU3"/>
+                <constraint firstItem="wIJ-GP-RFF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aoK-ZR-SiP"/>
+                <constraint firstAttribute="trailing" secondItem="wIJ-GP-RFF" secondAttribute="trailing" id="yUG-7B-c8f"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="icons8-camera" width="38" height="28"/>
+        <image name="icons8-employee_card" width="25" height="34"/>
+        <image name="pablo-come-back-later" width="414" height="239"/>
+    </resources>
 </document>

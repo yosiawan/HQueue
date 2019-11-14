@@ -10,6 +10,7 @@ import UIKit
 
 class QueueController: UIViewController {
     
+    @IBOutlet weak var accountTumb: AccountThumbnail!
     enum CardState {
         case expanded
         case collapsed
@@ -35,20 +36,21 @@ class QueueController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Hi, Nadya"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: accountTumb)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         setupCard()
     }
     
-    //TODO: Change this into account method
-    @IBAction func test(_ sender: UITapGestureRecognizer) {
-        let loginVC = AccountController()
-            
-        self.navigationController?.pushViewController(loginVC, animated: true)
-    }
-    
-    @objc func pushToAccount() {
+     //TODO: Change this into account method
+    @IBAction func tapAccount(_ sender: Any) {
+        print("test")
         let loginVC = AccountController()
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
