@@ -45,6 +45,8 @@
 		95091EB82379575E00EA0782 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EB72379575E00EA0782 /* ColorPalette.swift */; };
 		95091EBA2379626800EA0782 /* ReusableIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EB92379626800EA0782 /* ReusableIdentifiers.swift */; };
 		95091EC4237BECD500EA0782 /* DoctorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EC3237BECD500EA0782 /* DoctorDetailView.swift */; };
+		95091EC7237C082B00EA0782 /* InsuranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EC5237C082A00EA0782 /* InsuranceCell.swift */; };
+		95091EC8237C082B00EA0782 /* InsuranceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091EC6237C082A00EA0782 /* InsuranceCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		95091EB72379575E00EA0782 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		95091EB92379626800EA0782 /* ReusableIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifiers.swift; sourceTree = "<group>"; };
 		95091EC3237BECD500EA0782 /* DoctorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailView.swift; sourceTree = "<group>"; };
+		95091EC5237C082A00EA0782 /* InsuranceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceCell.swift; sourceTree = "<group>"; };
+		95091EC6237C082A00EA0782 /* InsuranceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsuranceCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +241,8 @@
 				7F8998162372BA0500A2085A /* QueueView.xib */,
 				95091EB023794D1E00EA0782 /* DoctorDetail.xib */,
 				95091EC3237BECD500EA0782 /* DoctorDetailView.swift */,
+				95091EC5237C082A00EA0782 /* InsuranceCell.swift */,
+				95091EC6237C082A00EA0782 /* InsuranceCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 			files = (
 				7F5FE04E2374127B004569C4 /* IdentityController.xib in Resources */,
 				7F5FE05A23741674004569C4 /* RegisterController.xib in Resources */,
+				95091EC8237C082B00EA0782 /* InsuranceCell.xib in Resources */,
 				7F5FE06523757FBE004569C4 /* Login.xib in Resources */,
 				95091E5A2372B02E00EA0782 /* LaunchScreen.storyboard in Resources */,
 				7F5FE05423741573004569C4 /* CredentialController.xib in Resources */,
@@ -447,6 +454,7 @@
 				95091EBA2379626800EA0782 /* ReusableIdentifiers.swift in Sources */,
 				7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */,
 				95091E942372CFD100EA0782 /* NetworkRouter.swift in Sources */,
+				95091EC7237C082B00EA0782 /* InsuranceCell.swift in Sources */,
 				95091E552372B02B00EA0782 /* HQueue.xcdatamodeld in Sources */,
 				7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */,
 				7F5FE05923741674004569C4 /* RegisterController.swift in Sources */,

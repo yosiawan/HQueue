@@ -11,34 +11,44 @@ import UIKit
 class DoctorDetail: UIViewController {
 
     var timeOptions = ["08.30"]
+    var logoNames = ["admedika-logo", "mandiri-logo", "gardaOTO-logo"]
     
+    let doctorImg = UIImageView()
+    let doctorName = UILabel()
+    let doctorGender = UILabel()
+    let patientLbl: UILabel! = UILabel()
+    let patientBtn: UIButton! = UIButton(frame: .zero)
+    let insuranceLbl: UILabel! = UILabel()
+
+    var insuranceOptions: UICollectionView!
+    let daftarBtn = UIButton()
+
     // MARK: - VDL
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view = DoctorDetailView()
-        
+        createSubviews()
     }
 }
 
+// MARK: - CollView Extension
 extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return timeOptions.count
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeLabelIdentifier, for: indexPath) as!
-        HQueueBtn
+        // UNTUK BUAT LEBIH DARI 1 Collection view, assign tag ke masing2 col view dan detect pake if di extension
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: insuranceCellIdentifier, for: indexPath) as!
+        InsuranceCell
+        
+        let image = UIImage(named: logoNames[indexPath.row])
+        cell.insuranceImg.image = image
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeLabelIdentifier, for: indexPath) as! HQueueBtn
-        cell.changeColor()
+        _ = collectionView.dequeueReusableCell(withReuseIdentifier: insuranceCellIdentifier, for: indexPath) as! InsuranceCell
     }
 }
+

@@ -9,4 +9,5 @@
 import Foundation
 
 var TimeLabelIdentifier = "TimeLabelCell"
+let insuranceCellIdentifier = "Insurance Cell Identifier"
 

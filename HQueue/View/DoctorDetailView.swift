@@ -8,73 +8,90 @@
 
 import UIKit
 
-class DoctorDetailView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        createSubviews()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        createSubviews()
-    }
-
+extension DoctorDetail {
     func createSubviews() {
-        self.backgroundColor = .white
-        let doctorImg = UIImageView()
-        let doctorName = UILabel()
-        let doctorGender = UILabel()
-        let patientLbl: UILabel! = UILabel(frame: .zero)
-        let patientBtn: UIButton! = UIButton(frame: .zero)
         
+        //  MARK: - Doctor Image
         doctorImg.layer.cornerRadius = 25
         doctorImg.image = UIImage(named: "foto_dr-farida")
-        self.addSubview(doctorImg)
+        self.view.addSubview(doctorImg)
         doctorImg.translatesAutoresizingMaskIntoConstraints = false
-
+        doctorImg.heightAnchor.constraint(equalToConstant: CGFloat(114)).isActive = true
+        doctorImg.widthAnchor.constraint(equalToConstant: CGFloat(114)).isActive = true
+        doctorImg.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        doctorImg.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        
+        //  MARK: - Doctor Name
         doctorName.font = UIFont.boldSystemFont(ofSize: 22)
         doctorName.text = "Dr. Farida Putri Batubara S.AP, S.Si"
         doctorName.numberOfLines = 2
-        self.addSubview(doctorName)
+        self.view.addSubview(doctorName)
         doctorName.translatesAutoresizingMaskIntoConstraints = false
-
+        doctorName.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 23).isActive = true
+        doctorName.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        doctorName.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -25).isActive = true
+        
+        //  MARK: - Doctor Gender
         doctorGender.text = "Wanita"
         doctorGender.textColor = .HQueueGreyFont
-        self.addSubview(doctorGender)
+        self.view.addSubview(doctorGender)
         doctorGender.translatesAutoresizingMaskIntoConstraints = false
-
+        doctorGender.topAnchor.constraint(equalTo: doctorName.bottomAnchor, constant: 3).isActive = true
+        doctorGender.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 23).isActive = true
+        
+        //  MARK: - Patient Label
         patientLbl.text = "Pilih Data Pasien"
         patientLbl.font = UIFont.boldSystemFont(ofSize: 22)
-        self.addSubview(patientLbl)
+        self.view.addSubview(patientLbl)
         patientLbl.translatesAutoresizingMaskIntoConstraints = false
+        patientLbl.topAnchor.constraint(equalTo: doctorImg.bottomAnchor, constant: 44).isActive = true
+        patientLbl.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
         
+        //  MARK: - Patient Button
         patientBtn.setTitle(" + Tambah Data Pasien", for: .normal)
         patientBtn.setTitleColor(.HQueueYellow, for: .normal)
-        self.addSubview(patientBtn)
+        self.view.addSubview(patientBtn)
         patientBtn.translatesAutoresizingMaskIntoConstraints = false
+        patientBtn.heightAnchor.constraint(equalToConstant: CGFloat(26)).isActive = true
+        patientBtn.widthAnchor.constraint(equalToConstant: CGFloat(200)).isActive = true
+        patientBtn.topAnchor.constraint(equalTo: patientLbl.bottomAnchor, constant: 20).isActive = true
+        patientBtn.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+
+        //  MARK: - Insurance Label
+        insuranceLbl.text = "Pilih Asuransi"
+        insuranceLbl.font = UIFont.boldSystemFont(ofSize: 22)
+        self.view.addSubview(insuranceLbl)
+        insuranceLbl.translatesAutoresizingMaskIntoConstraints = false
+        insuranceLbl.topAnchor.constraint(equalTo: patientBtn.bottomAnchor, constant: 40).isActive = true
+        insuranceLbl.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+
+        //  MARK: - Insurance Options
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        insuranceOptions = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        insuranceOptions.backgroundColor = .white
+        print("kocheng -->", insuranceOptions.collectionViewLayout.collectionViewContentSize)
+        insuranceOptions.tag = 0
+        self.view.addSubview(insuranceOptions)
+        insuranceOptions.translatesAutoresizingMaskIntoConstraints = false
+        insuranceOptions.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        insuranceOptions.topAnchor.constraint(equalTo: insuranceLbl.bottomAnchor, constant: 20).isActive = true
+        insuranceOptions.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        insuranceOptions.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -25).isActive = true
+        insuranceOptions.register(UINib(nibName: "InsuranceCell", bundle: nil), forCellWithReuseIdentifier: insuranceCellIdentifier)
+        insuranceOptions.delegate = self
+        insuranceOptions.dataSource = self
         
-        let constraints = [
-            doctorImg.heightAnchor.constraint(equalToConstant: CGFloat(114)),
-            doctorImg.widthAnchor.constraint(equalToConstant: CGFloat(114)),
-            doctorImg.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            doctorImg.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            
-            doctorName.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 23),
-            doctorName.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            doctorName.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -25),
-            
-            doctorGender.topAnchor.constraint(equalTo: doctorName.bottomAnchor, constant: 3),
-            doctorGender.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 23),
-            
-            patientLbl.topAnchor.constraint(equalTo: doctorImg.bottomAnchor, constant: 44),
-            patientLbl.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            
-            patientBtn.heightAnchor.constraint(equalToConstant: CGFloat(26)),
-            patientBtn.widthAnchor.constraint(equalToConstant: CGFloat(200)),
-            patientBtn.topAnchor.constraint(equalTo: patientLbl.bottomAnchor, constant: 20),
-            patientBtn.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 25)
-        ]
-        NSLayoutConstraint.activate(constraints)
+        //  MARK: - Daftar Button
+        daftarBtn.setTitle("Daftar Antrian", for: .normal)
+        daftarBtn.setTitleColor(.white, for: .normal)
+        daftarBtn.layer.backgroundColor = .init(srgbRed: 0.12, green: 0.26, blue: 0.51, alpha: 1.0)
+        self.view.addSubview(daftarBtn)
+        daftarBtn.translatesAutoresizingMaskIntoConstraints = false
+        daftarBtn.heightAnchor.constraint(equalToConstant: CGFloat(51)).isActive = true
+        daftarBtn.widthAnchor.constraint(equalToConstant: CGFloat(228)).isActive = true
+        daftarBtn.topAnchor.constraint(equalTo: insuranceOptions.bottomAnchor, constant: 65).isActive = true
+        daftarBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         
     }
 }
