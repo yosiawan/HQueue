@@ -42,6 +42,7 @@ struct NetworkManager {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
                     }
+                    // print(String(bytes: responseData, encoding: .utf8))
                     do {
                         //print( String(bytes: responseData, encoding: .utf8) )
                         let data = try JSONDecoder().decode(HQAuth.self, from: responseData)

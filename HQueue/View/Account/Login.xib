@@ -73,7 +73,7 @@
                                     <rect key="frame" x="55" y="0.0" width="335" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    <textInputTraits key="textInputTraits" textContentType="password"/>
                                 </textField>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJY-rf-H4m">
                                     <rect key="frame" x="0.0" y="52" width="370" height="1"/>

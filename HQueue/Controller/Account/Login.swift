@@ -75,6 +75,8 @@ class Login: UIViewController {
             self.activityIndicator("Loading")
         }
         
+        print([emailField.text!, passwordField.text!])
+        
         networkManager.login(email: emailField.text!, password: passwordField.text!) { (auth: HQAuth?, error) in
             self.stopActivityIndicator()
             if let error = error {
