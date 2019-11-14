@@ -10,7 +10,7 @@ import UIKit
 
 class PatientList: UITableViewController {
     
-    let items = ["Pasien 1", "Pasien 2", "Pasien 3"]
+    var items = ["Pasien 1", "Pasien 2", "Pasien 3"]
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,18 @@ class PatientList: UITableViewController {
 
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = PatientDetail()
+        vc.patient = items[indexPath.row]
+        vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true, completion: nil)
+    }
+    
+    func handleModalDismissed() {
+        print("okokok")
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -98,5 +109,4 @@ class PatientList: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
 }

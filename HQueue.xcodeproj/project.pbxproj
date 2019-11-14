@@ -11,6 +11,8 @@
 		7F283D9C237C12C400724AC9 /* PatientList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F283D9A237C12C400724AC9 /* PatientList.xib */; };
 		7F283DA1237C15B800724AC9 /* PatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F283D9F237C15B800724AC9 /* PatientCell.swift */; };
 		7F283DA2237C15B800724AC9 /* PatientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F283DA0237C15B800724AC9 /* PatientCell.xib */; };
+		7F283DA5237D155900724AC9 /* PatientDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F283DA3237D155900724AC9 /* PatientDetail.swift */; };
+		7F283DA6237D155900724AC9 /* PatientDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F283DA4237D155900724AC9 /* PatientDetail.xib */; };
 		7F5FE0452374036A004569C4 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE0432374036A004569C4 /* AccountController.swift */; };
 		7F5FE0462374036A004569C4 /* AccountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FE0442374036A004569C4 /* AccountController.xib */; };
 		7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE04723740F52004569C4 /* MainNavigationController.swift */; };
@@ -66,6 +68,8 @@
 		7F283D9A237C12C400724AC9 /* PatientList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientList.xib; sourceTree = "<group>"; };
 		7F283D9F237C15B800724AC9 /* PatientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCell.swift; sourceTree = "<group>"; };
 		7F283DA0237C15B800724AC9 /* PatientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientCell.xib; sourceTree = "<group>"; };
+		7F283DA3237D155900724AC9 /* PatientDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetail.swift; sourceTree = "<group>"; };
+		7F283DA4237D155900724AC9 /* PatientDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientDetail.xib; sourceTree = "<group>"; };
 		7F5FE0432374036A004569C4 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		7F5FE0442374036A004569C4 /* AccountController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountController.xib; sourceTree = "<group>"; };
 		7F5FE04723740F52004569C4 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		7F5FE04F2374129C004569C4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				7F283DA4237D155900724AC9 /* PatientDetail.xib */,
 				7F283D9A237C12C400724AC9 /* PatientList.xib */,
 				95091E8A2372C52B00EA0782 /* Login.xib */,
 				7F5FE0442374036A004569C4 /* AccountController.xib */,
@@ -153,6 +158,7 @@
 				7F5FE05723741674004569C4 /* RegisterController.swift */,
 				95091E892372C52B00EA0782 /* Login.swift */,
 				7F283D99237C12C400724AC9 /* PatientList.swift */,
+				7F283DA3237D155900724AC9 /* PatientDetail.swift */,
 				7F283D9F237C15B800724AC9 /* PatientCell.swift */,
 			);
 			path = Account;
@@ -405,6 +411,7 @@
 				7F8998172372BA0500A2085A /* QueueView.xib in Resources */,
 				7F283DA2237C15B800724AC9 /* PatientCell.xib in Resources */,
 				7F5FE05F23742B54004569C4 /* FieldForm.xib in Resources */,
+				7F283DA6237D155900724AC9 /* PatientDetail.xib in Resources */,
 				7F5FE0462374036A004569C4 /* AccountController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F283DA5237D155900724AC9 /* PatientDetail.swift in Sources */,
 				95091E982374023200EA0782 /* EndPointType.swift in Sources */,
 				7F5FE05323741573004569C4 /* CredentialController.swift in Sources */,
 				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
