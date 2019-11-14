@@ -12,11 +12,9 @@ class Login: UIViewController {
     
     var networkManager: NetworkManager!
     
-    @IBOutlet weak var emailLbl: UILabel!
-    @IBOutlet weak var passLbl: UILabel!
-    
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signupButton: UIButton!
     
     var activityIndicator = UIActivityIndicatorView()
     var strLabel = UILabel()
@@ -77,7 +75,7 @@ class Login: UIViewController {
             self.activityIndicator("Loading")
         }
         
-        networkManager.login(email: emailField.text!, password: passField.text!) { (auth: HQAuth?, error) in
+        networkManager.login(email: emailField.text!, password: passwordField.text!) { (auth: HQAuth?, error) in
             self.stopActivityIndicator()
             if let error = error {
                 self.presetAlert(text: error)
@@ -91,5 +89,14 @@ class Login: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func signupAction(_ sender: Any) {
+        let vc = UINavigationController(rootViewController: RegisterController())
+        vc.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        vc.navigationBar.shadowImage = UIImage()
+        vc.navigationBar.isTranslucent = true
+        vc.view.backgroundColor = .clear
+        self.present(vc, animated: true, completion: nil)
     }
 }
