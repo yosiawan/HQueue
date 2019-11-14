@@ -103,6 +103,8 @@
 		95091E9F2374030300EA0782 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		95091EA12374035400EA0782 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		95091EA32374037400EA0782 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		95091EA923741AA600EA0782 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		95091EAE2375648100EA0782 /* HQueue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HQueue.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5FE06B237586CF004569C4 /* Models */,
+				95091EAE2375648100EA0782 /* HQueue.entitlements */,
 				95091E922372CFBE00EA0782 /* Network */,
 				95091E842372B67F00EA0782 /* Controller */,
 				95091E832372B62500EA0782 /* View */,
@@ -295,6 +298,21 @@
 				7F5FE0662375839D004569C4 /* Auth.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		95091EA823741A9B00EA0782 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				95091EA923741AA600EA0782 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		95091EAB2374250700EA0782 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -622,6 +640,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HQueue/HQueue.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGFK6PG7Z9;
 				INFOPLIST_FILE = HQueue/Info.plist;
@@ -640,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HQueue/HQueue.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGFK6PG7Z9;
 				INFOPLIST_FILE = HQueue/Info.plist;
