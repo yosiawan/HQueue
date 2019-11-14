@@ -10,7 +10,7 @@ import UIKit
 
 class AccountController: UIViewController {
     
-    var isLoggged = true
+    var isLoggged = false
 
     @IBOutlet var loggedView: UIView!
     @IBOutlet var guestView: UIView!
@@ -76,5 +76,9 @@ class AccountController: UIViewController {
     @IBAction func toPatientList(_ sender: Any) {
         let vc = PatientList()
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func logoutAction(_ sender: Any) {
+        
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

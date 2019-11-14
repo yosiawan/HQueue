@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pablo-come-back-later" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-Cf-J4T">
-                    <rect key="frame" x="0.0" y="104" width="414" height="239"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="239.00000000000006"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="239" id="TPf-q5-ddd"/>
                     </constraints>
@@ -270,6 +270,18 @@
                         <outletCollection property="gestureRecognizers" destination="suL-Ws-JHG" appends="YES" id="FQD-Jq-oTG"/>
                     </connections>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEJ-dj-xZd">
+                    <rect key="frame" x="185.5" y="802" width="43" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LXO-5W-Fnr"/>
+                        <constraint firstAttribute="width" constant="43" id="m1C-Ep-2NQ"/>
+                    </constraints>
+                    <color key="tintColor" red="0.074509803921568626" green="0.25882352941176467" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Keluar"/>
+                    <connections>
+                        <action selector="logoutAction:" destination="-1" eventType="touchUpInside" id="8rF-wE-ghx"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -278,12 +290,14 @@
                 <constraint firstItem="Quy-EL-mA5" firstAttribute="top" secondItem="mC4-RP-xef" secondAttribute="bottom" constant="30" id="Chz-Wh-Wrb"/>
                 <constraint firstItem="Q5a-eb-LVb" firstAttribute="leading" secondItem="8Nf-Cc-1Yx" secondAttribute="leading" constant="20" id="GLw-Nc-dLY"/>
                 <constraint firstItem="mC4-RP-xef" firstAttribute="top" secondItem="gCA-cd-bSG" secondAttribute="bottom" constant="60" id="NKa-Yo-wmr"/>
+                <constraint firstItem="DEJ-dj-xZd" firstAttribute="centerX" secondItem="HCK-bp-mAf" secondAttribute="centerX" id="WJZ-fu-omn"/>
                 <constraint firstItem="Q5a-eb-LVb" firstAttribute="top" secondItem="8Nf-Cc-1Yx" secondAttribute="top" id="b1p-t7-A7p"/>
                 <constraint firstItem="mC4-RP-xef" firstAttribute="leading" secondItem="8Nf-Cc-1Yx" secondAttribute="leading" constant="20" id="bXK-M3-3Ok"/>
                 <constraint firstItem="8Nf-Cc-1Yx" firstAttribute="trailing" secondItem="Quy-EL-mA5" secondAttribute="trailing" constant="20" id="diQ-7s-DMz"/>
                 <constraint firstItem="Quy-EL-mA5" firstAttribute="leading" secondItem="8Nf-Cc-1Yx" secondAttribute="leading" constant="20" id="gnH-Gv-nk9"/>
                 <constraint firstItem="gCA-cd-bSG" firstAttribute="top" secondItem="Q5a-eb-LVb" secondAttribute="bottom" constant="40" id="hJs-jZ-iig"/>
                 <constraint firstItem="8Nf-Cc-1Yx" firstAttribute="trailing" secondItem="Q5a-eb-LVb" secondAttribute="trailing" constant="20" id="jgO-rA-J2K"/>
+                <constraint firstItem="8Nf-Cc-1Yx" firstAttribute="bottom" secondItem="DEJ-dj-xZd" secondAttribute="bottom" constant="30" id="zjt-7B-1Fd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="8Nf-Cc-1Yx"/>
             <point key="canvasLocation" x="528.98550724637687" y="158.70535714285714"/>
