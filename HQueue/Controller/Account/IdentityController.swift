@@ -12,6 +12,10 @@ class IdentityController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.isModalInPresentation = true
+        let rightBarButton = UIBarButtonItem(title: "Lanjut", style: .plain, target: self, action: #selector(self.nextAction))
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
 
     @IBAction func nextAction(_ sender: Any) {

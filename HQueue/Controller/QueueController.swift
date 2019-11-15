@@ -10,10 +10,12 @@ import UIKit
 
 class QueueController: UIViewController {
     
+    @IBOutlet weak var wellcomeLabel: UILabel!
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: "QueueView", bundle: nil)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +24,21 @@ class QueueController: UIViewController {
 
         let rightBarButton = UIBarButtonItem(title: "Account", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.pushToAccount))
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        checkLogged()
+    }
+    
+    fileprivate func checkLogged() {
+        if let name = UserDefaults.standard.string(forKey: "authName") {
+            wellcomeLabel.isHidden = false
+            wellcomeLabel.text = "Hello, \(name)"
+        }else{
+            wellcomeLabel.isHidden = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkLogged()
     }
     
     @objc func pushToAccount() {
