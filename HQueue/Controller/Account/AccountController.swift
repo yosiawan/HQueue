@@ -9,8 +9,6 @@
 import UIKit
 
 class AccountController: UIViewController {
-    
-    var isLoggged = false
 
     @IBOutlet var loggedView: UIView!
     @IBOutlet var guestView: UIView!
@@ -26,7 +24,10 @@ class AccountController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfileAction))
+        if UserDefaults.standard.string(forKey: "authToken") != nil {
+            let editBarItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfileAction))
+            self.navigationItem.setRightBarButton(editBarItem, animated: false)
+        }
         
         setupView()
     }
@@ -51,7 +52,7 @@ class AccountController: UIViewController {
         dataPatientTrigger.layer.borderColor = #colorLiteral(red: 1, green: 0.6567588449, blue: 0, alpha: 1)
         dataPatientTrigger.layer.borderWidth = 1
         
-        if (isLoggged){
+        if UserDefaults.standard.string(forKey: "authToken") != nil {
             self.view = loggedView
         }else{
             self.view = guestView
@@ -62,23 +63,32 @@ class AccountController: UIViewController {
         super.viewDidAppear(animated)
         
         setupView()
-       
     }
 
     @IBAction func signupAction(_ sender: Any) {
-        let vc = RegisterController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = UINavigationController(rootViewController: RegisterController())
+        vc.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        vc.navigationBar.shadowImage = UIImage()
+        vc.navigationBar.isTranslucent = true
+        vc.view.backgroundColor = .clear
+        self.present(vc, animated: true, completion: nil)
     }
+    
     @IBAction func signinAction(_ sender: Any) {
         let vc = Login()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBAction func toPatientList(_ sender: Any) {
         let vc = PatientList()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBAction func logoutAction(_ sender: Any) {
-        
+        UserDefaults.standard.removeObject(forKey: "authName")
+        UserDefaults.standard.removeObject(forKey: "authEmail")
+        UserDefaults.standard.removeObject(forKey: "authToken")
+        self.navigationItem.setRightBarButton(nil, animated: false)
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

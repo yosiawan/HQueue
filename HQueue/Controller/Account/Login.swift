@@ -10,11 +10,12 @@ import UIKit
 
 class Login: UIViewController {
     
-    @IBOutlet weak var emailLbl: UILabel!
-    @IBOutlet weak var passLbl: UILabel!
+    var networkManager: NetworkManager!
     
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     var activityIndicator = UIActivityIndicatorView()
     var strLabel = UILabel()
@@ -24,6 +25,9 @@ class Login: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loginButton.layer.cornerRadius = self.loginButton.frame.height / 2
+        self.networkManager = NetworkManager()
         
         // Do any additional setup after loading the view.
     }
@@ -52,38 +56,51 @@ class Login: UIViewController {
         view.addSubview(effectView)
     }
     
+    func stopActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.effectView.removeFromSuperview()
+        }
+    }
+    
+    func presetAlert(text: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Daftar", message: text, preferredStyle: .alert)
+            alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+      
+    }
+    
     @IBAction func loginAction(_ sender: Any) {
         DispatchQueue.main.async {
             self.activityIndicator("Loading")
         }
-        guard let url = URL(string: "http://167.71.203.148/api/v1/login") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let parameters: [String: Any] = [
-            "email": "faridho@roketdigital.com",
-            "password": "galileogaleli"
-        ]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        print([emailField.text!, passwordField.text!])
+        
+        networkManager.login(email: emailField.text!, password: passwordField.text!) { (auth: HQAuth?, error) in
+            self.stopActivityIndicator()
             if let error = error {
-                print("error: \(error)")
-            } else {
-                if let response = response as? HTTPURLResponse {
-                    print("statusCode: \(response.statusCode)")
-                }
-                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    print("data: \(dataString)")
-                }
+                self.presetAlert(text: error)
             }
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.effectView.removeFromSuperview()
+            if let auth = auth {
+                UserDefaults.standard.set(auth.name, forKey: "authName")
+                UserDefaults.standard.set(auth.email, forKey: "authEmail")
+                UserDefaults.standard.set(auth.token, forKey: "authToken")
+                DispatchQueue.main.async {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
             }
         }
-        task.resume()
     }
     
+    @IBAction func signupAction(_ sender: Any) {
+        let vc = UINavigationController(rootViewController: RegisterController())
+        vc.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        vc.navigationBar.shadowImage = UIImage()
+        vc.navigationBar.isTranslucent = true
+        vc.view.backgroundColor = .clear
+        self.present(vc, animated: true, completion: nil)
+    }
 }
