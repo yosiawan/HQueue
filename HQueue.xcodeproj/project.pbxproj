@@ -39,7 +39,6 @@
 		95091EA22374035400EA0782 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EA12374035400EA0782 /* URLParameterEncoder.swift */; };
 		95091EA42374037400EA0782 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EA32374037400EA0782 /* JSONParameterEncoder.swift */; };
 		95091EB123794D1E00EA0782 /* DoctorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EAF23794D1E00EA0782 /* DoctorDetail.swift */; };
-		95091EB223794D1E00EA0782 /* DoctorDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091EB023794D1E00EA0782 /* DoctorDetail.xib */; };
 		95091EB52379537400EA0782 /* HQueueBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EB32379537400EA0782 /* HQueueBtn.swift */; };
 		95091EB62379537400EA0782 /* HQueueBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091EB42379537400EA0782 /* HQueueBtn.xib */; };
 		95091EB82379575E00EA0782 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EB72379575E00EA0782 /* ColorPalette.swift */; };
@@ -47,6 +46,8 @@
 		95091EC4237BECD500EA0782 /* DoctorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EC3237BECD500EA0782 /* DoctorDetailView.swift */; };
 		95091EC7237C082B00EA0782 /* InsuranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EC5237C082A00EA0782 /* InsuranceCell.swift */; };
 		95091EC8237C082B00EA0782 /* InsuranceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091EC6237C082A00EA0782 /* InsuranceCell.xib */; };
+		95091ECD237D665B00EA0782 /* DoctorScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091ECB237D665B00EA0782 /* DoctorScheduleCell.swift */; };
+		95091ECE237D665B00EA0782 /* DoctorScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091ECC237D665B00EA0782 /* DoctorScheduleCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +107,6 @@
 		95091EA32374037400EA0782 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		95091EAE2375648100EA0782 /* HQueue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HQueue.entitlements; sourceTree = "<group>"; };
 		95091EAF23794D1E00EA0782 /* DoctorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoctorDetail.swift; path = HQueue/Controller/DoctorDetail.swift; sourceTree = SOURCE_ROOT; };
-		95091EB023794D1E00EA0782 /* DoctorDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DoctorDetail.xib; path = HQueue/View/DoctorDetail.xib; sourceTree = SOURCE_ROOT; };
 		95091EB32379537400EA0782 /* HQueueBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQueueBtn.swift; sourceTree = "<group>"; };
 		95091EB42379537400EA0782 /* HQueueBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HQueueBtn.xib; sourceTree = "<group>"; };
 		95091EB72379575E00EA0782 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
@@ -114,6 +114,8 @@
 		95091EC3237BECD500EA0782 /* DoctorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailView.swift; sourceTree = "<group>"; };
 		95091EC5237C082A00EA0782 /* InsuranceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceCell.swift; sourceTree = "<group>"; };
 		95091EC6237C082A00EA0782 /* InsuranceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsuranceCell.xib; sourceTree = "<group>"; };
+		95091ECB237D665B00EA0782 /* DoctorScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorScheduleCell.swift; sourceTree = "<group>"; };
+		95091ECC237D665B00EA0782 /* DoctorScheduleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorScheduleCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,9 +241,10 @@
 				7F5FE05B23742A08004569C4 /* Components */,
 				7F5FE04F2374129C004569C4 /* Account */,
 				7F8998162372BA0500A2085A /* QueueView.xib */,
-				95091EB023794D1E00EA0782 /* DoctorDetail.xib */,
 				95091EC3237BECD500EA0782 /* DoctorDetailView.swift */,
 				95091EC5237C082A00EA0782 /* InsuranceCell.swift */,
+				95091ECB237D665B00EA0782 /* DoctorScheduleCell.swift */,
+				95091ECC237D665B00EA0782 /* DoctorScheduleCell.xib */,
 				95091EC6237C082A00EA0782 /* InsuranceCell.xib */,
 			);
 			path = View;
@@ -417,11 +420,11 @@
 				95091E5A2372B02E00EA0782 /* LaunchScreen.storyboard in Resources */,
 				7F5FE05423741573004569C4 /* CredentialController.xib in Resources */,
 				95091E572372B02E00EA0782 /* Assets.xcassets in Resources */,
+				95091ECE237D665B00EA0782 /* DoctorScheduleCell.xib in Resources */,
 				7F8998172372BA0500A2085A /* QueueView.xib in Resources */,
 				95091EB62379537400EA0782 /* HQueueBtn.xib in Resources */,
 				7F5FE05F23742B54004569C4 /* FieldForm.xib in Resources */,
 				7F5FE0462374036A004569C4 /* AccountController.xib in Resources */,
-				95091EB223794D1E00EA0782 /* DoctorDetail.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +451,7 @@
 			files = (
 				95091E982374023200EA0782 /* EndPointType.swift in Sources */,
 				7F5FE05323741573004569C4 /* CredentialController.swift in Sources */,
+				95091ECD237D665B00EA0782 /* DoctorScheduleCell.swift in Sources */,
 				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
 				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
 				7F8998152372B9DA00A2085A /* QueueController.swift in Sources */,

@@ -10,7 +10,13 @@ import UIKit
 
 extension DoctorDetail {
     func createSubviews() {
+        self.view.backgroundColor = .white
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         
+        let layout2 = UICollectionViewFlowLayout()
+        layout2.scrollDirection = .horizontal
+
         //  MARK: - Doctor Image
         doctorImg.layer.cornerRadius = 25
         doctorImg.image = UIImage(named: "foto_dr-farida")
@@ -39,12 +45,35 @@ extension DoctorDetail {
         doctorGender.topAnchor.constraint(equalTo: doctorName.bottomAnchor, constant: 3).isActive = true
         doctorGender.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 23).isActive = true
         
+        // MARK: - Doctor Schedule
+        scheduleLbl.text = "Pilih Jadwal Dokter"
+        scheduleLbl.font = UIFont.boldSystemFont(ofSize: 22)
+        self.view.addSubview(scheduleLbl)
+        scheduleLbl.translatesAutoresizingMaskIntoConstraints = false
+        scheduleLbl.topAnchor.constraint(equalTo: doctorImg.bottomAnchor, constant: 22).isActive = true
+        scheduleLbl.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        
+        // MARK: - Schedule Options
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        scheduleOptions = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        scheduleOptions.backgroundColor = .white
+        scheduleOptions.tag = 0
+        self.view.addSubview(scheduleOptions)
+        scheduleOptions.translatesAutoresizingMaskIntoConstraints = false
+        scheduleOptions.heightAnchor.constraint(equalToConstant: 160).isActive = true
+        scheduleOptions.topAnchor.constraint(equalTo: scheduleLbl.bottomAnchor, constant: 20).isActive = true
+        scheduleOptions.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        scheduleOptions.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -25).isActive = true
+        scheduleOptions.register(UINib(nibName: "DoctorScheduleCell", bundle: nil), forCellWithReuseIdentifier: scheduleCellIdentifier)
+        scheduleOptions.delegate = self
+        scheduleOptions.dataSource = self
+        
         //  MARK: - Patient Label
         patientLbl.text = "Pilih Data Pasien"
         patientLbl.font = UIFont.boldSystemFont(ofSize: 22)
         self.view.addSubview(patientLbl)
         patientLbl.translatesAutoresizingMaskIntoConstraints = false
-        patientLbl.topAnchor.constraint(equalTo: doctorImg.bottomAnchor, constant: 44).isActive = true
+        patientLbl.topAnchor.constraint(equalTo: scheduleOptions.bottomAnchor, constant: 44).isActive = true
         patientLbl.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
         
         //  MARK: - Patient Button
@@ -66,15 +95,13 @@ extension DoctorDetail {
         insuranceLbl.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
 
         //  MARK: - Insurance Options
-        let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        insuranceOptions = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        insuranceOptions = UICollectionView(frame: .zero, collectionViewLayout: layout2)
         insuranceOptions.backgroundColor = .white
-        print("kocheng -->", insuranceOptions.collectionViewLayout.collectionViewContentSize)
-        insuranceOptions.tag = 0
+        insuranceOptions.tag = 1
         self.view.addSubview(insuranceOptions)
         insuranceOptions.translatesAutoresizingMaskIntoConstraints = false
-        insuranceOptions.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        insuranceOptions.heightAnchor.constraint(equalToConstant: 72).isActive = true
         insuranceOptions.topAnchor.constraint(equalTo: insuranceLbl.bottomAnchor, constant: 20).isActive = true
         insuranceOptions.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
         insuranceOptions.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -25).isActive = true
@@ -90,7 +117,7 @@ extension DoctorDetail {
         daftarBtn.translatesAutoresizingMaskIntoConstraints = false
         daftarBtn.heightAnchor.constraint(equalToConstant: CGFloat(51)).isActive = true
         daftarBtn.widthAnchor.constraint(equalToConstant: CGFloat(228)).isActive = true
-        daftarBtn.topAnchor.constraint(equalTo: insuranceOptions.bottomAnchor, constant: 65).isActive = true
+        daftarBtn.topAnchor.constraint(equalTo: insuranceOptions.bottomAnchor, constant: 44).isActive = true
         daftarBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         
     }

@@ -25,7 +25,7 @@ class QueueController: UIViewController {
     }
     
     @objc func pushToAccount() {
-        let loginVC = AccountController()
+        let loginVC = DoctorDetail()
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
