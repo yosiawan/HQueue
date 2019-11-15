@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7F283D90237AAF7700724AC9 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F283D8F237AAF7700724AC9 /* Patient.swift */; };
+		7F2B16FB237F3A4100C6171F /* HomeQueueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8998162372BA0500A2085A /* HomeQueueView.xib */; };
+		7F2B16FC237F3A4600C6171F /* HomeQueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8998142372B9DA00A2085A /* HomeQueueController.swift */; };
 		7F5FE0452374036A004569C4 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE0432374036A004569C4 /* AccountController.swift */; };
 		7F5FE0462374036A004569C4 /* AccountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FE0442374036A004569C4 /* AccountController.xib */; };
 		7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE04723740F52004569C4 /* MainNavigationController.swift */; };
@@ -24,8 +26,6 @@
 		7F5FE0672375839D004569C4 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE0662375839D004569C4 /* Auth.swift */; };
 		7F5FE06A237585E2004569C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE069237585E2004569C4 /* NetworkManager.swift */; };
 		7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE06E2375873F004569C4 /* HQAuth.swift */; };
-		7F8998152372B9DA00A2085A /* QueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8998142372B9DA00A2085A /* QueueController.swift */; };
-		7F8998172372BA0500A2085A /* QueueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8998162372BA0500A2085A /* QueueView.xib */; };
 		95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4A2372B02B00EA0782 /* AppDelegate.swift */; };
 		95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4C2372B02B00EA0782 /* SceneDelegate.swift */; };
 		95091E4F2372B02B00EA0782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4E2372B02B00EA0782 /* ViewController.swift */; };
@@ -83,8 +83,8 @@
 		7F5FE0662375839D004569C4 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = HQueue/View/Components/Auth.swift; sourceTree = SOURCE_ROOT; };
 		7F5FE069237585E2004569C4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7F5FE06E2375873F004569C4 /* HQAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQAuth.swift; sourceTree = "<group>"; };
-		7F8998142372B9DA00A2085A /* QueueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueController.swift; sourceTree = "<group>"; };
-		7F8998162372BA0500A2085A /* QueueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueueView.xib; sourceTree = "<group>"; };
+		7F8998142372B9DA00A2085A /* HomeQueueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeQueueController.swift; sourceTree = "<group>"; };
+		7F8998162372BA0500A2085A /* HomeQueueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeQueueView.xib; sourceTree = "<group>"; };
 		95091E472372B02B00EA0782 /* HQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95091E4A2372B02B00EA0782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95091E4C2372B02B00EA0782 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				7F5FE06B237586CF004569C4 /* Models */,
-				95091EAE2375648100EA0782 /* HQueue.entitlements */,
 				95091E922372CFBE00EA0782 /* Network */,
 				95091E842372B67F00EA0782 /* Controller */,
 				95091E832372B62500EA0782 /* View */,
@@ -313,7 +312,7 @@
 		B73FC69A237954DE000B4A67 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				7F8998162372BA0500A2085A /* QueueView.xib */,
+				7F8998162372BA0500A2085A /* HomeQueueView.xib */,
 				B73FC6A42379628E000B4A67 /* CardViewController.xib */,
 			);
 			path = Home;
@@ -322,7 +321,7 @@
 		B73FC69B23795592000B4A67 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				7F8998142372B9DA00A2085A /* QueueController.swift */,
+				7F8998142372B9DA00A2085A /* HomeQueueController.swift */,
 				B73FC69C237955B6000B4A67 /* QueueArea.swift */,
 				B73FC69E237956A8000B4A67 /* AccountThumbnail.swift */,
 				B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */,
@@ -442,8 +441,8 @@
 				95091E5A2372B02E00EA0782 /* LaunchScreen.storyboard in Resources */,
 				7F5FE05423741573004569C4 /* CredentialController.xib in Resources */,
 				95091E572372B02E00EA0782 /* Assets.xcassets in Resources */,
-				7F8998172372BA0500A2085A /* QueueView.xib in Resources */,
 				7F5FE05F23742B54004569C4 /* FieldForm.xib in Resources */,
+				7F2B16FB237F3A4100C6171F /* HomeQueueView.xib in Resources */,
 				B73FC6A52379628E000B4A67 /* CardViewController.xib in Resources */,
 				7F5FE0462374036A004569C4 /* AccountController.xib in Resources */,
 			);
@@ -478,7 +477,6 @@
 				7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */,
 				7F283D90237AAF7700724AC9 /* Patient.swift in Sources */,
 				7F5FE06A237585E2004569C4 /* NetworkManager.swift in Sources */,
-				7F8998152372B9DA00A2085A /* QueueController.swift in Sources */,
 				7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */,
 				95091E942372CFD100EA0782 /* NetworkRouter.swift in Sources */,
 				95091E552372B02B00EA0782 /* HQueue.xcdatamodeld in Sources */,
@@ -492,6 +490,7 @@
 				95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */,
 				95091E9A2374025500EA0782 /* HTTPMethod.swift in Sources */,
 				95091E9C2374029400EA0782 /* HTTPTask.swift in Sources */,
+				7F2B16FC237F3A4600C6171F /* HomeQueueController.swift in Sources */,
 				95091EA22374035400EA0782 /* URLParameterEncoder.swift in Sources */,
 				95091E4F2372B02B00EA0782 /* ViewController.swift in Sources */,
 				B73FC6A7237962ED000B4A67 /* CardViewController.swift in Sources */,

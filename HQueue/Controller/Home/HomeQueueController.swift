@@ -31,7 +31,7 @@ class QueueController: UIViewController {
     var animationProgressWhenInterrupted:CGFloat = 0
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: "QueueView", bundle: nil)
+        super.init(nibName: "HomeQueueView", bundle: nil)
     }
 
     override func viewDidLoad() {
