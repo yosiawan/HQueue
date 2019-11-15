@@ -42,8 +42,11 @@ class QueueController: UIViewController {
     }
     
     @objc func pushToAccount() {
-        let loginVC = AccountController()
-        self.navigationController?.pushViewController(loginVC, animated: true)
+//        let loginVC = AccountController()
+//        self.navigationController?.pushViewController(loginVC, animated: true)
+        let vc = HospitalList()
+        let nv = UINavigationController(rootViewController: vc)
+        self.present(nv, animated: true, completion: nil)
     }
     
     required init?(coder: NSCoder) {
