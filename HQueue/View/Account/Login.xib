@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Login" customModule="HQueue" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="Zvv-dr-SBW" id="AD3-Ew-qMq"/>
+                <outlet property="loginButton" destination="Oo4-xO-oua" id="xR2-c3-dFz"/>
                 <outlet property="passwordField" destination="tIZ-Jm-h2K" id="2Oi-RE-Dee"/>
                 <outlet property="signupButton" destination="fBf-au-M2N" id="5wJ-z0-orw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -73,7 +74,7 @@
                                     <rect key="frame" x="55" y="0.0" width="335" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 </textField>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJY-rf-H4m">
                                     <rect key="frame" x="0.0" y="52" width="370" height="1"/>
@@ -130,7 +131,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="tintColor" red="0.98736125230789185" green="0.96838933229446411" blue="0.94228070974349976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="Masuk"/>
                     <connections>
                         <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="bzZ-Mg-fyZ"/>
                     </connections>
