@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardViewController" customModule="HQueue" customModuleProvider="target">
+            <connections>
+                <outlet property="handleArea" destination="jbK-6S-Sb5" id="ccA-P4-VEz"/>
+                <outlet property="view" destination="iN0-l3-epB" id="c2v-Rb-Pit"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QueueArea" customModule="HQueue" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="571" height="449"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEs-Y9-qRF">
+                    <rect key="frame" x="0.0" y="127" width="571" height="322"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yK-rQ-lUK">
+                            <rect key="frame" x="264" y="162" width="62" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uZ-Pl-1fu">
+                    <rect key="frame" x="0.0" y="0.0" width="571" height="150"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbK-6S-Sb5" customClass="ButtonRS" customModule="HQueue" customModuleProvider="target">
+                            <rect key="frame" x="426" y="35" width="120" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cari RS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kp-o1-czo">
+                                    <rect key="frame" x="32" y="15" width="57" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.074509803921568626" green="0.25882352941176467" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.75686274509803919" green="0.88235294117647056" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="0eU-qv-dHF"/>
+                                <constraint firstAttribute="width" constant="120" id="zyI-9V-AQv"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mau Ambil Antrian Rumah Sakit?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbA-V1-HVF">
+                            <rect key="frame" x="25" y="35" width="259" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="g2V-Ys-SrK"/>
+                                <constraint firstAttribute="width" constant="259" id="kpg-je-Fyo"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                            <color key="textColor" red="0.074509803921568626" green="0.25882352941176467" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jbK-6S-Sb5" secondAttribute="trailing" constant="25" id="RE7-UR-PGp"/>
+                        <constraint firstItem="gbA-V1-HVF" firstAttribute="top" secondItem="9uZ-Pl-1fu" secondAttribute="top" constant="35" id="gMd-3Q-l5j"/>
+                        <constraint firstItem="gbA-V1-HVF" firstAttribute="leading" secondItem="9uZ-Pl-1fu" secondAttribute="leading" constant="25" id="oga-Cw-JP8"/>
+                        <constraint firstAttribute="height" constant="150" id="tf9-rZ-hXd"/>
+                        <constraint firstItem="jbK-6S-Sb5" firstAttribute="top" secondItem="9uZ-Pl-1fu" secondAttribute="top" constant="35" id="uKr-eo-Q1K"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="9ov-Ez-214" appends="YES" id="m7h-ul-zRg"/>
+                        <outletCollection property="gestureRecognizers" destination="GO9-Sf-ZKp" appends="YES" id="TTp-z6-pHk"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="QEs-Y9-qRF" secondAttribute="bottom" id="0QC-xG-rEj"/>
+                <constraint firstItem="QEs-Y9-qRF" firstAttribute="leading" secondItem="9uZ-Pl-1fu" secondAttribute="leading" id="7FX-vG-4pW"/>
+                <constraint firstItem="QEs-Y9-qRF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MoE-CI-9Y9"/>
+                <constraint firstItem="QEs-Y9-qRF" firstAttribute="trailing" secondItem="9uZ-Pl-1fu" secondAttribute="trailing" id="Y5D-A3-KqQ"/>
+                <constraint firstItem="9uZ-Pl-1fu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ckD-PP-KJF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QEs-Y9-qRF" secondAttribute="trailing" id="eCk-zh-Ypt"/>
+                <constraint firstItem="QEs-Y9-qRF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="83" id="og2-1B-d9t"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="251.44927536231887" y="-29.129464285714285"/>
+        </view>
+        <tapGestureRecognizer id="9ov-Ez-214">
+            <connections>
+                <outlet property="delegate" destination="9uZ-Pl-1fu" id="SWP-Bz-Crx"/>
+            </connections>
+        </tapGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="GO9-Sf-ZKp">
+            <connections>
+                <outlet property="delegate" destination="9uZ-Pl-1fu" id="5QT-eb-1nK"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+</document>

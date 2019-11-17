@@ -15,6 +15,7 @@ class Login: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     var activityIndicator = UIActivityIndicatorView()
     var strLabel = UILabel()
@@ -25,6 +26,7 @@ class Login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.loginButton.layer.cornerRadius = self.loginButton.frame.height / 2
         self.networkManager = NetworkManager()
         
         // Do any additional setup after loading the view.

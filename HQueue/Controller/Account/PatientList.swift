@@ -1,72 +1,69 @@
 //
-//  HospitalList.swift
+//  PatientList.swift
 //  HQueue
 //
-//  Created by Faridho Luedfi on 15/11/19.
+//  Created by Faridho Luedfi on 13/11/19.
 //  Copyright © 2019 Apple Dev. Academy. All rights reserved.
 //
 
 import UIKit
 
-class HospitalList: UITableViewController {
+class PatientList: UITableViewController {
     
-    @IBOutlet var viewCardHandler: UIView!
-    
-    var hospitals: [Hospital] = [
-        Hospital(id: 123, name: "RS Sumber Waras", address: "Jl. Cempaka 40, Jakarta Timur"),
-        Hospital(id: 122, name: "RSIA Putra Mahkota", address: "Jl. Lumbung 40, Jakarta Timur"),
-        Hospital(id: 121, name: "RSUD Cakung", address: "Jl. Cempaka 40, Bekasi")
-    ]
-    
-    var searchController = UISearchController()
+    var items = ["Pasien 1", "Pasien 2", "Pasien 3"]
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Hospitals"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Data Pasien"
         
-        self.tableView.register(UINib(nibName: "HospitalCell", bundle: nil), forCellReuseIdentifier: "HospitalCell")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDataAction))
         
-        searchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            //controller.dimsBackgroundDuringPresentation = false // iOS 12
-            controller.searchBar.sizeToFit()
-            controller.searchBar.placeholder = "Cari rumah sakit .."
-            tableView.tableHeaderView = controller.searchBar
-
-            return controller
-        })()
-        
-        self.tableView.reloadData()
-        
+        tableView.register(UINib(nibName: "PatientCell", bundle: nil), forCellReuseIdentifier: "PatientCell")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @objc func addDataAction() {
+        
+    }
 
     // MARK: - Table view data source
 
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        return self.hospitals.count
+        return items.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCell", for: indexPath) as! HospitalCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PatientCell", for: indexPath) as! PatientCell
 
-        cell.titleLabel.text = hospitals[indexPath.row].name
-        cell.addressLabel.text = hospitals[indexPath.row].address
-        
+        // Configure the cell...
+        cell.patientLabel.text = items[indexPath.row]
+
         return cell
     }
-
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = PatientDetail()
+        vc.patient = items[indexPath.row]
+        vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true, completion: nil)
+    }
+    
+    func handleModalDismissed() {
+        print("okokok")
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -112,24 +109,4 @@ class HospitalList: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = HospitalDetail()
-        vc.title = hospitals[indexPath.row].name
-        vc.navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-}
-
-extension HospitalList: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchText = self.searchController.searchBar.text!
-        
-        print(searchText)
-        // Ambil data dari endpoint berdasarkan pencarian.
-        // Code.
-        
-        self.tableView.reloadData()
-    }
 }
