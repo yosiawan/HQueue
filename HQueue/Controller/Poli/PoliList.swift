@@ -1,43 +1,34 @@
 //
-//  HospitalList.swift
+//  PoliList.swift
 //  HQueue
 //
-//  Created by Faridho Luedfi on 15/11/19.
+//  Created by Faridho Luedfi on 17/11/19.
 //  Copyright © 2019 Apple Dev. Academy. All rights reserved.
 //
 
 import UIKit
 
-class HospitalList: UITableViewController {
+class PoliList: UITableViewController {
     
-    var hospitals: [Hospital] = [
-        Hospital(id: 123, name: "RS Sumber Waras", address: "Jl. Cempaka 40, Jakarta Timur"),
-        Hospital(id: 122, name: "RSIA Putra Mahkota", address: "Jl. Lumbung 40, Jakarta Timur"),
-        Hospital(id: 121, name: "RSUD Cakung", address: "Jl. Cempaka 40, Bekasi")
+    @IBOutlet var headerView: UIView!
+    
+    let poliList: [Poli] = [
+        Poli(id: 34, name: "Poliklinik Anak"),
+        Poli(id: 35, name: "Poliklinik Penyakit Dalam"),
+        Poli(id: 36, name: "Poliklinik Gigi Spesialis"),
+        Poli(id: 37, name: "Poliklinik Kandungan"),
+        Poli(id: 38, name: "Poli Anak"),
+        Poli(id: 39, name: "Poli Anak"),
+        Poli(id: 40, name: "Poli Anak"),
+        Poli(id: 41, name: "Poli Anak"),
+        Poli(id: 42, name: "Poli Anak"),
+        Poli(id: 43, name: "Poli Anak")
     ]
-    
-    var searchController = UISearchController()
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Hospitals"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        self.tableView.register(UINib(nibName: "HospitalCell", bundle: nil), forCellReuseIdentifier: "HospitalCell")
-        
-        searchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            //controller.dimsBackgroundDuringPresentation = false // iOS 12
-            controller.searchBar.sizeToFit()
-            controller.searchBar.placeholder = "Cari rumah sakit .."
-            tableView.tableHeaderView = controller.searchBar
-
-            return controller
-        })()
-        
-        self.tableView.reloadData()
+        tableView.register(UINib(nibName: "PoliCell", bundle: nil), forCellReuseIdentifier: "PoliCell")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,21 +41,21 @@ class HospitalList: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        return self.hospitals.count
+        return self.poliList.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCell", for: indexPath) as! HospitalCell
-
-        cell.titleLabel.text = hospitals[indexPath.row].name
-        cell.addressLabel.text = hospitals[indexPath.row].address
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PoliCell", for: indexPath) as! PoliCell
         
+        cell.setPoli(poli: poliList[indexPath.row] )
         return cell
     }
-
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return headerView
+    }
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -111,23 +102,4 @@ class HospitalList: UITableViewController {
     }
     */
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = HospitalDetail()
-        vc.title = hospitals[indexPath.row].name
-        vc.navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-}
-
-extension HospitalList: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchText = self.searchController.searchBar.text!
-        
-        print(searchText)
-        // Ambil data dari endpoint berdasarkan pencarian.
-        // Code.
-        
-        self.tableView.reloadData()
-    }
 }

@@ -29,6 +29,13 @@ class HospitalDetail: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func choosePoliAction(_ sender: Any) {
+        let vc = PoliList()
+        vc.title = "Poliklinik"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

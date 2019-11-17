@@ -115,6 +115,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="tintColor" red="0.98736125230789185" green="0.96838933229446411" blue="0.94228070974349976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Pilih Poliklinik"/>
+                            <connections>
+                                <action selector="choosePoliAction:" destination="-1" eventType="touchUpInside" id="H5l-hL-Ngb"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

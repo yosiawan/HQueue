@@ -20,6 +20,8 @@ class HospitalCell: UITableViewCell {
         
         imageHospital.layer.cornerRadius = imageHospital.frame.width / 2
         detailView.layer.cornerRadius = 15
+        
+        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

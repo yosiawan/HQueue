@@ -17,9 +17,13 @@
 		7F111200237E9D86007CA7EE /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111FF237E9D86007CA7EE /* ViewControllerHelper.swift */; };
 		7F111205237EA167007CA7EE /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F111204237EA167007CA7EE /* ViewHelper.swift */; };
 		7F283D90237AAF7700724AC9 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F283D8F237AAF7700724AC9 /* Patient.swift */; };
+		7F2B170823811EC600C6171F /* PoliList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2B170623811EC600C6171F /* PoliList.xib */; };
+		7F2B170F23811F2900C6171F /* PoliCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B170D23811F2900C6171F /* PoliCell.swift */; };
+		7F2B171023811F2900C6171F /* PoliCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2B170E23811F2900C6171F /* PoliCell.xib */; };
+		7F2B1711238120FA00C6171F /* PoliList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B170523811EC600C6171F /* PoliList.swift */; };
+		7F2B1713238121B200C6171F /* Poli.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B1712238121B200C6171F /* Poli.swift */; };
 		7F5FE0452374036A004569C4 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE0432374036A004569C4 /* AccountController.swift */; };
 		7F5FE0462374036A004569C4 /* AccountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FE0442374036A004569C4 /* AccountController.xib */; };
-		7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE04723740F52004569C4 /* MainNavigationController.swift */; };
 		7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE04B2374127B004569C4 /* IdentityController.swift */; };
 		7F5FE04E2374127B004569C4 /* IdentityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FE04C2374127B004569C4 /* IdentityController.xib */; };
 		7F5FE05323741573004569C4 /* CredentialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE05123741573004569C4 /* CredentialController.swift */; };
@@ -86,9 +90,13 @@
 		7F1111FF237E9D86007CA7EE /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		7F111204237EA167007CA7EE /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		7F283D8F237AAF7700724AC9 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		7F2B170523811EC600C6171F /* PoliList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliList.swift; sourceTree = "<group>"; };
+		7F2B170623811EC600C6171F /* PoliList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoliList.xib; sourceTree = "<group>"; };
+		7F2B170D23811F2900C6171F /* PoliCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliCell.swift; sourceTree = "<group>"; };
+		7F2B170E23811F2900C6171F /* PoliCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoliCell.xib; sourceTree = "<group>"; };
+		7F2B1712238121B200C6171F /* Poli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poli.swift; sourceTree = "<group>"; };
 		7F5FE0432374036A004569C4 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		7F5FE0442374036A004569C4 /* AccountController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountController.xib; sourceTree = "<group>"; };
-		7F5FE04723740F52004569C4 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		7F5FE04B2374127B004569C4 /* IdentityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityController.swift; sourceTree = "<group>"; };
 		7F5FE04C2374127B004569C4 /* IdentityController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentityController.xib; sourceTree = "<group>"; };
 		7F5FE05123741573004569C4 /* CredentialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialController.swift; sourceTree = "<group>"; };
@@ -192,6 +200,24 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		7F2B170923811ED200C6171F /* Poli */ = {
+			isa = PBXGroup;
+			children = (
+				7F2B170523811EC600C6171F /* PoliList.swift */,
+				7F2B170D23811F2900C6171F /* PoliCell.swift */,
+			);
+			path = Poli;
+			sourceTree = "<group>";
+		};
+		7F2B170A23811EE200C6171F /* Poli */ = {
+			isa = PBXGroup;
+			children = (
+				7F2B170E23811F2900C6171F /* PoliCell.xib */,
+				7F2B170623811EC600C6171F /* PoliList.xib */,
+			);
+			path = Poli;
+			sourceTree = "<group>";
+		};
 		7F5FE04F2374129C004569C4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +266,7 @@
 				7F283D8F237AAF7700724AC9 /* Patient.swift */,
 				7F1111F4237E7C8F007CA7EE /* Hospital.swift */,
 				7F8F1795237EBBCF0058AA22 /* Asuransi.swift */,
+				7F2B1712238121B200C6171F /* Poli.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +331,7 @@
 		95091E832372B62500EA0782 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7F2B170A23811EE200C6171F /* Poli */,
 				7F1111EF237E7930007CA7EE /* Hospital */,
 				7F5FE05B23742A08004569C4 /* Components */,
 				7F5FE04F2374129C004569C4 /* Account */,
@@ -315,11 +343,11 @@
 		95091E842372B67F00EA0782 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7F2B170923811ED200C6171F /* Poli */,
 				7F1111EA237E78D1007CA7EE /* Hospital */,
 				7F5FE05023741517004569C4 /* Account */,
 				95091E4E2372B02B00EA0782 /* ViewController.swift */,
 				7F8998142372B9DA00A2085A /* QueueController.swift */,
-				7F5FE04723740F52004569C4 /* MainNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -470,11 +498,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F5FE04E2374127B004569C4 /* IdentityController.xib in Resources */,
+				7F2B171023811F2900C6171F /* PoliCell.xib in Resources */,
 				7F5FE05A23741674004569C4 /* RegisterController.xib in Resources */,
 				7F5FE06523757FBE004569C4 /* Login.xib in Resources */,
 				95091E5A2372B02E00EA0782 /* LaunchScreen.storyboard in Resources */,
 				7F1111F9237E8059007CA7EE /* HospitalCell.xib in Resources */,
 				7F5FE05423741573004569C4 /* CredentialController.xib in Resources */,
+				7F2B170823811EC600C6171F /* PoliList.xib in Resources */,
 				7F1111FD237E9A75007CA7EE /* HospitalDetail.xib in Resources */,
 				95091E572372B02E00EA0782 /* Assets.xcassets in Resources */,
 				7F8998172372BA0500A2085A /* QueueView.xib in Resources */,
@@ -520,7 +550,7 @@
 				7F283D90237AAF7700724AC9 /* Patient.swift in Sources */,
 				7F5FE06A237585E2004569C4 /* NetworkManager.swift in Sources */,
 				7F8998152372B9DA00A2085A /* QueueController.swift in Sources */,
-				7F5FE04823740F52004569C4 /* MainNavigationController.swift in Sources */,
+				7F2B1713238121B200C6171F /* Poli.swift in Sources */,
 				95091E942372CFD100EA0782 /* NetworkRouter.swift in Sources */,
 				95091E552372B02B00EA0782 /* HQueue.xcdatamodeld in Sources */,
 				7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */,
@@ -530,6 +560,7 @@
 				7F5FE0672375839D004569C4 /* Auth.swift in Sources */,
 				7F5FE06423757FA4004569C4 /* Login.swift in Sources */,
 				95091E962373F93000EA0782 /* Router.swift in Sources */,
+				7F2B1711238120FA00C6171F /* PoliList.swift in Sources */,
 				95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */,
 				7F1111F8237E8059007CA7EE /* HospitalCell.swift in Sources */,
 				95091E9A2374025500EA0782 /* HTTPMethod.swift in Sources */,
@@ -537,6 +568,7 @@
 				95091E9C2374029400EA0782 /* HTTPTask.swift in Sources */,
 				95091EA22374035400EA0782 /* URLParameterEncoder.swift in Sources */,
 				95091E4F2372B02B00EA0782 /* ViewController.swift in Sources */,
+				7F2B170F23811F2900C6171F /* PoliCell.swift in Sources */,
 				7F1111F5237E7C8F007CA7EE /* Hospital.swift in Sources */,
 				95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */,
 				95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */,
