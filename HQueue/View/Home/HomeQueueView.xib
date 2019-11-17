@@ -7,9 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeQueueController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeQueueController" customModule="HQueue" customModuleProvider="target">
             <connections>
                 <outlet property="accountTumb" destination="cA3-Gi-ilg" id="Ptj-R8-yhj"/>
+                <outlet property="userLabel" destination="Kxu-0p-v3X" id="FQm-u2-Dlq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="NW9-dJ-ldA"/>
             </connections>
         </placeholder>
@@ -19,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_4x" translatesAutoresizingMaskIntoConstraints="NO" id="bbH-YS-02K">
-                    <rect key="frame" x="0.0" y="44" width="414" height="473"/>
+                    <rect key="frame" x="0.0" y="78" width="414" height="473"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siP-IN-shJ" customClass="QueueArea" customModule="HQueue" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="494" width="414" height="402"/>
@@ -102,13 +103,24 @@
                         <constraint firstItem="WGC-8p-jTw" firstAttribute="top" secondItem="UCW-bK-fKY" secondAttribute="bottom" constant="10" id="uAj-M6-Bk5"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, [User]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxu-0p-v3X">
+                    <rect key="frame" x="20" y="44" width="114" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="Yw2-rY-cvq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="siP-IN-shJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1VB-4t-HAg"/>
                 <constraint firstAttribute="bottom" secondItem="siP-IN-shJ" secondAttribute="bottom" id="3NT-ai-2t9"/>
-                <constraint firstItem="bbH-YS-02K" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="bRd-0a-anq"/>
+                <constraint firstItem="Kxu-0p-v3X" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="EPx-eO-Fsx"/>
+                <constraint firstItem="bbH-YS-02K" firstAttribute="top" secondItem="Kxu-0p-v3X" secondAttribute="bottom" id="c7q-ee-b3O"/>
                 <constraint firstItem="bbH-YS-02K" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cJw-uc-NJK"/>
+                <constraint firstItem="Kxu-0p-v3X" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="iqz-yM-Td9"/>
                 <constraint firstItem="bbH-YS-02K" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="naW-1J-HUM"/>
                 <constraint firstItem="siP-IN-shJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="qn7-Rm-qXg"/>
             </constraints>
@@ -120,8 +132,9 @@
                 <action selector="tapAccount:" destination="-1" id="DHs-Oc-M6W"/>
             </connections>
         </tapGestureRecognizer>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cA3-Gi-ilg" customClass="AccountThumbnail" customModule="HQueue" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="cA3-Gi-ilg" customClass="AccountThumbnail" customModule="HQueue" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izF-xZ-GfM">
                     <rect key="frame" x="16" y="10" width="18.5" height="30"/>
@@ -133,10 +146,8 @@
             <color key="backgroundColor" red="0.11764705882352941" green="0.2627450980392157" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="height" constant="50" id="CXq-0L-RuQ"/>
                 <constraint firstItem="izF-xZ-GfM" firstAttribute="centerY" secondItem="cA3-Gi-ilg" secondAttribute="centerY" id="W0W-yP-UUR"/>
                 <constraint firstItem="izF-xZ-GfM" firstAttribute="centerX" secondItem="cA3-Gi-ilg" secondAttribute="centerX" id="nBz-Ef-YiK"/>
-                <constraint firstAttribute="width" constant="50" id="zHj-23-WSG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Agd-5K-edP"/>

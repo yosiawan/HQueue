@@ -8,23 +8,35 @@
 
 import UIKit
 
-class QueueController: UIViewController {
+class HomeQueueController: UIViewController {
     
     @IBOutlet weak var accountTumb: AccountThumbnail!
+    @IBOutlet weak var userLabel: UILabel!
+    
     enum CardState {
         case expanded
         case collapsed
     }
-    
-    var cardViewController:CardViewController!
+    var hospitalList: HospitalList!
+    var cardViewController: UINavigationController!
     var visualEffectView:UIVisualEffectView!
     
-    let cardHeight:CGFloat = 600
+    var cardHeight:CGFloat!
     let cardHandleAreaHeight:CGFloat = 150
     
     var cardVisible = false
     var nextState:CardState {
-        return cardVisible ? .collapsed : .expanded
+        if cardVisible {
+            self.navigationController?.isNavigationBarHidden = false
+            self.cardViewController.isNavigationBarHidden = true
+            self.hospitalList.viewCardHandler.removeFromSuperview()
+            return .collapsed
+        }else{
+            self.navigationController?.isNavigationBarHidden = true
+            self.cardViewController.isNavigationBarHidden = false
+            self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
+            return .expanded
+        }
     }
     
     var runningAnimations = [UIViewPropertyAnimator]()
@@ -34,14 +46,40 @@ class QueueController: UIViewController {
         super.init(nibName: "HomeQueueView", bundle: nil)
     }
 
+    fileprivate func checkAuth() {
+        if UserDefaults.standard.string(forKey: "authToken") != nil {
+            let nameuser = UserDefaults.standard.string(forKey: "authName")!
+            self.userLabel.text = "Hi, \(nameuser)"
+            self.userLabel.alpha = 1
+        }else{
+            self.userLabel.alpha = 0
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Hi, Nadya"
+        self.hospitalList = HospitalList()
+        
+        self.title = "My Queue"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: accountTumb)
+        accountTumb.translatesAutoresizingMaskIntoConstraints = false
+        accountTumb.widthAnchor.constraint(equalToConstant: accountTumb.frame.height).isActive = true
+        accountTumb.heightAnchor.constraint(equalToConstant: accountTumb.frame.height).isActive = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        
+        cardHeight = self.view.frame.height - 44
+        
+        checkAuth()
+        
         setupCard()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkAuth()
     }
     
      //TODO: Change this into account method
@@ -61,7 +99,10 @@ class QueueController: UIViewController {
         visualEffectView.frame = self.view.frame
         self.view.addSubview(visualEffectView)
         
-        cardViewController = CardViewController(nibName:"CardViewController", bundle:nil)
+        cardViewController = UINavigationController(rootViewController: hospitalList)
+        cardViewController.isNavigationBarHidden = true
+        cardViewController.view.roundCorners(corners: [.topLeft, .topRight], radius: 40)
+        // cardViewController.view.setShadow() // masih belum bisa di kasih bayangan
         self.addChild(cardViewController)
         self.view.addSubview(cardViewController.view)
         
@@ -72,10 +113,8 @@ class QueueController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
         
-        cardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
-        cardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
-        
-        
+        cardViewController.navigationBar.addGestureRecognizer(tapGestureRecognizer)
+        cardViewController.navigationBar.addGestureRecognizer(panGestureRecognizer)
     }
 
     @objc
@@ -94,7 +133,7 @@ class QueueController: UIViewController {
         case .began:
             startInteractiveTransition(state: nextState, duration: 0.9)
         case .changed:
-            let translation = recognizer.translation(in: self.cardViewController.handleArea)
+            let translation = recognizer.translation(in: self.cardViewController.view)
             var fractionComplete = translation.y / cardHeight
             fractionComplete = cardVisible ? fractionComplete : -fractionComplete
             updateInteractiveTransition(fractionCompleted: fractionComplete)

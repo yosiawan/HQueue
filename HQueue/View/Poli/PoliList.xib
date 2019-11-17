@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PoliList" customModule="HQueue" customModuleProvider="target">
+            <connections>
+                <outlet property="headerView" destination="cXI-tj-R0d" id="2f0-Ww-sbm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="350" sectionFooterHeight="22" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="vLr-E1-eTs"/>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
+                <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="154"/>
+        </tableView>
+        <view contentMode="scaleToFill" id="cXI-tj-R0d">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-poli-view" translatesAutoresizingMaskIntoConstraints="NO" id="tAr-lU-IiR">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQO-2k-Dty">
+                    <rect key="frame" x="0.0" y="270" width="414" height="80"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poliklinik Tersedia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DND-Ja-SYV">
+                            <rect key="frame" x="25" y="40" width="212" height="33.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Cxw-MY-axx"/>
+                        <constraint firstItem="DND-Ja-SYV" firstAttribute="leading" secondItem="kQO-2k-Dty" secondAttribute="leading" constant="25" id="Yub-2V-ORN"/>
+                        <constraint firstItem="DND-Ja-SYV" firstAttribute="top" secondItem="kQO-2k-Dty" secondAttribute="top" constant="40" id="hef-EX-bSU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="kQO-2k-Dty" firstAttribute="leading" secondItem="ME7-pL-b0W" secondAttribute="leading" id="6xt-lE-RvR"/>
+                <constraint firstItem="ME7-pL-b0W" firstAttribute="trailing" secondItem="kQO-2k-Dty" secondAttribute="trailing" id="MBe-3h-oNw"/>
+                <constraint firstItem="tAr-lU-IiR" firstAttribute="top" secondItem="cXI-tj-R0d" secondAttribute="top" id="MRr-0n-eSA"/>
+                <constraint firstItem="tAr-lU-IiR" firstAttribute="bottom" secondItem="ME7-pL-b0W" secondAttribute="bottom" id="S0S-pl-oBL"/>
+                <constraint firstItem="tAr-lU-IiR" firstAttribute="trailing" secondItem="ME7-pL-b0W" secondAttribute="trailing" id="amC-f8-dHT"/>
+                <constraint firstItem="tAr-lU-IiR" firstAttribute="leading" secondItem="ME7-pL-b0W" secondAttribute="leading" id="fJX-rt-tm9"/>
+                <constraint firstItem="kQO-2k-Dty" firstAttribute="bottom" secondItem="ME7-pL-b0W" secondAttribute="bottom" id="vDS-jv-XiS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="ME7-pL-b0W"/>
+            <point key="canvasLocation" x="1017.3913043478261" y="125.89285714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg-poli-view" width="414" height="369"/>
+    </resources>
+</document>

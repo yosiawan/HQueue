@@ -12,8 +12,7 @@ class AccountThumbnail: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        self.layer.cornerRadius = self.frame.width / 2
+        self.layer.cornerRadius = self.frame.height / 2
     }
     
     /*

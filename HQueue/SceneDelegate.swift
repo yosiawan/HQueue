@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowSince.coordinateSpace.bounds)
         window?.windowScene = windowSince
-        let rootVC = QueueController()
-        let mainNav = MainNavigationController(rootViewController: rootVC)
+        let rootVC = HomeQueueController()
+        let mainNav = UINavigationController(rootViewController: rootVC)
         window?.rootViewController = mainNav
         window?.makeKeyAndVisible()
     }
