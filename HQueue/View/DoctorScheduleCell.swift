@@ -14,31 +14,24 @@ class DoctorScheduleCell: UICollectionViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var antrianLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var view: UIView!
     
+    override var isSelected: Bool {
+        didSet {
+            self.view.backgroundColor = self.isSelected ? .HQueueCream : .white
+            self.timeLbl.textColor = self.isSelected ? .white : .HQueueYellow
+            self.timeLbl.backgroundColor = self.isSelected ? .HQueueYellow : .white
+            timeLbl.layer.cornerRadius = 15
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        antrianLbl.textColor = .HQueueGreen
-        titleLbl.textColor = .lightGray
-        timeLbl.layer.cornerRadius = 25
         
-//        self.translatesAutoresizingMaskIntoConstraints = false
-//        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        let constraints = [
-//            self.contentView.heightAnchor.constraint(equalToConstant: 160),
-//            self.contentView.widthAnchor.constraint(equalToConstant: 140),
-//            self.heightAnchor.constraint(equalToConstant: 160),
-//            self.widthAnchor.constraint(equalToConstant: 140)
-//        ]
-//        self.addConstraints(constraints)
-
-        self.backgroundColor = .HQueueYellow
-        self.layer.cornerRadius = 25
-        
-    }
-    
-    func changeState() {
+        timeLbl.layer.borderColor = .HQueueYellow
+        timeLbl.layer.borderWidth = 1
+        timeLbl.layer.cornerRadius = 15
+        timeLbl.layer.masksToBounds = true
         
     }
 }

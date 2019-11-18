@@ -40,7 +40,6 @@ extension DoctorDetail: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("duh -->", collectionView.tag)
         if collectionView.tag == 0 {
             return CGSize(width: 160, height: 130)
         }
@@ -70,21 +69,16 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
-            if cell.isActive {
-                cell.isActive = false
-                cell.backgroundColor = .white
-                cell.timeLbl.layer.borderColor = CGColor(srgbRed:0.98, green:0.97, blue:0.95, alpha:1.0)
-            } else {
-                cell.isActive = true
-                cell.backgroundColor = .HQueueCream
-                cell.timeLbl.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
-                cell.timeLbl.backgroundColor = .HQueueYellow
-            }
-        }
-//        _ = collectionView.dequeueReusableCell(withReuseIdentifier: insuranceCellIdentifier, for: indexPath) as! InsuranceCell
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        if collectionView.tag == 0 {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
+//        }
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        if collectionView.tag == 0 {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
+//        }
+//    }
 }
 
