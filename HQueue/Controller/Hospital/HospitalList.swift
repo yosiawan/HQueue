@@ -24,8 +24,7 @@ class HospitalList: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Hospitals"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Test", style: .plain, target: self, action: nil)
         self.tableView.register(UINib(nibName: "HospitalCell", bundle: nil), forCellReuseIdentifier: "HospitalCell")
         
         searchController = ({

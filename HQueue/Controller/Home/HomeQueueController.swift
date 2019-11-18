@@ -29,12 +29,14 @@ class HomeQueueController: UIViewController {
         if cardVisible {
             self.navigationController?.isNavigationBarHidden = false
             self.cardViewController.isNavigationBarHidden = true
-            self.hospitalList.viewCardHandler.removeFromSuperview()
+            self.cardViewController.navigationBar.prefersLargeTitles = true
+            self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
             return .collapsed
         }else{
             self.navigationController?.isNavigationBarHidden = true
             self.cardViewController.isNavigationBarHidden = false
-            self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
+            self.cardViewController.navigationBar.prefersLargeTitles = true
+            self.hospitalList.viewCardHandler.removeFromSuperview()
             return .expanded
         }
     }
@@ -101,8 +103,11 @@ class HomeQueueController: UIViewController {
         
         cardViewController = UINavigationController(rootViewController: hospitalList)
         cardViewController.isNavigationBarHidden = true
+        
+        self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
         cardViewController.view.roundCorners(corners: [.topLeft, .topRight], radius: 40)
-        // cardViewController.view.setShadow() // masih belum bisa di kasih bayangan
+        self.hospitalList.view.setShadow() // masih belum bisa di kasih bayangan
+        
         self.addChild(cardViewController)
         self.view.addSubview(cardViewController.view)
         
@@ -110,15 +115,22 @@ class HomeQueueController: UIViewController {
         
         cardViewController.view.clipsToBounds = true
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
+        let rightBtn = UIButton()
+        rightBtn.setTitle("Tutup", for: .normal)
         
-        cardViewController.navigationBar.addGestureRecognizer(tapGestureRecognizer)
-        cardViewController.navigationBar.addGestureRecognizer(panGestureRecognizer)
+        self.hospitalList.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
+//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
+        
+        self.hospitalList.viewCardHandler.addGestureRecognizer(tapGestureRecognizer)
+        rightBtn.addGestureRecognizer(tapGestureRecognizer2)
+        
+        //cardViewController.navigationBar.addGestureRecognizer(panGestureRecognizer)
     }
 
-    @objc
-    func handleCardTap(recognzier:UITapGestureRecognizer) {
+    @objc func handleCardTap(recognzier:UITapGestureRecognizer) {
         switch recognzier.state {
         case .ended:
             animateTransitionIfNeeded(state: nextState, duration: 0.9)
@@ -127,23 +139,22 @@ class HomeQueueController: UIViewController {
         }
     }
     
-    @objc
-    func handleCardPan (recognizer:UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            startInteractiveTransition(state: nextState, duration: 0.9)
-        case .changed:
-            let translation = recognizer.translation(in: self.cardViewController.view)
-            var fractionComplete = translation.y / cardHeight
-            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
-            updateInteractiveTransition(fractionCompleted: fractionComplete)
-        case .ended:
-            continueInteractiveTransition()
-        default:
-            break
-        }
-        
-    }
+//    @objc func handleCardPan (recognizer:UIPanGestureRecognizer) {
+//        switch recognizer.state {
+//        case .began:
+//            startInteractiveTransition(state: nextState, duration: 0.9)
+//        case .changed:
+//            let translation = recognizer.translation(in: self.hospitalList.view)
+//            var fractionComplete = translation.y / cardHeight
+//            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
+//            updateInteractiveTransition(fractionCompleted: fractionComplete)
+//        case .ended:
+//            continueInteractiveTransition()
+//        default:
+//            break
+//        }
+//
+//    }
     
     func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
         if runningAnimations.isEmpty {
