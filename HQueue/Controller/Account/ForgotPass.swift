@@ -70,14 +70,4 @@ class ForgotPass: UIViewController {
         }
       
     }
-    
-    @IBAction func loginAction(_ sender: Any) {
-        DispatchQueue.main.async {
-            self.activityIndicator("Loading")
-        }
-        print([emailField.text!])
-        networkManager.forgotPass(email: emailField.text ?? "") { (status: String) in
-            print("Status -->", status)
-        }
-    }
 }
