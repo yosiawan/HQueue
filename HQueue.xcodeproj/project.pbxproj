@@ -76,6 +76,8 @@
 		95091EC8237C082B00EA0782 /* InsuranceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091EC6237C082A00EA0782 /* InsuranceCell.xib */; };
 		95091ECD237D665B00EA0782 /* DoctorScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091ECB237D665B00EA0782 /* DoctorScheduleCell.swift */; };
 		95091ECE237D665B00EA0782 /* DoctorScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091ECC237D665B00EA0782 /* DoctorScheduleCell.xib */; };
+		95091ED02382980D00EA0782 /* ForgotPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091ECF2382980D00EA0782 /* ForgotPass.swift */; };
+		95091ED22382A23600EA0782 /* ForgotPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091ED12382A23600EA0782 /* ForgotPassView.swift */; };
 		B73FC69D237955B6000B4A67 /* QueueArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC69C237955B6000B4A67 /* QueueArea.swift */; };
 		B73FC69F237956A8000B4A67 /* AccountThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC69E237956A8000B4A67 /* AccountThumbnail.swift */; };
 		B73FC6A123795A83000B4A67 /* QueueNumberArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */; };
@@ -177,6 +179,8 @@
 		95091EC6237C082A00EA0782 /* InsuranceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsuranceCell.xib; sourceTree = "<group>"; };
 		95091ECB237D665B00EA0782 /* DoctorScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorScheduleCell.swift; sourceTree = "<group>"; };
 		95091ECC237D665B00EA0782 /* DoctorScheduleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorScheduleCell.xib; sourceTree = "<group>"; };
+		95091ECF2382980D00EA0782 /* ForgotPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPass.swift; sourceTree = "<group>"; };
+		95091ED12382A23600EA0782 /* ForgotPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassView.swift; sourceTree = "<group>"; };
 		B73FC69C237955B6000B4A67 /* QueueArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueArea.swift; sourceTree = "<group>"; };
 		B73FC69E237956A8000B4A67 /* AccountThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountThumbnail.swift; sourceTree = "<group>"; };
 		B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueNumberArea.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				7F5FE04C2374127B004569C4 /* IdentityController.xib */,
 				7F5FE05823741674004569C4 /* RegisterController.xib */,
 				7F5FE05223741573004569C4 /* CredentialController.xib */,
+				95091ED12382A23600EA0782 /* ForgotPassView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				7F5FE05123741573004569C4 /* CredentialController.swift */,
 				7F5FE05723741674004569C4 /* RegisterController.swift */,
 				95091E892372C52B00EA0782 /* Login.swift */,
+				95091ECF2382980D00EA0782 /* ForgotPass.swift */,
 				7F283D99237C12C400724AC9 /* PatientList.swift */,
 				7F283DA3237D155900724AC9 /* PatientDetail.swift */,
 				7F283D9F237C15B800724AC9 /* PatientCell.swift */,
@@ -330,7 +336,6 @@
 				95091E632372B02E00EA0782 /* HQueueTests */,
 				95091E6E2372B02E00EA0782 /* HQueueUITests */,
 				95091E482372B02B00EA0782 /* Products */,
-				7F2B171C2381342C00C6171F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -663,6 +668,7 @@
 				7F5FE06423757FA4004569C4 /* Login.swift in Sources */,
 				95091E962373F93000EA0782 /* Router.swift in Sources */,
 				7F2B1711238120FA00C6171F /* PoliList.swift in Sources */,
+				95091ED22382A23600EA0782 /* ForgotPassView.swift in Sources */,
 				95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */,
 				7F1111F8237E8059007CA7EE /* HospitalCell.swift in Sources */,
 				95091E9A2374025500EA0782 /* HTTPMethod.swift in Sources */,
@@ -680,6 +686,7 @@
 				7F283D9B237C12C400724AC9 /* PatientList.swift in Sources */,
 				B73FC6A923796C8A000B4A67 /* ButtonRS.swift in Sources */,
 				B73FC69F237956A8000B4A67 /* AccountThumbnail.swift in Sources */,
+				95091ED02382980D00EA0782 /* ForgotPass.swift in Sources */,
 				95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */,
 				95091EB82379575E00EA0782 /* ColorPalette.swift in Sources */,
 			);
