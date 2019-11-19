@@ -244,6 +244,7 @@
 				95091EB72379575E00EA0782 /* ColorPalette.swift */,
 				7F1111FF237E9D86007CA7EE /* ViewControllerHelper.swift */,
 				7F111204237EA167007CA7EE /* ViewHelper.swift */,
+				95091EB92379626800EA0782 /* ReusableIdentifiers.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -305,6 +306,8 @@
 				95091EB42379537400EA0782 /* HQueueBtn.xib */,
 				7F5FE05C23742B44004569C4 /* FieldForm.swift */,
 				7F5FE05E23742B54004569C4 /* FieldForm.xib */,
+				95091EC5237C082A00EA0782 /* InsuranceCell.swift */,
+				95091EC6237C082A00EA0782 /* InsuranceCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -393,11 +396,7 @@
 				B73FC69A237954DE000B4A67 /* Home */,
 				7F5FE05B23742A08004569C4 /* Components */,
 				7F5FE04F2374129C004569C4 /* Account */,
-				95091EC3237BECD500EA0782 /* DoctorDetailView.swift */,
-				95091EC5237C082A00EA0782 /* InsuranceCell.swift */,
-				95091ECB237D665B00EA0782 /* DoctorScheduleCell.swift */,
-				95091ECC237D665B00EA0782 /* DoctorScheduleCell.xib */,
-				95091EC6237C082A00EA0782 /* InsuranceCell.xib */,
+				95091ED32383DD3500EA0782 /* Doctor */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,9 +408,8 @@
 				7F1111EA237E78D1007CA7EE /* Hospital */,
 				B73FC69B23795592000B4A67 /* Home */,
 				7F5FE05023741517004569C4 /* Account */,
-				95091E4E2372B02B00EA0782 /* ViewController.swift */,
+				95091ED42383DD5B00EA0782 /* Doctor */,
 				95091EAF23794D1E00EA0782 /* DoctorDetail.swift */,
-				95091EB92379626800EA0782 /* ReusableIdentifiers.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -455,6 +453,24 @@
 				7F5FE0662375839D004569C4 /* Auth.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		95091ED32383DD3500EA0782 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				95091ECB237D665B00EA0782 /* DoctorScheduleCell.swift */,
+				95091ECC237D665B00EA0782 /* DoctorScheduleCell.xib */,
+				95091EC3237BECD500EA0782 /* DoctorDetailView.swift */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		95091ED42383DD5B00EA0782 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				95091E4E2372B02B00EA0782 /* ViewController.swift */,
+			);
+			path = Doctor;
 			sourceTree = "<group>";
 		};
 		B73FC69A237954DE000B4A67 /* Home */ = {
