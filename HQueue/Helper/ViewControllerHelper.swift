@@ -17,4 +17,13 @@ extension UIViewController {
         self.navigationController?.view.backgroundColor = .clear
     }
     
+    func hideKeyboarWhenTapView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(gesture:)))
+        view?.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard(gesture: UITapGestureRecognizer) {
+        view?.endEditing(true)
+    }
+    
 }

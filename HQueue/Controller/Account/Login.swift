@@ -29,8 +29,24 @@ class Login: UIViewController {
         self.loginButton.layer.cornerRadius = self.loginButton.frame.height / 2
         self.networkManager = NetworkManager()
         
+        emailField.becomeFirstResponder()
+        emailField.returnKeyType = .next
+        emailField.enablesReturnKeyAutomatically = true
+        
+        self.hideKeyboarWhenTapView()
+        
         // Do any additional setup after loading the view.
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailField {
+            passwordField.becomeFirstResponder()
+        }else{
+            passwordField.resignFirstResponder()
+        }
+        return true
+    }
+    
     
     func activityIndicator(_ title: String) {
 
@@ -88,6 +104,7 @@ class Login: UIViewController {
                 UserDefaults.standard.set(auth.name, forKey: "authName")
                 UserDefaults.standard.set(auth.email, forKey: "authEmail")
                 UserDefaults.standard.set(auth.token, forKey: "authToken")
+                self.networkManager.addDeviceToken()
                 DispatchQueue.main.async {
                     self.navigationController?.popToRootViewController(animated: true)
                 }
