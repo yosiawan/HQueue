@@ -47,7 +47,8 @@ class HomeQueueController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: "HomeQueueView", bundle: nil)
     }
-
+    
+    // MARK: Check Authentication
     fileprivate func checkAuth() {
         if UserDefaults.standard.string(forKey: "authToken") != nil {
             let nameuser = UserDefaults.standard.string(forKey: "authName")!
@@ -61,39 +62,37 @@ class HomeQueueController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hospitalList = HospitalList()
         
+        self.hospitalList = HospitalList()
+
         self.title = "My Queue"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: accountTumb)
-        accountTumb.translatesAutoresizingMaskIntoConstraints = false
+        accountTumb.translatesAutoresizingMaskIntoConstraints = false // Add contraint
         accountTumb.widthAnchor.constraint(equalToConstant: accountTumb.frame.height).isActive = true
         accountTumb.heightAnchor.constraint(equalToConstant: accountTumb.frame.height).isActive = true
+        
+        // Setup home navigation
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         
+        // set height by main view
         cardHeight = self.view.frame.height - 44
         
         checkAuth()
-        
         setupCard()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         checkAuth()
     }
     
-     //TODO: Change this into account method
+    //MARK: Push to AccountController
     @IBAction func tapAccount(_ sender: Any) {
         print("test")
         let loginVC = AccountController()
         self.navigationController?.pushViewController(loginVC, animated: true)
-    }
-
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setupCard() {
@@ -122,13 +121,35 @@ class HomeQueueController: UIViewController {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
         let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
-//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
+        
         
         self.hospitalList.viewCardHandler.addGestureRecognizer(tapGestureRecognizer)
         rightBtn.addGestureRecognizer(tapGestureRecognizer2)
         
-        //cardViewController.navigationBar.addGestureRecognizer(panGestureRecognizer)
+        /*
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
+        cardViewController.navigationBar.addGestureRecognizer(panGestureRecognizer)
+        */
     }
+    
+    /*
+    @objc func handleCardPan (recognizer:UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            startInteractiveTransition(state: nextState, duration: 0.9)
+        case .changed:
+            let translation = recognizer.translation(in: self.hospitalList.view)
+            var fractionComplete = translation.y / cardHeight
+            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
+            updateInteractiveTransition(fractionCompleted: fractionComplete)
+        case .ended:
+            continueInteractiveTransition()
+        default:
+            break
+        }
+
+    }
+    */
 
     @objc func handleCardTap(recognzier:UITapGestureRecognizer) {
         switch recognzier.state {
@@ -138,23 +159,6 @@ class HomeQueueController: UIViewController {
             break
         }
     }
-    
-//    @objc func handleCardPan (recognizer:UIPanGestureRecognizer) {
-//        switch recognizer.state {
-//        case .began:
-//            startInteractiveTransition(state: nextState, duration: 0.9)
-//        case .changed:
-//            let translation = recognizer.translation(in: self.hospitalList.view)
-//            var fractionComplete = translation.y / cardHeight
-//            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
-//            updateInteractiveTransition(fractionCompleted: fractionComplete)
-//        case .ended:
-//            continueInteractiveTransition()
-//        default:
-//            break
-//        }
-//
-//    }
     
     func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
         if runningAnimations.isEmpty {
@@ -175,20 +179,6 @@ class HomeQueueController: UIViewController {
             frameAnimator.startAnimation()
             runningAnimations.append(frameAnimator)
             
-            
-            // TODO : Remove this
-//            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-//                switch state {
-//                case .expanded:
-//                    self.cardViewController.view.layer.cornerRadius = 12
-//                case .collapsed:
-//                    self.cardViewController.view.layer.cornerRadius = 0
-//                }
-//            }
-//
-//            cornerRadiusAnimator.startAnimation()
-//            runningAnimations.append(cornerRadiusAnimator)
-            
             let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
                 switch state {
                 case .expanded:
@@ -200,7 +190,6 @@ class HomeQueueController: UIViewController {
             
             blurAnimator.startAnimation()
             runningAnimations.append(blurAnimator)
-            
         }
     }
     
@@ -224,6 +213,10 @@ class HomeQueueController: UIViewController {
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }
