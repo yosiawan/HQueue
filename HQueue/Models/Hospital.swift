@@ -8,6 +8,30 @@
 
 import Foundation
 
+struct HostpitalResponse {
+    let page: Int
+    let total: Int
+    let numberOfPage: Int
+    let data: [Hospital]
+}
+
+extension HostpitalResponse: Decodable {
+    private enum HospitalResponseCodingKeys: String, CodingKey {
+        case page
+        case total = "total"
+        case numberOfPage = "last_page"
+        case data = "data"
+    }
+    
+    init(form decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: HospitalResponseCodingKeys.self)
+        page = try container.decode(Int.self, forKey: .page)
+        total = try container.decode(Int.self, forKey: .total)
+        numberOfPage = try container.decode(Int.self, forKey: .numberOfPage)
+        data = try container.decode([Hospital].self, forKey: .data)
+    }
+}
+
 struct Hospital {
     var id: Int
     var name: String

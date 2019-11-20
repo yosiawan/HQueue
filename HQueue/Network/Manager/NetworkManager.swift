@@ -12,6 +12,7 @@ struct NetworkManager {
     
 //    static let QueueAPIKEY = "kweueue"
     private let router = Router<HQAuthAPI>()
+    private let routerHospital = Router<HospitalAPI>()
 
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         switch response.statusCode {
@@ -58,7 +59,6 @@ struct NetworkManager {
     }
     
     func sigupAndCretePatient(newAuth: HQAuth, newPass: String, patientData: Patient, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> ()) {
-        print([newAuth, patientData])
         router.request(.signup(email: newAuth.email, name: newAuth.name, password: newPass, phoneNumber: newAuth.phoneNumber), completion: {data, response, error in
             if error != nil {
                 completion(nil, "Please check your connection")
@@ -84,6 +84,35 @@ struct NetworkManager {
                 }
             }
         });
+    }
+    
+    func getHospital(search: String, page: Int, completion: @escaping(_ data: HostpitalResponse?, _ error: String?) -> ()) {
+        routerHospital.request(.getHospital(search: search, page: page)) { (data, response, error) in
+            if error != nil {
+                completion(nil, "Please check your connection")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+                        let data = try JSONDecoder().decode(HostpitalResponse.self, from: responseData)
+                        completion(data, nil)
+                    }catch{
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
+                    completion(nil, networkFailurError)
+                }
+            }
+        }
     }
 }
 

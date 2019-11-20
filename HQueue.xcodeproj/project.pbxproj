@@ -50,6 +50,7 @@
 		7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1795237EBBCF0058AA22 /* Asuransi.swift */; };
 		7F8F1799237EBFF10058AA22 /* AsuransiTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1797237EBFF10058AA22 /* AsuransiTableCell.swift */; };
 		7F8F179A237EBFF10058AA22 /* AsuransiTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */; };
+		7FA5FB48238530580081DE82 /* HospitalEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */; };
 		95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4A2372B02B00EA0782 /* AppDelegate.swift */; };
 		95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4C2372B02B00EA0782 /* SceneDelegate.swift */; };
 		95091E4F2372B02B00EA0782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4E2372B02B00EA0782 /* ViewController.swift */; };
@@ -145,6 +146,7 @@
 		7F8F1795237EBBCF0058AA22 /* Asuransi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asuransi.swift; sourceTree = "<group>"; };
 		7F8F1797237EBFF10058AA22 /* AsuransiTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsuransiTableCell.swift; sourceTree = "<group>"; };
 		7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiTableCell.xib; sourceTree = "<group>"; };
+		7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalEndPoint.swift; path = HQueue/View/Home/HospitalEndPoint.swift; sourceTree = SOURCE_ROOT; };
 		95091E472372B02B00EA0782 /* HQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95091E4A2372B02B00EA0782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95091E4C2372B02B00EA0782 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5FE0662375839D004569C4 /* Auth.swift */,
+				7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
 				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
 				B73FC69D237955B6000B4A67 /* QueueArea.swift in Sources */,
+				7FA5FB48238530580081DE82 /* HospitalEndPoint.swift in Sources */,
 				7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */,
 				7F1111FC237E9A75007CA7EE /* HospitalDetail.swift in Sources */,
 				7F283D90237AAF7700724AC9 /* Patient.swift in Sources */,
