@@ -16,9 +16,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         do {
             let request = try self.buildRequest(from: route)
             
-//            Debug
-//            print(request.allHTTPHeaderFields)
-//            print(String(bytes: request.httpBody!, encoding: .utf8))
+            //Debug
+            //print("addDeviceToken - header", request.allHTTPHeaderFields)
+            //print("addDeviceToken - body", String(bytes: request.httpBody!, encoding: .utf8))
             
             task = session.dataTask(with: request, completionHandler: { data, response, error in completion(data, response, error)})
         } catch {
@@ -72,6 +72,8 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                     request.addValue("application/json", forHTTPHeaderField: "Accept")
                     try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
                 case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let additionalHeaders):
+                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("application/json", forHTTPHeaderField: "Accept")
                     self.addAdditionalHeaders(additionalHeaders, request: &request)
                     try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
             }

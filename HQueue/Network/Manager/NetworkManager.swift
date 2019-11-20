@@ -91,18 +91,19 @@ struct NetworkManager {
         guard let tokenDevice = UserDefaults.standard.string(forKey: "authTokenDevice") else { return }
         router.request(.addDeviceToken(token: token, deviceToken: tokenDevice)) {
             (data, response, error) in
-            print(token, tokenDevice)
+            //print(#function, token, tokenDevice)
             if error != nil {
                 print(#function, error)
             }
             
             if let response = response as? HTTPURLResponse {
-                let result =  self .handleNetworkResponse(response)
+                let result =  self.handleNetworkResponse(response)
+                print("\(#function) - response", response.statusCode)
                 switch result {
                 case .success:
                     guard let responseData = data else {
                         //completion(nil, NetworkResponse.noData.rawValue)
-                        print(#function, NetworkResponse.noData.rawValue)
+                        //print(#function, NetworkResponse.noData.rawValue)
                         return
                     }
                     print(#function, responseData)
