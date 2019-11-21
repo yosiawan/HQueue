@@ -9,7 +9,7 @@
 import Foundation
 
 public enum HospitalAPI {
-    case getHospital(search: String, page: Int)
+    case getHospital(search: String?, page: Int)
 }
 
 extension HospitalAPI: EndPointType {
@@ -34,8 +34,10 @@ extension HospitalAPI: EndPointType {
     
     var task: HTTPTask {
         switch self {
-        case .getHospital(let search, let page):
-            return .requestParameters(bodyParameters: nil, urlParameters: [ "search": search, "page": page ])
+        case .getHospital(let search?, let page):
+            return .requestParameters(bodyParameters: nil, urlParameters: [ "search": search as Any, "page": page ])
+        case .getHospital(.none, let page):
+            return .requestParameters(bodyParameters: nil, urlParameters: ["page": page ])
         }
     }
     

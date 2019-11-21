@@ -9,25 +9,25 @@
 import Foundation
 
 struct HostpitalResponse {
-    let page: Int
+    let current_page: Int
     let total: Int
-    let numberOfPage: Int
+    let last_page: Int
     let data: [Hospital]
 }
 
 extension HostpitalResponse: Decodable {
     private enum HospitalResponseCodingKeys: String, CodingKey {
-        case page
+        case current_page = "current_page"
         case total = "total"
-        case numberOfPage = "last_page"
+        case last_page = "last_page"
         case data = "data"
     }
     
     init(form decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: HospitalResponseCodingKeys.self)
-        page = try container.decode(Int.self, forKey: .page)
+        current_page = try container.decode(Int.self, forKey: .current_page)
         total = try container.decode(Int.self, forKey: .total)
-        numberOfPage = try container.decode(Int.self, forKey: .numberOfPage)
+        last_page = try container.decode(Int.self, forKey: .last_page)
         data = try container.decode([Hospital].self, forKey: .data)
     }
 }

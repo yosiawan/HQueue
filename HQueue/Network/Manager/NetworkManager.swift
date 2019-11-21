@@ -45,8 +45,9 @@ struct NetworkManager {
                     }
                     // print(String(bytes: responseData, encoding: .utf8))
                     do {
-                        //print( String(bytes: responseData, encoding: .utf8) )
+//                        print( String(bytes: responseData, encoding: .utf8) )
                         let data = try JSONDecoder().decode(HQAuth.self, from: responseData)
+                        print(data)
                         completion(data, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
@@ -86,7 +87,7 @@ struct NetworkManager {
         });
     }
     
-    func getHospital(search: String, page: Int, completion: @escaping(_ data: HostpitalResponse?, _ error: String?) -> ()) {
+    func getHospital(search: String?, page: Int = 1, completion: @escaping(_ data: HostpitalResponse?, _ error: String?) -> ()) {
         routerHospital.request(.getHospital(search: search, page: page)) { (data, response, error) in
             if error != nil {
                 completion(nil, "Please check your connection")
@@ -102,7 +103,9 @@ struct NetworkManager {
                     }
                     
                     do {
+                        print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode(HostpitalResponse.self, from: responseData)
+                        print(#function, data)
                         completion(data, nil)
                     }catch{
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

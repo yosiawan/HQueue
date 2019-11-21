@@ -10,6 +10,9 @@ import UIKit
 
 class HospitalList: UITableViewController {
     
+    var networkManager: NetworkManager!
+    var currentPage = 1
+    
     @IBOutlet var viewCardHandler: UIView!
     
     var hospitals: [Hospital] = [
@@ -19,24 +22,18 @@ class HospitalList: UITableViewController {
     ]
     
     var searchController = UISearchController()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.networkManager = NetworkManager()
+        
+        self.tableView.addSubview(refreshControler)
+        
         self.title = "Hospitals"
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Test", style: .plain, target: self, action: nil)
         self.tableView.register(UINib(nibName: "HospitalCell", bundle: nil), forCellReuseIdentifier: "HospitalCell")
         
-        searchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            //controller.dimsBackgroundDuringPresentation = false // iOS 12
-            controller.searchBar.sizeToFit()
-            controller.searchBar.placeholder = "Cari rumah sakit .."
-            tableView.tableHeaderView = controller.searchBar
-
-            return controller
-        })()
+        setUpSearchControll()
         
         self.tableView.reloadData()
         
@@ -48,7 +45,6 @@ class HospitalList: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
@@ -119,6 +115,59 @@ class HospitalList: UITableViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // MARK: - Refresh Controll
+    
+    lazy var refreshControler: UIRefreshControl = {
+        let refreshControler = UIRefreshControl()
+        refreshControler.addTarget(self, action: #selector(hadleRefresh), for: .valueChanged)
+        
+        return refreshControler
+    }()
+    
+    @objc private func hadleRefresh(_ sender: Any) {
+        self.fetchDataHospital(search: nil, isPullRefresh: true)
+    }
+    
+    
+    // MARK: - Fetching hospital's data
+    private func fetchDataHospital(search: String?, isPullRefresh:Bool = false) {
+        networkManager.getHospital(search: search, page: currentPage) { (data, error) in
+        
+            if let error = error {
+                print("Fetching hospital data - error", error)
+            }
+            
+            if let data = data {
+                print("Fetching hospital data", data)
+                self.hospitals = data.data
+                DispatchQueue.main.async {
+                 self.tableView.reloadData()
+                }
+            }
+            
+            if isPullRefresh {
+                 DispatchQueue.main.async {
+                     self.refreshControler.endRefreshing()
+                 }
+            }
+        }
+    }
+    
+   // MARK: - Search Controll
+       
+   fileprivate func setUpSearchControll() {
+       searchController = ({
+           let controller = UISearchController(searchResultsController: nil)
+           controller.searchResultsUpdater = self
+           //controller.dimsBackgroundDuringPresentation = false // iOS 12
+           controller.searchBar.sizeToFit()
+           controller.searchBar.placeholder = "Cari rumah sakit .."
+           tableView.tableHeaderView = controller.searchBar
+           
+           return controller
+       })()
+   }
+    
 }
 
 extension HospitalList: UISearchResultsUpdating {
@@ -126,8 +175,8 @@ extension HospitalList: UISearchResultsUpdating {
         let searchText = self.searchController.searchBar.text!
         
         print(searchText)
-        // Ambil data dari endpoint berdasarkan pencarian.
-        // Code.
+        
+        self.fetchDataHospital(search: searchText)
         
         self.tableView.reloadData()
     }
