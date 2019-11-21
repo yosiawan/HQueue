@@ -23,6 +23,14 @@ class HospitalCell: UITableViewCell {
         
         self.selectionStyle = .none
     }
+    
+    func setHospitalCard(_ hospital: Hospital) {
+        self.titleLabel.text = hospital.name
+        self.addressLabel.text = hospital.address
+        if let imgUrlString = hospital.photo {
+            self.imageHospital.downloaded(from: "http://167.71.203.148\(imgUrlString)")
+        }
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

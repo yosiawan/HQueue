@@ -15,11 +15,7 @@ class HospitalList: UITableViewController {
     
     @IBOutlet var viewCardHandler: UIView!
     
-    var hospitals: [Hospital] = [
-        Hospital(id: 123, name: "RS Sumber Waras", address: "Jl. Cempaka 40, Jakarta Timur"),
-        Hospital(id: 122, name: "RSIA Putra Mahkota", address: "Jl. Lumbung 40, Jakarta Timur"),
-        Hospital(id: 121, name: "RSUD Cakung", address: "Jl. Cempaka 40, Bekasi")
-    ]
+    var hospitals: [Hospital] = []
     
     var searchController = UISearchController()
     
@@ -28,13 +24,14 @@ class HospitalList: UITableViewController {
         
         self.networkManager = NetworkManager()
         
-        self.tableView.addSubview(refreshControler)
+        self.tableView.refreshControl = refreshControler
         
         self.title = "Hospitals"
         self.tableView.register(UINib(nibName: "HospitalCell", bundle: nil), forCellReuseIdentifier: "HospitalCell")
         
         setUpSearchControll()
         
+        fetchDataHospital(search: nil, isPullRefresh: false)
         self.tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -54,9 +51,8 @@ class HospitalList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCell", for: indexPath) as! HospitalCell
-
-        cell.titleLabel.text = hospitals[indexPath.row].name
-        cell.addressLabel.text = hospitals[indexPath.row].address
+        
+        cell.setHospitalCard(hospitals[indexPath.row])
         
         return cell
     }
@@ -190,6 +186,7 @@ extension HospitalList: UISearchResultsUpdating, UISearchControllerDelegate, UIS
         //
     }
     
+    // reset pencarian
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         self.fetchDataHospital(search: nil, isPullRefresh: false)

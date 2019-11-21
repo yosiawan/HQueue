@@ -36,6 +36,7 @@ struct Hospital {
     var id: Int
     var name: String
     var address: String
+    var photo: String?
 }
 
 extension Hospital: Decodable {
@@ -43,6 +44,7 @@ extension Hospital: Decodable {
         case id = "id"
         case name = "full_name"
         case address = "address"
+        case photo = "photo"
     }
     
     init(from decoder: Decoder) throws {
@@ -50,5 +52,6 @@ extension Hospital: Decodable {
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         address = try container.decode(String.self, forKey: .address)
+        photo = try container.decode(String.self, forKey: .photo)
     }
 }
