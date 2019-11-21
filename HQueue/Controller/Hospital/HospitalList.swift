@@ -189,4 +189,9 @@ extension HospitalList: UISearchResultsUpdating, UISearchControllerDelegate, UIS
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         //
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        self.fetchDataHospital(search: nil, isPullRefresh: false)
+    }
 }
