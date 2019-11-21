@@ -130,9 +130,11 @@ class HospitalList: UITableViewController {
     
     
     // MARK: - Fetching hospital's data
-    private func fetchDataHospital(search: String?, isPullRefresh:Bool = false) {
-        networkManager.getHospital(search: search, page: currentPage) { (data, error) in
+    @objc private func fetchDataHospital(search: String?, isPullRefresh:Bool = false) {
         
+        let searchText = self.searchController.searchBar.text
+        
+        networkManager.getHospital(search: searchText, page: currentPage) { (data, error) in
             if let error = error {
                 print("Fetching hospital data - error", error)
             }
@@ -156,28 +158,35 @@ class HospitalList: UITableViewController {
    // MARK: - Search Controll
        
    fileprivate func setUpSearchControll() {
-       searchController = ({
-           let controller = UISearchController(searchResultsController: nil)
-           controller.searchResultsUpdater = self
-           //controller.dimsBackgroundDuringPresentation = false // iOS 12
-           controller.searchBar.sizeToFit()
-           controller.searchBar.placeholder = "Cari rumah sakit .."
-           tableView.tableHeaderView = controller.searchBar
+    searchController = ({
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchResultsUpdater = self
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.hidesNavigationBarDuringPresentation = false
+        controller.delegate = self
+        controller.searchBar.delegate = self
+        controller.searchBar.sizeToFit()
+        controller.searchBar.placeholder = "Cari rumah sakit .."
+        tableView.tableHeaderView = controller.searchBar
            
            return controller
-       })()
+    })()
    }
     
 }
 
-extension HospitalList: UISearchResultsUpdating {
+extension HospitalList: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
-        let searchText = self.searchController.searchBar.text!
+        //
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(fetchDataHospital), object: nil)
         
-        print(searchText)
-        
-        self.fetchDataHospital(search: searchText)
-        
-        self.tableView.reloadData()
+        self.perform(#selector(fetchDataHospital(search:isPullRefresh:)), with: nil, afterDelay: 0.8)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        //
     }
 }

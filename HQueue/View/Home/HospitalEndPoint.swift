@@ -20,7 +20,9 @@ extension HospitalAPI: EndPointType {
     
     var path: String {
         switch self {
-        case .getHospital:
+        case .getHospital(let search?, _):
+            return "/hospital/\(search)"
+        case .getHospital(.none, _):
             return "/hospital"
         }
     }
@@ -34,10 +36,8 @@ extension HospitalAPI: EndPointType {
     
     var task: HTTPTask {
         switch self {
-        case .getHospital(let search?, let page):
-            return .requestParameters(bodyParameters: nil, urlParameters: [ "search": search as Any, "page": page ])
-        case .getHospital(.none, let page):
-            return .requestParameters(bodyParameters: nil, urlParameters: ["page": page ])
+        case .getHospital( _, let page):
+            return .requestParameters(bodyParameters: nil, urlParameters: [ "page": page ])
         }
     }
     
