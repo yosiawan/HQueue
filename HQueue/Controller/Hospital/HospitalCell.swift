@@ -28,7 +28,7 @@ class HospitalCell: UITableViewCell {
         self.titleLabel.text = hospital.name
         self.addressLabel.text = hospital.address
         if let imgUrlString = hospital.photo {
-            self.imageHospital.downloaded(from: "http://167.71.203.148\(imgUrlString)")
+            self.imageHospital.downloaded(from: "http://167.71.203.148/storage/hospitals/\(imgUrlString)")
         }
     }
 
