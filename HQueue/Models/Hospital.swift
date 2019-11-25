@@ -33,7 +33,7 @@ extension HostpitalResponse: Decodable {
 }
 
 struct Hospital {
-    var id: Int
+    var id: String
     var name: String
     var address: String
     var photo: String?
@@ -49,7 +49,7 @@ extension Hospital: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: HospitalCodingKeys.self)
-        id = try container.decode(Int.self, forKey: .id)
+        id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         address = try container.decode(String.self, forKey: .address)
         photo = try container.decode(String.self, forKey: .photo)
