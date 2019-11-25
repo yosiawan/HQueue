@@ -80,6 +80,8 @@
 		95091ED82383DFC900EA0782 /* DoctorListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091ED72383DFC900EA0782 /* DoctorListCell.swift */; };
 		95091EDA2383F0FE00EA0782 /* DoctorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091ED92383F0FE00EA0782 /* DoctorList.swift */; };
 		95091EDC2383F18B00EA0782 /* DoctorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EDB2383F18B00EA0782 /* DoctorListView.swift */; };
+		95091EE1238699B800EA0782 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EE0238699B800EA0782 /* OnboardingViewController.swift */; };
+		95091EE423869A1D00EA0782 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091EE323869A1D00EA0782 /* OnboardingView.swift */; };
 		B73FC69D237955B6000B4A67 /* QueueArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC69C237955B6000B4A67 /* QueueArea.swift */; };
 		B73FC69F237956A8000B4A67 /* AccountThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC69E237956A8000B4A67 /* AccountThumbnail.swift */; };
 		B73FC6A123795A83000B4A67 /* QueueNumberArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */; };
@@ -185,6 +187,8 @@
 		95091ED72383DFC900EA0782 /* DoctorListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListCell.swift; sourceTree = "<group>"; };
 		95091ED92383F0FE00EA0782 /* DoctorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorList.swift; sourceTree = "<group>"; };
 		95091EDB2383F18B00EA0782 /* DoctorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListView.swift; sourceTree = "<group>"; };
+		95091EE0238699B800EA0782 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		95091EE323869A1D00EA0782 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		B73FC69C237955B6000B4A67 /* QueueArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueArea.swift; sourceTree = "<group>"; };
 		B73FC69E237956A8000B4A67 /* AccountThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountThumbnail.swift; sourceTree = "<group>"; };
 		B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueNumberArea.swift; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 				B73FC69A237954DE000B4A67 /* Home */,
 				7F5FE05B23742A08004569C4 /* Components */,
 				7F5FE04F2374129C004569C4 /* Account */,
+				95091EDF2386999100EA0782 /* Onboarding */,
 				95091ED32383DD3500EA0782 /* Doctor */,
 			);
 			path = View;
@@ -408,6 +413,7 @@
 		95091E842372B67F00EA0782 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95091EE2238699FA00EA0782 /* Onboarding */,
 				7F2B170923811ED200C6171F /* Poli */,
 				7F1111EA237E78D1007CA7EE /* Hospital */,
 				B73FC69B23795592000B4A67 /* Home */,
@@ -477,6 +483,22 @@
 				95091ED92383F0FE00EA0782 /* DoctorList.swift */,
 			);
 			path = Doctor;
+			sourceTree = "<group>";
+		};
+		95091EDF2386999100EA0782 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				95091EE323869A1D00EA0782 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		95091EE2238699FA00EA0782 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				95091EE0238699B800EA0782 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B73FC69A237954DE000B4A67 /* Home */ = {
@@ -661,6 +683,7 @@
 				7F5FE05323741573004569C4 /* CredentialController.swift in Sources */,
 				7F111205237EA167007CA7EE /* ViewHelper.swift in Sources */,
 				7F1111F2237E7994007CA7EE /* HospitalList.swift in Sources */,
+				95091EE423869A1D00EA0782 /* OnboardingView.swift in Sources */,
 				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
 				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
 				7F8F1799237EBFF10058AA22 /* AsuransiTableCell.swift in Sources */,
@@ -669,6 +692,7 @@
 				95091ECD237D665B00EA0782 /* DoctorScheduleCell.swift in Sources */,
 				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
 				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
+				95091EE1238699B800EA0782 /* OnboardingViewController.swift in Sources */,
 				B73FC69D237955B6000B4A67 /* QueueArea.swift in Sources */,
 				7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */,
 				7F1111FC237E9A75007CA7EE /* HospitalDetail.swift in Sources */,
