@@ -14,6 +14,9 @@ class HospitalDetail: UIViewController {
     @IBOutlet weak var poliButton: UIButton!
     @IBOutlet weak var asuransiCollection: UICollectionView!
     @IBOutlet weak var hospitalImage: UIImageView!
+    @IBOutlet weak var hospitalName: UILabel!
+    @IBOutlet weak var hospitalAddress: UILabel!
+    @IBOutlet weak var hospitalPhone: UILabel!
     
     var hospital: Hospital!
     
@@ -25,13 +28,18 @@ class HospitalDetail: UIViewController {
         
         poliButton.layer.cornerRadius = poliButton.frame.height / 2
         
-        // Do any additional setup after loading the view.
+        // Taruh Data
+        hospitalName.text = hospital.name
+        hospitalAddress.text = hospital.address
+        hospitalPhone.text = hospital.phoneNumber
+        if let imgUrlString = hospital.photo {
+        hospitalImage.downloaded(from: "http://167.71.203.148/storage/hospitals/\(imgUrlString)")
+        }
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let photoUrl = hospital.photo {
-            self.hospitalImage.downloaded(from: photoUrl)
-        }
+        
     }
 
     @IBAction func listAsuransiAction(_ sender: Any) {
@@ -46,6 +54,8 @@ class HospitalDetail: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    
     /*
     // MARK: - Navigation
 
@@ -56,3 +66,7 @@ class HospitalDetail: UIViewController {
     }
     */
 }
+
+//protocol HospitalDetailDelegate {
+//    func didPushDetailHospital(detailView: HospitalDetail)
+//}

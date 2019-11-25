@@ -33,10 +33,11 @@ extension HostpitalResponse: Decodable {
 }
 
 struct Hospital {
-    var id: String
-    var name: String
-    var address: String
-    var photo: String?
+    let id: String
+    let name: String
+    let address: String
+    let photo: String?
+    let phoneNumber: String?
 }
 
 extension Hospital: Decodable {
@@ -45,6 +46,7 @@ extension Hospital: Decodable {
         case name = "full_name"
         case address = "address"
         case photo = "photo"
+        case phoneNumber = "phone_number"
     }
     
     init(from decoder: Decoder) throws {
@@ -53,5 +55,6 @@ extension Hospital: Decodable {
         name = try container.decode(String.self, forKey: .name)
         address = try container.decode(String.self, forKey: .address)
         photo = try container.decode(String.self, forKey: .photo)
+        phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
     }
 }
