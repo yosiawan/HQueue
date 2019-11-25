@@ -95,6 +95,7 @@ class HospitalList: UITableViewController {
     */
 
     /*
+     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -106,6 +107,7 @@ class HospitalList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = HospitalDetail()
+        vc.hospital = hospitals[indexPath.row]
         vc.title = hospitals[indexPath.row].name
         vc.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.pushViewController(vc, animated: true)
