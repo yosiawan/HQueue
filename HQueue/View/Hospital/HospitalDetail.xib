@@ -10,6 +10,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HospitalDetail" customModule="HQueue" customModuleProvider="target">
             <connections>
                 <outlet property="asuransiCollection" destination="asx-is-ntC" id="p9T-JK-2BS"/>
+                <outlet property="hospitalAddress" destination="9uw-cq-536" id="THn-C9-yeJ"/>
+                <outlet property="hospitalImage" destination="Jof-Iv-Hdj" id="PsA-2x-YxJ"/>
+                <outlet property="hospitalName" destination="q5L-kN-ohD" id="SMZ-tH-5M3"/>
+                <outlet property="hospitalPhone" destination="tCQ-n5-PC8" id="YKQ-q8-48W"/>
                 <outlet property="poliButton" destination="wfA-sO-lJA" id="TEo-MH-l0K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewWrapper" destination="9fl-sz-9gh" id="kh4-8L-zPe"/>
@@ -166,6 +170,6 @@
     </objects>
     <resources>
         <image name="icon-map" width="37" height="37"/>
-        <image name="icon-phone" width="37" height="37"/>
+        <image name="icon-phone" width="42" height="42"/>
     </resources>
 </document>
