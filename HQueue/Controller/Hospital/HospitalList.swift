@@ -110,7 +110,6 @@ class HospitalList: UITableViewController {
         vc.hospital = hospitals[indexPath.row]
         vc.title = hospitals[indexPath.row].name
         vc.navigationItem.largeTitleDisplayMode = .never
-//        NotificationCenter.default.post(.init(name: .pushDetailHospital, object: hospitals[indexPath.row], userInfo: nil))
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

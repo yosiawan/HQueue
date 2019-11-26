@@ -10,6 +10,7 @@ import Foundation
 
 public enum HospitalAPI {
     case getHospital(search: String?, page: Int)
+    case getPoli(hospitalId: String, search: String?, page: Int)
 }
 
 extension HospitalAPI: EndPointType {
@@ -24,12 +25,16 @@ extension HospitalAPI: EndPointType {
             return "/hospital/\(search)"
         case .getHospital(.none, _):
             return "/hospital"
+        case .getPoli(let hospitalId, let search?, _):
+            return "/poli/\(hospitalId)/\(search)"
+        case .getPoli(let hospitalId, .none, _):
+            return "/poli/\(hospitalId)"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getHospital:
+        case .getHospital, .getPoli:
             return .get
         }
     }
@@ -38,12 +43,12 @@ extension HospitalAPI: EndPointType {
         switch self {
         case .getHospital( _, let page):
             return .requestParameters(bodyParameters: nil, urlParameters: [ "page": page ])
+        case .getPoli( _, _, let page):
+        return .requestParameters(bodyParameters: nil, urlParameters: [ "page": page ])
         }
     }
     
     var headers: HTTPHeaders? {
         return nil
     }
-    
-    
 }

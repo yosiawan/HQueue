@@ -20,26 +20,28 @@ class HospitalDetail: UIViewController {
     
     var hospital: Hospital!
     
+    func prepareForView() {
+        hospitalName.text = hospital.name
+        hospitalAddress.text = hospital.address
+        hospitalPhone.text = hospital.phoneNumber
+        if let imgUrlString = hospital.photo {
+            hospitalImage.downloaded(from: "http://167.71.203.148/storage/hospitals/\(imgUrlString)")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setTransparantNav()
         viewWrapper.roundCorners(corners: [.topLeft], radius: 40)
-        
         poliButton.layer.cornerRadius = poliButton.frame.height / 2
         
-        // Taruh Data
-        hospitalName.text = hospital.name
-        hospitalAddress.text = hospital.address
-        hospitalPhone.text = hospital.phoneNumber
-        if let imgUrlString = hospital.photo {
-        hospitalImage.downloaded(from: "http://167.71.203.148/storage/hospitals/\(imgUrlString)")
-        }
+        prepareForView()
     
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        //
     }
 
     @IBAction func listAsuransiAction(_ sender: Any) {
@@ -51,6 +53,7 @@ class HospitalDetail: UIViewController {
         let vc = PoliList()
         vc.title = "Poliklinik"
         vc.navigationItem.largeTitleDisplayMode = .never
+        vc.hospital = self.hospital
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
