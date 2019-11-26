@@ -54,6 +54,8 @@ class AccountController: UIViewController {
         
         if UserDefaults.standard.string(forKey: "authToken") != nil {
             self.view = loggedView
+            self.nameField.text = UserDefaults.standard.string(forKey: "authName")
+            self.emailField.text = UserDefaults.standard.string(forKey: "authEmail")
         }else{
             self.view = guestView
         }
