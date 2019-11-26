@@ -153,7 +153,7 @@
 		7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiTableCell.xib; sourceTree = "<group>"; };
 		7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalEndPoint.swift; path = HQueue/View/Home/HospitalEndPoint.swift; sourceTree = SOURCE_ROOT; };
 		7FA5FB4923869FA90081DE82 /* MediaHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaHandler.swift; sourceTree = "<group>"; };
-		95091E472372B02B00EA0782 /* Antri+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Antri+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95091E472372B02B00EA0782 /* Antridoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antridoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95091E4A2372B02B00EA0782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95091E4C2372B02B00EA0782 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		95091E542372B02B00EA0782 /* HQueue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HQueue.xcdatamodel; sourceTree = "<group>"; };
@@ -358,7 +358,7 @@
 		95091E482372B02B00EA0782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95091E472372B02B00EA0782 /* Antri+.app */,
+				95091E472372B02B00EA0782 /* Antridoc.app */,
 				95091E602372B02E00EA0782 /* HQueueTests.xctest */,
 				95091E6B2372B02E00EA0782 /* HQueueUITests.xctest */,
 			);
@@ -546,7 +546,7 @@
 			);
 			name = HQueue;
 			productName = HQueue;
-			productReference = 95091E472372B02B00EA0782 /* Antri+.app */;
+			productReference = 95091E472372B02B00EA0782 /* Antridoc.app */;
 			productType = "com.apple.product-type.application";
 		};
 		95091E5F2372B02E00EA0782 /* HQueueTests */ = {
@@ -920,7 +920,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS-DA.HQueue";
-				PRODUCT_NAME = "Antri+";
+				PRODUCT_NAME = Antridoc;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -942,7 +942,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS-DA.HQueue";
-				PRODUCT_NAME = "Antri+";
+				PRODUCT_NAME = Antridoc;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
