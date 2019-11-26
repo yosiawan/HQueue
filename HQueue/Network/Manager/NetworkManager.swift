@@ -133,7 +133,7 @@ struct NetworkManager {
                     }
                     
                     do {
-                        print(#function, String( bytes: responseData, encoding: .utf8)  )
+//                        print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode(PoliResponse.self, from: responseData)
                         //print(#function, data)
                         completion(data, nil)
