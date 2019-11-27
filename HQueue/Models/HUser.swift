@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct HUser {
+public struct HUser {
     var name: String
     var email: String
     var phoneNumber: String?
@@ -23,7 +23,7 @@ extension HUser: Decodable {
         case deviceToken = "device_token"
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: HUserCodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         email = try container.decode(String.self, forKey: .email)

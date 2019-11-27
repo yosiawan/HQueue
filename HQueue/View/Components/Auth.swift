@@ -12,6 +12,7 @@ public enum HQAuthAPI {
     case signin(email: String, password: String)
     case signup(email: String, name: String, password: String, phoneNumber: String)
     case getProfile
+    case postProfile(user: HUser)
 }
 
 extension HQAuthAPI: EndPointType {
@@ -26,16 +27,14 @@ extension HQAuthAPI: EndPointType {
             return "/login"
         case .signup:
             return "/register"
-        case .getProfile:
+        case .getProfile, .postProfile:
             return "/user"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .signin:
-            return .post
-        case .signup:
+        case .signin, .postProfile, .signup:
             return .post
         case .getProfile:
             return .get
@@ -43,13 +42,24 @@ extension HQAuthAPI: EndPointType {
     }
     
     var task: HTTPTask {
+        let bearerToken = ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "authToken") ?? "")"]
         switch self {
         case .signin(let email, let password):
             return .requestParameters(bodyParameters: ["email": email, "password": password], urlParameters: nil)
         case .signup(let email, let name, let password, let phoneNumber):
             return .requestParameters(bodyParameters: ["email": email, "name": name, "password": password, "c_password": password, "phone_number": phoneNumber], urlParameters: nil)
         case .getProfile:
-            return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "authToken") ?? "")"])
+            return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: bearerToken)
+        case .postProfile(let user):
+            return .requestParametersAndHeaders(
+                bodyParameters: [
+                    "name": user.name,
+                    "email": user.email,
+                    "phone_number": user.phoneNumber ?? ""
+                ],
+                urlParameters: nil,
+                additionalHeaders: bearerToken
+            )
         }
     }
     
