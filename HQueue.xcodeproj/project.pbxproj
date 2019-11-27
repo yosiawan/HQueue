@@ -51,6 +51,8 @@
 		7F8F1799237EBFF10058AA22 /* AsuransiTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1797237EBFF10058AA22 /* AsuransiTableCell.swift */; };
 		7F8F179A237EBFF10058AA22 /* AsuransiTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */; };
 		7F987552238E7A5800082985 /* HUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987550238E778100082985 /* HUser.swift */; };
+		7FA5FB48238530580081DE82 /* HospitalEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */; };
+		7FA5FB4A23869FA90081DE82 /* MediaHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB4923869FA90081DE82 /* MediaHandler.swift */; };
 		95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4A2372B02B00EA0782 /* AppDelegate.swift */; };
 		95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4C2372B02B00EA0782 /* SceneDelegate.swift */; };
 		95091E552372B02B00EA0782 /* HQueue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95091E532372B02B00EA0782 /* HQueue.xcdatamodeld */; };
@@ -151,6 +153,8 @@
 		7F8F1797237EBFF10058AA22 /* AsuransiTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsuransiTableCell.swift; sourceTree = "<group>"; };
 		7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiTableCell.xib; sourceTree = "<group>"; };
 		7F987550238E778100082985 /* HUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUser.swift; sourceTree = "<group>"; };
+		7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalEndPoint.swift; path = HQueue/View/Home/HospitalEndPoint.swift; sourceTree = SOURCE_ROOT; };
+		7FA5FB4923869FA90081DE82 /* MediaHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaHandler.swift; sourceTree = "<group>"; };
 		95091E472372B02B00EA0782 /* Antridoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antridoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95091E4A2372B02B00EA0782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95091E4C2372B02B00EA0782 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				7F1111FF237E9D86007CA7EE /* ViewControllerHelper.swift */,
 				7F111204237EA167007CA7EE /* ViewHelper.swift */,
 				95091EB92379626800EA0782 /* ReusableIdentifiers.swift */,
+				7FA5FB4923869FA90081DE82 /* MediaHandler.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5FE0662375839D004569C4 /* Auth.swift */,
+				7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -640,15 +646,11 @@
 				7F5FE05423741573004569C4 /* CredentialController.xib in Resources */,
 				7F2B170823811EC600C6171F /* PoliList.xib in Resources */,
 				7F1111FD237E9A75007CA7EE /* HospitalDetail.xib in Resources */,
-				95091E572372B02E00EA0782 /* Assets.xcassets in Resources */,
 				7F1111F3237E7994007CA7EE /* HospitalList.xib in Resources */,
-				7F5FE05F23742B54004569C4 /* FieldForm.xib in Resources */,
 				7F8F1794237EB9E90058AA22 /* AsuransiList.xib in Resources */,
 				7F8F179A237EBFF10058AA22 /* AsuransiTableCell.xib in Resources */,
 				7F283D9C237C12C400724AC9 /* PatientList.xib in Resources */,
-				95091E572372B02E00EA0782 /* Assets.xcassets in Resources */,
 				7F283DA2237C15B800724AC9 /* PatientCell.xib in Resources */,
-				7F5FE05F23742B54004569C4 /* FieldForm.xib in Resources */,
 				7F283DA6237D155900724AC9 /* PatientDetail.xib in Resources */,
 				7F2B1700237F480D00C6171F /* HomeQueueView.xib in Resources */,
 				95091E572372B02E00EA0782 /* Assets.xcassets in Resources */,
@@ -687,8 +689,6 @@
 				7F111205237EA167007CA7EE /* ViewHelper.swift in Sources */,
 				7F1111F2237E7994007CA7EE /* HospitalList.swift in Sources */,
 				95091EE423869A1D00EA0782 /* OnboardingView.swift in Sources */,
-				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
-				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
 				7F8F1799237EBFF10058AA22 /* AsuransiTableCell.swift in Sources */,
 				7F111200237E9D86007CA7EE /* ViewControllerHelper.swift in Sources */,
 				7F2B1702237F482000C6171F /* HomeQueueController.swift in Sources */,
@@ -697,6 +697,7 @@
 				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
 				95091EE1238699B800EA0782 /* OnboardingViewController.swift in Sources */,
 				B73FC69D237955B6000B4A67 /* QueueArea.swift in Sources */,
+				7FA5FB48238530580081DE82 /* HospitalEndPoint.swift in Sources */,
 				7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */,
 				7F1111FC237E9A75007CA7EE /* HospitalDetail.swift in Sources */,
 				7F283D90237AAF7700724AC9 /* Patient.swift in Sources */,
@@ -718,6 +719,7 @@
 				7F5FE06423757FA4004569C4 /* Login.swift in Sources */,
 				95091E962373F93000EA0782 /* Router.swift in Sources */,
 				7F2B1711238120FA00C6171F /* PoliList.swift in Sources */,
+				7FA5FB4A23869FA90081DE82 /* MediaHandler.swift in Sources */,
 				95091ED22382A23600EA0782 /* ForgotPassView.swift in Sources */,
 				95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */,
 				7F1111F8237E8059007CA7EE /* HospitalCell.swift in Sources */,
@@ -733,7 +735,7 @@
 				95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */,
 				7F283DA1237C15B800724AC9 /* PatientCell.swift in Sources */,
 				95091EDA2383F0FE00EA0782 /* DoctorList.swift in Sources */,
-				95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */,
+
 				7F283D9B237C12C400724AC9 /* PatientList.swift in Sources */,
 				B73FC6A923796C8A000B4A67 /* ButtonRS.swift in Sources */,
 				95091EDC2383F18B00EA0782 /* DoctorListView.swift in Sources */,
@@ -837,7 +839,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -891,7 +893,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

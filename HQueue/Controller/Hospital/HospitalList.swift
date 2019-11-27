@@ -10,34 +10,28 @@ import UIKit
 
 class HospitalList: UITableViewController {
     
+    var networkManager: NetworkManager!
+    var currentPage = 1
+    
     @IBOutlet var viewCardHandler: UIView!
     
-    var hospitals: [Hospital] = [
-        Hospital(id: 123, name: "RS Sumber Waras", address: "Jl. Cempaka 40, Jakarta Timur"),
-        Hospital(id: 122, name: "RSIA Putra Mahkota", address: "Jl. Lumbung 40, Jakarta Timur"),
-        Hospital(id: 121, name: "RSUD Cakung", address: "Jl. Cempaka 40, Bekasi")
-    ]
+    var hospitals: [Hospital] = []
     
     var searchController = UISearchController()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.networkManager = NetworkManager()
+        
+        self.tableView.refreshControl = refreshControler
+        
         self.title = "Hospitals"
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Test", style: .plain, target: self, action: nil)
         self.tableView.register(UINib(nibName: "HospitalCell", bundle: nil), forCellReuseIdentifier: "HospitalCell")
         
-        searchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            //controller.dimsBackgroundDuringPresentation = false // iOS 12
-            controller.searchBar.sizeToFit()
-            controller.searchBar.placeholder = "Cari rumah sakit .."
-            tableView.tableHeaderView = controller.searchBar
-
-            return controller
-        })()
+        setUpSearchControll()
         
+        fetchDataHospital(search: nil, isPullRefresh: false)
         self.tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -48,7 +42,6 @@ class HospitalList: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
@@ -58,9 +51,8 @@ class HospitalList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCell", for: indexPath) as! HospitalCell
-
-        cell.titleLabel.text = hospitals[indexPath.row].name
-        cell.addressLabel.text = hospitals[indexPath.row].address
+        
+        cell.setHospitalCard(hospitals[indexPath.row])
         
         return cell
     }
@@ -103,6 +95,7 @@ class HospitalList: UITableViewController {
     */
 
     /*
+     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -114,21 +107,90 @@ class HospitalList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = HospitalDetail()
+        vc.hospital = hospitals[indexPath.row]
         vc.title = hospitals[indexPath.row].name
         vc.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // MARK: - Refresh Controll
+    
+    lazy var refreshControler: UIRefreshControl = {
+        let refreshControler = UIRefreshControl()
+        refreshControler.addTarget(self, action: #selector(hadleRefresh), for: .valueChanged)
+        
+        return refreshControler
+    }()
+    
+    @objc private func hadleRefresh(_ sender: Any) {
+        self.fetchDataHospital(search: nil, isPullRefresh: true)
+    }
+    
+    
+    // MARK: - Fetching hospital's data
+    @objc private func fetchDataHospital(search: String?, isPullRefresh:Bool = false) {
+        
+        let searchText = self.searchController.searchBar.text
+        
+        networkManager.getHospital(search: searchText, page: currentPage) { (data, error) in
+            if let error = error {
+                print("Fetching hospital data - error", error)
+            }
+            
+            if let data = data {
+                print("Fetching hospital data", data)
+                self.hospitals = data.data
+                DispatchQueue.main.async {
+                 self.tableView.reloadData()
+                }
+            }
+            
+            if isPullRefresh {
+                 DispatchQueue.main.async {
+                     self.refreshControler.endRefreshing()
+                 }
+            }
+        }
+    }
+    
+   // MARK: - Search Controll
+       
+   fileprivate func setUpSearchControll() {
+    searchController = ({
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchResultsUpdater = self
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.hidesNavigationBarDuringPresentation = false
+        controller.delegate = self
+        controller.searchBar.delegate = self
+        controller.searchBar.sizeToFit()
+        controller.searchBar.placeholder = "Cari rumah sakit .."
+        tableView.tableHeaderView = controller.searchBar
+           
+           return controller
+    })()
+   }
+    
 }
 
-extension HospitalList: UISearchResultsUpdating {
+extension HospitalList: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
-        let searchText = self.searchController.searchBar.text!
+        //
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(fetchDataHospital), object: nil)
         
-        print(searchText)
-        // Ambil data dari endpoint berdasarkan pencarian.
-        // Code.
-        
-        self.tableView.reloadData()
+        self.perform(#selector(fetchDataHospital(search:isPullRefresh:)), with: nil, afterDelay: 0.8)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        //
+    }
+    
+    // reset pencarian
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        self.fetchDataHospital(search: nil, isPullRefresh: false)
     }
 }

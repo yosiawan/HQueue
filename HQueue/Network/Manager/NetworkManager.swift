@@ -9,9 +9,9 @@
 import Foundation
 
 struct NetworkManager {
-    
-//    static let QueueAPIKEY = "kweueue"
+
     private let router = Router<HQAuthAPI>()
+    private let routerHospital = Router<HospitalAPI>()
 
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         switch response.statusCode {
@@ -42,10 +42,11 @@ struct NetworkManager {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
                     }
-                    // print(String(bytes: responseData, encoding: .utf8))
+                    //print(String(bytes: responseData, encoding: .utf8))
                     do {
                         //print( String(bytes: responseData, encoding: .utf8) )
                         let data = try JSONDecoder().decode(HQAuth.self, from: responseData)
+                        print(data)
                         completion(data, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
@@ -58,7 +59,6 @@ struct NetworkManager {
     }
     
     func sigupAndCretePatient(newAuth: HQAuth, newPass: String, patientData: Patient, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> ()) {
-        print([newAuth, patientData])
         router.request(.signup(email: newAuth.email, name: newAuth.name, password: newPass, phoneNumber: newAuth.phoneNumber), completion: {data, response, error in
             if error != nil {
                 completion(nil, "Please check your connection")
@@ -141,6 +141,68 @@ struct NetworkManager {
                    completion(nil, networkFailureError)
                }
            }
+        }
+    }
+    
+    func getHospital(search: String?, page: Int = 1, completion: @escaping(_ data: HostpitalResponse?, _ error: String?) -> ()) {
+        routerHospital.request(.getHospital(search: search, page: page)) { (data, response, error) in
+            if error != nil {
+                completion(nil, "Please check your connection")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+                        //print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        let data = try JSONDecoder().decode(HostpitalResponse.self, from: responseData)
+                        //print(#function, data)
+                        completion(data, nil)
+                    }catch{
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
+                    completion(nil, networkFailurError)
+                }
+            }
+        }
+    }
+    
+    func getPoli(hospitalId: String, search: String?, page: Int = 1, completion: @escaping(_ data: PoliResponse?, _ error: String?) -> ()) {
+        routerHospital.request(.getPoli(hospitalId: hospitalId, search: search, page: page)) { (data, response, error) in
+            if error != nil {
+                completion(nil, "Please check your connection")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+//                        print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        let data = try JSONDecoder().decode(PoliResponse.self, from: responseData)
+                        //print(#function, data)
+                        completion(data, nil)
+                    }catch{
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
+                    completion(nil, networkFailurError)
+                }
+            }
         }
     }
 }
