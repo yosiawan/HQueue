@@ -9,6 +9,9 @@
 import UIKit
 
 class AccountController: UIViewController {
+    
+    var networkManager: NetworkManager!
+    var profile: HUser?
 
     @IBOutlet var loggedView: UIView!
     @IBOutlet var guestView: UIView!
@@ -24,9 +27,12 @@ class AccountController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.networkManager = NetworkManager()
+        
         if UserDefaults.standard.string(forKey: "authToken") != nil {
             let editBarItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfileAction))
             self.navigationItem.setRightBarButton(editBarItem, animated: false)
+            
         }
         
         setupView()
@@ -54,8 +60,10 @@ class AccountController: UIViewController {
         
         if UserDefaults.standard.string(forKey: "authToken") != nil {
             self.view = loggedView
-            self.nameField.text = UserDefaults.standard.string(forKey: "authName")
-            self.emailField.text = UserDefaults.standard.string(forKey: "authEmail")
+            self.fetchingData()
+            self.nameField.text = self.profile?.name
+            self.emailField.text = self.profile?.email
+            self.phoneNumberField.text = self.profile?.phoneNumber
         }else{
             self.view = guestView
         }
@@ -92,5 +100,16 @@ class AccountController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "authToken")
         self.navigationItem.setRightBarButton(nil, animated: false)
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func fetchingData() {
+        self.networkManager.getProfile { (data, error) in
+            if error != nil {
+                //print("Account - get profile", error)
+            }
+            if let data = data {
+                self.profile = data
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pablo-come-back-later" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-Cf-J4T">
-                    <rect key="frame" x="0.0" y="104" width="414" height="239.00000000000006"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="239"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="239" id="TPf-q5-ddd"/>
                     </constraints>

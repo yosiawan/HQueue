@@ -49,7 +49,7 @@ extension HQAuthAPI: EndPointType {
         case .signup(let email, let name, let password, let phoneNumber):
             return .requestParameters(bodyParameters: ["email": email, "name": name, "password": password, "c_password": password, "phone_number": phoneNumber], urlParameters: nil)
         case .getProfile:
-            return .request
+            return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "authToken") ?? "")"])
         }
     }
     
