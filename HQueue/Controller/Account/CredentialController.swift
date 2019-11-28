@@ -23,7 +23,7 @@ class CredentialController: UIViewController {
     }
     
     @objc func doneAction() {
-        let newAuth = HQAuth(name: "Adi", phoneNumber: "0897776634", email: "faridho+4@roketdigital.com", token: "")
+        let newAuth = HQAuth(name: "Adi", email: "faridho@roketdigital.com", token: nil, phoneNumber: "089777872")
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let dob = formatter.date(from: "2016-10-08")
