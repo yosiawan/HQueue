@@ -14,9 +14,9 @@ class DoctorListCell: UITableViewCell {
     var doctorName = UILabel()
     var jadwalTitle = UILabel()
     let queueCounterContainer = UIView()
-
-    var jadwal1 = "08.00"
-    var jadwal2 = "12.00"
+    
+    let labelJadwal1 = UILabel()
+    let labelJadwal2 = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,8 +64,6 @@ class DoctorListCell: UITableViewCell {
         constraints.append(contentsOf: jadwalTitleConstraints)
         
         // MARK: - Jadwal List
-        let labelJadwal1 = UILabel()
-        labelJadwal1.text = jadwal1
         self.contentView.addSubview(labelJadwal1)
         labelJadwal1.translatesAutoresizingMaskIntoConstraints = false
         let labelJadwal1Constraints = [
@@ -74,8 +72,6 @@ class DoctorListCell: UITableViewCell {
         ]
         constraints.append(contentsOf: labelJadwal1Constraints)
         
-        let labelJadwal2 = UILabel()
-        labelJadwal2.text = jadwal2
         self.contentView.addSubview(labelJadwal2)
         labelJadwal2.translatesAutoresizingMaskIntoConstraints = false
         let labelJadwal2Constraints = [

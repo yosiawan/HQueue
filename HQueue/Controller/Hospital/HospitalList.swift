@@ -31,7 +31,7 @@ class HospitalList: UITableViewController {
         
         setUpSearchControll()
         
-        fetchDataHospital(search: nil, isPullRefresh: false)
+        fetchDataHospital( isPullRefresh: false)
         self.tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -123,12 +123,12 @@ class HospitalList: UITableViewController {
     }()
     
     @objc private func hadleRefresh(_ sender: Any) {
-        self.fetchDataHospital(search: nil, isPullRefresh: true)
+        self.fetchDataHospital( isPullRefresh: true)
     }
     
     
     // MARK: - Fetching hospital's data
-    @objc private func fetchDataHospital(search: String?, isPullRefresh:Bool = false) {
+    @objc private func fetchDataHospital(isPullRefresh:Bool = false) {
         
         let searchText = self.searchController.searchBar.text
         
@@ -181,7 +181,7 @@ extension HospitalList: UISearchResultsUpdating, UISearchControllerDelegate, UIS
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(fetchDataHospital), object: nil)
         
-        self.perform(#selector(fetchDataHospital(search:isPullRefresh:)), with: nil, afterDelay: 0.8)
+        self.perform(#selector(fetchDataHospital(isPullRefresh:)), with: nil, afterDelay: 0.8)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -191,6 +191,6 @@ extension HospitalList: UISearchResultsUpdating, UISearchControllerDelegate, UIS
     // reset pencarian
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
-        self.fetchDataHospital(search: nil, isPullRefresh: false)
+        self.fetchDataHospital(isPullRefresh: false)
     }
 }

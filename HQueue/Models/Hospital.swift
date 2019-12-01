@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct HostpitalResponse {
+struct HospitalResponse {
     let current_page: Int
     let total: Int
     let last_page: Int
     let data: [Hospital]
 }
 
-extension HostpitalResponse: Decodable {
+extension HospitalResponse: Decodable {
     private enum HospitalResponseCodingKeys: String, CodingKey {
         case current_page = "current_page"
         case total = "total"
