@@ -83,7 +83,65 @@ struct NetworkManager {
                     completion(nil, networkFailureError)
                 }
             }
-        });
+        })
+    }
+    
+    func getProfile(completion: @escaping(_ auth: HUser?, _ error: String?) -> ()) {
+        router.request(.getProfile) { (data, response, error) in
+            if error != nil {
+                completion(nil, "Please check your conection")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result =  self .handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        //print( String(bytes: responseData, encoding: .utf8) )
+                        let data = try JSONDecoder().decode(HUser.self, from: responseData)
+                        completion(data, nil)
+                    } catch {
+                        //print(#function, decoderError )
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    func postProfile(profile: HUser, completion: @escaping(_ auth: HUser?, _ error: String?) -> ()) {
+        router.request(.postProfile(user: profile)) { (data, response, error) in
+            if error != nil {
+               completion(nil, "Please check your conection")
+           }
+           
+           if let response = response as? HTTPURLResponse {
+               let result =  self .handleNetworkResponse(response)
+               switch result {
+               case .success:
+                   guard let responseData = data else {
+                       completion(nil, NetworkResponse.noData.rawValue)
+                       return
+                   }
+                   do {
+                       //print( String(bytes: responseData, encoding: .utf8) )
+                       let data = try JSONDecoder().decode(HUser.self, from: responseData)
+                       completion(data, nil)
+                   } catch {
+                       //print(#function, decoderError )
+                       completion(nil, NetworkResponse.unableToDecode.rawValue)
+                   }
+               case .failure(let networkFailureError):
+                   completion(nil, networkFailureError)
+               }
+           }
+        }
     }
     
     func getHospital(search: String?, page: Int = 1, completion: @escaping(_ data: HospitalResponse?, _ error: String?) -> ()) {

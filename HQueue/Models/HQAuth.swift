@@ -8,11 +8,28 @@
 
 import Foundation
 
+/*
+struct HQAuthResponse {
+    let data: HQAuth
+}
+
+extension HQAuthResponse: Decodable {
+    enum HQAuthResponseCodingKeys: String, CodingKey {
+        case data = "data"
+    }
+    
+    init(form decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: HQAuthResponseCodingKeys.self)
+        data = try container.decode(HQAuth.self, forKey: .data)
+    }
+}
+*/
+
 struct HQAuth {
     let name: String
-    let phoneNumber: String
     let email: String
     let token: String?
+    let phoneNumber: String
 }
 
 extension HQAuth: Decodable {
