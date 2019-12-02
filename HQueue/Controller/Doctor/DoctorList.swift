@@ -64,6 +64,11 @@ class DoctorList: UIViewController {
     }
     */
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DoctorDetail()
+        self.navigationController?.pushViewController(vc, animated:true)
+    }
+    
     // MARK: - Refresh Controll
     lazy var refreshControler: UIRefreshControl = {
         let refreshControler = UIRefreshControl()

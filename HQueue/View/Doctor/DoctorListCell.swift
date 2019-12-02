@@ -23,6 +23,8 @@ class DoctorListCell: UITableViewCell {
 
         var constraints = [NSLayoutConstraint]()
         
+        self.selectionStyle = .none
+        
         // MARK: - Doctor Image
         doctorImg.layer.cornerRadius = 25
         doctorImg.layer.masksToBounds = true
