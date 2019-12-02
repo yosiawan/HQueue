@@ -31,12 +31,16 @@ class HomeQueueController: UIViewController {
             self.cardViewController.isNavigationBarHidden = true
             self.cardViewController.navigationBar.prefersLargeTitles = true
             self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
+            self.hospitalList.tableView.contentOffset.y = 1.5
+            self.hospitalList.tableView.isScrollEnabled = false
             return .collapsed
         }else{
             self.navigationController?.isNavigationBarHidden = true
             self.cardViewController.isNavigationBarHidden = false
             self.cardViewController.navigationBar.prefersLargeTitles = true
             self.hospitalList.viewCardHandler.removeFromSuperview()
+            self.hospitalList.tableView.isScrollEnabled = true
+            self.hospitalList.tableView.setContentOffset(CGPoint(x: 0, y: -100), animated: true)
             return .expanded
         }
     }
