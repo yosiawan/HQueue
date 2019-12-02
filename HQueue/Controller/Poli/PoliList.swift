@@ -97,7 +97,7 @@ class PoliList: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DoctorList()
         vc.currentPoli = poliList[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

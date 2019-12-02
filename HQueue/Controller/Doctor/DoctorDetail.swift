@@ -32,6 +32,10 @@ class DoctorDetail: UIViewController {
         super.viewDidLoad()
         createSubviews()
     }
+    
+    func setupView(_ doctor: Doctor) {
+        doctorName.text = doctor.name
+    }
 }
 
 // MARK: - Flow Extension
