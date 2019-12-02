@@ -17,7 +17,7 @@ extension DoctorList {
 
         // MARK: - Nama Poli
         self.view.addSubview(namaPoli)
-        namaPoli.text = "Spesialis Anak"
+        //namaPoli.text = "Spesialis Anak"
         namaPoli.font = UIFont.boldSystemFont(ofSize: 13)
         namaPoli.translatesAutoresizingMaskIntoConstraints = false
         let namaPoliConstraints = [

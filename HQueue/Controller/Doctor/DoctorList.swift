@@ -50,8 +50,11 @@ class DoctorList: UIViewController {
             return controller
         })()
         self.setupConstraints()
-        
+
         self.fetchingData()
+        
+        // Data Poli
+        namaPoli.text = currentPoli.name
     }
 
     /*
