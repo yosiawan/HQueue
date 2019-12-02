@@ -29,7 +29,7 @@ extension DoctorDetail {
         
         //  MARK: - Doctor Name
         doctorName.font = UIFont.boldSystemFont(ofSize: 22)
-        doctorName.text = "Dr. Farida Putri Batubara S.AP, S.Si"
+        //doctorName.text = "Dr. Farida Putri Batubara S.AP, S.Si"
         doctorName.numberOfLines = 2
         self.view.addSubview(doctorName)
         doctorName.translatesAutoresizingMaskIntoConstraints = false

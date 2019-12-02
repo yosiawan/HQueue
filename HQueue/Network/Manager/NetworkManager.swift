@@ -144,7 +144,7 @@ struct NetworkManager {
         }
     }
     
-    func getHospital(search: String?, page: Int = 1, completion: @escaping(_ data: HostpitalResponse?, _ error: String?) -> ()) {
+    func getHospital(search: String?, page: Int = 1, completion: @escaping(_ data: HospitalResponse?, _ error: String?) -> ()) {
         routerHospital.request(.getHospital(search: search, page: page)) { (data, response, error) in
             if error != nil {
                 completion(nil, "Please check your connection")
@@ -161,7 +161,7 @@ struct NetworkManager {
                     
                     do {
                         //print(#function, String( bytes: responseData, encoding: .utf8)  )
-                        let data = try JSONDecoder().decode(HostpitalResponse.self, from: responseData)
+                        let data = try JSONDecoder().decode(HospitalResponse.self, from: responseData)
                         //print(#function, data)
                         completion(data, nil)
                     }catch{
@@ -196,6 +196,38 @@ struct NetworkManager {
                         //print(#function, data)
                         completion(data, nil)
                     }catch{
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
+                    completion(nil, networkFailurError)
+                }
+            }
+        }
+    }
+    
+    func getDoctor(search: String? ,poli: Poli, page: Int = 1, completion: @escaping(_ data: DoctorResponse?, _ error: String?) -> ()) {
+        routerHospital.request(.getDoctor(search: search, poli: poli, page: page)) { (data, response, error) in
+            if error != nil {
+                completion(nil, "Please check your connection")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+                        //print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        let data = try JSONDecoder().decode(DoctorResponse.self, from: responseData)
+                        //print(#function, data)
+                        completion(data, nil)
+                    }catch{
+                        //print(#function, errorDecode)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                     

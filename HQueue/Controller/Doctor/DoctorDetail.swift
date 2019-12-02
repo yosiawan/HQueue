@@ -9,7 +9,6 @@
 import UIKit
 
 class DoctorDetail: UIViewController {
-
     var timeOptions = ["08.30"]
     var logoNames = ["admedika-logo", "mandiri-logo", "gardaOTO-logo"]
     
@@ -32,6 +31,10 @@ class DoctorDetail: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createSubviews()
+    }
+    
+    func setupView(_ doctor: Doctor) {
+        doctorName.text = doctor.name
     }
 }
 
@@ -80,5 +83,8 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
 //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
 //        }
 //    }
+    
+    
 }
+
 
