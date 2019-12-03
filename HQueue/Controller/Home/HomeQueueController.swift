@@ -31,7 +31,7 @@ class HomeQueueController: UIViewController {
             self.cardViewController.isNavigationBarHidden = true
             self.cardViewController.navigationBar.prefersLargeTitles = true
             self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
-            self.hospitalList.tableView.contentOffset.y = 1.5
+            self.hospitalList.tableView.contentOffset.y = 1.8
             self.hospitalList.tableView.isScrollEnabled = false
             return .collapsed
         }else{
@@ -127,7 +127,7 @@ class HomeQueueController: UIViewController {
         let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
         
         
-        self.hospitalList.viewCardHandler.addGestureRecognizer(tapGestureRecognizer)
+        self.hospitalList.btnCardHandler.addGestureRecognizer(tapGestureRecognizer)
         rightBtn.addGestureRecognizer(tapGestureRecognizer2)
         
         /*

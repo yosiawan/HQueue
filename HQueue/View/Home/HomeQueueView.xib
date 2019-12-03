@@ -2,12 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeQueueController" customModule="HQueue" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeQueueController" customModule="Antridoc" customModuleProvider="target">
             <connections>
                 <outlet property="accountTumb" destination="cA3-Gi-ilg" id="Ptj-R8-yhj"/>
                 <outlet property="userLabel" destination="Kxu-0p-v3X" id="FQm-u2-Dlq"/>
@@ -22,7 +22,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_4x" translatesAutoresizingMaskIntoConstraints="NO" id="bbH-YS-02K">
                     <rect key="frame" x="0.0" y="78" width="414" height="473"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siP-IN-shJ" customClass="QueueArea" customModule="HQueue" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siP-IN-shJ" customClass="QueueArea" customModule="Antridoc" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="494" width="414" height="402"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antrian Kamu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-T4-Bjb">
@@ -31,16 +31,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ 09:00-10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynn-rX-ma7">
-                            <rect key="frame" x="256" y="35" width="133" height="33"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="33" id="BQh-ZY-65q"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" red="0.42745098039215684" green="0.44705882352941173" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQQ-Qu-01F" customClass="QueueNumberArea" customModule="HQueue" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQQ-Qu-01F" customClass="QueueNumberArea" customModule="Antridoc" customModuleProvider="target">
                             <rect key="frame" x="25" y="106" width="88" height="136"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sisa Antrian" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWN-yM-YCQ">
@@ -50,8 +41,8 @@
                                     <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL9-tv-EIb">
-                                    <rect key="frame" x="26" y="69" width="37" height="36"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL9-tv-EIb">
+                                    <rect key="frame" x="34" y="69" width="21" height="36"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                     <color key="textColor" red="1" green="0.6705882352941176" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,41 +55,47 @@
                                 <constraint firstAttribute="height" constant="136" id="f4n-1h-SGG"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS Parido Has A Long N…" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l4-Bk-4N3">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum ada antrian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l4-Bk-4N3">
                             <rect key="frame" x="138" y="116" width="251" height="30"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poli Anak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCW-bK-fKY">
-                            <rect key="frame" x="138" y="156" width="251" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih &quot;Cari RS&quot; untuk memulai antrian" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCW-bK-fKY">
+                            <rect key="frame" x="138" y="156" width="251" height="41"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Faridha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGC-8p-jTw">
-                            <rect key="frame" x="138" y="187" width="251" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGC-8p-jTw">
+                            <rect key="frame" x="138" y="207" width="251" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.42745098039215684" green="0.44705882352941173" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfA-2E-2f6">
+                            <rect key="frame" x="336" y="38" width="53" height="30"/>
+                            <state key="normal" title="Riwayat">
+                                <color key="titleColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="WGC-8p-jTw" firstAttribute="leading" secondItem="YQQ-Qu-01F" secondAttribute="trailing" constant="25" id="1Nx-wt-UiY"/>
                         <constraint firstItem="YQQ-Qu-01F" firstAttribute="leading" secondItem="siP-IN-shJ" secondAttribute="leading" constant="25" id="6eW-h3-i5O"/>
-                        <constraint firstItem="ynn-rX-ma7" firstAttribute="top" secondItem="siP-IN-shJ" secondAttribute="top" constant="35" id="EwV-kx-5Xq"/>
                         <constraint firstAttribute="trailing" secondItem="4l4-Bk-4N3" secondAttribute="trailing" constant="25" id="MHz-g5-zwa"/>
                         <constraint firstAttribute="trailing" secondItem="UCW-bK-fKY" secondAttribute="trailing" constant="25" id="QFI-NG-HXd"/>
                         <constraint firstItem="UCW-bK-fKY" firstAttribute="leading" secondItem="YQQ-Qu-01F" secondAttribute="trailing" constant="25" id="QXS-23-5t9"/>
                         <constraint firstAttribute="trailing" secondItem="WGC-8p-jTw" secondAttribute="trailing" constant="25" id="S8b-FT-zJI"/>
                         <constraint firstItem="UUs-T4-Bjb" firstAttribute="top" secondItem="siP-IN-shJ" secondAttribute="top" constant="35" id="a6n-Uk-2wf"/>
                         <constraint firstItem="UUs-T4-Bjb" firstAttribute="leading" secondItem="siP-IN-shJ" secondAttribute="leading" constant="25" id="abZ-Yd-XqO"/>
-                        <constraint firstAttribute="trailing" secondItem="ynn-rX-ma7" secondAttribute="trailing" constant="25" id="awY-JK-rmT"/>
                         <constraint firstItem="YQQ-Qu-01F" firstAttribute="top" secondItem="UUs-T4-Bjb" secondAttribute="bottom" constant="35" id="dZ2-x3-K20"/>
                         <constraint firstItem="4l4-Bk-4N3" firstAttribute="leading" secondItem="YQQ-Qu-01F" secondAttribute="trailing" constant="25" id="fgk-IL-4Ia"/>
+                        <constraint firstAttribute="trailing" secondItem="YfA-2E-2f6" secondAttribute="trailing" constant="25" id="hsX-W8-BUK"/>
                         <constraint firstAttribute="height" constant="402" id="iER-K2-lUX"/>
                         <constraint firstItem="UCW-bK-fKY" firstAttribute="top" secondItem="4l4-Bk-4N3" secondAttribute="bottom" constant="10" id="nmP-b7-mfz"/>
+                        <constraint firstItem="YfA-2E-2f6" firstAttribute="top" secondItem="siP-IN-shJ" secondAttribute="top" constant="38" id="oLF-ex-9nC"/>
                         <constraint firstItem="4l4-Bk-4N3" firstAttribute="top" secondItem="UUs-T4-Bjb" secondAttribute="bottom" constant="45" id="ryx-AZ-rYL"/>
                         <constraint firstItem="WGC-8p-jTw" firstAttribute="top" secondItem="UCW-bK-fKY" secondAttribute="bottom" constant="10" id="uAj-M6-Bk5"/>
                     </constraints>
@@ -132,7 +129,7 @@
                 <action selector="tapAccount:" destination="-1" id="DHs-Oc-M6W"/>
             </connections>
         </tapGestureRecognizer>
-        <view contentMode="scaleToFill" id="cA3-Gi-ilg" customClass="AccountThumbnail" customModule="HQueue" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="cA3-Gi-ilg" customClass="AccountThumbnail" customModule="Antridoc" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
