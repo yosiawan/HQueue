@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeQueueController" customModule="Antridoc" customModuleProvider="target">
             <connections>
-                <outlet property="accountTumb" destination="cA3-Gi-ilg" id="Ptj-R8-yhj"/>
+                <outlet property="accountBtn" destination="ugI-ie-bkl" id="pNq-ZH-XOa"/>
                 <outlet property="userLabel" destination="Kxu-0p-v3X" id="FQm-u2-Dlq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="NW9-dJ-ldA"/>
             </connections>
@@ -100,64 +100,46 @@
                         <constraint firstItem="WGC-8p-jTw" firstAttribute="top" secondItem="UCW-bK-fKY" secondAttribute="bottom" constant="10" id="uAj-M6-Bk5"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, [User]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxu-0p-v3X">
-                    <rect key="frame" x="20" y="44" width="114" height="34"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo, Sobat Sehat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxu-0p-v3X">
+                    <rect key="frame" x="20" y="44" width="225.5" height="34"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="Yw2-rY-cvq"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugI-ie-bkl">
+                    <rect key="frame" x="354" y="41" width="40" height="40"/>
+                    <color key="backgroundColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="mut-2h-oYw"/>
+                        <constraint firstAttribute="height" constant="40" id="xa9-EV-3XR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <state key="normal" title="N">
+                        <color key="titleColor" red="0.98736125230789185" green="0.96838933229446411" blue="0.94228070974349976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="tapAccount:" destination="-1" eventType="touchUpInside" id="czr-ST-oKF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="siP-IN-shJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1VB-4t-HAg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ugI-ie-bkl" secondAttribute="trailing" constant="20" id="2Ds-rN-fJW"/>
                 <constraint firstAttribute="bottom" secondItem="siP-IN-shJ" secondAttribute="bottom" id="3NT-ai-2t9"/>
                 <constraint firstItem="Kxu-0p-v3X" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="EPx-eO-Fsx"/>
                 <constraint firstItem="bbH-YS-02K" firstAttribute="top" secondItem="Kxu-0p-v3X" secondAttribute="bottom" id="c7q-ee-b3O"/>
                 <constraint firstItem="bbH-YS-02K" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cJw-uc-NJK"/>
+                <constraint firstItem="ugI-ie-bkl" firstAttribute="centerY" secondItem="Kxu-0p-v3X" secondAttribute="centerY" id="fXZ-G9-u6y"/>
                 <constraint firstItem="Kxu-0p-v3X" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="iqz-yM-Td9"/>
                 <constraint firstItem="bbH-YS-02K" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="naW-1J-HUM"/>
                 <constraint firstItem="siP-IN-shJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="qn7-Rm-qXg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>
-        </view>
-        <tapGestureRecognizer id="Cs2-08-sBY">
-            <connections>
-                <action selector="tapAccount:" destination="-1" id="DHs-Oc-M6W"/>
-            </connections>
-        </tapGestureRecognizer>
-        <view contentMode="scaleToFill" id="cA3-Gi-ilg" customClass="AccountThumbnail" customModule="Antridoc" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izF-xZ-GfM">
-                    <rect key="frame" x="5" y="5" width="40" height="40"/>
-                    <color key="backgroundColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="40" id="HJY-gp-3je"/>
-                        <constraint firstAttribute="height" constant="40" id="dga-Qo-Oj7"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <gestureRecognizers/>
-            <constraints>
-                <constraint firstItem="izF-xZ-GfM" firstAttribute="centerY" secondItem="cA3-Gi-ilg" secondAttribute="centerY" id="cOd-bv-lW7"/>
-                <constraint firstItem="izF-xZ-GfM" firstAttribute="centerX" secondItem="cA3-Gi-ilg" secondAttribute="centerX" id="sb5-Fq-SUH"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="Agd-5K-edP"/>
-            <connections>
-                <outlet property="initialName" destination="izF-xZ-GfM" id="w6C-7J-vZe"/>
-                <outletCollection property="gestureRecognizers" destination="Cs2-08-sBY" appends="YES" id="a6r-4j-6uv"/>
-            </connections>
-            <point key="canvasLocation" x="910.14492753623199" y="-71.651785714285708"/>
         </view>
     </objects>
     <resources>

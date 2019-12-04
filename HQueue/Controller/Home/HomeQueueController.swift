@@ -10,8 +10,8 @@ import UIKit
 
 class HomeQueueController: UIViewController {
     
-    @IBOutlet weak var accountTumb: AccountThumbnail!
     @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var accountBtn: UIButton!
     
     enum CardState {
         case expanded
@@ -33,6 +33,7 @@ class HomeQueueController: UIViewController {
             self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
             self.hospitalList.tableView.contentOffset.y = 1.8
             self.hospitalList.tableView.isScrollEnabled = false
+            self.visualEffectView.alpha = 0
             return .collapsed
         }else{
             self.navigationController?.isNavigationBarHidden = true
@@ -41,6 +42,7 @@ class HomeQueueController: UIViewController {
             self.hospitalList.viewCardHandler.removeFromSuperview()
             self.hospitalList.tableView.isScrollEnabled = true
             self.hospitalList.tableView.setContentOffset(CGPoint(x: 0, y: -100), animated: true)
+            self.visualEffectView.alpha = 1
             return .expanded
         }
     }
@@ -56,10 +58,9 @@ class HomeQueueController: UIViewController {
     fileprivate func checkAuth() {
         if UserDefaults.standard.string(forKey: "authToken") != nil {
             let nameuser = UserDefaults.standard.string(forKey: "authName")!
-            self.userLabel.text = "Hi, \(nameuser)"
-            self.userLabel.alpha = 1
+            self.userLabel.text = "Halo, \(nameuser)"
         }else{
-            self.userLabel.alpha = 0
+            self.userLabel.text = "Halo, Sobat Sehat"
         }
     }
     
@@ -70,17 +71,14 @@ class HomeQueueController: UIViewController {
         self.hospitalList = HospitalList()
 
         self.title = "My Queue"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: accountTumb)
-        accountTumb.translatesAutoresizingMaskIntoConstraints = false // Add contraint
-        accountTumb.widthAnchor.constraint(equalToConstant: accountTumb.frame.height).isActive = true
-        accountTumb.heightAnchor.constraint(equalToConstant: accountTumb.frame.height).isActive = true
-        
-        // Setup home navigation
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.titleView = UIView()
+        self.setTransparantNav()
         
         // set height by main view
         cardHeight = self.view.frame.height - 44
+        
+        // Setup view
+        self.accountBtn.layer.cornerRadius = self.accountBtn.frame.height / 2
         
         checkAuth()
         setupCard()
@@ -103,6 +101,7 @@ class HomeQueueController: UIViewController {
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.view.frame
         self.view.addSubview(visualEffectView)
+        self.visualEffectView.alpha = 0
         
         cardViewController = UINavigationController(rootViewController: hospitalList)
         cardViewController.isNavigationBarHidden = true

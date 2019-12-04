@@ -21,7 +21,7 @@ class InsuranceCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.contentView.layer.cornerRadius = 25
+        self.contentView.layer.cornerRadius = 6
 
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor).isActive = true
