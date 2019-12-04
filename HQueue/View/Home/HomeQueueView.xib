@@ -133,22 +133,28 @@
             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izF-xZ-GfM">
-                    <rect key="frame" x="16" y="10" width="18.5" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izF-xZ-GfM">
+                    <rect key="frame" x="5" y="5" width="40" height="40"/>
+                    <color key="backgroundColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="HJY-gp-3je"/>
+                        <constraint firstAttribute="height" constant="40" id="dga-Qo-Oj7"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.11764705882352941" green="0.2627450980392157" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="izF-xZ-GfM" firstAttribute="centerY" secondItem="cA3-Gi-ilg" secondAttribute="centerY" id="W0W-yP-UUR"/>
-                <constraint firstItem="izF-xZ-GfM" firstAttribute="centerX" secondItem="cA3-Gi-ilg" secondAttribute="centerX" id="nBz-Ef-YiK"/>
+                <constraint firstItem="izF-xZ-GfM" firstAttribute="centerY" secondItem="cA3-Gi-ilg" secondAttribute="centerY" id="cOd-bv-lW7"/>
+                <constraint firstItem="izF-xZ-GfM" firstAttribute="centerX" secondItem="cA3-Gi-ilg" secondAttribute="centerX" id="sb5-Fq-SUH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Agd-5K-edP"/>
             <connections>
+                <outlet property="initialName" destination="izF-xZ-GfM" id="w6C-7J-vZe"/>
                 <outletCollection property="gestureRecognizers" destination="Cs2-08-sBY" appends="YES" id="a6r-4j-6uv"/>
             </connections>
             <point key="canvasLocation" x="910.14492753623199" y="-71.651785714285708"/>

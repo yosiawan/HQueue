@@ -17,11 +17,11 @@ class QueueArea: UIView {
         
         
         self.layer.cornerRadius = radius
-        self.layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        self.layer.shadowOffset = CGSize(width: -10, height: -10)
-        self.layer.shadowRadius = radius
-        self.layer.shadowOpacity = 1
-        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        //self.layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        //self.layer.shadowOffset = CGSize(width: -10, height: -10)
+        //self.layer.shadowRadius = radius
+        //self.layer.shadowOpacity = 1
+        //self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         
     }
 

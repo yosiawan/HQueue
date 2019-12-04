@@ -10,9 +10,16 @@ import UIKit
 
 class AccountThumbnail: UIView {
 
+    @IBOutlet weak var initialName: UILabel!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.layer.cornerRadius = 22
+        
+    }
+    
+    override func didMoveToSuperview() {
+        self.initialName.layer.cornerRadius = self.initialName.frame.height / 2
+        self.initialName.layer.masksToBounds = true
     }
     
     /*
