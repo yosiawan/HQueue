@@ -50,8 +50,11 @@ class DoctorList: UIViewController {
             return controller
         })()
         self.setupConstraints()
-        
+
         self.fetchingData()
+        
+        // Data Poli
+        namaPoli.text = currentPoli.name
     }
 
     /*
@@ -67,6 +70,7 @@ class DoctorList: UIViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DoctorDetail()
         vc.setupView(doctors[indexPath.row])
+        vc.currentHospitalId = currentPoli.hospitalId
         self.navigationController?.pushViewController(vc, animated:true)
     }
     

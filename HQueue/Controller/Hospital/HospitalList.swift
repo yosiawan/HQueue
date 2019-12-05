@@ -14,6 +14,7 @@ class HospitalList: UITableViewController {
     var currentPage = 1
     
     @IBOutlet var viewCardHandler: UIView!
+    @IBOutlet weak var btnCardHandler: UIButton!
     
     var hospitals: [Hospital] = []
     
@@ -28,6 +29,8 @@ class HospitalList: UITableViewController {
         
         self.title = "Hospitals"
         self.tableView.register(UINib(nibName: "HospitalCell", bundle: nil), forCellReuseIdentifier: "HospitalCell")
+        self.btnCardHandler.layer.cornerRadius = self.btnCardHandler.frame.height / 2
+        
         
         setUpSearchControll()
         

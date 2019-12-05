@@ -12,6 +12,7 @@ public enum HospitalAPI {
     case getHospital(search: String?, page: Int)
     case getPoli(hospitalId: String, search: String?, page: Int)
     case getDoctor(search: String? ,poli: Poli, page: Int)
+    case getInsurance(hospital_id: String)
 }
 
 extension HospitalAPI: EndPointType {
@@ -34,12 +35,14 @@ extension HospitalAPI: EndPointType {
             return "/doctor/\(poli.hospitalId)/\(poli.id)"
         case .getDoctor(let search?, let poli, _):
             return "/doctor/\(poli.hospitalId)/\(poli.id)/\(search)"
+        case .getInsurance(let hospital_id):
+            return "/insurance/\(hospital_id)"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getHospital, .getPoli, .getDoctor:
+        case .getHospital, .getPoli, .getDoctor, .getInsurance:
             return .get
         }
     }
@@ -52,6 +55,8 @@ extension HospitalAPI: EndPointType {
             return .requestParameters(bodyParameters: nil, urlParameters: [ "page": page ])
         case .getDoctor(_, _, let page):
             return .requestParameters(bodyParameters: nil, urlParameters: [ "page": page ])
+        case .getInsurance(_):
+            return .request
         }
     }
     

@@ -24,8 +24,9 @@ class HospitalDetail: UIViewController {
         hospitalName.text = hospital.name
         hospitalAddress.text = hospital.address
         hospitalPhone.text = hospital.phoneNumber
+        self.navigationItem.titleView = UIView()
         if let imgUrlString = hospital.photo {
-            hospitalImage.downloaded(from: "http://167.71.203.148/storage/hospitals/\(imgUrlString)")
+            hospitalImage.downloaded(from: "http://167.71.203.148/storage/hospitals/\(imgUrlString)", contentMode: .scaleAspectFill)
         }
     }
     
@@ -46,6 +47,7 @@ class HospitalDetail: UIViewController {
 
     @IBAction func listAsuransiAction(_ sender: Any) {
         let vc = AsuransiList()
+        vc.hospitalId = hospital.id
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

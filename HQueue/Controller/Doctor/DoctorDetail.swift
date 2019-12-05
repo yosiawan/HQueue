@@ -9,8 +9,12 @@
 import UIKit
 
 class DoctorDetail: UIViewController {
+    
+    var networkManager: NetworkManager!
+    var currentHospitalId: String!
+    
     var timeOptions = ["08.30"]
-    var logoNames = ["admedika-logo", "mandiri-logo", "gardaOTO-logo"]
+    var currentInsurances: [Asuransi] = []
     
     let doctorImg = UIImageView()
     let doctorName = UILabel()
@@ -30,11 +34,33 @@ class DoctorDetail: UIViewController {
     // MARK: - VDL
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.networkManager = NetworkManager()
+        
         createSubviews()
+        fetchInsurance()
     }
     
     func setupView(_ doctor: Doctor) {
         doctorName.text = doctor.name
+    }
+    
+    // MARK: - Fetch Data
+    func fetchInsurance() {
+        networkManager.getInsurance(hospital_id: currentHospitalId) { (insurances, error) in
+            if error != "" {
+                //print(#function, error)
+            }
+            
+            if let insurances = insurances {
+                self.currentInsurances = insurances
+                self.currentInsurances.insert(Asuransi(name: "non asuransi", id: "empty"), at: 0)
+                
+                DispatchQueue.main.async {
+                    self.insuranceOptions.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -56,7 +82,11 @@ extension DoctorDetail: UICollectionViewDelegateFlowLayout {
 extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if collectionView.tag == 0 {
+            return 3
+        }else{
+            return currentInsurances.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -67,8 +97,13 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: insuranceCellIdentifier, for: indexPath) as! InsuranceCell
-        let image = UIImage(named: logoNames[indexPath.row])
-        cell.insuranceImg.image = image
+        cell.defaultView.alpha = 0
+        if currentInsurances[indexPath.row].id == "empty" { cell.defaultView.alpha = 1 }
+//        if let insuranceImgUrl = currentInsurances[indexPath.row] {
+//            cell.insuranceImg.downloaded(from: insuranceImgUrl, contentMode: .scaleAspectFill)
+//        }
+        
+        cell.insuranceImg.image = #imageLiteral(resourceName: "admedika-logo")
         return cell
     }
     
