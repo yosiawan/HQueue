@@ -237,6 +237,38 @@ struct NetworkManager {
             }
         }
     }
+    
+    func getInsurance(hospital_id: String, completion: @escaping(_ data: [Asuransi]?, _ error: String?) -> ()) {
+        routerHospital.request(.getInsurance(hospital_id: hospital_id)) { (data, response, error) in
+            if error != nil {
+                completion(nil, "Please check your connection")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+                        print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        let data = try JSONDecoder().decode([Asuransi].self, from: responseData)
+                        print(#function, data)
+                        completion(data, nil)
+                    }catch let errorDecode{
+                        print(#function, errorDecode)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
+                    completion(nil, networkFailurError)
+                }
+            }
+        }
+    }
 }
 
 enum NetworkResponse: String {

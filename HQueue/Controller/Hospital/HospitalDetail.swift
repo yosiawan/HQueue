@@ -47,6 +47,7 @@ class HospitalDetail: UIViewController {
 
     @IBAction func listAsuransiAction(_ sender: Any) {
         let vc = AsuransiList()
+        vc.hospitalId = hospital.id
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
