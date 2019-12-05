@@ -22,6 +22,7 @@ class DoctorScheduleCell: UICollectionViewCell {
             self.timeLbl.textColor = self.isSelected ? .white : .HQueueYellow
             self.timeLbl.backgroundColor = self.isSelected ? .HQueueYellow : .white
             timeLbl.layer.cornerRadius = 15
+            view.layer.cornerRadius = 15
         }
     }
     

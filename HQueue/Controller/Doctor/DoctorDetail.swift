@@ -30,6 +30,8 @@ class DoctorDetail: UIViewController {
     var insuranceOptions: UICollectionView!
     
     let daftarBtn = UIButton()
+    
+    var insuranceSelected: Asuransi?
 
     // MARK: - VDL
     override func viewDidLoad() {
@@ -103,7 +105,8 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
 //            cell.insuranceImg.downloaded(from: insuranceImgUrl, contentMode: .scaleAspectFill)
 //        }
         
-        cell.insuranceImg.image = #imageLiteral(resourceName: "admedika-logo")
+//        cell.insuranceImg.image = #imageLiteral(resourceName: "admedika-logo")
+        cell.insuranceName.text = currentInsurances[indexPath.row].name
         return cell
     }
     

@@ -12,6 +12,7 @@ class InsuranceCell: UICollectionViewCell {
 
     @IBOutlet weak var insuranceImg: UIImageView!
     @IBOutlet weak var defaultView: UIView!
+    @IBOutlet weak var insuranceName: UILabel!
     
     override var isSelected: Bool {
         didSet {
