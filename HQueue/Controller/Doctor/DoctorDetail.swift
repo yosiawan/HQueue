@@ -12,6 +12,7 @@ class DoctorDetail: UIViewController {
     
     var networkManager: NetworkManager!
     var currentHospitalId: String!
+    var currentDoctor: Doctor!
     
     var timeOptions = ["08.30"]
     var currentInsurances: [Asuransi] = []
@@ -32,6 +33,8 @@ class DoctorDetail: UIViewController {
     let daftarBtn = UIButton()
     
     var insuranceSelected: Asuransi?
+    var scheduleSelected: DoctorScedule?
+    var patientSelected: Patient?
 
     // MARK: - VDL
     override func viewDidLoad() {
@@ -85,7 +88,7 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
-            return 3
+            return currentDoctor.schedule.count
         }else{
             return currentInsurances.count
         }
@@ -95,12 +98,21 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
         
         if collectionView.tag == 0 {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
+            if indexPath.row == 0 {
+                cell.isSelected = true
+                self.scheduleSelected = currentDoctor.schedule[indexPath.row]
+            }
+            cell.timeLbl.text = currentDoctor.schedule[indexPath.row].time
             return cell
         }
     
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: insuranceCellIdentifier, for: indexPath) as! InsuranceCell
         cell.defaultView.alpha = 0
-        if currentInsurances[indexPath.row].id == "empty" { cell.defaultView.alpha = 1 }
+        if currentInsurances[indexPath.row].id == "empty" {
+            cell.defaultView.alpha = 1
+            cell.isSelected = true
+            self.insuranceSelected = currentInsurances[indexPath.row]
+        }
 //        if let insuranceImgUrl = currentInsurances[indexPath.row] {
 //            cell.insuranceImg.downloaded(from: insuranceImgUrl, contentMode: .scaleAspectFill)
 //        }
@@ -110,11 +122,15 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if collectionView.tag == 0 {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.tag == 0 {
+            self.scheduleSelected = currentDoctor.schedule[indexPath.row]
+        }else{
+            self.insuranceSelected = currentInsurances[indexPath.row]
+        }
+        
+        print(self.scheduleSelected, self.insuranceSelected)
+    }
 //    
 //    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 //        if collectionView.tag == 0 {

@@ -71,6 +71,7 @@ class DoctorList: UIViewController {
         let vc = DoctorDetail()
         vc.setupView(doctors[indexPath.row])
         vc.currentHospitalId = currentPoli.hospitalId
+        vc.currentDoctor = doctors[indexPath.row]
         self.navigationController?.pushViewController(vc, animated:true)
     }
     
@@ -96,9 +97,7 @@ extension DoctorList: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: doctorListCellIdentifier, for: indexPath) as! DoctorListCell
         cell.doctorImg.image = UIImage(named: "15ED3323-1B89-4A25-80B9-44D102558994")
         cell.doctorName.text = doctors[indexPath.row].name
-        cell.labelJadwal1.text = doctors[indexPath.row].time
-//        cell?.textLabel?.text = "Title Text"
-//        cell?.detailTextLabel?.text = "Detail Text"
+        cell.labelJadwal1.text = doctors[indexPath.row].schedule[0].time
         return cell
     }
 }
@@ -133,11 +132,11 @@ extension DoctorList {
         
         self.networkManager.getDoctor(search: searchText, poli: poli, page: 1) { (data, error) in
             if error != "" {
-                //print(#function, error)
+                print(#function, error)
             }
         
             if let data = data {
-                self.doctors = data.data
+                self.doctors = data
                 DispatchQueue.main.async {
                     self.doctorListTable.reloadData()
                 }

@@ -33,22 +33,43 @@ extension DoctorResponse: Decodable {
 }
 
 struct Doctor {
-    let day: String
     let name: String
-    let time: String
+    let schedule: [DoctorScedule]
 }
 
 extension Doctor: Decodable {
     enum DoctorCodingKeys: String, CodingKey {
-        case day = "day"
         case name = "full_name"
-        case time = "time"
+        case schedule = "schedule"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: DoctorCodingKeys.self)
-        day = try container.decode(String.self, forKey: .day)
         name = try container.decode(String.self, forKey: .name)
-        time = try container.decode(String.self, forKey: .time)
+        schedule = try container.decode([DoctorScedule].self, forKey: .schedule)
     }
+}
+
+struct DoctorScedule {
+    let day: String
+    let time: String
+    let id: String
+    let doctorId: String
+}
+
+extension DoctorScedule: Decodable {
+    enum DoctorScheduleCodingKeys: String, CodingKey {
+            case day = "day"
+            case id = "id"
+            case time = "time"
+            case doctorId = "doctor_id"
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: DoctorScheduleCodingKeys.self)
+            day = try container.decode(String.self, forKey: .day)
+            id = try container.decode(String.self, forKey: .id)
+            time = try container.decode(String.self, forKey: .time)
+            doctorId = try container.decode(String.self, forKey: .doctorId)
+        }
 }
