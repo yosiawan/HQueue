@@ -10,12 +10,14 @@ import UIKit
 
 class PatientList: UITableViewController {
     
-    var items = ["Pasien 1", "Pasien 2", "Pasien 3"]
+    var networkManager: NetworkManager!
+    var patients: [Patient] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Data Pasien"
+        self.networkManager = NetworkManager()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDataAction))
         
@@ -25,6 +27,12 @@ class PatientList: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchData()
     }
     
     @objc func addDataAction() {
@@ -40,22 +48,22 @@ class PatientList: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        return patients.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PatientCell", for: indexPath) as! PatientCell
-
+        print("Fetch data patient", patients[indexPath.row])
         // Configure the cell...
-        cell.patientLabel.text = items[indexPath.row]
+        cell.patientLabel.text = patients[indexPath.row].fullName
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = PatientDetail()
-        vc.patient = items[indexPath.row]
+        //vc.patient = items[indexPath.row]
         vc.delegate = self
         let nav = UINavigationController(rootViewController: vc)
         self.present(nav, animated: true, completion: nil)
@@ -109,4 +117,23 @@ class PatientList: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Fetching Data
+    func fetchData() {
+        print(#function, "OKOKOK")
+        networkManager.getPatient { data, error in
+            if error != "" {
+                //print(#function, error)
+            }
+
+            if let data = data {
+                self.patients = data
+                //print(#function, data)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+
+            }
+        }
+    }
 }

@@ -12,8 +12,8 @@ struct Patient {
     var fullName: String
     var motherName: String
     var identityNumber: String
-    var dob: Date
-    var gender: Int
+    var dob: String
+    var gender: Bool
     var address: String
 }
 
@@ -32,8 +32,8 @@ extension Patient: Decodable {
         fullName = try container.decode(String.self, forKey: .fullName)
         motherName = try container.decode(String.self, forKey: .motherName)
         identityNumber = try container.decode(String.self, forKey: .identityNumber)
-        dob = try container.decode(Date.self, forKey: .dob)
-        gender = try container.decode(Int.self, forKey: .gender)
+        dob = try container.decode(String.self, forKey: .dob)
+        gender = try container.decode(Bool.self, forKey: .gender)
         address = try container.decode(String.self, forKey: .address)
     }
 }
