@@ -67,6 +67,23 @@ class DoctorDetail: UIViewController {
             }
         }
     }
+    
+    // MARK: - Navigation
+    @objc func pushToPatientList() {
+        let vc = PatientList()
+        vc.perviousController = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension DoctorDetail: PatientListPerviousControllerDelegate {
+    func didPatientSelected(patient: Patient) {
+        patientSelected = patient
+        patientBtn.setTitle(patient.fullName, for: .normal)
+        patientBtn.setTitleColor(.white, for: .normal)
+        patientBtn.backgroundColor = .HQueueYellow
+        
+    }
 }
 
 // MARK: - Flow Extension
@@ -128,8 +145,6 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
         }else{
             self.insuranceSelected = currentInsurances[indexPath.row]
         }
-        
-        print(self.scheduleSelected, self.insuranceSelected)
     }
 //    
 //    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

@@ -81,10 +81,13 @@ extension DoctorDetail {
         patientBtn.setTitleColor(.HQueueYellow, for: .normal)
         self.view.addSubview(patientBtn)
         patientBtn.translatesAutoresizingMaskIntoConstraints = false
-        patientBtn.heightAnchor.constraint(equalToConstant: CGFloat(26)).isActive = true
-        patientBtn.widthAnchor.constraint(equalToConstant: CGFloat(200)).isActive = true
+        patientBtn.heightAnchor.constraint(equalToConstant: CGFloat(44)).isActive = true
+        //patientBtn.widthAnchor.constraint(equalToConstant: CGFloat(200)).isActive = true
         patientBtn.topAnchor.constraint(equalTo: patientLbl.bottomAnchor, constant: 20).isActive = true
         patientBtn.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        patientBtn.layer.cornerRadius = 22
+        patientBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 22, bottom: 0, right: 22)
+        patientBtn.addTarget(self, action: #selector(pushToPatientList), for: .touchUpInside)
 
         //  MARK: - Insurance Label
         insuranceLbl.text = "Pilih Asuransi"

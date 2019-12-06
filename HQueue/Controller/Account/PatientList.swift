@@ -12,6 +12,7 @@ class PatientList: UITableViewController {
     
     var networkManager: NetworkManager!
     var patients: [Patient] = []
+    var perviousController: PatientListPerviousControllerDelegate?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,16 +58,8 @@ class PatientList: UITableViewController {
         print("Fetch data patient", patients[indexPath.row])
         // Configure the cell...
         cell.patientLabel.text = patients[indexPath.row].fullName
-
+        
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = PatientDetail()
-        //vc.patient = items[indexPath.row]
-        vc.delegate = self
-        let nav = UINavigationController(rootViewController: vc)
-        self.present(nav, animated: true, completion: nil)
     }
     
     func handleModalDismissed() {
@@ -108,19 +101,30 @@ class PatientList: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+    //}
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let prvController = self.perviousController {
+            prvController.didPatientSelected(patient: patients[indexPath.row])
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            let vc = PatientDetail()
+            //vc.patient = items[indexPath.row]
+            vc.delegate = self
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: nil)
+        }
     }
-    */
     
     // MARK: - Fetching Data
     func fetchData() {
-        print(#function, "OKOKOK")
         networkManager.getPatient { data, error in
             if error != "" {
                 //print(#function, error)
@@ -136,4 +140,8 @@ class PatientList: UITableViewController {
             }
         }
     }
+}
+
+protocol PatientListPerviousControllerDelegate {
+    func didPatientSelected(patient: Patient) -> Void
 }
