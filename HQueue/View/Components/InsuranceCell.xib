@@ -16,6 +16,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUy-qd-maq">
+                        <rect key="frame" x="0.0" y="28" width="72" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vpc-Pp-gqg">
                         <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -25,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="non asuransi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrF-V5-pLf">
-                                <rect key="frame" x="7" y="13" width="57" height="47"/>
+                                <rect key="frame" x="7" y="11" width="57" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,10 +42,17 @@
                     </view>
                 </subviews>
             </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DUy-qd-maq" secondAttribute="trailing" id="JaP-MM-5sW"/>
+                <constraint firstItem="DUy-qd-maq" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="VDZ-bj-PmF"/>
+                <constraint firstItem="DUy-qd-maq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZzQ-tb-ULz"/>
+                <constraint firstItem="DUy-qd-maq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="eTp-Pk-9Vn"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="defaultView" destination="T1y-co-Fq8" id="F4g-yb-Uzu"/>
                 <outlet property="insuranceImg" destination="vpc-Pp-gqg" id="Rt1-fO-aEY"/>
+                <outlet property="insuranceName" destination="DUy-qd-maq" id="f40-CQ-ELo"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="150.66964285714286"/>
         </collectionViewCell>

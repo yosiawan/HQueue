@@ -1,4 +1,4 @@
- // !$*UTF8*$!
+// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -45,13 +45,14 @@
 		7F5FE06523757FBE004569C4 /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95091E8A2372C52B00EA0782 /* Login.xib */; };
 		7F5FE06A237585E2004569C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE069237585E2004569C4 /* NetworkManager.swift */; };
 		7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE06E2375873F004569C4 /* HQAuth.swift */; };
+		7F6173282398F35800F3B760 /* PatientEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6173272398F35800F3B760 /* PatientEndPoint.swift */; };
 		7F8F1793237EB9E90058AA22 /* AsuransiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1791237EB9E90058AA22 /* AsuransiList.swift */; };
 		7F8F1794237EB9E90058AA22 /* AsuransiList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8F1792237EB9E90058AA22 /* AsuransiList.xib */; };
 		7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1795237EBBCF0058AA22 /* Asuransi.swift */; };
 		7F8F1799237EBFF10058AA22 /* AsuransiTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1797237EBFF10058AA22 /* AsuransiTableCell.swift */; };
 		7F8F179A237EBFF10058AA22 /* AsuransiTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */; };
-		7F987554238EA41000082985 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987553238EA41000082985 /* Doctor.swift */; };
 		7F987552238E7A5800082985 /* HUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987550238E778100082985 /* HUser.swift */; };
+		7F987554238EA41000082985 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987553238EA41000082985 /* Doctor.swift */; };
 		7FA5FB48238530580081DE82 /* HospitalEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */; };
 		7FA5FB4A23869FA90081DE82 /* MediaHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB4923869FA90081DE82 /* MediaHandler.swift */; };
 		95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4A2372B02B00EA0782 /* AppDelegate.swift */; };
@@ -148,13 +149,14 @@
 		7F5FE0662375839D004569C4 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = HQueue/View/Components/Auth.swift; sourceTree = SOURCE_ROOT; };
 		7F5FE069237585E2004569C4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7F5FE06E2375873F004569C4 /* HQAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQAuth.swift; sourceTree = "<group>"; };
+		7F6173272398F35800F3B760 /* PatientEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientEndPoint.swift; path = HQueue/Models/PatientEndPoint.swift; sourceTree = SOURCE_ROOT; };
 		7F8F1791237EB9E90058AA22 /* AsuransiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsuransiList.swift; sourceTree = "<group>"; };
 		7F8F1792237EB9E90058AA22 /* AsuransiList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiList.xib; sourceTree = "<group>"; };
 		7F8F1795237EBBCF0058AA22 /* Asuransi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asuransi.swift; sourceTree = "<group>"; };
 		7F8F1797237EBFF10058AA22 /* AsuransiTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsuransiTableCell.swift; sourceTree = "<group>"; };
 		7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiTableCell.xib; sourceTree = "<group>"; };
-		7F987553238EA41000082985 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		7F987550238E778100082985 /* HUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUser.swift; sourceTree = "<group>"; };
+		7F987553238EA41000082985 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalEndPoint.swift; path = HQueue/View/Home/HospitalEndPoint.swift; sourceTree = SOURCE_ROOT; };
 		7FA5FB4923869FA90081DE82 /* MediaHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaHandler.swift; sourceTree = "<group>"; };
 		95091E472372B02B00EA0782 /* Antridoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antridoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -472,6 +474,7 @@
 			children = (
 				7F5FE0662375839D004569C4 /* Auth.swift */,
 				7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */,
+				7F6173272398F35800F3B760 /* PatientEndPoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */,
 				7F1111FC237E9A75007CA7EE /* HospitalDetail.swift in Sources */,
 				7F283D90237AAF7700724AC9 /* Patient.swift in Sources */,
+				7F6173282398F35800F3B760 /* PatientEndPoint.swift in Sources */,
 				7F5FE06A237585E2004569C4 /* NetworkManager.swift in Sources */,
 				7F2B1713238121B200C6171F /* Poli.swift in Sources */,
 				95091EBA2379626800EA0782 /* ReusableIdentifiers.swift in Sources */,
@@ -739,7 +743,6 @@
 				95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */,
 				7F283DA1237C15B800724AC9 /* PatientCell.swift in Sources */,
 				95091EDA2383F0FE00EA0782 /* DoctorList.swift in Sources */,
-
 				7F283D9B237C12C400724AC9 /* PatientList.swift in Sources */,
 				B73FC6A923796C8A000B4A67 /* ButtonRS.swift in Sources */,
 				95091EDC2383F18B00EA0782 /* DoctorListView.swift in Sources */,

@@ -16,10 +16,6 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         do {
             let request = try self.buildRequest(from: route)
             
-//            Debug
-//           print(request.allHTTPHeaderFields)
-//            print(String(bytes: request.httpBody!, encoding: .utf8))
-            
             task = session.dataTask(with: request, completionHandler: { data, response, error in completion(data, response, error)})
         } catch {
             completion(nil, nil, error)

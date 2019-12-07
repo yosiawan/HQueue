@@ -33,22 +33,49 @@ extension DoctorResponse: Decodable {
 }
 
 struct Doctor {
-    let day: String
     let name: String
-    let time: String
+    let schedule: [DoctorScedule]
 }
 
 extension Doctor: Decodable {
     enum DoctorCodingKeys: String, CodingKey {
-        case day = "day"
         case name = "full_name"
-        case time = "time"
+        case schedule = "schedule"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: DoctorCodingKeys.self)
-        day = try container.decode(String.self, forKey: .day)
         name = try container.decode(String.self, forKey: .name)
-        time = try container.decode(String.self, forKey: .time)
+        schedule = try container.decode([DoctorScedule].self, forKey: .schedule)
     }
+}
+
+struct DoctorScedule {
+    let day: String
+    let timeStart: String
+    let timeEnd: String
+    let id: String
+    let doctorId: String
+    let isAvailable: Bool
+}
+
+extension DoctorScedule: Decodable {
+    enum DoctorScheduleCodingKeys: String, CodingKey {
+            case day = "day"
+            case id = "id"
+            case timeStart = "time_start"
+            case timeEnd = "time_end"
+            case doctorId = "doctor_id"
+            case isAvailable = "is_available"
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: DoctorScheduleCodingKeys.self)
+            day = try container.decode(String.self, forKey: .day)
+            id = try container.decode(String.self, forKey: .id)
+            timeStart = try container.decode(String.self, forKey: .timeStart)
+            timeEnd = try container.decode(String.self, forKey: .timeEnd)
+            doctorId = try container.decode(String.self, forKey: .doctorId)
+            isAvailable = try container.decode(Bool.self, forKey: .isAvailable)
+        }
 }

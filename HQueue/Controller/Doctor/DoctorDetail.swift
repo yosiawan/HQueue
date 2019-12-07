@@ -12,6 +12,7 @@ class DoctorDetail: UIViewController {
     
     var networkManager: NetworkManager!
     var currentHospitalId: String!
+    var currentDoctor: Doctor!
     
     var timeOptions = ["08.30"]
     var currentInsurances: [Asuransi] = []
@@ -30,12 +31,18 @@ class DoctorDetail: UIViewController {
     var insuranceOptions: UICollectionView!
     
     let daftarBtn = UIButton()
+    
+    var insuranceSelected: Asuransi?
+    var scheduleSelected: DoctorScedule?
+    var patientSelected: Patient?
 
     // MARK: - VDL
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.networkManager = NetworkManager()
+        
+        self.daftarBtn.addTarget(self, action: #selector(registerQueue), for: .touchUpInside)
         
         createSubviews()
         fetchInsurance()
@@ -62,6 +69,28 @@ class DoctorDetail: UIViewController {
             }
         }
     }
+    
+    @objc func registerQueue() {
+        
+    }
+    
+    // MARK: - Navigation
+    @objc func pushToPatientList() {
+        let vc = PatientList()
+        vc.perviousController = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - Select Patient
+extension DoctorDetail: PatientListPerviousControllerDelegate {
+    func didPatientSelected(patient: Patient) {
+        patientSelected = patient
+        patientBtn.setTitle(patient.fullName, for: .normal)
+        patientBtn.setTitleColor(.white, for: .normal)
+        patientBtn.backgroundColor = .HQueueYellow
+        
+    }
 }
 
 // MARK: - Flow Extension
@@ -83,7 +112,7 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
-            return 3
+            return currentDoctor.schedule.count
         }else{
             return currentInsurances.count
         }
@@ -93,25 +122,41 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
         
         if collectionView.tag == 0 {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
+            if !currentDoctor.schedule[indexPath.row].isAvailable {
+                cell.isUserInteractionEnabled = false
+                cell.view.alpha = 0.6
+            }
+            if indexPath.row == 0 {
+                cell.isSelected = true
+                self.scheduleSelected = currentDoctor.schedule[indexPath.row]
+            }
+            cell.timeLbl.text = "\(currentDoctor.schedule[indexPath.row].timeStart) - \(currentDoctor.schedule[indexPath.row].timeEnd)"
             return cell
         }
     
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: insuranceCellIdentifier, for: indexPath) as! InsuranceCell
         cell.defaultView.alpha = 0
-        if currentInsurances[indexPath.row].id == "empty" { cell.defaultView.alpha = 1 }
+        if currentInsurances[indexPath.row].id == "empty" {
+            cell.defaultView.alpha = 1
+            cell.isSelected = true
+            self.insuranceSelected = currentInsurances[indexPath.row]
+        }
 //        if let insuranceImgUrl = currentInsurances[indexPath.row] {
 //            cell.insuranceImg.downloaded(from: insuranceImgUrl, contentMode: .scaleAspectFill)
 //        }
         
-        cell.insuranceImg.image = #imageLiteral(resourceName: "admedika-logo")
+//        cell.insuranceImg.image = #imageLiteral(resourceName: "admedika-logo")
+        cell.insuranceName.text = currentInsurances[indexPath.row].name
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if collectionView.tag == 0 {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.tag == 0 {
+            self.scheduleSelected = currentDoctor.schedule[indexPath.row]
+        }else{
+            self.insuranceSelected = currentInsurances[indexPath.row]
+        }
+    }
 //    
 //    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 //        if collectionView.tag == 0 {
