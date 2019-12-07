@@ -15,6 +15,7 @@ struct NetworkManager {
     private let routerPatient = Router<PatientAPI>()
 
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
+        
         switch response.statusCode {
         case 200...299:
             return .success
@@ -32,7 +33,7 @@ struct NetworkManager {
     func login(email: String, password: String, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> ()){
         router.request(.signin(email: email, password: password), completion: { data, response, error in
             if error != nil {
-                completion(nil, "Please check your connection")
+                completion(nil, NetworkResponse.faield.rawValue)
             }
 
             if let response = response as? HTTPURLResponse {
@@ -62,7 +63,7 @@ struct NetworkManager {
     func sigupAndCretePatient(newAuth: HQAuth, newPass: String, patientData: Patient, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> ()) {
         router.request(.signup(email: newAuth.email, name: newAuth.name, password: newPass, phoneNumber: newAuth.phoneNumber), completion: {data, response, error in
             if error != nil {
-                completion(nil, "Please check your connection")
+                completion(nil, NetworkResponse.faield.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -90,7 +91,7 @@ struct NetworkManager {
     func getProfile(completion: @escaping(_ auth: HUser?, _ error: String?) -> ()) {
         router.request(.getProfile) { (data, response, error) in
             if error != nil {
-                completion(nil, "Please check your conection")
+                completion(nil, NetworkResponse.faield.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -119,7 +120,7 @@ struct NetworkManager {
     func postProfile(profile: HUser, completion: @escaping(_ auth: HUser?, _ error: String?) -> ()) {
         router.request(.postProfile(user: profile)) { (data, response, error) in
             if error != nil {
-               completion(nil, "Please check your conection")
+               completion(nil, NetworkResponse.faield.rawValue)
            }
            
            if let response = response as? HTTPURLResponse {
@@ -148,7 +149,7 @@ struct NetworkManager {
     func getHospital(search: String?, page: Int = 1, completion: @escaping(_ data: HospitalResponse?, _ error: String?) -> ()) {
         routerHospital.request(.getHospital(search: search, page: page)) { (data, response, error) in
             if error != nil {
-                completion(nil, "Please check your connection")
+                completion(nil, NetworkResponse.faield.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -179,7 +180,7 @@ struct NetworkManager {
     func getPoli(hospitalId: String, search: String?, page: Int = 1, completion: @escaping(_ data: PoliResponse?, _ error: String?) -> ()) {
         routerHospital.request(.getPoli(hospitalId: hospitalId, search: search, page: page)) { (data, response, error) in
             if error != nil {
-                completion(nil, "Please check your connection")
+                completion(nil, NetworkResponse.faield.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -210,7 +211,7 @@ struct NetworkManager {
     func getDoctor(search: String? ,poli: Poli, page: Int = 1, completion: @escaping(_ data: [Doctor]?, _ error: String?) -> ()) {
         routerHospital.request(.getDoctor(search: search, poli: poli, page: page)) { (data, response, error) in
             if error != nil {
-                completion(nil, "Please check your connection")
+                completion(nil, NetworkResponse.faield.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -242,7 +243,7 @@ struct NetworkManager {
     func getInsurance(hospital_id: String, completion: @escaping(_ data: [Asuransi]?, _ error: String?) -> ()) {
         routerHospital.request(.getInsurance(hospital_id: hospital_id)) { (data, response, error) in
             if error != nil {
-                completion(nil, "Please check your connection")
+                completion(nil, NetworkResponse.faield.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -259,7 +260,7 @@ struct NetworkManager {
                         let data = try JSONDecoder().decode([Asuransi].self, from: responseData)
                         //print(#function, data)
                         completion(data, nil)
-                    }catch{
+                    }catch{//let errorDecode{
                         //print(#function, errorDecode)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
@@ -274,7 +275,7 @@ struct NetworkManager {
     func getPatient(completion: @escaping(_ data: [Patient]?, _ error: String?) -> ()) {
         routerPatient.request(.getPatient) { (data, response, error) in
             if error != nil {
-                completion(nil, "Please check your connection")
+                completion(nil, NetworkResponse.faield.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -287,12 +288,9 @@ struct NetworkManager {
                     }
                     
                     do {
-                        //print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode([Patient].self, from: responseData)
-                        //print(#function, data)
                         completion(data, nil)
-                    }catch let errorDecode{
-                        print(#function, errorDecode)
+                    }catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                     

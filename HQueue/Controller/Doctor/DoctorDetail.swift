@@ -42,6 +42,8 @@ class DoctorDetail: UIViewController {
         
         self.networkManager = NetworkManager()
         
+        self.daftarBtn.addTarget(self, action: #selector(registerQueue), for: .touchUpInside)
+        
         createSubviews()
         fetchInsurance()
     }
@@ -68,6 +70,10 @@ class DoctorDetail: UIViewController {
         }
     }
     
+    @objc func registerQueue() {
+        
+    }
+    
     // MARK: - Navigation
     @objc func pushToPatientList() {
         let vc = PatientList()
@@ -76,6 +82,7 @@ class DoctorDetail: UIViewController {
     }
 }
 
+// MARK: - Select Patient
 extension DoctorDetail: PatientListPerviousControllerDelegate {
     func didPatientSelected(patient: Patient) {
         patientSelected = patient
@@ -115,11 +122,15 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
         
         if collectionView.tag == 0 {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
+            if !currentDoctor.schedule[indexPath.row].isAvailable {
+                cell.isUserInteractionEnabled = false
+                cell.view.alpha = 0.6
+            }
             if indexPath.row == 0 {
                 cell.isSelected = true
                 self.scheduleSelected = currentDoctor.schedule[indexPath.row]
             }
-            cell.timeLbl.text = currentDoctor.schedule[indexPath.row].time
+            cell.timeLbl.text = "\(currentDoctor.schedule[indexPath.row].timeStart) - \(currentDoctor.schedule[indexPath.row].timeEnd)"
             return cell
         }
     

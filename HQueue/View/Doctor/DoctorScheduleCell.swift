@@ -18,12 +18,14 @@ class DoctorScheduleCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            self.view.backgroundColor = self.isSelected ? .HQueueCream : .white
-            self.timeLbl.textColor = self.isSelected ? .white : .HQueueYellow
-            self.timeLbl.backgroundColor = self.isSelected ? .HQueueYellow : .white
-            timeLbl.layer.cornerRadius = 15
-            view.layer.cornerRadius = 15
+            self.toggleSelectedHandler()
         }
+    }
+    
+    func toggleSelectedHandler() {
+        self.view.backgroundColor = self.isSelected ? .HQueueCream : .white
+        self.timeLbl.textColor = self.isSelected ? .white : .HQueueYellow
+        self.timeLbl.backgroundColor = self.isSelected ? .HQueueYellow : .white
     }
     
     override func awakeFromNib() {
@@ -32,7 +34,9 @@ class DoctorScheduleCell: UICollectionViewCell {
         timeLbl.layer.borderColor = .HQueueYellow
         timeLbl.layer.borderWidth = 1
         timeLbl.layer.cornerRadius = 15
+        view.layer.cornerRadius = 15
         timeLbl.layer.masksToBounds = true
         
+        self.toggleSelectedHandler()
     }
 }

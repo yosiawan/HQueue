@@ -52,24 +52,30 @@ extension Doctor: Decodable {
 
 struct DoctorScedule {
     let day: String
-    let time: String
+    let timeStart: String
+    let timeEnd: String
     let id: String
     let doctorId: String
+    let isAvailable: Bool
 }
 
 extension DoctorScedule: Decodable {
     enum DoctorScheduleCodingKeys: String, CodingKey {
             case day = "day"
             case id = "id"
-            case time = "time"
+            case timeStart = "time_start"
+            case timeEnd = "time_end"
             case doctorId = "doctor_id"
+            case isAvailable = "is_available"
         }
         
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: DoctorScheduleCodingKeys.self)
             day = try container.decode(String.self, forKey: .day)
             id = try container.decode(String.self, forKey: .id)
-            time = try container.decode(String.self, forKey: .time)
+            timeStart = try container.decode(String.self, forKey: .timeStart)
+            timeEnd = try container.decode(String.self, forKey: .timeEnd)
             doctorId = try container.decode(String.self, forKey: .doctorId)
+            isAvailable = try container.decode(Bool.self, forKey: .isAvailable)
         }
 }
