@@ -13,10 +13,6 @@ public enum PatientAPI {
 }
 
 extension PatientAPI: EndPointType {
-    var baseURL: URL {
-        guard let url = URL(string: "http://167.71.203.148/api/v1") else { fatalError("Base URL not configured") }
-        return url
-    }
     
     var path: String {
         switch self {

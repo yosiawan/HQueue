@@ -46,6 +46,7 @@
 		7F5FE06A237585E2004569C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE069237585E2004569C4 /* NetworkManager.swift */; };
 		7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE06E2375873F004569C4 /* HQAuth.swift */; };
 		7F6173282398F35800F3B760 /* PatientEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6173272398F35800F3B760 /* PatientEndPoint.swift */; };
+		7F61732C239BA8A900F3B760 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61732B239BA8A900F3B760 /* URLHelper.swift */; };
 		7F8F1793237EB9E90058AA22 /* AsuransiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1791237EB9E90058AA22 /* AsuransiList.swift */; };
 		7F8F1794237EB9E90058AA22 /* AsuransiList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8F1792237EB9E90058AA22 /* AsuransiList.xib */; };
 		7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1795237EBBCF0058AA22 /* Asuransi.swift */; };
@@ -150,6 +151,7 @@
 		7F5FE069237585E2004569C4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7F5FE06E2375873F004569C4 /* HQAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQAuth.swift; sourceTree = "<group>"; };
 		7F6173272398F35800F3B760 /* PatientEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientEndPoint.swift; path = HQueue/Models/PatientEndPoint.swift; sourceTree = SOURCE_ROOT; };
+		7F61732B239BA8A900F3B760 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		7F8F1791237EB9E90058AA22 /* AsuransiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsuransiList.swift; sourceTree = "<group>"; };
 		7F8F1792237EB9E90058AA22 /* AsuransiList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiList.xib; sourceTree = "<group>"; };
 		7F8F1795237EBBCF0058AA22 /* Asuransi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asuransi.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				7F111204237EA167007CA7EE /* ViewHelper.swift */,
 				95091EB92379626800EA0782 /* ReusableIdentifiers.swift */,
 				7FA5FB4923869FA90081DE82 /* MediaHandler.swift */,
+				7F61732B239BA8A900F3B760 /* URLHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				7F8F1799237EBFF10058AA22 /* AsuransiTableCell.swift in Sources */,
 				7F111200237E9D86007CA7EE /* ViewControllerHelper.swift in Sources */,
 				7F2B1702237F482000C6171F /* HomeQueueController.swift in Sources */,
+				7F61732C239BA8A900F3B760 /* URLHelper.swift in Sources */,
 				95091ECD237D665B00EA0782 /* DoctorScheduleCell.swift in Sources */,
 				7F5FE04D2374127B004569C4 /* IdentityController.swift in Sources */,
 				7F5FE0452374036A004569C4 /* AccountController.swift in Sources */,
@@ -928,7 +932,7 @@
 				PRODUCT_NAME = Antridoc;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -950,7 +954,7 @@
 				PRODUCT_NAME = Antridoc;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

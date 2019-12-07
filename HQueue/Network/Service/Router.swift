@@ -54,7 +54,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
         
         var request = URLRequest(
-            url: route.baseURL.appendingPathComponent(route.path),
+            url: URL.appBaseURL.appendingPathComponent(route.path),
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
             timeoutInterval: 5)
         
