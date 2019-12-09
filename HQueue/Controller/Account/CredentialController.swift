@@ -27,7 +27,7 @@ class CredentialController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let dob = formatter.date(from: "2016-10-08")
-        let dataPatient = Patient(fullName: "faridho luedfi", motherName: "Siti", identityNumber: "3338999231", dob: "2016-10-08", gender: true, address: "Jl. Cempaka")
+        let dataPatient = Patient(fullName: "faridho luedfi", motherName: "Siti", identityNumber: "3338999231", dob: "2016-10-08", gender: true, address: "Jl. Cempaka", id: nil)
         networkManager.sigupAndCretePatient(newAuth: newAuth, newPass: "galileogaleli", patientData: dataPatient) { (auth, error) in
             if let error = error {
                 print(error)

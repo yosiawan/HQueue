@@ -15,6 +15,7 @@ struct Patient {
     var dob: String
     var gender: Bool
     var address: String
+    let id: Int?
 }
 
 extension Patient: Decodable {
@@ -25,6 +26,7 @@ extension Patient: Decodable {
         case dob = "dob"
         case gender = "gender"
         case address = "address"
+        case id = "id"
     }
     
     init(from decoder: Decoder) throws {
@@ -35,5 +37,6 @@ extension Patient: Decodable {
         dob = try container.decode(String.self, forKey: .dob)
         gender = try container.decode(Bool.self, forKey: .gender)
         address = try container.decode(String.self, forKey: .address)
+        id = try container.decode(Int.self, forKey: .id)
     }
 }

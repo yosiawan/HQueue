@@ -14,7 +14,6 @@ class DoctorDetail: UIViewController {
     var currentHospitalId: String!
     var currentDoctor: Doctor!
     
-    var timeOptions = ["08.30"]
     var currentInsurances: [Asuransi] = []
     
     let doctorImg = UIImageView()
@@ -40,12 +39,15 @@ class DoctorDetail: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Register network manager
         self.networkManager = NetworkManager()
         
-        self.daftarBtn.addTarget(self, action: #selector(registerQueue), for: .touchUpInside)
+        // Setup action register queue button
+        self.daftarBtn.addTarget(self, action: #selector(registerQueueAction), for: .touchUpInside)
         
-        createSubviews()
-        fetchInsurance()
+        // Init
+        self.createSubviews()
+        self.fetchInsurance()
     }
     
     func setupView(_ doctor: Doctor) {
@@ -70,8 +72,57 @@ class DoctorDetail: UIViewController {
         }
     }
     
-    @objc func registerQueue() {
+    // MARK: - Register Queue
+    @objc func registerQueueAction() {
         
+        // data patient is empty
+        if patientSelected == nil {
+            presetAlert(
+                alert: .init(
+                    title: "Pasein belum dipilih",
+                    message: "Dimohon untuk memilih pasien yang akan didaftarakan",
+                    preferredStyle: .alert
+                ),
+                actions: nil,
+                comletion: nil
+            )
+    
+        // data schedule is empty
+        } else if scheduleSelected == nil {
+            presetAlert(
+                alert: .init(
+                    title: "Jadwal belum dipilih",
+                    message: "Dimohon untuk memilih jadwal yang tersedia",
+                    preferredStyle: .alert
+                ),
+                actions: nil,
+                comletion: nil
+            )
+            
+        } else {
+            createQueue()
+        }
+    }
+    
+    // handle network register queue
+    func createQueue() {
+        networkManager.registerQueue(patienId: String(patientSelected!.id!), doctorScheduleId: scheduleSelected!.id, insuranceId: insuranceSelected?.id) { (data, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.presetAlert(
+                        alert: .init(
+                            title: "Terjadi kesalahan",
+                            message: error,
+                            preferredStyle: .alert
+                        ),
+                        actions: nil,
+                        comletion: nil
+                    )
+                }
+            } else {
+                print(data)
+            }
+        }
     }
     
     // MARK: - Navigation
@@ -163,7 +214,6 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
 //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleCellIdentifier, for: indexPath) as! DoctorScheduleCell
 //        }
 //    }
-    
     
 }
 
