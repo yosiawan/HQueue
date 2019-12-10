@@ -11,6 +11,7 @@ import UIKit
 class AsuransiTableCell: UITableViewCell {
     
     @IBOutlet weak var asuransiName: UILabel!
+    @IBOutlet weak var asuransiLabelLogo: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

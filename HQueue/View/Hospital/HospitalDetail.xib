@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jof-Iv-Hdj">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hospital-default-img" translatesAutoresizingMaskIntoConstraints="NO" id="Jof-Iv-Hdj">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="340"/>
                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -169,6 +169,7 @@
         </view>
     </objects>
     <resources>
+        <image name="hospital-default-img" width="414" height="364"/>
         <image name="icon-map" width="37" height="37"/>
         <image name="icon-phone" width="42" height="42"/>
     </resources>
