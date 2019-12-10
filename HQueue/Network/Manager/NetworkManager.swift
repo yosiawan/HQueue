@@ -20,9 +20,9 @@ struct NetworkManager {
         switch response.statusCode {
         case 200...299:
             return .success
-        case 401...500:
+        case 400...499:
             return .failure(NetworkResponse.authenticationError.rawValue)
-        case 501...599:
+        case 500...599:
             return .failure(NetworkResponse.badRequest.rawValue)
         case 600:
             return .failure(NetworkResponse.outdated.rawValue)
@@ -308,7 +308,6 @@ struct NetworkManager {
             if error != nil {
                 completion(nil, NetworkResponse.faield.rawValue)
             }
-            
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
                 switch result {

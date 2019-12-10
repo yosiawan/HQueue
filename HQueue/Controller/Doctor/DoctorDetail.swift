@@ -120,7 +120,30 @@ class DoctorDetail: UIViewController {
                     )
                 }
             } else {
-                print(data)
+                if let data = data {
+                    
+                    if data.success {
+                        let vc = SuccessViewController()
+                        vc.setUpSuccessView(
+                            title: "Yes! Kamu sudah mendapat nomor antrian",
+                            message: "Nikmati waktumu, nanti kami akan beritahu saat mendekati giliranmu!",
+                            btnLabel: nil
+                        )
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
+                        DispatchQueue.main.async {
+                            self.presetAlert(
+                                alert: .init(
+                                    title: "Information",
+                                    message: data.message,
+                                    preferredStyle: .alert
+                                ),
+                                actions: nil,
+                                comletion: nil
+                            )
+                        }
+                    }
+                }
             }
         }
     }

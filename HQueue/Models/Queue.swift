@@ -25,3 +25,7 @@ extension QueueResponse: Decodable {
         message = try container.decode(String.self, forKey: .message)
     }
 }
+
+struct CurrentQueue {
+
+}
