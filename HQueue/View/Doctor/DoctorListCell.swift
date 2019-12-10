@@ -28,7 +28,7 @@ class DoctorListCell: UITableViewCell {
         // MARK: - Doctor Image
         doctorImg.layer.cornerRadius = 25
         doctorImg.layer.masksToBounds = true
-        doctorImg.image = UIImage(named: "15ED3323-1B89-4A25-80B9-44D102558994")
+        doctorImg.image = UIImage(named: "doctor-default-img")
         self.contentView.addSubview(doctorImg)
         doctorImg.translatesAutoresizingMaskIntoConstraints = false
         let doctorImgConstraints = [

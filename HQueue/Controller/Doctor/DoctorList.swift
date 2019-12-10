@@ -95,10 +95,13 @@ extension DoctorList: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: doctorListCellIdentifier, for: indexPath) as! DoctorListCell
-        cell.doctorImg.image = UIImage(named: "15ED3323-1B89-4A25-80B9-44D102558994")
         cell.doctorName.text = doctors[indexPath.row].name
         cell.labelJadwal1.text = "\(doctors[indexPath.row].schedule[0].timeStart) - \(doctors[indexPath.row].schedule[0].timeEnd)"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
 
