@@ -48,7 +48,7 @@ class DoctorListCell: UITableViewCell {
         let doctorNameConstraints = [
             doctorName.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 10),
             doctorName.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor, constant: 7),
-            doctorName.trailingAnchor.constraint(equalTo: queueCounterContainer.leadingAnchor, constant: 10)
+            doctorName.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 10)
         ]
         constraints.append(contentsOf: doctorNameConstraints)
         
@@ -61,7 +61,7 @@ class DoctorListCell: UITableViewCell {
         let jadwalTitleConstraints = [
             jadwalTitle.topAnchor.constraint(equalTo: doctorName.bottomAnchor),
             jadwalTitle.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 10),
-            jadwalTitle.trailingAnchor.constraint(equalTo: queueCounterContainer.leadingAnchor, constant: 10)
+            jadwalTitle.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 10)
         ]
         constraints.append(contentsOf: jadwalTitleConstraints)
         
@@ -85,17 +85,17 @@ class DoctorListCell: UITableViewCell {
         
         // MARK: - Antrian Container
         queueCounterContainer.backgroundColor = .HQueueCream
-        self.contentView.addSubview(queueCounterContainer)
+        //self.contentView.addSubview(queueCounterContainer)
         queueCounterContainer.layer.cornerRadius = 10
         queueCounterContainer.layer.masksToBounds = true
         queueCounterContainer.translatesAutoresizingMaskIntoConstraints = false
-        let queueCounterContainerConstraints = [
+        /*let queueCounterContainerConstraints = [
             queueCounterContainer.widthAnchor.constraint(equalToConstant: 80),
             queueCounterContainer.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor, constant: 5),
             queueCounterContainer.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: -5),
             queueCounterContainer.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor)
-        ]
-        constraints.append(contentsOf: queueCounterContainerConstraints)
+        ]*/
+        //constraints.append(contentsOf: queueCounterContainerConstraints)
         
         // MARK: - Antrian Title
         let labelAntrian = UILabel()
@@ -103,27 +103,27 @@ class DoctorListCell: UITableViewCell {
         labelAntrian.textColor = .HQueueGreyFont
         labelAntrian.numberOfLines = 2
         labelAntrian.font = labelAntrian.font.withSize(11)
-        self.contentView.addSubview(labelAntrian)
+        //self.contentView.addSubview(labelAntrian)
         labelAntrian.translatesAutoresizingMaskIntoConstraints = false
-        let labelAntrianConstraints = [
+        /*let labelAntrianConstraints = [
             labelAntrian.topAnchor.constraint(equalTo: queueCounterContainer.topAnchor, constant: 5),
             labelAntrian.centerXAnchor.constraint(equalTo: queueCounterContainer.centerXAnchor),
             labelAntrian.widthAnchor.constraint(equalToConstant: 42)
-        ]
-        constraints.append(contentsOf: labelAntrianConstraints)
+        ]*/
+        //constraints.append(contentsOf: labelAntrianConstraints)
         
         // MARK: - Antrian Amount
         let numOfAntrian = UILabel()
         numOfAntrian.text = "28"
         numOfAntrian.font = UIFont.boldSystemFont(ofSize: 22)
         numOfAntrian.textColor = .HQueueYellow
-        self.contentView.addSubview(numOfAntrian)
+        //self.contentView.addSubview(numOfAntrian)
         numOfAntrian.translatesAutoresizingMaskIntoConstraints = false
-        let numOfAntrianConstraints = [
+        /*let numOfAntrianConstraints = [
             numOfAntrian.centerXAnchor.constraint(equalTo: queueCounterContainer.centerXAnchor),
             numOfAntrian.topAnchor.constraint(equalTo: labelAntrian.bottomAnchor)
-        ]
-        constraints.append(contentsOf: numOfAntrianConstraints)
+        ]*/
+        //constraints.append(contentsOf: numOfAntrianConstraints)
         
         NSLayoutConstraint.activate(constraints)
     }
