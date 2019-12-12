@@ -217,9 +217,15 @@ class HomeQueueController: UIViewController {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
     }
+    
+    //MARK: Navigation
     @IBAction func tapToDetailQueue(_ sender: Any) {
         let vc = DetailViewController()
         vc.queueEntity = "Example Data"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func toQueueHistoryList(_ sender: Any) {
+        let vc = QueueHistoryController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

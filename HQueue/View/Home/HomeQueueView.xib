@@ -90,6 +90,9 @@
                             <state key="normal" title="Riwayat">
                                 <color key="titleColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="toQueueHistoryList:" destination="-1" eventType="touchUpInside" id="maF-pX-JfK"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
