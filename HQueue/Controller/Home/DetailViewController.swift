@@ -30,10 +30,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var sisaAntrianVal: UILabel!
     @IBOutlet weak var estimasiGiliranVal: UILabel!
     
+    var networkManager: NetworkManager!
+    
     var queueEntity: String! // nanti disesuaikan data yg ada
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.networkManager = NetworkManager()
         
         self.setupView()
     }
@@ -50,6 +54,14 @@ class DetailViewController: UIViewController {
         
     }
     
+    //MARK: Cancle Queue
+    
+    func cancleQueueProcess() {
+        guard let currentQueue = self.queueEntity else { return }
+        print("Cancel Queue Process")
+    }
+    
+    
     //MARK: Handle Control
     
     //Lihat peta
@@ -64,7 +76,20 @@ class DetailViewController: UIViewController {
     
     //Membatalkan antrian
     @IBAction func cancelQueueAction(_ sender: Any) {
-        
+        self.presetAlert(
+            alert: .init(
+                title: "Konfirmasi",
+                message: "Anda yakin ingin batalkan antrian?",
+                preferredStyle: .alert
+            ),
+            actions: [
+                .init(title: "Tidak", style: .cancel, handler: nil),
+                .init(title: "Ya", style: .default, handler: { (UIAlertAction) in
+                    self.cancleQueueProcess()
+                })
+            ],
+            comletion: nil
+        )
     }
     
     
