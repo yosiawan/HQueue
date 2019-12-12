@@ -8,9 +8,20 @@
 
 import UIKit
 
+struct secondRegisterPageData {
+    var address: String
+    var identityNumber: String
+    var ktpImg: UIImage
+}
+
 class IdentityController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var dataFromFirstPage: firstRegisterPageData!
+    
+    @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var identityNumberField: UITextField!
     @IBOutlet weak var ktpImg: UIImageView!
+    
     var imgPickerController = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -24,8 +35,20 @@ class IdentityController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 
     @IBAction func nextAction(_ sender: Any) {
-        let vc = CredentialController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        if addressField.text != "" &&
+            identityNumberField.text != "" &&
+            ktpImg.image != nil
+        {
+            let vc = CredentialController()
+            vc.dataFromSecondPage = secondRegisterPageData(
+                address: addressField.text ?? "No value",
+                identityNumber: identityNumberField.text ?? "No Value",
+                ktpImg: ktpImg.image!
+            )
+            vc.dataFromFirstPage = self.dataFromFirstPage
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        }
     }
     
     @IBAction func takePhoto(_ sender: Any) {

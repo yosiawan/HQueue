@@ -7,8 +7,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterController" customModule="HQueue" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterController" customModule="Antridoc" customModuleProvider="target">
             <connections>
+                <outlet property="birthField" destination="rnj-4r-nP4" id="xSi-ob-kWw"/>
+                <outlet property="bloodField" destination="b8Y-Ag-jhI" id="9Yw-cE-Lf1"/>
+                <outlet property="genderField" destination="Or1-LO-VYN" id="Ftf-RK-Rih"/>
+                <outlet property="insuranceField" destination="dYU-WN-L2e" id="T34-M5-LTK"/>
+                <outlet property="motherField" destination="vFx-ZM-g3h" id="jUN-Qk-ijz"/>
+                <outlet property="nameField" destination="Ukg-dN-a5R" id="us7-Ui-fqf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,14 +30,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pablo-come-back-later" translatesAutoresizingMaskIntoConstraints="NO" id="ojB-cQ-E2p">
-                                    <rect key="frame" x="0.0" y="44" width="414" height="197"/>
+                                    <rect key="frame" x="0.0" y="60" width="414" height="197"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="197" id="xp9-49-0td"/>
                                     </constraints>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayo isi data diri anda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9M-mX-WYR">
-                                    <rect key="frame" x="0.0" y="256" width="414" height="22"/>
+                                    <rect key="frame" x="0.0" y="272" width="414" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="LXR-JW-ZJW"/>
                                     </constraints>
@@ -40,7 +46,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3nF-M3-Zii">
-                                    <rect key="frame" x="22" y="293" width="370" height="418"/>
+                                    <rect key="frame" x="22" y="309" width="370" height="418"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBA-wl-sXv" userLabel="Field - Nama Lengkap">
                                             <rect key="frame" x="0.0" y="0.0" width="370" height="53"/>
