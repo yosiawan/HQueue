@@ -129,7 +129,7 @@ class DoctorDetail: UIViewController {
                             message: "Nikmati waktumu, nanti kami akan beritahu saat mendekati giliranmu!",
                             btnLabel: nil
                         )
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        self.present(vc, animated: true)
                     }else{
                         DispatchQueue.main.async {
                             self.presetAlert(

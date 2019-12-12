@@ -30,16 +30,16 @@ struct QueueEntity {
     let isValid: Bool
     let submitTime: Date
     let doctorScheduleId: String
-    let patientId: String
-    let insuranceId: String?
+    let patientId: Int
+    var insuranceId: String?
     let processStatus: Int
     let id: String
 }
 
-extension QueueEntity {
+extension QueueEntity: Decodable {
     enum QueueEntityCodingKeys: String, CodingKey {
         case isValid = "is_valid"
-        case submitTime = "submit_date"
+        case submitTime = "submit_time"
         case doctorScheduleId = "doctor_schedule_id"
         case patientId = "patient_id"
         case insuranceId = "insurance_id"
@@ -50,11 +50,21 @@ extension QueueEntity {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: QueueEntityCodingKeys.self)
         isValid = try container.decode(Bool.self, forKey: .isValid)
-        submitTime = try container.decode(Date.self, forKey: .submitTime)
+        let submitTimeIsoString = try container.decode(String.self, forKey: .submitTime)
+        submitTime = QueueEntity.getSubmiteTimeInDateFormat(isoString: submitTimeIsoString)!
         doctorScheduleId = try container.decode(String.self, forKey: .doctorScheduleId)
-        patientId = try container.decode(String.self, forKey: .patientId)
-        insuranceId = try container.decode(String.self, forKey: .insuranceId)
+        patientId = try container.decode(Int.self, forKey: .patientId)
+        insuranceId = try container.decode(String.self, forKey: .insuranceId) 
         processStatus = try container.decode(Int.self, forKey: .processStatus)
         id = try container.decode(String.self, forKey: .id)
+    }
+    
+    static func getSubmiteTimeInDateFormat(isoString: String) -> Date? {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
+        if let date = dateFormater.date(from: isoString) {
+            return date
+        }
+        return nil
     }
 }

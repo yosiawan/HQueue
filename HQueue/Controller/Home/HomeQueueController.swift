@@ -79,15 +79,16 @@ class HomeQueueController: UIViewController {
         
         // Setup view
         self.accountBtn.layer.cornerRadius = self.accountBtn.frame.height / 2
-        
-        checkAuth()
+
         setupCard()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         checkAuth()
+        fetchCurrentQueue()
     }
     
     //MARK: Push to AccountController
@@ -97,6 +98,21 @@ class HomeQueueController: UIViewController {
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
+    //MARK: Fetch Current Queue
+    func fetchCurrentQueue() {
+        let networkManager = NetworkManager()
+        networkManager.getCurrentQueue { queue, error in
+            if error != nil {
+                print(error)
+            }
+            
+            if let queue = queue {
+                print(queue);
+            }
+        }
+    }
+    
+    //MARK: Setup View
     func setupCard() {
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.view.frame
@@ -153,7 +169,8 @@ class HomeQueueController: UIViewController {
 
     }
     */
-
+    
+    // MARK: Handle Gesture Floating Card
     @objc func handleCardTap(recognzier:UITapGestureRecognizer) {
         switch recognzier.state {
         case .ended:

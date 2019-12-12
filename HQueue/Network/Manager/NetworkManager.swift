@@ -326,6 +326,37 @@ struct NetworkManager {
                     }
                     
                 case .failure(let networkFailurError):
+                    print(networkFailurError)
+                    completion(nil, networkFailurError)
+                }
+            }
+        }
+    }
+    
+    func getCurrentQueue(completion: @escaping(_ data: QueueEntity?, _ error: String?) -> ()) {
+        routerQueue.request(.getCurrentQueue) { data, response, error in
+            if error != nil {
+                completion(nil, NetworkResponse.faield.rawValue)
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+                        let data = try JSONDecoder().decode(QueueEntity.self, from: responseData)
+                        completion(data, nil)
+                    }catch let errorDecode{
+                        print(#function, errorDecode)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
                     completion(nil, networkFailurError)
                 }
             }
