@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var sisaAntrianVal: UILabel!
     @IBOutlet weak var estimasiGiliranVal: UILabel!
     
-    var queueEntity: String!
+    var queueEntity: String! // nanti disesuaikan data yg ada
     
     override func viewDidLoad() {
         super.viewDidLoad()
