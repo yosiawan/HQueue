@@ -50,22 +50,34 @@
                                 </label>
                             </subviews>
                             <color key="backgroundColor" red="0.98431372549019602" green="0.96862745098039216" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="88" id="b6A-VU-F76"/>
                                 <constraint firstAttribute="height" constant="136" id="f4n-1h-SGG"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="Oaf-hg-hqt" appends="YES" id="Qhs-mF-sfU"/>
+                            </connections>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum ada antrian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l4-Bk-4N3">
                             <rect key="frame" x="138" y="116" width="251" height="30"/>
+                            <gestureRecognizers/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="Oaf-hg-hqt" appends="YES" id="k5e-jY-dd6"/>
+                            </connections>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih &quot;Cari RS&quot; untuk memulai antrian" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCW-bK-fKY">
                             <rect key="frame" x="138" y="156" width="251" height="41"/>
+                            <gestureRecognizers/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="Oaf-hg-hqt" appends="YES" id="bMI-GX-9IL"/>
+                            </connections>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGC-8p-jTw">
                             <rect key="frame" x="138" y="207" width="251" height="0.0"/>
@@ -78,6 +90,9 @@
                             <state key="normal" title="Riwayat">
                                 <color key="titleColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="toQueueHistoryList:" destination="-1" eventType="touchUpInside" id="maF-pX-JfK"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -141,6 +156,11 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>
         </view>
+        <tapGestureRecognizer id="Oaf-hg-hqt">
+            <connections>
+                <action selector="tapToDetailQueue:" destination="-1" id="X2a-FC-Juu"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="doctor_4x" width="414" height="473"/>

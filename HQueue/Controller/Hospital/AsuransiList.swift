@@ -58,6 +58,7 @@ class AsuransiList: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AsuransiTableCell", for: indexPath) as! AsuransiTableCell
         
         cell.asuransiName.text = asuransilist[indexPath.row].name
+        cell.asuransiLabelLogo.text = asuransilist[indexPath.row].name
 
         // Configure the cell...
 

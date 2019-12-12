@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F02E45823A1E3C30089BBF0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45623A1E3C30089BBF0 /* DetailViewController.swift */; };
+		7F02E45923A1E3C30089BBF0 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */; };
+		7F02E45B23A20D380089BBF0 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */; };
 		7F1111F2237E7994007CA7EE /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F0237E7994007CA7EE /* HospitalList.swift */; };
 		7F1111F3237E7994007CA7EE /* HospitalList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1111F1237E7994007CA7EE /* HospitalList.xib */; };
 		7F1111F5237E7C8F007CA7EE /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F4237E7C8F007CA7EE /* Hospital.swift */; };
@@ -122,6 +125,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F02E45623A1E3C30089BBF0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		7F1111F0237E7994007CA7EE /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
 		7F1111F1237E7994007CA7EE /* HospitalList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalList.xib; sourceTree = "<group>"; };
 		7F1111F4237E7C8F007CA7EE /* Hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
@@ -350,6 +356,7 @@
 				7F5FE05E23742B54004569C4 /* FieldForm.xib */,
 				95091EC5237C082A00EA0782 /* InsuranceCell.swift */,
 				95091EC6237C082A00EA0782 /* InsuranceCell.xib */,
+				7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */,
 				95ABE70423A0D23F00022B47 /* QueueHistoryCell.swift */,
 				95ABE70623A0EE4500022B47 /* QueueHistoryCellView.swift */,
 			);
@@ -548,6 +555,7 @@
 			children = (
 				7F2B16FF237F480C00C6171F /* HomeQueueView.xib */,
 				B73FC6A42379628E000B4A67 /* CardViewController.xib */,
+				7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -561,6 +569,7 @@
 				B73FC6A023795A83000B4A67 /* QueueNumberArea.swift */,
 				B73FC6A6237962ED000B4A67 /* CardViewController.swift */,
 				B73FC6A823796C8A000B4A67 /* ButtonRS.swift */,
+				7F02E45623A1E3C30089BBF0 /* DetailViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -681,6 +690,7 @@
 				7F2B170823811EC600C6171F /* PoliList.xib in Resources */,
 				7F1111FD237E9A75007CA7EE /* HospitalDetail.xib in Resources */,
 				7F1111F3237E7994007CA7EE /* HospitalList.xib in Resources */,
+				7F02E45923A1E3C30089BBF0 /* DetailViewController.xib in Resources */,
 				7F8F1794237EB9E90058AA22 /* AsuransiList.xib in Resources */,
 				7F8F179A237EBFF10058AA22 /* AsuransiTableCell.xib in Resources */,
 				7F283D9C237C12C400724AC9 /* PatientList.xib in Resources */,
@@ -752,6 +762,7 @@
 				95ABE70723A0EE4500022B47 /* QueueHistoryCellView.swift in Sources */,
 				95ABE70523A0D23F00022B47 /* QueueHistoryCell.swift in Sources */,
 				7F5FE05923741674004569C4 /* RegisterController.swift in Sources */,
+				7F02E45823A1E3C30089BBF0 /* DetailViewController.swift in Sources */,
 				95091EC4237BECD500EA0782 /* DoctorDetailView.swift in Sources */,
 				95091EA42374037400EA0782 /* JSONParameterEncoder.swift in Sources */,
 				95091EB52379537400EA0782 /* HQueueBtn.swift in Sources */,
@@ -785,6 +796,7 @@
 				B73FC69F237956A8000B4A67 /* AccountThumbnail.swift in Sources */,
 				95091ED02382980D00EA0782 /* ForgotPass.swift in Sources */,
 				95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */,
+				7F02E45B23A20D380089BBF0 /* PaddingLabel.swift in Sources */,
 				95091EB82379575E00EA0782 /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
