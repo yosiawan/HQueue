@@ -217,6 +217,11 @@ class HomeQueueController: UIViewController {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
     }
+    @IBAction func tapToDetailQueue(_ sender: Any) {
+        let vc = DetailViewController()
+        vc.queueEntity = "Example Data"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
