@@ -67,6 +67,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIUserInterfaceStyle</key>
+	<string>light</string>
 	<key>AntridocNetworkBaseURL</key>
 	<string>http://antridoc.com/api/v1</string>
 </dict>
