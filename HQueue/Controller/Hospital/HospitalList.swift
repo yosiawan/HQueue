@@ -164,11 +164,13 @@ class HospitalList: UITableViewController {
         controller.searchResultsUpdater = self
         controller.obscuresBackgroundDuringPresentation = false
         controller.hidesNavigationBarDuringPresentation = false
+        controller.searchBar.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        controller.searchBar.barTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         controller.delegate = self
         controller.searchBar.delegate = self
         controller.searchBar.sizeToFit()
         controller.searchBar.placeholder = "Cari rumah sakit .."
-        tableView.tableHeaderView = controller.searchBar
+        navigationItem.searchController = controller
            
            return controller
     })()
