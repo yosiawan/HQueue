@@ -68,6 +68,8 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                     request.addValue("application/json", forHTTPHeaderField: "Accept")
                     try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
                 case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let additionalHeaders):
+                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("application/json", forHTTPHeaderField: "Accept")
                     self.addAdditionalHeaders(additionalHeaders, request: &request)
                     try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
             }

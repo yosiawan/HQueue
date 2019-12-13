@@ -106,7 +106,9 @@ class DoctorDetail: UIViewController {
     
     // handle network register queue
     func createQueue() {
-        networkManager.registerQueue(patienId: String(patientSelected!.id!), doctorScheduleId: scheduleSelected!.id, insuranceId: insuranceSelected?.id) { (data, error) in
+        var insuranceId: String? = nil
+        if insuranceSelected?.id != "empty" { insuranceId = insuranceSelected?.id }
+        networkManager.registerQueue(patienId: String(patientSelected!.id!), doctorScheduleId: scheduleSelected!.id, insuranceId: insuranceId) { (data, error) in
             if error != nil {
                 DispatchQueue.main.async {
                     self.presetAlert(
@@ -123,13 +125,7 @@ class DoctorDetail: UIViewController {
                 if let data = data {
                     
                     if data.success {
-                        let vc = SuccessViewController()
-                        vc.setUpSuccessView(
-                            title: "Yes! Kamu sudah mendapat nomor antrian",
-                            message: "Nikmati waktumu, nanti kami akan beritahu saat mendekati giliranmu!",
-                            btnLabel: nil
-                        )
-                        self.present(vc, animated: true)
+                        print(#function, data)
                     }else{
                         DispatchQueue.main.async {
                             self.presetAlert(

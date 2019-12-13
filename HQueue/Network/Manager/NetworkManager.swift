@@ -318,6 +318,7 @@ struct NetworkManager {
                     }
                     
                     do {
+                        print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode(QueueResponse.self, from: responseData)
                         completion(data, nil)
                     }catch let errorDecode{
