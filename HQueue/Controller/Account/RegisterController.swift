@@ -53,6 +53,7 @@ class RegisterController: UIViewController {
             insuranceField.text != ""
         {
             let viewController = IdentityController()
+            let vcWithNavCtrl = UINavigationController(rootViewController: viewController)
             viewController.dataFromFirstPage = firstRegisterPageData(
                 name: nameField.text ?? "No Value",
                 mother: motherField.text ?? "No Value",
@@ -61,7 +62,7 @@ class RegisterController: UIViewController {
                 bloodType: bloodField.text ?? "No Value",
                 insurance: insuranceField.text ?? "No Value"
             )
-            self.navigationController?.present(viewController, animated: true, completion: nil)
+            self.navigationController?.present(vcWithNavCtrl, animated: true, completion: nil)
         } else {
             let alertController = UIAlertController(
                 title: "Form Belum Lengkap",

@@ -25,26 +25,11 @@ class CredentialController: UIViewController {
         networkManager = NetworkManager()
         
         self.isModalInPresentation = true
-        let rightBarButton = UIBarButtonItem(title: "Selesai", style: .plain, target: self, action: #selector(self.doneAction))
+        let rightBarButton = UIBarButtonItem(title: "Selesai", style: .plain, target: self, action: #selector(self.submit(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
-    }
-    
-    @objc func doneAction() {
-        let newAuth = HQAuth(name: "Adi", email: "faridho@roketdigital.com", token: nil, phoneNumber: "089777872")
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let dob = formatter.date(from: "2016-10-08")
-        let dataPatient = Patient(fullName: "faridho luedfi", motherName: "Siti", identityNumber: "3338999231", dob: "2016-10-08", gender: true, address: "Jl. Cempaka", id: nil)
-        networkManager.sigupAndCretePatient(newAuth: newAuth, newPass: "galileogaleli", patientData: dataPatient) { (auth, error) in
-            if let error = error {
-                print(error)
-            }
-            if let auth = auth {
-                print(auth)
-            }
-        }
         
-        //dismiss(animated: true, completion: nil)
+        let tapToDismiss = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        self.view.addGestureRecognizer(tapToDismiss)
     }
     
     @IBAction func submit(_ sender: Any) {
@@ -62,7 +47,6 @@ class CredentialController: UIViewController {
             )
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
-            let dob = formatter.date(from: "2016-10-08")
             let dataPatient = Patient(
                 fullName: dataFromFirstPage.name,
                 motherName: dataFromFirstPage.mother,
@@ -77,13 +61,44 @@ class CredentialController: UIViewController {
                 newPass: passField.text!,
                 patientData: dataPatient
             ) { (auth, error) in
-                if let error = error {
-                    print(error)
-                }
                 if let auth = auth {
-                    print(auth)
+                    // do something with new User data
+                    print("Success ", auth)
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(
+                            title: "Registrasi Sukses",
+                            message: error,
+                            preferredStyle: .alert
+                        )
+                        let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in }
+                        alertController.addAction(tutup)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                }
+                
+                if let error = error {
+                    print("Error ", error)
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(
+                            title: "Registrasi Gagal",
+                            message: error,
+                            preferredStyle: .alert
+                        )
+                        let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in }
+                        alertController.addAction(tutup)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
                 }
             }
+        } else {
+            let alertController = UIAlertController(
+                title: "Form Belum Lengkap",
+                message: "Mohon lengkapi formulir sebelum melanjutkan registrasi.",
+                preferredStyle: .alert
+            )
+            let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in }
+            alertController.addAction(tutup)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }
