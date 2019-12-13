@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HospitalCell" rowHeight="102" id="KGk-i7-Jjw" customClass="HospitalCell" customModule="HQueue" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HospitalCell" rowHeight="102" id="KGk-i7-Jjw" customClass="HospitalCell" customModule="Antridoc" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="113"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+                <rect key="frame" x="0.0" y="0.0" width="347" height="113"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-b5-DgG">
-                        <rect key="frame" x="20" y="12.5" width="88" height="88"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hospital-list-default-img" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-b5-DgG">
+                        <rect key="frame" x="10" y="12.5" width="88" height="88"/>
                         <color key="backgroundColor" red="0.98736125230789185" green="0.96838933229446411" blue="0.94228070974349976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="88" id="X2c-Oe-EDV"/>
@@ -25,19 +25,19 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sg-jP-Xyt">
-                        <rect key="frame" x="121" y="12.5" width="214" height="88"/>
+                        <rect key="frame" x="108" y="12.5" width="229" height="88"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aTy-OJ-CNP">
-                                <rect key="frame" x="15" y="18" width="179" height="52"/>
+                                <rect key="frame" x="15" y="18" width="214" height="52"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS Bunda Ada Lima" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-X7-fTG">
-                                        <rect key="frame" x="0.0" y="0.0" width="179" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jl. Raya rawa buntu, sektor 1.3, BSD, Tangerang" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuv-a1-8n1">
-                                        <rect key="frame" x="0.0" y="20.5" width="179" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="214" height="31.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -49,17 +49,17 @@
                         <constraints>
                             <constraint firstItem="aTy-OJ-CNP" firstAttribute="leading" secondItem="1sg-jP-Xyt" secondAttribute="leading" constant="15" id="EQy-fS-mI2"/>
                             <constraint firstItem="aTy-OJ-CNP" firstAttribute="centerY" secondItem="1sg-jP-Xyt" secondAttribute="centerY" id="FKZ-W5-3ZT"/>
-                            <constraint firstAttribute="trailing" secondItem="aTy-OJ-CNP" secondAttribute="trailing" constant="20" id="o2J-hx-nfB"/>
+                            <constraint firstAttribute="trailing" secondItem="aTy-OJ-CNP" secondAttribute="trailing" id="o2J-hx-nfB"/>
                             <constraint firstAttribute="height" constant="88" id="yI3-bL-aaF"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="1sg-jP-Xyt" firstAttribute="leading" secondItem="1Sz-b5-DgG" secondAttribute="trailing" constant="13" id="AeG-zU-rPn"/>
-                    <constraint firstAttribute="trailing" secondItem="1sg-jP-Xyt" secondAttribute="trailing" constant="-15" id="KqW-qK-UpH"/>
+                    <constraint firstItem="1sg-jP-Xyt" firstAttribute="leading" secondItem="1Sz-b5-DgG" secondAttribute="trailing" constant="10" id="AeG-zU-rPn"/>
+                    <constraint firstAttribute="trailing" secondItem="1sg-jP-Xyt" secondAttribute="trailing" constant="10" id="KqW-qK-UpH"/>
                     <constraint firstItem="1sg-jP-Xyt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="USe-6l-gaj"/>
                     <constraint firstItem="1Sz-b5-DgG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Zjn-JQ-NbB"/>
-                    <constraint firstItem="1Sz-b5-DgG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="q1t-zA-GQW"/>
+                    <constraint firstItem="1Sz-b5-DgG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="q1t-zA-GQW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -69,7 +69,10 @@
                 <outlet property="imageHospital" destination="1Sz-b5-DgG" id="gvx-JF-n7o"/>
                 <outlet property="titleLabel" destination="d0M-X7-fTG" id="D5e-tT-xnh"/>
             </connections>
-            <point key="canvasLocation" x="69.565217391304358" y="155.02232142857142"/>
+            <point key="canvasLocation" x="89.130434782608702" y="155.02232142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="hospital-list-default-img" width="88" height="88"/>
+    </resources>
 </document>

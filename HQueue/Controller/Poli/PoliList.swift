@@ -10,25 +10,24 @@ import UIKit
 
 class PoliList: UITableViewController {
     
+    var networkManager: NetworkManager!
+    
+    var hospital: Hospital!
+    
+    var currentPage = 1
+    
     @IBOutlet var headerView: UIView!
     
-    let poliList: [Poli] = [
-        Poli(id: 34, name: "Poliklinik Anak"),
-        Poli(id: 35, name: "Poliklinik Penyakit Dalam"),
-        Poli(id: 36, name: "Poliklinik Gigi Spesialis"),
-        Poli(id: 37, name: "Poliklinik Kandungan"),
-        Poli(id: 38, name: "Poli Anak"),
-        Poli(id: 39, name: "Poli Anak"),
-        Poli(id: 40, name: "Poli Anak"),
-        Poli(id: 41, name: "Poli Anak"),
-        Poli(id: 42, name: "Poli Anak"),
-        Poli(id: 43, name: "Poli Anak")
-    ]
+    var poliList: [Poli] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.networkManager = NetworkManager()
+        
         tableView.register(UINib(nibName: "PoliCell", bundle: nil), forCellReuseIdentifier: "PoliCell")
+        
+        self.fetchingData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -92,14 +91,40 @@ class PoliList: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DoctorList()
+        vc.currentPoli = poliList[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    */
+    
+    
+    // MARK: - Fetching Data
+    func fetchingData() {
+        
+        networkManager.getPoli(hospitalId: self.hospital.id, search: nil, page: self.currentPage) { (data, error) in
+            if let error = error {
+                print("Fetching poli data - error", error)
+            }
+            
+            if let data = data {
+                print("Fetching poli data", data)
+                self.poliList = data.data
+                DispatchQueue.main.async {
+                 self.tableView.reloadData()
+                }
+            }
+            
+            /* if use refresh controller
+            if isPullRefresh {
+                 DispatchQueue.main.async {
+                     self.refreshControler.endRefreshing()
+                 }
+            }
+            */
+        }
+    }
     
 }

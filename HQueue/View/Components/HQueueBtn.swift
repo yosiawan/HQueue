@@ -33,5 +33,7 @@ class HQueueBtn: UICollectionViewCell {
         self.view.backgroundColor = .white
         self.timeLabel.textColor = .HQueueYellow
         return
+
     }
+    
 }

@@ -10,12 +10,15 @@ import UIKit
 
 class PatientList: UITableViewController {
     
-    var items = ["Pasien 1", "Pasien 2", "Pasien 3"]
+    var networkManager: NetworkManager!
+    var patients: [Patient] = []
+    var perviousController: PatientListPerviousControllerDelegate?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Data Pasien"
+        self.networkManager = NetworkManager()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDataAction))
         
@@ -25,6 +28,12 @@ class PatientList: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchData()
     }
     
     @objc func addDataAction() {
@@ -40,25 +49,17 @@ class PatientList: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        return patients.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PatientCell", for: indexPath) as! PatientCell
-
+        print("Fetch data patient", patients[indexPath.row])
         // Configure the cell...
-        cell.patientLabel.text = items[indexPath.row]
-
+        cell.patientLabel.text = patients[indexPath.row].fullName
+        
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = PatientDetail()
-        vc.patient = items[indexPath.row]
-        vc.delegate = self
-        let nav = UINavigationController(rootViewController: vc)
-        self.present(nav, animated: true, completion: nil)
     }
     
     func handleModalDismissed() {
@@ -100,13 +101,47 @@ class PatientList: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+    //}
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let prvController = self.perviousController {
+            prvController.didPatientSelected(patient: patients[indexPath.row])
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            let vc = PatientDetail()
+            //vc.patient = items[indexPath.row]
+            vc.delegate = self
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: nil)
+        }
     }
-    */
+    
+    // MARK: - Fetching Data
+    func fetchData() {
+        networkManager.getPatient { data, error in
+            if error != "" {
+                //print(#function, error)
+            }
+
+            if let data = data {
+                self.patients = data
+                //print(#function, data)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+
+            }
+        }
+    }
+}
+
+protocol PatientListPerviousControllerDelegate {
+    func didPatientSelected(patient: Patient) -> Void
 }

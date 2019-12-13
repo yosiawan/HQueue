@@ -13,14 +13,10 @@ public enum HQAuthAPI {
     case signup(email: String, name: String, password: String, phoneNumber: String)
     case addDeviceToken(token: String, deviceToken: String)
     case getProfile
+    case postProfile(user: HUser)
 }
 
 extension HQAuthAPI: EndPointType {
-    var baseURL: URL {
-        guard let url = URL(string: "http://167.71.203.148/api/v1") else { fatalError("Base URL not configured") }
-//        guard let url = URL(string: "http://locahost:8000/api/v1") else { fatalError("Base URL not configured") }
-        return url
-    }
     
     var path: String {
         switch self {
@@ -28,16 +24,16 @@ extension HQAuthAPI: EndPointType {
             return "/login"
         case .signup:
             return "/register"
-        case .addDeviceToken:
-            return "/add-device-token"
-        case .getProfile:
+        case .getProfile, .postProfile:
             return "/user"
+        case .addDeviceToken:
+            return "add-device-token"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .signin, .signup, .addDeviceToken:
+        case .signin, .signup, .addDeviceToken, .postProfile:
             return .post
         case .getProfile:
             return .get
@@ -45,6 +41,7 @@ extension HQAuthAPI: EndPointType {
     }
     
     var task: HTTPTask {
+        let bearerToken = ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "authToken") ?? "")"]
         switch self {
         case .signin(let email, let password):
             return .requestParameters(bodyParameters: ["email": email, "password": password], urlParameters: nil)
@@ -53,7 +50,17 @@ extension HQAuthAPI: EndPointType {
         case .addDeviceToken(let token, let deviceToken):
             return .requestParametersAndHeaders(bodyParameters: ["device_token": deviceToken], urlParameters: nil, additionalHeaders: ["Authorization" : "Bearer \(token)"])
         case .getProfile:
-            return .request
+            return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: bearerToken)
+        case .postProfile(let user):
+            return .requestParametersAndHeaders(
+                bodyParameters: [
+                    "name": user.name,
+                    "email": user.email,
+                    "phone_number": user.phoneNumber ?? ""
+                ],
+                urlParameters: nil,
+                additionalHeaders: bearerToken
+            )
         }
     }
     

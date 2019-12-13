@@ -11,13 +11,21 @@ import UIKit
 class InsuranceCell: UICollectionViewCell {
 
     @IBOutlet weak var insuranceImg: UIImageView!
-    let isActive = false
+    @IBOutlet weak var defaultView: UIView!
+    @IBOutlet weak var insuranceName: UILabel!
+    
+    override var isSelected: Bool {
+        didSet {
+            self.contentView.layer.borderWidth = 1
+            self.contentView.layer.borderColor = self.isSelected ? .HQueueYellow : .white
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//        self.layer.cornerRadius = 25
 
+        self.contentView.layer.cornerRadius = 6
+        
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor).isActive = true
         self.contentView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor).isActive = true

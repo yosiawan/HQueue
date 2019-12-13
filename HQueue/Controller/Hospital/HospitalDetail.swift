@@ -13,19 +13,41 @@ class HospitalDetail: UIViewController {
     @IBOutlet weak var viewWrapper: UIView!
     @IBOutlet weak var poliButton: UIButton!
     @IBOutlet weak var asuransiCollection: UICollectionView!
+    @IBOutlet weak var hospitalImage: UIImageView!
+    @IBOutlet weak var hospitalName: UILabel!
+    @IBOutlet weak var hospitalAddress: UILabel!
+    @IBOutlet weak var hospitalPhone: UILabel!
+    
+    var hospital: Hospital!
+    
+    func prepareForView() {
+        hospitalName.text = hospital.name
+        hospitalAddress.text = hospital.address
+        hospitalPhone.text = hospital.phoneNumber
+        self.navigationItem.titleView = UIView()
+        if let imgUrlString = hospital.photo {
+            hospitalImage.downloaded(from: "http://167.71.203.148/storage/hospitals/\(imgUrlString)", contentMode: .scaleAspectFill)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setTransparantNav()
         viewWrapper.roundCorners(corners: [.topLeft], radius: 40)
-        
         poliButton.layer.cornerRadius = poliButton.frame.height / 2
-        // Do any additional setup after loading the view.
+        
+        prepareForView()
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //
     }
 
     @IBAction func listAsuransiAction(_ sender: Any) {
         let vc = AsuransiList()
+        vc.hospitalId = hospital.id
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -33,8 +55,11 @@ class HospitalDetail: UIViewController {
         let vc = PoliList()
         vc.title = "Poliklinik"
         vc.navigationItem.largeTitleDisplayMode = .never
+        vc.hospital = self.hospital
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
     
     /*
     // MARK: - Navigation
@@ -46,3 +71,7 @@ class HospitalDetail: UIViewController {
     }
     */
 }
+
+//protocol HospitalDetailDelegate {
+//    func didPushDetailHospital(detailView: HospitalDetail)
+//}

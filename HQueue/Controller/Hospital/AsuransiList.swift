@@ -10,22 +10,41 @@ import UIKit
 
 class AsuransiList: UITableViewController {
     
-    var asuransilist: [Asuransi] = [
-        Asuransi(imgUrl: "", name: "Suransi 1"),
-        Asuransi(imgUrl: "", name: "Suransi 2"),
-        Asuransi(imgUrl: "", name: "Suransi 3")
-    ]
+    var networkManager: NetworkManager!
+    
+    var hospitalId: String!
+    
+    var asuransilist: [Asuransi] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.networkManager = NetworkManager()
+        
         self.tableView.register(UINib(nibName: "AsuransiTableCell", bundle: nil), forCellReuseIdentifier: "AsuransiTableCell")
+        
+        fetchInsurance()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func fetchInsurance() {
+        networkManager.getInsurance(hospital_id: hospitalId) { insurances, error in
+            if error != "" {
+                //print(#function, error)
+            }
+            
+            if let insurances = insurances {
+                self.asuransilist = insurances
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -39,6 +58,7 @@ class AsuransiList: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AsuransiTableCell", for: indexPath) as! AsuransiTableCell
         
         cell.asuransiName.text = asuransilist[indexPath.row].name
+        cell.asuransiLabelLogo.text = asuransilist[indexPath.row].name
 
         // Configure the cell...
 

@@ -19,7 +19,8 @@ extension DoctorDetail {
 
         //  MARK: - Doctor Image
         doctorImg.layer.cornerRadius = 25
-        doctorImg.image = UIImage(named: "foto_dr-farida")
+        doctorImg.image = UIImage(named: "doctor-default-img")
+        doctorImg.contentMode = .scaleAspectFit
         self.view.addSubview(doctorImg)
         doctorImg.translatesAutoresizingMaskIntoConstraints = false
         doctorImg.heightAnchor.constraint(equalToConstant: CGFloat(114)).isActive = true
@@ -29,7 +30,7 @@ extension DoctorDetail {
         
         //  MARK: - Doctor Name
         doctorName.font = UIFont.boldSystemFont(ofSize: 22)
-        doctorName.text = "Dr. Farida Putri Batubara S.AP, S.Si"
+        //doctorName.text = "Dr. Farida Putri Batubara S.AP, S.Si"
         doctorName.numberOfLines = 2
         self.view.addSubview(doctorName)
         doctorName.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +68,7 @@ extension DoctorDetail {
         scheduleOptions.register(UINib(nibName: "DoctorScheduleCell", bundle: nil), forCellWithReuseIdentifier: scheduleCellIdentifier)
         scheduleOptions.delegate = self
         scheduleOptions.dataSource = self
-        
+        scheduleOptions.showsHorizontalScrollIndicator = false
         //  MARK: - Patient Label
         patientLbl.text = "Pilih Data Pasien"
         patientLbl.font = UIFont.boldSystemFont(ofSize: 22)
@@ -81,10 +82,13 @@ extension DoctorDetail {
         patientBtn.setTitleColor(.HQueueYellow, for: .normal)
         self.view.addSubview(patientBtn)
         patientBtn.translatesAutoresizingMaskIntoConstraints = false
-        patientBtn.heightAnchor.constraint(equalToConstant: CGFloat(26)).isActive = true
-        patientBtn.widthAnchor.constraint(equalToConstant: CGFloat(200)).isActive = true
+        patientBtn.heightAnchor.constraint(equalToConstant: CGFloat(44)).isActive = true
+        //patientBtn.widthAnchor.constraint(equalToConstant: CGFloat(200)).isActive = true
         patientBtn.topAnchor.constraint(equalTo: patientLbl.bottomAnchor, constant: 20).isActive = true
         patientBtn.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        patientBtn.layer.cornerRadius = 22
+        patientBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 22, bottom: 0, right: 22)
+        patientBtn.addTarget(self, action: #selector(pushToPatientList), for: .touchUpInside)
 
         //  MARK: - Insurance Label
         insuranceLbl.text = "Pilih Asuransi"
@@ -108,11 +112,13 @@ extension DoctorDetail {
         insuranceOptions.register(UINib(nibName: "InsuranceCell", bundle: nil), forCellWithReuseIdentifier: insuranceCellIdentifier)
         insuranceOptions.delegate = self
         insuranceOptions.dataSource = self
+        insuranceOptions.showsHorizontalScrollIndicator = false
         
         //  MARK: - Daftar Button
         daftarBtn.setTitle("Daftar Antrian", for: .normal)
         daftarBtn.setTitleColor(.white, for: .normal)
         daftarBtn.layer.backgroundColor = .init(srgbRed: 0.12, green: 0.26, blue: 0.51, alpha: 1.0)
+        daftarBtn.layer.cornerRadius = daftarBtn.frame.height / 2
         self.view.addSubview(daftarBtn)
         daftarBtn.translatesAutoresizingMaskIntoConstraints = false
         daftarBtn.heightAnchor.constraint(equalToConstant: CGFloat(51)).isActive = true

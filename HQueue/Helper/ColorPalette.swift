@@ -16,3 +16,8 @@ extension UIColor {
     static let HQueueGreen = UIColor(red:0.31, green:0.62, blue:0.57, alpha:1.0)
     static let HQueueCream = UIColor(red:0.98, green:0.97, blue:0.95, alpha:1.0)
 }
+
+extension CGColor {
+    static let HQueueYellow = CGColor(srgbRed:0.98, green:0.66, blue:0.16, alpha:1.0)
+    static let white = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1)
+}

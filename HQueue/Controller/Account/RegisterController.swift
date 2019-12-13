@@ -8,7 +8,23 @@
 
 import UIKit
 
+struct firstRegisterPageData {
+    var name: String
+    var mother: String
+    var gender: String
+    var birthDate: String
+    var bloodType: String
+    var insurance: String
+}
+
 class RegisterController: UIViewController {
+    
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var motherField: UITextField!
+    @IBOutlet weak var genderField: UITextField!
+    @IBOutlet weak var birthField: UITextField!
+    @IBOutlet weak var bloodField: UITextField!
+    @IBOutlet weak var insuranceField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +41,24 @@ class RegisterController: UIViewController {
     }
 
     @IBAction func nextAction(_ sender: Any) {
-        let vc = IdentityController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        if motherField.text != "" &&
+            nameField.text != "" &&
+            genderField.text != "" &&
+            birthField.text != "" &&
+            bloodField.text != "" &&
+            insuranceField.text != ""
+        {
+            let viewController = IdentityController()
+            viewController.dataFromFirstPage = firstRegisterPageData(
+                name: nameField.text ?? "No Value",
+                mother: motherField.text ?? "No Value",
+                gender: genderField.text ?? "No Value",
+                birthDate: birthField.text ?? "No Value",
+                bloodType: bloodField.text ?? "No Value",
+                insurance: insuranceField.text ?? "No Value"
+            )
+            self.navigationController?.present(viewController, animated: true, completion: nil)
+        }
     }
-    
-    
 }

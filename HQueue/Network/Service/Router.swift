@@ -15,11 +15,6 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         let session = URLSession.shared
         do {
             let request = try self.buildRequest(from: route)
-            
-            //Debug
-            //print("addDeviceToken - header", request.allHTTPHeaderFields)
-            //print("addDeviceToken - body", String(bytes: request.httpBody!, encoding: .utf8))
-            
             task = session.dataTask(with: request, completionHandler: { data, response, error in completion(data, response, error)})
         } catch {
             completion(nil, nil, error)
@@ -58,7 +53,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
         
         var request = URLRequest(
-            url: route.baseURL.appendingPathComponent(route.path),
+            url: URL.appBaseURL.appendingPathComponent(route.path),
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
             timeoutInterval: 5)
         

@@ -26,4 +26,17 @@ extension UIViewController {
         view?.endEditing(true)
     }
     
+    func presetAlert(alert: UIAlertController, actions: [UIAlertAction]?, comletion: (() -> ())?) {
+        
+        // Add actions
+        if let actions: [UIAlertAction] = actions {
+            for action in actions {
+                alert.addAction(action)
+            }
+        } else {
+            alert.addAction(.init(title: "Tutup", style: .cancel, handler: nil))
+        }
+        
+        present(alert, animated: true, completion: comletion)
+    }
 }

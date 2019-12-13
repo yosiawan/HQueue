@@ -10,8 +10,8 @@ import UIKit
 
 class HomeQueueController: UIViewController {
     
-    @IBOutlet weak var accountTumb: AccountThumbnail!
     @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var accountBtn: UIButton!
     
     enum CardState {
         case expanded
@@ -31,12 +31,18 @@ class HomeQueueController: UIViewController {
             self.cardViewController.isNavigationBarHidden = true
             self.cardViewController.navigationBar.prefersLargeTitles = true
             self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
+            self.hospitalList.tableView.contentOffset.y = 1.8
+            self.hospitalList.tableView.isScrollEnabled = false
+            self.visualEffectView.alpha = 0
             return .collapsed
         }else{
             self.navigationController?.isNavigationBarHidden = true
             self.cardViewController.isNavigationBarHidden = false
             self.cardViewController.navigationBar.prefersLargeTitles = true
             self.hospitalList.viewCardHandler.removeFromSuperview()
+            self.hospitalList.tableView.isScrollEnabled = true
+            self.hospitalList.tableView.setContentOffset(CGPoint(x: 0, y: -100), animated: true)
+            self.visualEffectView.alpha = 1
             return .expanded
         }
     }
@@ -47,59 +53,71 @@ class HomeQueueController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: "HomeQueueView", bundle: nil)
     }
-
+    
+    // MARK: Check Authentication
     fileprivate func checkAuth() {
         if UserDefaults.standard.string(forKey: "authToken") != nil {
             let nameuser = UserDefaults.standard.string(forKey: "authName")!
-            self.userLabel.text = "Hi, \(nameuser)"
-            self.userLabel.alpha = 1
+            self.userLabel.text = "Halo, \(nameuser)"
         }else{
-            self.userLabel.alpha = 0
+            self.userLabel.text = "Halo, Sobat Sehat"
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.hospitalList = HospitalList()
-        
+
         self.title = "My Queue"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: accountTumb)
-        accountTumb.translatesAutoresizingMaskIntoConstraints = false
-        accountTumb.widthAnchor.constraint(equalToConstant: accountTumb.frame.height).isActive = true
-        accountTumb.heightAnchor.constraint(equalToConstant: accountTumb.frame.height).isActive = true
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.titleView = UIView()
+        self.setTransparantNav()
         
+        // set height by main view
         cardHeight = self.view.frame.height - 44
         
-        checkAuth()
-        
+        // Setup view
+        self.accountBtn.layer.cornerRadius = self.accountBtn.frame.height / 2
+
         setupCard()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         checkAuth()
+        fetchCurrentQueue()
     }
     
-     //TODO: Change this into account method
+    //MARK: Push to AccountController
     @IBAction func tapAccount(_ sender: Any) {
         print("test")
         let loginVC = AccountController()
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
-
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    //MARK: Fetch Current Queue
+    func fetchCurrentQueue() {
+        let networkManager = NetworkManager()
+        networkManager.getCurrentQueue { queue, error in
+            if error != nil {
+                print(error)
+            }
+            
+            if let queue = queue {
+                print(queue);
+            }
+        }
     }
     
+    //MARK: Setup View
     func setupCard() {
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.view.frame
         self.view.addSubview(visualEffectView)
+        self.visualEffectView.alpha = 0
         
         cardViewController = UINavigationController(rootViewController: hospitalList)
         cardViewController.isNavigationBarHidden = true
@@ -122,14 +140,37 @@ class HomeQueueController: UIViewController {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
         let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))
-//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
         
-        self.hospitalList.viewCardHandler.addGestureRecognizer(tapGestureRecognizer)
+        
+        self.hospitalList.btnCardHandler.addGestureRecognizer(tapGestureRecognizer)
         rightBtn.addGestureRecognizer(tapGestureRecognizer2)
         
-        //cardViewController.navigationBar.addGestureRecognizer(panGestureRecognizer)
+        /*
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
+        cardViewController.navigationBar.addGestureRecognizer(panGestureRecognizer)
+        */
     }
+    
+    /*
+    @objc func handleCardPan (recognizer:UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            startInteractiveTransition(state: nextState, duration: 0.9)
+        case .changed:
+            let translation = recognizer.translation(in: self.hospitalList.view)
+            var fractionComplete = translation.y / cardHeight
+            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
+            updateInteractiveTransition(fractionCompleted: fractionComplete)
+        case .ended:
+            continueInteractiveTransition()
+        default:
+            break
+        }
 
+    }
+    */
+    
+    // MARK: Handle Gesture Floating Card
     @objc func handleCardTap(recognzier:UITapGestureRecognizer) {
         switch recognzier.state {
         case .ended:
@@ -138,23 +179,6 @@ class HomeQueueController: UIViewController {
             break
         }
     }
-    
-//    @objc func handleCardPan (recognizer:UIPanGestureRecognizer) {
-//        switch recognizer.state {
-//        case .began:
-//            startInteractiveTransition(state: nextState, duration: 0.9)
-//        case .changed:
-//            let translation = recognizer.translation(in: self.hospitalList.view)
-//            var fractionComplete = translation.y / cardHeight
-//            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
-//            updateInteractiveTransition(fractionCompleted: fractionComplete)
-//        case .ended:
-//            continueInteractiveTransition()
-//        default:
-//            break
-//        }
-//
-//    }
     
     func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
         if runningAnimations.isEmpty {
@@ -175,20 +199,6 @@ class HomeQueueController: UIViewController {
             frameAnimator.startAnimation()
             runningAnimations.append(frameAnimator)
             
-            
-            // TODO : Remove this
-//            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-//                switch state {
-//                case .expanded:
-//                    self.cardViewController.view.layer.cornerRadius = 12
-//                case .collapsed:
-//                    self.cardViewController.view.layer.cornerRadius = 0
-//                }
-//            }
-//
-//            cornerRadiusAnimator.startAnimation()
-//            runningAnimations.append(cornerRadiusAnimator)
-            
             let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
                 switch state {
                 case .expanded:
@@ -200,7 +210,6 @@ class HomeQueueController: UIViewController {
             
             blurAnimator.startAnimation()
             runningAnimations.append(blurAnimator)
-            
         }
     }
     
@@ -224,6 +233,21 @@ class HomeQueueController: UIViewController {
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
+    }
+    
+    //MARK: Navigation
+    @IBAction func tapToDetailQueue(_ sender: Any) {
+        let vc = DetailViewController()
+        vc.queueEntity = "Example Data"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func toQueueHistoryList(_ sender: Any) {
+        let vc = QueueHistoryController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }

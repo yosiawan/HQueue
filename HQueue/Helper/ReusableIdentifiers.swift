@@ -11,3 +11,5 @@ import Foundation
 var TimeLabelIdentifier = "TimeLabelCell"
 let insuranceCellIdentifier = "Insurance Cell Identifier"
 let scheduleCellIdentifier = "Schedule Cell Identifier"
+let doctorListCellIdentifier = "Doctor List Cell Identifier"
+let queueHistoryCellIdentifier = "Queue History Cell Identifier"

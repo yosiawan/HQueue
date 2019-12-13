@@ -34,7 +34,7 @@ class PatientDetail: UIViewController {
     
     @objc func dismissModal() {
         dismiss(animated: true) {
-            self.delegate.items = [self.nameField.text] as! [String]
+            //self.delegate.items = [self.nameField.text] as! []
             self.delegate.tableView.reloadData()
         }
     }
