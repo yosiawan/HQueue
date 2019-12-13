@@ -7,11 +7,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuccessViewController" customModule="Antridoc" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="finishButton" destination="JsF-ZK-rFy" id="Cuv-j8-3KL"/>
                 <outlet property="messageLabel" destination="FKD-Fa-OOM" id="2Nl-SX-nXV"/>
                 <outlet property="subjectTitle" destination="rBZ-p8-h5q" id="LNx-mn-WVn"/>
+                <outlet property="transitionButon" destination="JsF-ZK-rFy" id="gxT-3q-dgW"/>
+                <outlet property="transitionImg" destination="wNQ-bg-icI" id="d06-IC-wf6"/>
+                <outlet property="transitionMessageLabel" destination="FKD-Fa-OOM" id="idq-8H-dey"/>
+                <outlet property="transitionTitleLabel" destination="rBZ-p8-h5q" id="vD0-VP-o0o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

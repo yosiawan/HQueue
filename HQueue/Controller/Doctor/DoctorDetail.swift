@@ -34,6 +34,12 @@ class DoctorDetail: UIViewController {
     var insuranceSelected: Asuransi?
     var scheduleSelected: DoctorScedule?
     var patientSelected: Patient?
+    
+    enum QueueRegisterState: String {
+        case success = "success"
+        case alreadyInQueue = "already in queue"
+        case fail = "failure"
+    }
 
     // MARK: - VDL
     override func viewDidLoad() {
@@ -125,7 +131,21 @@ class DoctorDetail: UIViewController {
                 if let data = data {
                     
                     if data.success {
-                        print(#function, data)
+                        DispatchQueue.main.async {
+                             self.presetAlert(
+                                 alert: .init(
+                                     title: "Success",
+                                     message: data.message,
+                                     preferredStyle: .alert
+                                 ),
+                                 actions: [
+                                    .init(title: "Ok", style: .default, handler: { action in
+                                        self.navigationController?.popToRootViewController(animated: true)
+                                    })
+                                ],
+                                 comletion: nil
+                             )
+                        }
                     }else{
                         DispatchQueue.main.async {
                             self.presetAlert(
@@ -143,6 +163,11 @@ class DoctorDetail: UIViewController {
             }
         }
     }
+    
+    // MARK: - Wakeup Transition View
+//    func wakeupTransitionView(for state: QueueRegisterState) {
+//        self.transitionView.wekeupView(target: self, title: "Test", message: "Test Message", btnLabel: "Ok")
+//    }
     
     // MARK: - Navigation
     @objc func pushToPatientList() {
@@ -196,21 +221,12 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
                 cell.isUserInteractionEnabled = false
                 cell.view.alpha = 0.6
             }
-            if indexPath.row == 0 {
-                cell.isSelected = true
-                self.scheduleSelected = currentDoctor.schedule[indexPath.row]
-            }
             cell.timeLbl.text = "\(currentDoctor.schedule[indexPath.row].timeStart) - \(currentDoctor.schedule[indexPath.row].timeEnd)"
             return cell
         }
     
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: insuranceCellIdentifier, for: indexPath) as! InsuranceCell
         cell.defaultView.alpha = 0
-        if currentInsurances[indexPath.row].id == "empty" {
-            cell.defaultView.alpha = 1
-            cell.isSelected = true
-            self.insuranceSelected = currentInsurances[indexPath.row]
-        }
 //        if let insuranceImgUrl = currentInsurances[indexPath.row] {
 //            cell.insuranceImg.downloaded(from: insuranceImgUrl, contentMode: .scaleAspectFill)
 //        }

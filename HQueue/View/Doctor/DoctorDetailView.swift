@@ -20,6 +20,7 @@ extension DoctorDetail {
         //  MARK: - Doctor Image
         doctorImg.layer.cornerRadius = 25
         doctorImg.image = UIImage(named: "doctor-default-img")
+        doctorImg.contentMode = .scaleAspectFit
         self.view.addSubview(doctorImg)
         doctorImg.translatesAutoresizingMaskIntoConstraints = false
         doctorImg.heightAnchor.constraint(equalToConstant: CGFloat(114)).isActive = true

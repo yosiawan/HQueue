@@ -6,8 +6,7 @@ import Foundation
 
 extension URL {
     static var appBaseURL: URL {
-        //guard let baseURLString = Bundle.main.object(forInfoDictionaryKey: "AntridocNetworkBaseURL") as? String else { fatalError("Newtwork: Base URL String not configured in info.plist") }
-        let baseURLString = "http://127.0.0.1:8000/api/v1"
+        guard let baseURLString = Bundle.main.object(forInfoDictionaryKey: "AntridocNetworkBaseURL") as? String else { fatalError("Newtwork: Base URL String not configured in info.plist") }
         guard let url = URL(string: baseURLString) else { fatalError("Base URL not configured") }
         return url
     }
