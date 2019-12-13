@@ -10,6 +10,7 @@
 		7F02E45823A1E3C30089BBF0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45623A1E3C30089BBF0 /* DetailViewController.swift */; };
 		7F02E45923A1E3C30089BBF0 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */; };
 		7F02E45B23A20D380089BBF0 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */; };
+		7F02E45D23A349AD0089BBF0 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45C23A349AD0089BBF0 /* TransitionView.swift */; };
 		7F1111F2237E7994007CA7EE /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F0237E7994007CA7EE /* HospitalList.swift */; };
 		7F1111F3237E7994007CA7EE /* HospitalList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1111F1237E7994007CA7EE /* HospitalList.xib */; };
 		7F1111F5237E7C8F007CA7EE /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F4237E7C8F007CA7EE /* Hospital.swift */; };
@@ -61,8 +62,7 @@
 		7F987554238EA41000082985 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987553238EA41000082985 /* Doctor.swift */; };
 		7FA5FB48238530580081DE82 /* HospitalEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */; };
 		7FA5FB4A23869FA90081DE82 /* MediaHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB4923869FA90081DE82 /* MediaHandler.swift */; };
-		7FC411C6239F94C700AF53BE /* SuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC411C4239F94C700AF53BE /* SuccessViewController.xib */; };
-		7FC411C8239F9C1000AF53BE /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC411C3239F94C700AF53BE /* SuccessViewController.swift */; };
+		7FC411C6239F94C700AF53BE /* TransitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC411C4239F94C700AF53BE /* TransitionView.xib */; };
 		95091E4B2372B02B00EA0782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4A2372B02B00EA0782 /* AppDelegate.swift */; };
 		95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95091E4C2372B02B00EA0782 /* SceneDelegate.swift */; };
 		95091E552372B02B00EA0782 /* HQueue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95091E532372B02B00EA0782 /* HQueue.xcdatamodeld */; };
@@ -128,6 +128,7 @@
 		7F02E45623A1E3C30089BBF0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		7F02E45C23A349AD0089BBF0 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
 		7F1111F0237E7994007CA7EE /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
 		7F1111F1237E7994007CA7EE /* HospitalList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalList.xib; sourceTree = "<group>"; };
 		7F1111F4237E7C8F007CA7EE /* Hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
@@ -177,8 +178,7 @@
 		7F987553238EA41000082985 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalEndPoint.swift; path = HQueue/View/Home/HospitalEndPoint.swift; sourceTree = SOURCE_ROOT; };
 		7FA5FB4923869FA90081DE82 /* MediaHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaHandler.swift; sourceTree = "<group>"; };
-		7FC411C3239F94C700AF53BE /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
-		7FC411C4239F94C700AF53BE /* SuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessViewController.xib; sourceTree = "<group>"; };
+		7FC411C4239F94C700AF53BE /* TransitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransitionView.xib; sourceTree = "<group>"; };
 		95091E472372B02B00EA0782 /* Antridoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antridoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95091E4A2372B02B00EA0782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95091E4C2372B02B00EA0782 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -347,8 +347,8 @@
 		7F5FE05B23742A08004569C4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7FC411C3239F94C700AF53BE /* SuccessViewController.swift */,
-				7FC411C4239F94C700AF53BE /* SuccessViewController.xib */,
+				7F02E45C23A349AD0089BBF0 /* TransitionView.swift */,
+				7FC411C4239F94C700AF53BE /* TransitionView.xib */,
 				7F283DA0237C15B800724AC9 /* PatientCell.xib */,
 				95091EB32379537400EA0782 /* HQueueBtn.swift */,
 				95091EB42379537400EA0782 /* HQueueBtn.xib */,
@@ -680,7 +680,7 @@
 			files = (
 				7F5FE04E2374127B004569C4 /* IdentityController.xib in Resources */,
 				7F2B171023811F2900C6171F /* PoliCell.xib in Resources */,
-				7FC411C6239F94C700AF53BE /* SuccessViewController.xib in Resources */,
+				7FC411C6239F94C700AF53BE /* TransitionView.xib in Resources */,
 				7F5FE05A23741674004569C4 /* RegisterController.xib in Resources */,
 				95091EC8237C082B00EA0782 /* InsuranceCell.xib in Resources */,
 				7F5FE06523757FBE004569C4 /* Login.xib in Resources */,
@@ -732,6 +732,7 @@
 				7F5FE05323741573004569C4 /* CredentialController.swift in Sources */,
 				7F111205237EA167007CA7EE /* ViewHelper.swift in Sources */,
 				7F1111F2237E7994007CA7EE /* HospitalList.swift in Sources */,
+				7F02E45D23A349AD0089BBF0 /* TransitionView.swift in Sources */,
 				95091EE423869A1D00EA0782 /* OnboardingView.swift in Sources */,
 				7F8F1799237EBFF10058AA22 /* AsuransiTableCell.swift in Sources */,
 				7F111200237E9D86007CA7EE /* ViewControllerHelper.swift in Sources */,
@@ -768,7 +769,6 @@
 				95091EB52379537400EA0782 /* HQueueBtn.swift in Sources */,
 				7F5FE06423757FA4004569C4 /* Login.swift in Sources */,
 				95091E962373F93000EA0782 /* Router.swift in Sources */,
-				7FC411C8239F9C1000AF53BE /* SuccessViewController.swift in Sources */,
 				7F2B1711238120FA00C6171F /* PoliList.swift in Sources */,
 				95ABE70123A0D0E000022B47 /* QueueHistoryView.swift in Sources */,
 				7FA5FB4A23869FA90081DE82 /* MediaHandler.swift in Sources */,

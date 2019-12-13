@@ -39,8 +39,8 @@ extension Queue: EndPointType {
         case .registerQueue(let patientId, let doctorScheduleId, let insuranceId?):
             return .requestParametersAndHeaders(
                 bodyParameters: [
-                    "patinet_id": patientId,
-                    "doctor_schedule": doctorScheduleId,
+                    "patient_id": patientId,
+                    "doctor_schedule_id": doctorScheduleId,
                     "insurance_id": insuranceId,
                 ],
                 urlParameters: nil,
@@ -50,8 +50,8 @@ extension Queue: EndPointType {
         case .registerQueue(let patientId, let doctorScheduleId, .none):
             return .requestParametersAndHeaders(
                    bodyParameters: [
-                       "patinet_id": patientId,
-                       "doctor_schedule": doctorScheduleId,
+                       "patient_id": patientId,
+                       "doctor_schedule_id": doctorScheduleId,
                    ],
                    urlParameters: nil,
                    additionalHeaders: bearerToken
