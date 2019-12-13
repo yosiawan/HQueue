@@ -11,6 +11,9 @@
 		7F02E45923A1E3C30089BBF0 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */; };
 		7F02E45B23A20D380089BBF0 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */; };
 		7F02E45D23A349AD0089BBF0 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45C23A349AD0089BBF0 /* TransitionView.swift */; };
+		7F02E45F23A397A80089BBF0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45E23A397A80089BBF0 /* NotificationManager.swift */; };
+		7F02E46723A3A0DA0089BBF0 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E46623A3A0DA0089BBF0 /* NotificationService.swift */; };
+		7F02E46B23A3A0DA0089BBF0 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7F02E46423A3A0DA0089BBF0 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7F1111F2237E7994007CA7EE /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F0237E7994007CA7EE /* HospitalList.swift */; };
 		7F1111F3237E7994007CA7EE /* HospitalList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1111F1237E7994007CA7EE /* HospitalList.xib */; };
 		7F1111F5237E7C8F007CA7EE /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F4237E7C8F007CA7EE /* Hospital.swift */; };
@@ -108,6 +111,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7F02E46923A3A0DA0089BBF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95091E3F2372B02B00EA0782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F02E46323A3A0DA0089BBF0;
+			remoteInfo = NotificationService;
+		};
 		95091E612372B02E00EA0782 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 95091E3F2372B02B00EA0782 /* Project object */;
@@ -124,11 +134,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7F02E46F23A3A0DA0089BBF0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7F02E46B23A3A0DA0089BBF0 /* NotificationService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7F02E45623A1E3C30089BBF0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		7F02E45C23A349AD0089BBF0 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
+		7F02E45E23A397A80089BBF0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		7F02E46423A3A0DA0089BBF0 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F02E46623A3A0DA0089BBF0 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		7F02E46823A3A0DA0089BBF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F1111F0237E7994007CA7EE /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
 		7F1111F1237E7994007CA7EE /* HospitalList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalList.xib; sourceTree = "<group>"; };
 		7F1111F4237E7C8F007CA7EE /* Hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
@@ -232,6 +260,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7F02E46123A3A0DA0089BBF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95091E442372B02B00EA0782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +291,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F02E46523A3A0DA0089BBF0 /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				7F02E46623A3A0DA0089BBF0 /* NotificationService.swift */,
+				7F02E46823A3A0DA0089BBF0 /* Info.plist */,
+			);
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
 		7F1111EA237E78D1007CA7EE /* Hospital */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5FE069237585E2004569C4 /* NetworkManager.swift */,
+				7F02E45E23A397A80089BBF0 /* NotificationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -392,6 +437,7 @@
 				95091E492372B02B00EA0782 /* HQueue */,
 				95091E632372B02E00EA0782 /* HQueueTests */,
 				95091E6E2372B02E00EA0782 /* HQueueUITests */,
+				7F02E46523A3A0DA0089BBF0 /* NotificationService */,
 				95091E482372B02B00EA0782 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -402,6 +448,7 @@
 				95091E472372B02B00EA0782 /* Antridoc.app */,
 				95091E602372B02E00EA0782 /* HQueueTests.xctest */,
 				95091E6B2372B02E00EA0782 /* HQueueUITests.xctest */,
+				7F02E46423A3A0DA0089BBF0 /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -577,6 +624,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7F02E46323A3A0DA0089BBF0 /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F02E46C23A3A0DA0089BBF0 /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				7F02E46023A3A0DA0089BBF0 /* Sources */,
+				7F02E46123A3A0DA0089BBF0 /* Frameworks */,
+				7F02E46223A3A0DA0089BBF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationService;
+			productName = NotificationService;
+			productReference = 7F02E46423A3A0DA0089BBF0 /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		95091E462372B02B00EA0782 /* HQueue */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95091E742372B02E00EA0782 /* Build configuration list for PBXNativeTarget "HQueue" */;
@@ -584,10 +648,12 @@
 				95091E432372B02B00EA0782 /* Sources */,
 				95091E442372B02B00EA0782 /* Frameworks */,
 				95091E452372B02B00EA0782 /* Resources */,
+				7F02E46F23A3A0DA0089BBF0 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7F02E46A23A3A0DA0089BBF0 /* PBXTargetDependency */,
 			);
 			name = HQueue;
 			productName = HQueue;
@@ -640,6 +706,9 @@
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Apple Dev. Academy";
 				TargetAttributes = {
+					7F02E46323A3A0DA0089BBF0 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
 					95091E462372B02B00EA0782 = {
 						CreatedOnToolsVersion = 11.2;
 					};
@@ -669,11 +738,19 @@
 				95091E462372B02B00EA0782 /* HQueue */,
 				95091E5F2372B02E00EA0782 /* HQueueTests */,
 				95091E6A2372B02E00EA0782 /* HQueueUITests */,
+				7F02E46323A3A0DA0089BBF0 /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7F02E46223A3A0DA0089BBF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95091E452372B02B00EA0782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -723,6 +800,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7F02E46023A3A0DA0089BBF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F02E46723A3A0DA0089BBF0 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95091E432372B02B00EA0782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -757,6 +842,7 @@
 				7F2B17042380791900C6171F /* Auth.swift in Sources */,
 				7F987552238E7A5800082985 /* HUser.swift in Sources */,
 				95091E552372B02B00EA0782 /* HQueue.xcdatamodeld in Sources */,
+				7F02E45F23A397A80089BBF0 /* NotificationManager.swift in Sources */,
 				7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */,
 				7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */,
 				B73FC6A123795A83000B4A67 /* QueueNumberArea.swift in Sources */,
@@ -820,6 +906,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7F02E46A23A3A0DA0089BBF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7F02E46323A3A0DA0089BBF0 /* NotificationService */;
+			targetProxy = 7F02E46923A3A0DA0089BBF0 /* PBXContainerItemProxy */;
+		};
 		95091E622372B02E00EA0782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 95091E462372B02B00EA0782 /* HQueue */;
@@ -844,6 +935,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7F02E46D23A3A0DA0089BBF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BGFK6PG7Z9;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS-DA.HQueue.NotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7F02E46E23A3A0DA0089BBF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BGFK6PG7Z9;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS-DA.HQueue.NotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		95091E722372B02E00EA0782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -961,6 +1092,7 @@
 		95091E752372B02E00EA0782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HQueue/HQueue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -983,6 +1115,7 @@
 		95091E762372B02E00EA0782 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HQueue/HQueue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1089,6 +1222,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7F02E46C23A3A0DA0089BBF0 /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F02E46D23A3A0DA0089BBF0 /* Debug */,
+				7F02E46E23A3A0DA0089BBF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		95091E422372B02B00EA0782 /* Build configuration list for PBXProject "HQueue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
