@@ -10,6 +10,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeQueueController" customModule="Antridoc" customModuleProvider="target">
             <connections>
                 <outlet property="accountBtn" destination="ugI-ie-bkl" id="pNq-ZH-XOa"/>
+                <outlet property="queueDoctorName" destination="WGC-8p-jTw" id="eKP-2I-Kxh"/>
+                <outlet property="queueHospitalName" destination="4l4-Bk-4N3" id="B3D-rf-aTe"/>
+                <outlet property="queuePoliName" destination="UCW-bK-fKY" id="j6R-11-WVC"/>
+                <outlet property="queueSisaAntrian" destination="XL9-tv-EIb" id="z6D-uq-CQ0"/>
                 <outlet property="userLabel" destination="Kxu-0p-v3X" id="FQm-u2-Dlq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="NW9-dJ-ldA"/>
             </connections>
@@ -23,7 +27,7 @@
                     <rect key="frame" x="0.0" y="78" width="414" height="473"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siP-IN-shJ" customClass="QueueArea" customModule="Antridoc" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="494" width="414" height="402"/>
+                    <rect key="frame" x="0.0" y="456" width="414" height="440"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antrian Kamu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-T4-Bjb">
                             <rect key="frame" x="25" y="35" width="184" height="36"/>
@@ -108,7 +112,7 @@
                         <constraint firstItem="YQQ-Qu-01F" firstAttribute="top" secondItem="UUs-T4-Bjb" secondAttribute="bottom" constant="35" id="dZ2-x3-K20"/>
                         <constraint firstItem="4l4-Bk-4N3" firstAttribute="leading" secondItem="YQQ-Qu-01F" secondAttribute="trailing" constant="25" id="fgk-IL-4Ia"/>
                         <constraint firstAttribute="trailing" secondItem="YfA-2E-2f6" secondAttribute="trailing" constant="25" id="hsX-W8-BUK"/>
-                        <constraint firstAttribute="height" constant="402" id="iER-K2-lUX"/>
+                        <constraint firstAttribute="height" constant="440" id="iER-K2-lUX"/>
                         <constraint firstItem="UCW-bK-fKY" firstAttribute="top" secondItem="4l4-Bk-4N3" secondAttribute="bottom" constant="10" id="nmP-b7-mfz"/>
                         <constraint firstItem="YfA-2E-2f6" firstAttribute="top" secondItem="siP-IN-shJ" secondAttribute="top" constant="38" id="oLF-ex-9nC"/>
                         <constraint firstItem="4l4-Bk-4N3" firstAttribute="top" secondItem="UUs-T4-Bjb" secondAttribute="bottom" constant="45" id="ryx-AZ-rYL"/>

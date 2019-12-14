@@ -38,6 +38,8 @@ struct Hospital {
     let address: String
     let photo: String?
     let phoneNumber: String?
+    let latitude: String?
+    let longitude: String?
 }
 
 extension Hospital: Decodable {
@@ -47,6 +49,8 @@ extension Hospital: Decodable {
         case address = "address"
         case photo = "photo"
         case phoneNumber = "phone_number"
+        case latitude = "latitude"
+        case longitude = "longitude"
     }
     
     init(from decoder: Decoder) throws {
@@ -56,5 +60,7 @@ extension Hospital: Decodable {
         address = try container.decode(String.self, forKey: .address)
         photo = try container.decode(String.self, forKey: .photo)
         phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+        latitude = try container.decode(String.self, forKey: .latitude)
+        longitude = try container.decode(String.self, forKey: .longitude)
     }
 }

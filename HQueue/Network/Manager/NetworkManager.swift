@@ -334,7 +334,7 @@ struct NetworkManager {
         }
     }
     
-    func getCurrentQueue(completion: @escaping(_ data: QueueEntity?, _ error: String?) -> ()) {
+    func getCurrentQueue(completion: @escaping(_ data: QueueResponse?, _ error: String?) -> ()) {
         routerQueue.request(.getCurrentQueue) { data, response, error in
             if error != nil {
                 completion(nil, NetworkResponse.failed.rawValue)
@@ -350,7 +350,8 @@ struct NetworkManager {
                     }
                     
                     do {
-                        let data = try JSONDecoder().decode(QueueEntity.self, from: responseData)
+                        print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        let data = try JSONDecoder().decode(QueueResponse.self, from: responseData)
                         completion(data, nil)
                     }catch let errorDecode{
                         print(#function, errorDecode)

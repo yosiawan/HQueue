@@ -13,6 +13,11 @@ class HomeQueueController: UIViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var accountBtn: UIButton!
     
+    @IBOutlet weak var queueSisaAntrian: UILabel!
+    @IBOutlet weak var queueHospitalName: UILabel!
+    @IBOutlet weak var queuePoliName: UILabel!
+    @IBOutlet weak var queueDoctorName: UILabel!
+    
     enum CardState {
         case expanded
         case collapsed
@@ -103,13 +108,32 @@ class HomeQueueController: UIViewController {
         let networkManager = NetworkManager()
         networkManager.getCurrentQueue { queue, error in
             if error != nil {
-                print(error)
+                DispatchQueue.main.async {
+                    self.presetAlert(
+                        alert: UIAlertController(title: "Info", message: error, preferredStyle: .alert),
+                        actions: [
+                            .init(title: "Reload", style: .default, handler: { (action) in
+                                self.fetchCurrentQueue()
+                            })
+                        ],
+                        comletion: nil)
+                }
             }
             
-            if let queue = queue {
-                print(queue);
+            if let dataQueue = queue?.data, queue!.success {
+                DispatchQueue.main.async {
+                    self.setupQueueData(queueEntity: dataQueue)
+                }
             }
+            
         }
+    }
+    
+    func setupQueueData(queueEntity: QueueEntity) {
+        self.queueSisaAntrian.text = String( queueEntity.queueRemaining )
+        self.queueHospitalName.text = queueEntity.hospital.name
+        self.queuePoliName.text = queueEntity.poliName
+        self.queueDoctorName.text = queueEntity.doctor.name
     }
     
     //MARK: Setup View
