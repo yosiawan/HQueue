@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hospital-list-default-img" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-b5-DgG">
-                        <rect key="frame" x="10" y="12.5" width="88" height="88"/>
+                        <rect key="frame" x="20" y="12.5" width="88" height="88"/>
                         <color key="backgroundColor" red="0.98736125230789185" green="0.96838933229446411" blue="0.94228070974349976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="88" id="X2c-Oe-EDV"/>
@@ -25,19 +25,19 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sg-jP-Xyt">
-                        <rect key="frame" x="108" y="12.5" width="229" height="88"/>
+                        <rect key="frame" x="118" y="12.5" width="239" height="88"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aTy-OJ-CNP">
-                                <rect key="frame" x="15" y="18" width="214" height="52"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="aTy-OJ-CNP">
+                                <rect key="frame" x="15" y="14.5" width="204" height="59"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS Bunda Ada Lima" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-X7-fTG">
-                                        <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.65675884485244751" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jl. Raya rawa buntu, sektor 1.3, BSD, Tangerang" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuv-a1-8n1">
-                                        <rect key="frame" x="0.0" y="20.5" width="214" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="204" height="31.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -49,17 +49,17 @@
                         <constraints>
                             <constraint firstItem="aTy-OJ-CNP" firstAttribute="leading" secondItem="1sg-jP-Xyt" secondAttribute="leading" constant="15" id="EQy-fS-mI2"/>
                             <constraint firstItem="aTy-OJ-CNP" firstAttribute="centerY" secondItem="1sg-jP-Xyt" secondAttribute="centerY" id="FKZ-W5-3ZT"/>
-                            <constraint firstAttribute="trailing" secondItem="aTy-OJ-CNP" secondAttribute="trailing" id="o2J-hx-nfB"/>
+                            <constraint firstAttribute="trailing" secondItem="aTy-OJ-CNP" secondAttribute="trailing" constant="20" id="o2J-hx-nfB"/>
                             <constraint firstAttribute="height" constant="88" id="yI3-bL-aaF"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1sg-jP-Xyt" firstAttribute="leading" secondItem="1Sz-b5-DgG" secondAttribute="trailing" constant="10" id="AeG-zU-rPn"/>
-                    <constraint firstAttribute="trailing" secondItem="1sg-jP-Xyt" secondAttribute="trailing" constant="10" id="KqW-qK-UpH"/>
+                    <constraint firstAttribute="trailing" secondItem="1sg-jP-Xyt" secondAttribute="trailing" constant="-10" id="KqW-qK-UpH"/>
                     <constraint firstItem="1sg-jP-Xyt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="USe-6l-gaj"/>
                     <constraint firstItem="1Sz-b5-DgG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Zjn-JQ-NbB"/>
-                    <constraint firstItem="1Sz-b5-DgG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="q1t-zA-GQW"/>
+                    <constraint firstItem="1Sz-b5-DgG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="q1t-zA-GQW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

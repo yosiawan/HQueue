@@ -15,6 +15,7 @@ class HospitalList: UITableViewController {
     
     @IBOutlet var viewCardHandler: UIView!
     @IBOutlet weak var btnCardHandler: UIButton!
+    @IBOutlet var superView: UITableView!
     
     var hospitals: [Hospital] = []
     
@@ -27,10 +28,9 @@ class HospitalList: UITableViewController {
         
         self.tableView.refreshControl = refreshControler
         
-        self.title = "Hospitals"
+        self.title = "Rumah Sakit"
         self.tableView.register(UINib(nibName: "HospitalCell", bundle: nil), forCellReuseIdentifier: "HospitalCell")
         self.btnCardHandler.layer.cornerRadius = self.btnCardHandler.frame.height / 2
-        
         
         setUpSearchControll()
         
