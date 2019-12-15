@@ -109,7 +109,7 @@ class HomeQueueController: UIViewController {
         networkManager.getCurrentQueue { queue, error in
             if error != nil {
                 DispatchQueue.main.async {
-                    self.presetAlert(
+                    self.presentAlert(
                         alert: UIAlertController(title: "Info", message: error, preferredStyle: .alert),
                         actions: [
                             .init(title: "Reload", style: .default, handler: { (action) in
@@ -262,7 +262,6 @@ class HomeQueueController: UIViewController {
     //MARK: Navigation
     @IBAction func tapToDetailQueue(_ sender: Any) {
         let vc = DetailViewController()
-        vc.queueEntity = "Example Data"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func toQueueHistoryList(_ sender: Any) {

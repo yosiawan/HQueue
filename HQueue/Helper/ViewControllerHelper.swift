@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 extension UIViewController {
     
@@ -17,7 +18,7 @@ extension UIViewController {
         self.navigationController?.view.backgroundColor = .clear
     }
     
-    func presetAlert(alert: UIAlertController, actions: [UIAlertAction]?, comletion: (() -> ())?) {
+    func presentAlert(alert: UIAlertController, actions: [UIAlertAction]?, comletion: (() -> ())?) {
         
         // Add actions
         if let actions: [UIAlertAction] = actions {
@@ -29,5 +30,22 @@ extension UIViewController {
         }
         
         present(alert, animated: true, completion: comletion)
+    }
+    
+    // MARK: - Handle Map Action
+    // TODO: menampilkan di google maps ?
+    func setupForOpenMap(placeName: String, long: CLLocationDegrees, lat: CLLocationDegrees) {
+        let coordinate = CLLocationCoordinate2DMake(lat, long)
+        print(#function, coordinate)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let options = [
+            MKLaunchOptionsMapCenterKey : NSValue(mkCoordinate: region.center),
+            MKLaunchOptionsMapSpanKey : NSValue(mkCoordinateSpan: region.span)
+        ]
+        
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = placeName
+        mapItem.openInMaps(launchOptions: options)
     }
 }
