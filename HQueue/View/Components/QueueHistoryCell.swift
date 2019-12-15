@@ -20,6 +20,7 @@ class QueueHistoryCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.setConstraints()
+        self.selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {

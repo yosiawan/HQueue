@@ -62,7 +62,6 @@ class DetailViewController: UIViewController {
             self.namePoliLabel.text = self.queueEntity.poliName
             self.insuranceLabel.text = self.queueEntity.insurance?.name != "" ? self.queueEntity.insurance?.name : "Non Ausransi"
             self.sisaAntrianVal.text = String(self.queueEntity.queueRemaining)
-            
             // TODO: - menampilkan estimasi waktu
             /*
             self.estimasiGiliranVal.text = self.queueEntity.estimasiGiliran

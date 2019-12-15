@@ -11,6 +11,7 @@
 		7F02E45923A1E3C30089BBF0 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */; };
 		7F02E45B23A20D380089BBF0 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */; };
 		7F02E45D23A349AD0089BBF0 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45C23A349AD0089BBF0 /* TransitionView.swift */; };
+		7F02E47223A6362B0089BBF0 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E47123A6362B0089BBF0 /* DateHelper.swift */; };
 		7F1111F2237E7994007CA7EE /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F0237E7994007CA7EE /* HospitalList.swift */; };
 		7F1111F3237E7994007CA7EE /* HospitalList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1111F1237E7994007CA7EE /* HospitalList.xib */; };
 		7F1111F5237E7C8F007CA7EE /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F4237E7C8F007CA7EE /* Hospital.swift */; };
@@ -129,6 +130,7 @@
 		7F02E45723A1E3C30089BBF0 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		7F02E45C23A349AD0089BBF0 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
+		7F02E47123A6362B0089BBF0 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		7F1111F0237E7994007CA7EE /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
 		7F1111F1237E7994007CA7EE /* HospitalList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalList.xib; sourceTree = "<group>"; };
 		7F1111F4237E7C8F007CA7EE /* Hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				95091EB92379626800EA0782 /* ReusableIdentifiers.swift */,
 				7FA5FB4923869FA90081DE82 /* MediaHandler.swift */,
 				7F61732B239BA8A900F3B760 /* URLHelper.swift */,
+				7F02E47123A6362B0089BBF0 /* DateHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */,
 				7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */,
 				B73FC6A123795A83000B4A67 /* QueueNumberArea.swift in Sources */,
+				7F02E47223A6362B0089BBF0 /* DateHelper.swift in Sources */,
 				95ABE70723A0EE4500022B47 /* QueueHistoryCellView.swift in Sources */,
 				95ABE70523A0D23F00022B47 /* QueueHistoryCell.swift in Sources */,
 				7F5FE05923741674004569C4 /* RegisterController.swift in Sources */,

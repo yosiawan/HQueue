@@ -25,14 +25,14 @@ extension QueueResponse: Decodable {
         let container = try decoder.container(keyedBy: QueueResponseCodingKeys.self)
         success = try container.decode(Bool.self, forKey: .success)
         message = try container.decode(String.self, forKey: .message)
-        data = try container.decode(QueueEntity?.self, forKey: .data)
+        data = try? container.decode(QueueEntity.self, forKey: .data)
     }
 }
 
 struct QueueEntity {
     let queueId: String
     let submitTime: Date
-    let queueRemaining: Int
+    var queueRemaining: Int
     let poliName: String?
     let patient: Patient
     let insurance: Asuransi?
@@ -87,7 +87,11 @@ extension QueueEntity: Decodable {
         
         queueId = try container.decode(String.self, forKey: .queue_id)
         submitTime = QueueEntity.getSubmiteTimeInDateFormat(isoString: submitTimeIsoString)!
-        queueRemaining = try container.decode(Int.self, forKey: .queue_remaining)
+        if let reamingNumber = try? container.decode(Int.self, forKey: .queue_remaining) {
+            queueRemaining = reamingNumber
+        }else{
+            queueRemaining = 0
+        }
         poliName = try container.decode(String?.self, forKey: .poli_fullname)
         
         
