@@ -157,7 +157,8 @@ class DetailViewController: UIViewController {
     
     //Hubungi nomor telepon
     @IBAction func openPhoneCall(_ sender: Any) {
-        
+        guard let phoneNumber = queueEntity.hospital.phoneNumber else { return }
+        self.openPhoneCall(phoneNumber: phoneNumber)
     }
     
     //Membatalkan antrian

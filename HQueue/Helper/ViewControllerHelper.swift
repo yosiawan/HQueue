@@ -35,9 +35,10 @@ extension UIViewController {
     // MARK: - Handle Map Action
     // TODO: menampilkan di google maps ?
     func setupForOpenMap(placeName: String, long: CLLocationDegrees, lat: CLLocationDegrees) {
+        
         let coordinate = CLLocationCoordinate2DMake(lat, long)
-        print(#function, coordinate)
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        
         let options = [
             MKLaunchOptionsMapCenterKey : NSValue(mkCoordinate: region.center),
             MKLaunchOptionsMapSpanKey : NSValue(mkCoordinateSpan: region.span)
@@ -47,5 +48,12 @@ extension UIViewController {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = placeName
         mapItem.openInMaps(launchOptions: options)
+    }
+    
+    // MARK: - Open Phone Call
+    func openPhoneCall(phoneNumber: String) {
+        let number = phoneNumber.replacingOccurrences(of: "[^\\d+]", with: "", options: .regularExpression, range: nil)
+        guard let url = URL(string: "tel://\(number)") else { return }
+        UIApplication.shared.open(url)
     }
 }
