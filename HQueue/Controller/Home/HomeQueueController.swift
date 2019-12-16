@@ -61,8 +61,8 @@ class HomeQueueController: UIViewController {
     
     // MARK: Check Authentication
     fileprivate func checkAuth() {
-        if UserDefaults.standard.string(forKey: "authToken") != nil {
-            let nameuser = UserDefaults.standard.string(forKey: "authName")!
+        if self.isLogged() {
+            let nameuser = UserDefaults.standard.string(forKey: UserEnv.authName.rawValue)!
             self.userLabel.text = "Halo, \(nameuser)"
         }else{
             self.userLabel.text = "Halo, Sobat Sehat"
@@ -106,26 +106,32 @@ class HomeQueueController: UIViewController {
     //MARK: Fetch Current Queue
     func fetchCurrentQueue() {
         let networkManager = NetworkManager()
-        networkManager.getCurrentQueue { queue, error in
-            if error != nil {
-                DispatchQueue.main.async {
-                    self.presentAlert(
-                        alert: UIAlertController(title: "Info", message: error, preferredStyle: .alert),
-                        actions: [
-                            .init(title: "Reload", style: .default, handler: { (action) in
-                                self.fetchCurrentQueue()
-                            })
-                        ],
-                        comletion: nil)
+        if self.isLogged() {
+            networkManager.getCurrentQueue { queue, error in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.setIsInQueue(false)
+                        self.presentAlert(
+                            alert: UIAlertController(title: "Info", message: error, preferredStyle: .alert),
+                            actions: [
+                                .init(title: "Close", style: .default, handler: { action in
+                                    self.fetchCurrentQueue()
+                                })
+                            ],
+                            comletion: nil)
+                    }
                 }
-            }
-            
-            if let dataQueue = queue?.data, queue!.success {
-                DispatchQueue.main.async {
-                    self.setupQueueData(queueEntity: dataQueue)
+                
+                if let dataQueue = queue?.data, queue!.success {
+                    DispatchQueue.main.async {
+                        self.setIsInQueue(true)
+                        self.setupQueueData(queueEntity: dataQueue)
+                    }
                 }
+                
             }
-            
+        } else {
+            // TODO: Balikin tampilan queue area jadi ke default
         }
     }
     
@@ -261,11 +267,13 @@ class HomeQueueController: UIViewController {
     
     //MARK: Navigation
     @IBAction func tapToDetailQueue(_ sender: Any) {
-        let vc = DetailViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if self.isInQueue() {
+            let vc = DetailViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     @IBAction func toQueueHistoryList(_ sender: Any) {
-        let vc = QueueHistoryController()
+        let vc = self.isLogged() ? QueueHistoryController() : AccountController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

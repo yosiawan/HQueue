@@ -33,7 +33,7 @@ extension Queue: EndPointType {
     }
     
     var task: HTTPTask {
-        let bearerToken = ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "authToken") ?? "")"]
+        let bearerToken = ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: UserEnv.authToken.rawValue) ?? "")"]
         
         switch self {
         case .registerQueue(let patientId, let doctorScheduleId, let insuranceId?):

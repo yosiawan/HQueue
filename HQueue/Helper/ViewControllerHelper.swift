@@ -56,4 +56,48 @@ extension UIViewController {
         guard let url = URL(string: "tel://\(number)") else { return }
         UIApplication.shared.open(url)
     }
+    
+    // MARK: Manage state in user default
+    func isLogged() -> Bool {
+        return UserDefaults.standard.bool(forKey: UserEnv.isLogged.rawValue)
+    }
+    
+    func isInQueue() -> Bool {
+        return UserDefaults.standard.bool(forKey: UserEnv.isInQueue.rawValue)
+    }
+    
+    func setIsInQueue(_ val: Bool) {
+        UserDefaults.standard.set(val, forKey: UserEnv.isInQueue.rawValue)
+    }
+    
+//    func getAuthToken() -> String {
+//        if let token = UserDefaults.standard.string(forKey: UserEnv.authToken.rawValue) {
+//            return token
+//        }
+//        return ""
+//    }
+    
+    func setIsLogged(name: String, email: String, token: String) {
+        UserDefaults.standard.set(name, forKey: UserEnv.authName.rawValue)
+        UserDefaults.standard.set(email, forKey: UserEnv.authEmail.rawValue)
+        UserDefaults.standard.set(token, forKey: UserEnv.authToken.rawValue)
+        UserDefaults.standard.set(true, forKey: UserEnv.isLogged.rawValue)
+    }
+    
+    func setIsLogout() {
+           UserDefaults.standard.removeObject(forKey: UserEnv.authName.rawValue)
+           UserDefaults.standard.removeObject(forKey: UserEnv.authEmail.rawValue)
+           UserDefaults.standard.removeObject(forKey: UserEnv.authToken.rawValue)
+           UserDefaults.standard.set(false, forKey: UserEnv.isLogged.rawValue)
+       }
+}
+
+enum UserEnv: String {
+    case isLogged = "com.antridoc.is_logged"
+        case authName = "com.antridoc.auth.name"
+        case authEmail = "com.antridoc.auth.email"
+        case authToken = "com.antridoc.auth.token"
+    case isInQueue = "com.antridoc.is_in_queue"
+    case didOnBoarding = "com.antridoc.did_OnBoarding"
+    case deviceToken = "com.antridoc.device_token"
 }
