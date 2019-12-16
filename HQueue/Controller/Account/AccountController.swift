@@ -29,7 +29,7 @@ class AccountController: UIViewController {
         
         self.networkManager = NetworkManager()
         
-        if UserDefaults.standard.string(forKey: "authToken") != nil {
+        if self.isLogged() {
             let editBarItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfileAction))
             self.navigationItem.setRightBarButton(editBarItem, animated: false)
             
@@ -58,7 +58,7 @@ class AccountController: UIViewController {
         dataPatientTrigger.layer.borderColor = #colorLiteral(red: 1, green: 0.6567588449, blue: 0, alpha: 1)
         dataPatientTrigger.layer.borderWidth = 1
         
-        if UserDefaults.standard.string(forKey: "authToken") != nil {
+        if self.isLogged() {
             self.view = loggedView
             self.fetchingData()
             self.nameField.text = self.profile?.name
@@ -95,9 +95,7 @@ class AccountController: UIViewController {
     }
     
     @IBAction func logoutAction(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "authName")
-        UserDefaults.standard.removeObject(forKey: "authEmail")
-        UserDefaults.standard.removeObject(forKey: "authToken")
+        self.setIsLogout()
         self.navigationItem.setRightBarButton(nil, animated: false)
         self.navigationController?.popToRootViewController(animated: true)
     }

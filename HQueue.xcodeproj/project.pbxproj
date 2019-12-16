@@ -14,6 +14,8 @@
 		7F02E45F23A397A80089BBF0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E45E23A397A80089BBF0 /* NotificationManager.swift */; };
 		7F02E46723A3A0DA0089BBF0 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E46623A3A0DA0089BBF0 /* NotificationService.swift */; };
 		7F02E46B23A3A0DA0089BBF0 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7F02E46423A3A0DA0089BBF0 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7F02E47223A6362B0089BBF0 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E47123A6362B0089BBF0 /* DateHelper.swift */; };
+		7F02E47623A729400089BBF0 /* QueueNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02E47523A729400089BBF0 /* QueueNavigationController.swift */; };
 		7F1111F2237E7994007CA7EE /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F0237E7994007CA7EE /* HospitalList.swift */; };
 		7F1111F3237E7994007CA7EE /* HospitalList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1111F1237E7994007CA7EE /* HospitalList.xib */; };
 		7F1111F5237E7C8F007CA7EE /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1111F4237E7C8F007CA7EE /* Hospital.swift */; };
@@ -157,6 +159,8 @@
 		7F02E46423A3A0DA0089BBF0 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F02E46623A3A0DA0089BBF0 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		7F02E46823A3A0DA0089BBF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F02E47123A6362B0089BBF0 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		7F02E47523A729400089BBF0 /* QueueNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueNavigationController.swift; sourceTree = "<group>"; };
 		7F1111F0237E7994007CA7EE /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
 		7F1111F1237E7994007CA7EE /* HospitalList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalList.xib; sourceTree = "<group>"; };
 		7F1111F4237E7C8F007CA7EE /* Hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 				95091EB92379626800EA0782 /* ReusableIdentifiers.swift */,
 				7FA5FB4923869FA90081DE82 /* MediaHandler.swift */,
 				7F61732B239BA8A900F3B760 /* URLHelper.swift */,
+				7F02E47123A6362B0089BBF0 /* DateHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				B73FC69B23795592000B4A67 /* Home */,
 				7F5FE05023741517004569C4 /* Account */,
 				95091ED42383DD5B00EA0782 /* Doctor */,
+				7F02E47523A729400089BBF0 /* QueueNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -846,6 +852,7 @@
 				7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */,
 				7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */,
 				B73FC6A123795A83000B4A67 /* QueueNumberArea.swift in Sources */,
+				7F02E47223A6362B0089BBF0 /* DateHelper.swift in Sources */,
 				95ABE70723A0EE4500022B47 /* QueueHistoryCellView.swift in Sources */,
 				95ABE70523A0D23F00022B47 /* QueueHistoryCell.swift in Sources */,
 				7F5FE05923741674004569C4 /* RegisterController.swift in Sources */,
@@ -859,6 +866,7 @@
 				95ABE70123A0D0E000022B47 /* QueueHistoryView.swift in Sources */,
 				7FA5FB4A23869FA90081DE82 /* MediaHandler.swift in Sources */,
 				95091ED22382A23600EA0782 /* ForgotPassView.swift in Sources */,
+				7F02E47623A729400089BBF0 /* QueueNavigationController.swift in Sources */,
 				95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */,
 				95ABE70323A0D13C00022B47 /* QueueHistoryController.swift in Sources */,
 				7F1111F8237E8059007CA7EE /* HospitalCell.swift in Sources */,

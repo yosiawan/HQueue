@@ -13,12 +13,17 @@ class HomeQueueController: UIViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var accountBtn: UIButton!
     
+    @IBOutlet weak var queueSisaAntrian: UILabel!
+    @IBOutlet weak var queueHospitalName: UILabel!
+    @IBOutlet weak var queuePoliName: UILabel!
+    @IBOutlet weak var queueDoctorName: UILabel!
+    
     enum CardState {
         case expanded
         case collapsed
     }
     var hospitalList: HospitalList!
-    var cardViewController: UINavigationController!
+    var cardViewController: QueueNavigationController!
     var visualEffectView:UIVisualEffectView!
     
     var cardHeight:CGFloat!
@@ -56,8 +61,8 @@ class HomeQueueController: UIViewController {
     
     // MARK: Check Authentication
     fileprivate func checkAuth() {
-        if UserDefaults.standard.string(forKey: "authToken") != nil {
-            let nameuser = UserDefaults.standard.string(forKey: "authName")!
+        if self.isLogged() {
+            let nameuser = UserDefaults.standard.string(forKey: UserEnv.authName.rawValue)!
             self.userLabel.text = "Halo, \(nameuser)"
         }else{
             self.userLabel.text = "Halo, Sobat Sehat"
@@ -66,7 +71,6 @@ class HomeQueueController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.hospitalList = HospitalList()
 
@@ -101,15 +105,53 @@ class HomeQueueController: UIViewController {
     //MARK: Fetch Current Queue
     func fetchCurrentQueue() {
         let networkManager = NetworkManager()
-        networkManager.getCurrentQueue { queue, error in
-            if error != nil {
-                print(error)
+        self.setIsInQueue(false)
+        if self.isLogged() {
+            networkManager.getCurrentQueue { queue, error in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.presentAlert(
+                            alert: UIAlertController(title: "Info", message: error, preferredStyle: .alert),
+                            actions: [
+                                .init(title: "Close", style: .default, handler: { action in
+                                    self.fetchCurrentQueue()
+                                })
+                            ],
+                            comletion: nil)
+                    }
+                }
+                
+                if let dataQueue = queue?.data, queue!.success {
+                    DispatchQueue.main.async {
+                        self.setIsInQueue(true)
+                        self.setupQueueData(queueEntity: dataQueue)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.setupQueueDataToDefault()
+                    }
+                }
+                
             }
-            
-            if let queue = queue {
-                print(queue);
+        } else {
+            DispatchQueue.main.async {
+                self.setupQueueDataToDefault()
             }
         }
+    }
+    
+    func setupQueueData(queueEntity: QueueEntity) {
+        self.queueSisaAntrian.text = String( queueEntity.queueRemaining )
+        self.queueHospitalName.text = queueEntity.hospital.name
+        self.queuePoliName.text = queueEntity.poliName
+        self.queueDoctorName.text = queueEntity.doctor.name
+    }
+    
+    func setupQueueDataToDefault() {
+        self.queueSisaAntrian.text = "0"
+        self.queueHospitalName.text = "Belum ada antrian"
+        self.queuePoliName.text = "Pilih \"Cari RS\" untuk memulai antrian"
+        self.queueDoctorName.text = ""
     }
     
     //MARK: Setup View
@@ -119,11 +161,12 @@ class HomeQueueController: UIViewController {
         self.view.addSubview(visualEffectView)
         self.visualEffectView.alpha = 0
         
-        cardViewController = UINavigationController(rootViewController: hospitalList)
+        cardViewController = QueueNavigationController(rootViewController: hospitalList)
+        cardViewController.queueNavigationDelegate = self
         cardViewController.isNavigationBarHidden = true
         
         self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
-        cardViewController.view.roundCorners(corners: [.topLeft, .topRight], radius: 40)
+        cardViewController.view.roundCorners(corners: [.topLeft, .topRight], radius: 20)
         self.hospitalList.view.setShadow() // masih belum bisa di kasih bayangan
         
         self.addChild(cardViewController)
@@ -237,12 +280,13 @@ class HomeQueueController: UIViewController {
     
     //MARK: Navigation
     @IBAction func tapToDetailQueue(_ sender: Any) {
-        let vc = DetailViewController()
-        vc.queueEntity = "Example Data"
-        self.navigationController?.pushViewController(vc, animated: true)
+        if self.isInQueue() {
+            let vc = DetailViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     @IBAction func toQueueHistoryList(_ sender: Any) {
-        let vc = QueueHistoryController()
+        let vc = self.isLogged() ? QueueHistoryController() : AccountController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -250,4 +294,11 @@ class HomeQueueController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+extension HomeQueueController: QueueNavigationControllerDelegate {
+    func didRegisterQueue() {
+        animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        self.fetchCurrentQueue()
+    }
 }

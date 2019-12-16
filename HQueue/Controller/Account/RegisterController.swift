@@ -34,6 +34,9 @@ class RegisterController: UIViewController {
         
         let rightBarButton = UIBarButtonItem(title: "Lanjut", style: .plain, target: self, action: #selector(self.nextAction))
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        let tapToDismiss = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        self.view.addGestureRecognizer(tapToDismiss)
     }
     
     @objc func dismissModal() {
@@ -50,6 +53,7 @@ class RegisterController: UIViewController {
             insuranceField.text != ""
         {
             let viewController = IdentityController()
+            let vcWithNavCtrl = UINavigationController(rootViewController: viewController)
             viewController.dataFromFirstPage = firstRegisterPageData(
                 name: nameField.text ?? "No Value",
                 mother: motherField.text ?? "No Value",
@@ -58,7 +62,16 @@ class RegisterController: UIViewController {
                 bloodType: bloodField.text ?? "No Value",
                 insurance: insuranceField.text ?? "No Value"
             )
-            self.navigationController?.present(viewController, animated: true, completion: nil)
+            self.navigationController?.present(vcWithNavCtrl, animated: true, completion: nil)
+        } else {
+            let alertController = UIAlertController(
+                title: "Form Belum Lengkap",
+                message: "Mohon lengkapi formulir sebelum melanjutkan registrasi.",
+                preferredStyle: .alert
+            )
+            let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in }
+            alertController.addAction(tutup)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }

@@ -29,7 +29,7 @@ extension PatientAPI: EndPointType {
     }
     
     var task: HTTPTask {
-        let bearerToken = ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "authToken") ?? "")"]
+        let bearerToken = ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: UserEnv.authToken.rawValue) ?? "")"]
        switch self {
        case .getPatient:
         return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: bearerToken)

@@ -9,22 +9,75 @@
 import UIKit
 
 class QueueHistoryController: UIViewController {
+    
+    var networkManager: NetworkManager!
 
     var titleLbl = UILabel()
     var tableView = UITableView()
     
+    var queueList: [QueueEntity] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate = self
-        tableView.dataSource = self
+        
+        self.networkManager = NetworkManager()
+        
+        self.tableView.refreshControl = refreshControler
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         self.setConstraints()
         
         self.tableView.rowHeight = 143
         self.tableView.register(QueueHistoryCell.self, forCellReuseIdentifier: queueHistoryCellIdentifier)
         self.tableView.separatorStyle = .none
+        
+        self.fetchData()
     }
+    
+    //MARK: Refresh Controll
+    
+    lazy var refreshControler: UIRefreshControl = {
+        let refreshControler = UIRefreshControl()
+        refreshControler.addTarget(self, action: #selector(hadleRefresh), for: .valueChanged)
+        
+        return refreshControler
+    }()
+    
+    @objc private func hadleRefresh(_ sender: Any) {
+        self.fetchData()
+    }
+    
+    //MARK: Fetch Queue Index
+    func fetchData() {
+        networkManager.getHistoryQueue { data, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.presentAlert(
+                        alert: .init(
+                            title: "Info",
+                            message: error,
+                            preferredStyle: .alert),
+                        actions: nil,
+                        comletion: nil
+                    )
+                }
+            }
+            
+            if let queueEntities = data {
+                self.queueList = queueEntities
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.refreshControler.endRefreshing()
+            }
+        }
+    }
+    
 }
 
 
@@ -32,14 +85,18 @@ extension QueueHistoryController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return self.queueList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: queueHistoryCellIdentifier, for: indexPath) as! QueueHistoryCell
 
         // Configure the cell...
-
+        cell.hospitalName.text = self.queueList[indexPath.row].hospital.name
+        cell.dateLbl.text = self.queueList[indexPath.row].submitTime.changeToString(format: "dd/MM/YYYY")
+        cell.poliName.text = self.queueList[indexPath.row].poliName
+        cell.doctorName.text = self.queueList[indexPath.row].doctor.name
+        
         return cell
     }
 

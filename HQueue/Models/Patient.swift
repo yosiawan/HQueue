@@ -11,10 +11,10 @@ import Foundation
 struct Patient {
     var fullName: String
     var motherName: String
-    var identityNumber: String
+    var identityNumber: String?
     var dob: String
     var gender: Bool
-    var address: String
+    var address: String?
     let id: Int?
 }
 

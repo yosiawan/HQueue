@@ -29,12 +29,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
-        UserDefaults.standard.set(token, forKey: "authTokenDevice")
+        UserDefaults.standard.set(token, forKey: UserEnv.deviceToken.rawValue)
         print("Device Token: \(token)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        UserDefaults.standard.removeObject(forKey: "authTokenDevice")
+        UserDefaults.standard.removeObject(forKey: UserEnv.deviceToken.rawValue)
         print("Device token log: \(error)")
     }
     
@@ -45,5 +45,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         do { completionHandler(.newData) }
         print("User tapped push notification")
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(#function, response)
     }
 }

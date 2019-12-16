@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailViewController: UIViewController {
     
@@ -32,7 +33,42 @@ class DetailViewController: UIViewController {
     
     var networkManager: NetworkManager!
     
-    var queueEntity: String! // nanti disesuaikan data yg ada
+    var queueEntity: QueueEntity! {
+        
+        //print data queue
+        didSet {
+            
+            if let hospitalImgUrl = self.queueEntity.hospital.photo {
+                self.hospitalImg.downloaded(from: "http://167.71.203.148/storage/hospitals/\(hospitalImgUrl)", contentMode: .scaleAspectFill)
+            }
+            
+            // TODO: - Menampilkan img doctor dan insurance
+            /*
+             if let insuranceImgUrl = self.queueEntity.insurance.img {
+                 self.insuranceImg.downloaded(from: insuranceImgUrl, contentMode: UIView.ContentMode.scaleAspectFit)
+             }
+             */
+            
+             /*
+             if let doctorImgUrl = self.queueEntity.insurance.img {
+                 self.doctorImg.downloaded(from: doctorImgUrl, contentMode: UIView.ContentMode.scaleAspectFit)
+                 self.doctorImg.layer.cornerRadius = doctorImg.frame.height / 2
+             }
+             */
+            
+            self.hospitalNameLabel.text = self.queueEntity.hospital.name
+            self.namePatentLabel.text = self.queueEntity.patient.fullName
+            self.nameDoctorLabel.text = self.queueEntity.doctor.name
+            self.namePoliLabel.text = self.queueEntity.poliName
+            self.insuranceLabel.text = self.queueEntity.insurance?.name != "" ? self.queueEntity.insurance?.name : "Non Ausransi"
+            self.sisaAntrianVal.text = String(self.queueEntity.queueRemaining)
+            // TODO: - menampilkan estimasi waktu
+            /*
+            self.estimasiGiliranVal.text = self.queueEntity.estimasiGiliran
+             */
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +76,8 @@ class DetailViewController: UIViewController {
         self.networkManager = NetworkManager()
         
         self.setupView()
+        
+        self.fetchCurrentQueue()
     }
     
     //MARK: Setup View
@@ -51,14 +89,60 @@ class DetailViewController: UIViewController {
         namePatentLabel.layer.cornerRadius = 12
         namePatentLabel.clipsToBounds = true
         doctorImg.layer.cornerRadius = doctorImg.frame.height / 2
-        
+    }
+    
+    //MARK: Fetch Current Queue
+    
+    func fetchCurrentQueue() {
+        networkManager.getCurrentQueue { (data, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.presentAlert(
+                        alert: .init(
+                            title: "Info",
+                            message: error,
+                            preferredStyle: .alert
+                        ),
+                        actions: [
+                            .init(title: "Reload", style: .default, handler: { (action) in
+                                self.fetchCurrentQueue()
+                            }),
+                            .init(title: "Kembali", style: .cancel, handler: { (action) in
+                                self.navigationController?.popToRootViewController(animated: true)
+                            })
+                            
+                        ],
+                        comletion: nil)
+                }
+            }
+            
+            if let queue = data?.data, data!.success {
+                DispatchQueue.main.async {
+                    self.queueEntity = queue
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.presentAlert(
+                        alert: .init(
+                            title: "Info",
+                            message: data?.message,
+                            preferredStyle: .alert
+                        ),
+                        actions: [
+                            .init(title: "Kembali", style: .cancel, handler: { (action) in
+                                self.navigationController?.popToRootViewController(animated: true)
+                            })
+                        ],
+                        comletion: nil)
+                }
+            }
+        }
     }
     
     //MARK: Cancle Queue
-    
     func cancleQueueProcess() {
         guard let currentQueue = self.queueEntity else { return }
-        print("Cancel Queue Process")
+        print("Cancel Queue Process", currentQueue)
     }
     
     
@@ -66,17 +150,23 @@ class DetailViewController: UIViewController {
     
     //Lihat peta
     @IBAction func openDirectionMap(_ sender: Any) {
-        
+        guard let long = queueEntity.hospital.longitude, let lat = queueEntity.hospital.latitude else { return }
+        self.setupForOpenMap(
+            placeName: queueEntity.hospital.name,
+            long: CLLocationDegrees(exactly: Float( long )!)!,
+            lat: CLLocationDegrees(exactly: Float( lat )!)!
+        )
     }
     
     //Hubungi nomor telepon
     @IBAction func openPhoneCall(_ sender: Any) {
-        
+        guard let phoneNumber = queueEntity.hospital.phoneNumber else { return }
+        self.openPhoneCall(phoneNumber: phoneNumber)
     }
     
     //Membatalkan antrian
     @IBAction func cancelQueueAction(_ sender: Any) {
-        self.presetAlert(
+        self.presentAlert(
             alert: .init(
                 title: "Konfirmasi",
                 message: "Anda yakin ingin batalkan antrian?",
@@ -91,6 +181,5 @@ class DetailViewController: UIViewController {
             comletion: nil
         )
     }
-    
     
 }

@@ -83,7 +83,7 @@ class DoctorDetail: UIViewController {
         
         // data patient is empty
         if patientSelected == nil {
-            presetAlert(
+            presentAlert(
                 alert: .init(
                     title: "Pasein belum dipilih",
                     message: "Dimohon untuk memilih pasien yang akan didaftarakan",
@@ -95,7 +95,7 @@ class DoctorDetail: UIViewController {
     
         // data schedule is empty
         } else if scheduleSelected == nil {
-            presetAlert(
+            presentAlert(
                 alert: .init(
                     title: "Jadwal belum dipilih",
                     message: "Dimohon untuk memilih jadwal yang tersedia",
@@ -117,7 +117,7 @@ class DoctorDetail: UIViewController {
         networkManager.registerQueue(patienId: String(patientSelected!.id!), doctorScheduleId: scheduleSelected!.id, insuranceId: insuranceId) { (data, error) in
             if error != nil {
                 DispatchQueue.main.async {
-                    self.presetAlert(
+                    self.presentAlert(
                         alert: .init(
                             title: "Terjadi kesalahan",
                             message: error,
@@ -132,7 +132,7 @@ class DoctorDetail: UIViewController {
                     
                     if data.success {
                         DispatchQueue.main.async {
-                             self.presetAlert(
+                             self.presentAlert(
                                  alert: .init(
                                      title: "Success",
                                      message: data.message,
@@ -140,7 +140,10 @@ class DoctorDetail: UIViewController {
                                  ),
                                  actions: [
                                     .init(title: "Ok", style: .default, handler: { action in
-                                        self.navigationController?.popToRootViewController(animated: true)
+                                        let queueNav = self.navigationController as! QueueNavigationController
+                                        queueNav.popToRootViewController {
+                                            queueNav.queueNavigationDelegate?.didRegisterQueue()
+                                        }
                                     })
                                 ],
                                  comletion: nil
@@ -148,7 +151,7 @@ class DoctorDetail: UIViewController {
                         }
                     }else{
                         DispatchQueue.main.async {
-                            self.presetAlert(
+                            self.presentAlert(
                                 alert: .init(
                                     title: "Information",
                                     message: data.message,

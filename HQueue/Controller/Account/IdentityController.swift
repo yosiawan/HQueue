@@ -32,6 +32,8 @@ class IdentityController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.navigationItem.rightBarButtonItem = rightBarButton
         
         
+        let tapToDismiss = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        self.view.addGestureRecognizer(tapToDismiss)
     }
 
     @IBAction func nextAction(_ sender: Any) {
@@ -41,13 +43,23 @@ class IdentityController: UIViewController, UIImagePickerControllerDelegate, UIN
             ktpImg.image != nil
         {
             let vc = CredentialController()
+            let vcWithNavCtrl = UINavigationController(rootViewController: vc)
             vc.dataFromSecondPage = secondRegisterPageData(
                 address: addressField.text ?? "No value",
                 identityNumber: identityNumberField.text ?? "No Value",
                 ktpImg: ktpImg.image!
             )
             vc.dataFromFirstPage = self.dataFromFirstPage
-            self.navigationController?.present(vc, animated: true, completion: nil)
+            self.navigationController?.present(vcWithNavCtrl, animated: true, completion: nil)
+        } else {
+            let alertController = UIAlertController(
+                title: "Form Belum Lengkap",
+                message: "Mohon lengkapi formulir sebelum melanjutkan registrasi.",
+                preferredStyle: .alert
+            )
+            let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in }
+            alertController.addAction(tutup)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
