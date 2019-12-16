@@ -140,7 +140,10 @@ class DoctorDetail: UIViewController {
                                  ),
                                  actions: [
                                     .init(title: "Ok", style: .default, handler: { action in
-                                        self.navigationController?.popToRootViewController(animated: true)
+                                        let queueNav = self.navigationController as! QueueNavigationController
+                                        queueNav.popToRootViewController {
+                                            queueNav.queueNavigationDelegate?.didRegisterQueue()
+                                        }
                                     })
                                 ],
                                  comletion: nil

@@ -104,9 +104,13 @@ class DetailViewController: UIViewController {
                             preferredStyle: .alert
                         ),
                         actions: [
+                            .init(title: "Reload", style: .default, handler: { (action) in
+                                self.fetchCurrentQueue()
+                            }),
                             .init(title: "Kembali", style: .cancel, handler: { (action) in
                                 self.navigationController?.popToRootViewController(animated: true)
                             })
+                            
                         ],
                         comletion: nil)
                 }
@@ -125,8 +129,8 @@ class DetailViewController: UIViewController {
                             preferredStyle: .alert
                         ),
                         actions: [
-                            .init(title: "Reload", style: .default, handler: { (action) in
-                                self.fetchCurrentQueue()
+                            .init(title: "Kembali", style: .cancel, handler: { (action) in
+                                self.navigationController?.popToRootViewController(animated: true)
                             })
                         ],
                         comletion: nil)

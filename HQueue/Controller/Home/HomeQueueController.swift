@@ -23,7 +23,7 @@ class HomeQueueController: UIViewController {
         case collapsed
     }
     var hospitalList: HospitalList!
-    var cardViewController: UINavigationController!
+    var cardViewController: QueueNavigationController!
     var visualEffectView:UIVisualEffectView!
     
     var cardHeight:CGFloat!
@@ -72,7 +72,6 @@ class HomeQueueController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.hospitalList = HospitalList()
 
         self.title = "My Queue"
@@ -106,11 +105,11 @@ class HomeQueueController: UIViewController {
     //MARK: Fetch Current Queue
     func fetchCurrentQueue() {
         let networkManager = NetworkManager()
+        self.setIsInQueue(false)
         if self.isLogged() {
             networkManager.getCurrentQueue { queue, error in
                 if error != nil {
                     DispatchQueue.main.async {
-                        self.setIsInQueue(false)
                         self.presentAlert(
                             alert: UIAlertController(title: "Info", message: error, preferredStyle: .alert),
                             actions: [
@@ -127,11 +126,17 @@ class HomeQueueController: UIViewController {
                         self.setIsInQueue(true)
                         self.setupQueueData(queueEntity: dataQueue)
                     }
+                } else {
+                    DispatchQueue.main.async {
+                        self.setupQueueDataToDefault()
+                    }
                 }
                 
             }
         } else {
-            // TODO: Balikin tampilan queue area jadi ke default
+            DispatchQueue.main.async {
+                self.setupQueueDataToDefault()
+            }
         }
     }
     
@@ -142,6 +147,13 @@ class HomeQueueController: UIViewController {
         self.queueDoctorName.text = queueEntity.doctor.name
     }
     
+    func setupQueueDataToDefault() {
+        self.queueSisaAntrian.text = "0"
+        self.queueHospitalName.text = "Belum ada antrian"
+        self.queuePoliName.text = "Pilih \"Cari RS\" untuk memulai antrian"
+        self.queueDoctorName.text = ""
+    }
+    
     //MARK: Setup View
     func setupCard() {
         visualEffectView = UIVisualEffectView()
@@ -149,7 +161,8 @@ class HomeQueueController: UIViewController {
         self.view.addSubview(visualEffectView)
         self.visualEffectView.alpha = 0
         
-        cardViewController = UINavigationController(rootViewController: hospitalList)
+        cardViewController = QueueNavigationController(rootViewController: hospitalList)
+        cardViewController.queueNavigationDelegate = self
         cardViewController.isNavigationBarHidden = true
         
         self.hospitalList.view.addSubview(self.hospitalList.viewCardHandler)
@@ -281,4 +294,11 @@ class HomeQueueController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+extension HomeQueueController: QueueNavigationControllerDelegate {
+    func didRegisterQueue() {
+        animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        self.fetchCurrentQueue()
+    }
 }
