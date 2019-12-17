@@ -29,6 +29,11 @@ class PoliList: UITableViewController {
         
         self.fetchingData()
         
+        self.title = "Poliklinik Tersedia"
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -50,10 +55,10 @@ class PoliList: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        return headerView
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        return headerView
+//    }
 
 
     /*
