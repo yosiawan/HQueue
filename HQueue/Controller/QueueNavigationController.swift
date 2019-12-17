@@ -14,7 +14,8 @@ class QueueNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationBar.tintColor = .HQueueDarkBlue
         // Do any additional setup after loading the view.
     }
     

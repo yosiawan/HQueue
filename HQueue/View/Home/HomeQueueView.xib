@@ -38,26 +38,39 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQQ-Qu-01F" customClass="QueueNumberArea" customModule="Antridoc" customModuleProvider="target">
                             <rect key="frame" x="25" y="106" width="88" height="136"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sisa Antrian" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWN-yM-YCQ">
-                                    <rect key="frame" x="12" y="8" width="64" height="53"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL9-tv-EIb">
-                                    <rect key="frame" x="34" y="69" width="21" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                    <color key="textColor" red="1" green="0.6705882352941176" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vd0-nP-IzC">
+                                    <rect key="frame" x="5" y="0.0" width="78" height="136"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sisa Antrian" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWN-yM-YCQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="78" height="72.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL9-tv-EIb">
+                                            <rect key="frame" x="0.0" y="39.5" width="78" height="96.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="textColor" red="1" green="0.6705882352941176" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="XL9-tv-EIb" secondAttribute="trailing" id="8mr-mO-eid"/>
+                                        <constraint firstAttribute="trailing" secondItem="nWN-yM-YCQ" secondAttribute="trailing" id="Gyq-PV-pDQ"/>
+                                        <constraint firstItem="nWN-yM-YCQ" firstAttribute="leading" secondItem="Vd0-nP-IzC" secondAttribute="leading" id="OXX-ls-msq"/>
+                                        <constraint firstItem="XL9-tv-EIb" firstAttribute="leading" secondItem="Vd0-nP-IzC" secondAttribute="leading" id="qe6-Wu-Ydf"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" red="0.98431372549019602" green="0.96862745098039216" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <gestureRecognizers/>
                             <constraints>
+                                <constraint firstItem="Vd0-nP-IzC" firstAttribute="leading" secondItem="YQQ-Qu-01F" secondAttribute="leading" constant="5" id="Kyq-wa-Rp7"/>
+                                <constraint firstItem="Vd0-nP-IzC" firstAttribute="top" secondItem="YQQ-Qu-01F" secondAttribute="top" id="LKI-hg-B9x"/>
+                                <constraint firstAttribute="bottom" secondItem="Vd0-nP-IzC" secondAttribute="bottom" id="XoH-E3-zVX"/>
                                 <constraint firstAttribute="width" constant="88" id="b6A-VU-F76"/>
                                 <constraint firstAttribute="height" constant="136" id="f4n-1h-SGG"/>
+                                <constraint firstAttribute="trailing" secondItem="Vd0-nP-IzC" secondAttribute="trailing" constant="5" id="lFB-Vp-I0c"/>
                             </constraints>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="Oaf-hg-hqt" appends="YES" id="Qhs-mF-sfU"/>

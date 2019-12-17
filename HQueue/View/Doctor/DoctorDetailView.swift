@@ -46,6 +46,15 @@ extension DoctorDetail {
         doctorGender.topAnchor.constraint(equalTo: doctorName.bottomAnchor, constant: 3).isActive = true
         doctorGender.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 23).isActive = true
         
+        //  MARK: - Hospital Poli Name
+        let hospitalPoli = UILabel()
+        hospitalPoli.text = "Poli THT"
+        hospitalPoli.textColor = .HQueueGreen
+        self.view.addSubview(hospitalPoli)
+        hospitalPoli.translatesAutoresizingMaskIntoConstraints = false
+        hospitalPoli.topAnchor.constraint(equalTo: doctorGender.bottomAnchor, constant: 3).isActive = true
+        hospitalPoli.leadingAnchor.constraint(equalTo: doctorImg.trailingAnchor, constant: 23).isActive = true
+        
         // MARK: - Doctor Schedule
         scheduleLbl.text = "Pilih Jadwal Dokter"
         scheduleLbl.font = UIFont.boldSystemFont(ofSize: 22)
@@ -118,7 +127,8 @@ extension DoctorDetail {
         daftarBtn.setTitle("Daftar Antrian", for: .normal)
         daftarBtn.setTitleColor(.white, for: .normal)
         daftarBtn.layer.backgroundColor = .init(srgbRed: 0.12, green: 0.26, blue: 0.51, alpha: 1.0)
-        daftarBtn.layer.cornerRadius = daftarBtn.frame.height / 2
+        daftarBtn.layer.cornerRadius = 25
+        daftarBtn.clipsToBounds = true
         self.view.addSubview(daftarBtn)
         daftarBtn.translatesAutoresizingMaskIntoConstraints = false
         daftarBtn.heightAnchor.constraint(equalToConstant: CGFloat(51)).isActive = true

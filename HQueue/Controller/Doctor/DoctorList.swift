@@ -26,6 +26,8 @@ class DoctorList: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.largeTitleDisplayMode = .never
+        
         doctorListTable.delegate = self
         doctorListTable.dataSource = self
         

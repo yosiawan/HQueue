@@ -188,7 +188,7 @@ class HomeQueueController: UIViewController {
         
         let rightBtn = UIButton()
         rightBtn.setTitle("Tutup", for: .normal)
-        
+        rightBtn.setTitleColor(.HQueueDarkBlue, for: .normal)
         self.hospitalList.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognzier:)))

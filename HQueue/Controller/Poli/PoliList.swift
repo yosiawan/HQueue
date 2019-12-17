@@ -31,8 +31,7 @@ class PoliList: UITableViewController {
         
         self.title = "Poliklinik Tersedia"
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-
+        self.navigationItem.largeTitleDisplayMode = .always
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

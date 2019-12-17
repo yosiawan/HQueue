@@ -65,7 +65,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-phone" translatesAutoresizingMaskIntoConstraints="NO" id="zCP-Rb-MqU">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-phone-i" translatesAutoresizingMaskIntoConstraints="NO" id="zCP-Rb-MqU">
                             <rect key="frame" x="25" y="169" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="QpH-rg-MEw"/>
@@ -171,6 +171,6 @@
     <resources>
         <image name="hospital-default-img" width="414" height="364"/>
         <image name="icon-map" width="37" height="37"/>
-        <image name="icon-phone" width="42" height="42"/>
+        <image name="icon-phone-i" width="37" height="37"/>
     </resources>
 </document>

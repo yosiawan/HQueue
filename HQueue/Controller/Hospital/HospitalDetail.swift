@@ -36,8 +36,7 @@ class HospitalDetail: UIViewController {
         self.setTransparantNav()
         viewWrapper.roundCorners(corners: [.topLeft], radius: 40)
         poliButton.layer.cornerRadius = poliButton.frame.height / 2
-        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
+        self.navigationItem.largeTitleDisplayMode = .never
         prepareForView()
     
     }

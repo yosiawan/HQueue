@@ -45,6 +45,8 @@ class DoctorDetail: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.largeTitleDisplayMode = .never
+        
         // Register network manager
         self.networkManager = NetworkManager()
         
