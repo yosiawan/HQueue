@@ -400,6 +400,37 @@ struct NetworkManager {
         }
     }
     
+    func getEstimation(completion: @escaping(_ data: QueueEstimationResponse?, _ error: String?) -> ()) {
+        routerQueue.request(.getEstimationTime) { (data, response, error) in
+           if error != nil {
+                completion(nil, NetworkResponse.failed.rawValue)
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+                        print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        let data = try JSONDecoder().decode(QueueEstimationResponse.self, from: responseData)
+                        completion(data, nil)
+                    }catch let errorDecode{
+                        print(#function, errorDecode)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
+                    completion(nil, networkFailurError)
+                }
+            }
+        }
+    }
+    
     func addDeviceToken(authToken: String, deviceToken: String) {
         router.request(.addDeviceToken(token: authToken, deviceToken: deviceToken)) {
             (data, response, error) in

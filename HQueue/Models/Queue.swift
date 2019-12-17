@@ -147,6 +147,45 @@ extension QueueEntity: Decodable {
     }
 }
 
+struct QueueEstimationResponse {
+    let success: Bool
+    let message: String
+    let data: QueueEstimation?
+}
+
+extension QueueEstimationResponse: Decodable {
+    enum QueueEstimationResponseCodingKeys: String, CodingKey {
+        case success = "success"
+        case message = "message"
+        case data = "data"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: QueueEstimationResponseCodingKeys.self)
+        success = try container.decode(Bool.self, forKey: .success)
+        message = try container.decode(String.self, forKey: .message)
+        data = try container.decode(QueueEstimation?.self, forKey: .data)
+    }
+}
+
+struct QueueEstimation {
+    let estimation: Int
+    let time: String
+}
+
+extension QueueEstimation: Decodable {
+    enum QueueEstimationCodingKeys: String, CodingKey {
+        case estimation = "estimation"
+        case time = "time"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: QueueEstimationCodingKeys.self)
+        estimation = try container.decode(Int.self, forKey: .estimation)
+        time = try container.decode(String.self, forKey: .time)
+    }
+}
+
 enum StatusQueue: Int {
     case waiting = 0
     case checkIn = 1

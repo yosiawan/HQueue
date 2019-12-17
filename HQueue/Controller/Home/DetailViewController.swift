@@ -78,6 +78,7 @@ class DetailViewController: UIViewController {
         self.setupView()
         
         self.fetchCurrentQueue()
+        self.fetchQueueEstimationTime()
     }
     
     //MARK: Setup View
@@ -136,6 +137,21 @@ class DetailViewController: UIViewController {
                         comletion: nil)
                 }
             }
+        }
+    }
+    
+    func fetchQueueEstimationTime() {
+        networkManager.getEstimation { (data, error) in
+            if error != nil {
+                print(#function, error as Any)
+            }
+            
+            if let estimation = data {
+                if estimation.success {
+                    print(#function, estimation.data)
+                }
+            }
+            
         }
     }
     

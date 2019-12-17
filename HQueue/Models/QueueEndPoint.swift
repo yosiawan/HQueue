@@ -8,6 +8,7 @@ public enum Queue {
     case registerQueue(patientId: String, doctorScheduleId: String, insuranceId: String?)
     case getQueue
     case getCurrentQueue
+    case getEstimationTime
 }
 
 extension Queue: EndPointType {
@@ -20,6 +21,8 @@ extension Queue: EndPointType {
             return "/queue/index"
         case .getCurrentQueue:
             return "/queue/current"
+        case .getEstimationTime:
+            return "/queue/estimation"
         }
     }
     
@@ -27,7 +30,7 @@ extension Queue: EndPointType {
         switch self {
         case .registerQueue:
             return .post
-        case .getQueue, .getCurrentQueue:
+        case .getQueue, .getCurrentQueue, .getEstimationTime:
             return .get
         }
     }
@@ -57,10 +60,9 @@ extension Queue: EndPointType {
                    additionalHeaders: bearerToken
             )
             
-        case .getQueue, .getCurrentQueue:
+        case .getQueue, .getCurrentQueue, .getEstimationTime:
             return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: bearerToken)
         }
-        
     }
     
     var headers: HTTPHeaders? {
