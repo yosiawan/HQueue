@@ -357,8 +357,8 @@ struct NetworkManager {
                         //print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode(QueueResponse.self, from: responseData)
                         completion(data, nil)
-                    }catch{ //let errorDecode{
-                        //print(#function, errorDecode)
+                    }catch let errorDecode{
+                        print(#function, errorDecode)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                     
@@ -388,8 +388,8 @@ struct NetworkManager {
                         //print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode([QueueEntity].self, from: responseData)
                         completion(data, nil)
-                    }catch{ //} let errorDecode{
-                        //print(#function, errorDecode)
+                    }catch let errorDecode{
+                        print(#function, errorDecode)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                     
@@ -401,12 +401,10 @@ struct NetworkManager {
     }
     
     func addDeviceToken(authToken: String, deviceToken: String) {
-//        guard let token = UserDefaults.standard.string(forKey: UserEnv.authToken.rawValue) else { return }
-//        guard let tokenDevice = UserDefaults.standard.string(forKey: UserEnv.deviceToken.rawValue) else { return }
         router.request(.addDeviceToken(token: authToken, deviceToken: deviceToken)) {
             (data, response, error) in
             if error != nil {
-                print(#function, error)
+                //print(#function, error)
             }
             
             if let response = response as? HTTPURLResponse {

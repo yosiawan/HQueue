@@ -86,6 +86,8 @@ class HomeQueueController: UIViewController {
 
         setupCard()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchCurrentQueueNotificationHandler(_:)), name: NSNotification.Name(ActionIdentifiersNotif.updateQueueCategory), object: nil)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,6 +95,8 @@ class HomeQueueController: UIViewController {
 
         checkAuth()
         fetchCurrentQueue()
+        
+        
     }
     
     //MARK: Push to AccountController
@@ -103,6 +107,12 @@ class HomeQueueController: UIViewController {
     }
     
     //MARK: Fetch Current Queue
+    
+    @objc func fetchCurrentQueueNotificationHandler(_ notification: Notification?) {
+        print("fetchCurrentQueueNotificationHandler")
+        self.fetchCurrentQueue()
+    }
+    
     func fetchCurrentQueue() {
         let networkManager = NetworkManager()
         self.setIsInQueue(false)

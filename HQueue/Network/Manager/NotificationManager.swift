@@ -9,6 +9,10 @@
 import UIKit
 import UserNotifications
 
+enum ActionIdentifiersNotif {
+  static let updateQueueCategory = "UPDATE_QUEUE"
+}
+
 extension AppDelegate: UNUserNotificationCenterDelegate {
     // MARK: Notification Center
     
@@ -20,10 +24,25 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             
             guard granted else { return }
             
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
+            let updateQueueCategory = UNNotificationCategory(
+                identifier: ActionIdentifiersNotif.updateQueueCategory, actions: [],
+              intentIdentifiers: [], options: [])
+
+            UNUserNotificationCenter.current()
+              .setNotificationCategories([updateQueueCategory])
+            
+            self.getNotificationSettings()
         }
+    }
+    
+    func getNotificationSettings() {
+      UNUserNotificationCenter.current().getNotificationSettings { settings in
+        print("Notification settings: \(settings)")
+        guard settings.authorizationStatus == .authorized else { return }
+        DispatchQueue.main.async {
+          UIApplication.shared.registerForRemoteNotifications()
+        }
+      }
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -39,15 +58,44 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print(#function)
         completionHandler([.badge,.sound,.alert])
     }
     
+    func handleActionNotification(_ data: [String : AnyObject]) {
+        if let action = data["category"] as? String {
+
+            UIApplication.shared.applicationIconBadgeNumber = 0
+
+            switch action {
+            case ActionIdentifiersNotif.updateQueueCategory:
+                NotificationCenter.default.post(name: NSNotification.Name(ActionIdentifiersNotif.updateQueueCategory), object: nil, userInfo: nil)
+            default:
+                break
+            }
+
+        }
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        do { completionHandler(.newData) }
-        print("User tapped push notification")
+        print("silent notif")
+        guard let data = userInfo["aps"] as? [String: AnyObject] else {
+            completionHandler(.failed)
+            return
+        }
+        
+        handleActionNotification(data)
+        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(#function, response)
+
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let data = userInfo["aps"] as? [String: AnyObject] {
+          handleActionNotification(data)
+        }
+        
     }
 }
