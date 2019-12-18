@@ -159,7 +159,14 @@ class DoctorDetail: UIViewController {
                                     message: data.message,
                                     preferredStyle: .alert
                                 ),
-                                actions: nil,
+                                actions: [
+                                    .init(title: "Tutup", style: .default, handler: { action in
+                                        let queueNav = self.navigationController as! QueueNavigationController
+                                        queueNav.popToRootViewController {
+                                            queueNav.queueNavigationDelegate?.didRegisterQueue()
+                                        }
+                                    })
+                                ],
                                 comletion: nil
                             )
                         }

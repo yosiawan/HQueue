@@ -170,19 +170,46 @@ extension QueueEstimationResponse: Decodable {
 
 struct QueueEstimation {
     let estimation: Int
-    let time: String
+    let time: Date
+    let queueRemaining: Int
 }
 
 extension QueueEstimation: Decodable {
     enum QueueEstimationCodingKeys: String, CodingKey {
         case estimation = "estimation"
         case time = "time"
+        case queue_remaining = "queue_remaining"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: QueueEstimationCodingKeys.self)
         estimation = try container.decode(Int.self, forKey: .estimation)
-        time = try container.decode(String.self, forKey: .time)
+        
+        let timeString = try container.decode(String.self, forKey: .time)
+        time = QueueEstimation.getSubmiteTimeInDateFormat(isoString: timeString)!
+        
+        queueRemaining = try container.decode(Int.self, forKey: .queue_remaining)
+    }
+    
+    func getCurrentEstimate() -> String? {
+        var currentEstimateTime = Date()
+        print(#function + "-estimateTime", time)
+        currentEstimateTime = time.addingTimeInterval( TimeInterval(estimation * 60) )
+        print(#function + "-currentEstimateTime", currentEstimateTime)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm"
+        return currentEstimateTime.changeToString(format: "H:mm")
+    }
+    
+    static func getSubmiteTimeInDateFormat(isoString: String) -> Date? {
+        
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ssZZ"
+        if let date = dateFormater.date(from: isoString) {
+            return date
+        }
+        return Date()
     }
 }
 

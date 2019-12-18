@@ -146,9 +146,10 @@ class DetailViewController: UIViewController {
                 print(#function, error as Any)
             }
             
-            if let estimation = data {
-                if estimation.success {
-                    print(#function, estimation.data)
+            if let estimation = data?.data {
+                DispatchQueue.main.async {
+                    self.sisaAntrianVal.text = String( estimation.queueRemaining )
+                    self.estimasiGiliranVal.text = estimation.getCurrentEstimate()
                 }
             }
             
