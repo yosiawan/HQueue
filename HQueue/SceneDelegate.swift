@@ -25,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowSince.coordinateSpace.bounds)
         window?.windowScene = windowSince
         
+        print(#function, UserDefaults.standard.bool(forKey: UserEnv.didOnBoarding.rawValue))
         
         if !UserDefaults.standard.bool(forKey: UserEnv.didOnBoarding.rawValue) {
             // Show on boarding view

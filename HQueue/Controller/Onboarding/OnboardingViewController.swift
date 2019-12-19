@@ -49,7 +49,7 @@ class OnboardingViewController: UIViewController {
     
     @objc func closeOnBoard() {
         UserDefaults.standard.set(true, forKey: UserEnv.didOnBoarding.rawValue)
-        
+        print(#function, UserDefaults.standard.bool(forKey: UserEnv.didOnBoarding.rawValue))
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
         .map({$0 as? UIWindowScene})
