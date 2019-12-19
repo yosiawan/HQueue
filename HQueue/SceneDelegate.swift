@@ -18,11 +18,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowSince = (scene as? UIWindowScene) else { return }
         
+        let homeVC = HomeQueueController()
+        let mainNav = UINavigationController(rootViewController: homeVC)
+        let onBoardingVC = OnboardingViewController()
+        
         window = UIWindow(frame: windowSince.coordinateSpace.bounds)
         window?.windowScene = windowSince
-        let rootVC = HomeQueueController()
-        let mainNav = UINavigationController(rootViewController: rootVC)
-        window?.rootViewController = mainNav
+        
+        
+        if !UserDefaults.standard.bool(forKey: UserEnv.didOnBoarding.rawValue) {
+            // Show on boarding view
+            window?.rootViewController = onBoardingVC
+        }else{
+            window?.rootViewController = mainNav
+        }
+        
         window?.makeKeyAndVisible()
     }
 

@@ -12,9 +12,13 @@ class QueueNavigationController: UINavigationController {
     
     var queueNavigationDelegate: QueueNavigationControllerDelegate?
 
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+        UserDefaults.standard.removeObject(forKey: UserEnv.didOnBoarding.rawValue)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationBar.tintColor = .HQueueDarkBlue
         // Do any additional setup after loading the view.
     }
@@ -24,6 +28,10 @@ class QueueNavigationController: UINavigationController {
         CATransaction.setCompletionBlock(completion)
         popToRootViewController(animated: animated)
         CATransaction.commit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

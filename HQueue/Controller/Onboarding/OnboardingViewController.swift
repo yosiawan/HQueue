@@ -30,6 +30,7 @@ class OnboardingViewController: UIViewController {
         self.setOnboardingConstraints()
         
         nextBtn.addTarget(self, action: #selector(self.btnClickAction(_ :)), for: .touchUpInside)
+        skipBtn.addTarget(self, action: #selector(self.closeOnBoard), for: .touchUpInside)
 
     }
     
@@ -41,8 +42,28 @@ class OnboardingViewController: UIViewController {
         }
         if counter >= titles.count - 1 {
             nextBtn.setTitle("Mulai", for: .normal)
+            nextBtn.addTarget(self, action: #selector(self.closeOnBoard), for: .touchUpInside)
             skipBtn.alpha = 0
         }
+    }
+    
+    @objc func closeOnBoard() {
+        UserDefaults.standard.set(true, forKey: UserEnv.didOnBoarding.rawValue)
+        
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        
+        UIView.transition(with: keyWindow!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            let oldState: Bool = UIView.areAnimationsEnabled
+            UIView.setAnimationsEnabled(false)
+            let nav = QueueNavigationController(rootViewController: HomeQueueController())
+            keyWindow!.rootViewController = nav
+            UIView.setAnimationsEnabled(oldState)
+        }, completion: nil)
     }
     
     /*
