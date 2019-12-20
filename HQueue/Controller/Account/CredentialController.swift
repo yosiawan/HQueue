@@ -18,11 +18,16 @@ class CredentialController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var confirmPassField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        
         networkManager = NetworkManager()
+        
+        notificationKeyboardObserver()
         
         self.isModalInPresentation = true
         let rightBarButton = UIBarButtonItem(title: "Selesai", style: .plain, target: self, action: #selector(self.submit(_:)))
@@ -100,5 +105,24 @@ class CredentialController: UIViewController {
             alertController.addAction(tutup)
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    // MARK: Keyboard action
+    func notificationKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWhilAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWhilAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWhilAction(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, to: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = UIEdgeInsets.zero
+        }else{
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
 }

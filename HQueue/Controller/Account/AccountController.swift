@@ -79,8 +79,9 @@ class AccountController: UIViewController {
         let vc = UINavigationController(rootViewController: RegisterController())
         vc.navigationBar.setBackgroundImage(UIImage(), for: .default)
         vc.navigationBar.shadowImage = UIImage()
-        vc.navigationBar.isTranslucent = true
-        vc.view.backgroundColor = .clear
+        vc.navigationBar.isTranslucent = false
+        vc.view.backgroundColor = .white
+        
         self.present(vc, animated: true, completion: nil)
     }
     

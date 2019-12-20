@@ -96,9 +96,9 @@ extension UIViewController {
 
 enum UserEnv: String {
     case isLogged = "com.antridoc.is_logged"
-        case authName = "com.antridoc.auth.name"
-        case authEmail = "com.antridoc.auth.email"
-        case authToken = "com.antridoc.auth.token"
+    case authName = "com.antridoc.auth.name"
+    case authEmail = "com.antridoc.auth.email"
+    case authToken = "com.antridoc.auth.token"
     case isInQueue = "com.antridoc.is_in_queue"
     case didOnBoarding = "com.antridoc.did_OnBoarding"
     case deviceToken = "com.antridoc.device_token"

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +12,7 @@
                 <outlet property="addressField" destination="dZp-e2-elN" id="0vK-eN-Rsr"/>
                 <outlet property="identityNumberField" destination="1Ad-i5-CMg" id="atk-wg-WTa"/>
                 <outlet property="ktpImg" destination="1pg-YC-ydL" id="jtN-2f-S8O"/>
+                <outlet property="scrollView" destination="TAD-xh-iJf" id="WcK-0c-iqe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,33 +21,30 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-GP-RFF">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAD-xh-iJf">
+                    <rect key="frame" x="0.0" y="-20" width="414" height="936"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bcp-nv-mb0">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="20" width="414" height="896"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pablo-come-back-later" translatesAutoresizingMaskIntoConstraints="NO" id="Lp8-JT-DbA">
                                     <rect key="frame" x="0.0" y="44" width="414" height="197"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="197" id="PjX-od-EH3"/>
+                                        <constraint firstAttribute="height" constant="197" id="34e-VQ-qW9"/>
                                     </constraints>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayo isi data diri anda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeU-kv-tf9">
-                                    <rect key="frame" x="0.0" y="256" width="414" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="4fn-Yt-r5S"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isi data identitas diri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeU-kv-tf9">
+                                    <rect key="frame" x="0.0" y="256" width="414" height="21.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="textColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bal-Mv-AAj">
-                                    <rect key="frame" x="22" y="293" width="370" height="412"/>
+                                    <rect key="frame" x="20" y="293" width="374" height="347"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-ck-XYt" userLabel="Field - Nama Lengkap">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="MB8-Gl-3gC">
                                                     <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -65,11 +63,11 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="YiH-pS-Uy8"/>
+                                                <constraint firstAttribute="height" constant="53" id="MfK-pQ-s6G"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-la-UGf" userLabel="Field - Nama Lengkap">
-                                            <rect key="frame" x="0.0" y="73" width="370" height="53"/>
+                                            <rect key="frame" x="0.0" y="73" width="374" height="53"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="9Lu-Hz-vB2">
                                                     <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -88,13 +86,13 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="vQx-Nb-yvu"/>
+                                                <constraint firstAttribute="height" constant="53" id="zwI-Ee-pzZ"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mS-wY-Njx">
-                                            <rect key="frame" x="0.0" y="146" width="370" height="93"/>
+                                            <rect key="frame" x="0.0" y="146" width="374" height="28"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="93" id="5o8-wa-Ief"/>
+                                                <constraint firstAttribute="height" constant="28" id="AEM-qE-W9H"/>
                                             </constraints>
                                             <state key="normal" title="    Ketuk untuk mengunggah foto KTP" image="icons8-camera">
                                                 <color key="titleColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -113,20 +111,17 @@
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1pg-YC-ydL">
-                                            <rect key="frame" x="0.0" y="259" width="370" height="153"/>
+                                            <rect key="frame" x="0.0" y="194" width="374" height="153"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="153" id="U3s-4r-Sfr"/>
+                                                <constraint firstAttribute="height" constant="153" id="HU1-rX-EMH"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFP-ZQ-RxZ">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFP-ZQ-RxZ">
                                     <rect key="frame" x="120" y="730" width="174" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.1176470588" green="0.25882352939999997" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="45" id="C6Q-4y-0iD"/>
-                                        <constraint firstAttribute="width" constant="174" id="VxK-V9-WsF"/>
-                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <state key="normal" title="Lanjut"/>
                                     <connections>
@@ -136,36 +131,34 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstItem="bal-Mv-AAj" firstAttribute="bottom" secondItem="KFP-ZQ-RxZ" secondAttribute="top" constant="-25" id="5LA-5w-cq5"/>
-                                <constraint firstAttribute="trailing" secondItem="Lp8-JT-DbA" secondAttribute="trailing" id="6A8-nQ-Fnx"/>
-                                <constraint firstItem="bal-Mv-AAj" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" constant="22" id="CZ6-4G-XUa"/>
-                                <constraint firstItem="NeU-kv-tf9" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" id="I7n-bD-6rM"/>
-                                <constraint firstItem="KFP-ZQ-RxZ" firstAttribute="centerX" secondItem="Bcp-nv-mb0" secondAttribute="centerX" id="L2M-Tj-ZpU"/>
-                                <constraint firstItem="Lp8-JT-DbA" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" id="Nzu-ER-bbS"/>
-                                <constraint firstItem="bal-Mv-AAj" firstAttribute="top" secondItem="NeU-kv-tf9" secondAttribute="bottom" constant="15" id="Rhj-S6-d9V"/>
-                                <constraint firstAttribute="trailing" secondItem="bal-Mv-AAj" secondAttribute="trailing" constant="22" id="XbN-ge-4Wp"/>
-                                <constraint firstAttribute="trailing" secondItem="NeU-kv-tf9" secondAttribute="trailing" id="cdV-FV-3sk"/>
-                                <constraint firstItem="NeU-kv-tf9" firstAttribute="top" secondItem="Lp8-JT-DbA" secondAttribute="bottom" constant="15" id="cl8-Mc-HTh"/>
-                                <constraint firstAttribute="height" constant="896" id="qa6-o6-69a"/>
+                                <constraint firstItem="Lp8-JT-DbA" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" id="3Ra-e5-K8h"/>
+                                <constraint firstItem="Lp8-JT-DbA" firstAttribute="top" secondItem="Bcp-nv-mb0" secondAttribute="top" constant="44" id="BM1-NX-sfH"/>
+                                <constraint firstItem="bal-Mv-AAj" firstAttribute="top" secondItem="NeU-kv-tf9" secondAttribute="bottom" constant="15.5" id="H25-dc-bKw"/>
+                                <constraint firstAttribute="trailing" secondItem="bal-Mv-AAj" secondAttribute="trailing" constant="20" id="WDi-Yx-H1j"/>
+                                <constraint firstItem="bal-Mv-AAj" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" constant="20" id="gNR-5c-Csz"/>
+                                <constraint firstAttribute="trailing" secondItem="Lp8-JT-DbA" secondAttribute="trailing" id="pdr-Rs-Djx"/>
+                                <constraint firstItem="NeU-kv-tf9" firstAttribute="leading" secondItem="Bcp-nv-mb0" secondAttribute="leading" id="tac-Pe-0yg"/>
+                                <constraint firstItem="NeU-kv-tf9" firstAttribute="top" secondItem="Lp8-JT-DbA" secondAttribute="bottom" constant="15" id="yj6-Xl-3Pj"/>
+                                <constraint firstAttribute="trailing" secondItem="NeU-kv-tf9" secondAttribute="trailing" id="zi0-6O-Dh0"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Bcp-nv-mb0" firstAttribute="leading" secondItem="wIJ-GP-RFF" secondAttribute="leading" id="O9t-Zr-LJt"/>
-                        <constraint firstAttribute="trailing" secondItem="Bcp-nv-mb0" secondAttribute="trailing" id="W3W-T8-avc"/>
-                        <constraint firstItem="Bcp-nv-mb0" firstAttribute="top" secondItem="wIJ-GP-RFF" secondAttribute="top" id="WM3-Fj-v1A"/>
-                        <constraint firstAttribute="bottom" secondItem="Bcp-nv-mb0" secondAttribute="bottom" id="qFE-xH-1T7"/>
+                        <constraint firstItem="Bcp-nv-mb0" firstAttribute="centerY" secondItem="TAD-xh-iJf" secondAttribute="centerY" id="22G-pe-JNW"/>
+                        <constraint firstAttribute="bottom" secondItem="Bcp-nv-mb0" secondAttribute="bottom" constant="20" id="H43-Ng-F0q"/>
+                        <constraint firstItem="Bcp-nv-mb0" firstAttribute="centerX" secondItem="TAD-xh-iJf" secondAttribute="centerX" id="YLE-lN-jXF"/>
+                        <constraint firstItem="Bcp-nv-mb0" firstAttribute="leading" secondItem="TAD-xh-iJf" secondAttribute="leading" id="ff1-sc-rFb"/>
+                        <constraint firstAttribute="trailing" secondItem="Bcp-nv-mb0" secondAttribute="trailing" id="l6A-Ah-gOa"/>
+                        <constraint firstItem="Bcp-nv-mb0" firstAttribute="top" secondItem="TAD-xh-iJf" secondAttribute="top" constant="20" id="xhi-aN-ij6"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Lp8-JT-DbA" secondAttribute="top" id="1Oq-bc-wkv"/>
-                <constraint firstItem="wIJ-GP-RFF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4IB-0S-POv"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wIJ-GP-RFF" secondAttribute="bottom" id="7rO-Wz-SCZ"/>
-                <constraint firstItem="Bcp-nv-mb0" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="KiY-wf-oU3"/>
-                <constraint firstItem="wIJ-GP-RFF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aoK-ZR-SiP"/>
-                <constraint firstAttribute="trailing" secondItem="wIJ-GP-RFF" secondAttribute="trailing" id="yUG-7B-c8f"/>
+                <constraint firstItem="TAD-xh-iJf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="47N-jk-XkA"/>
+                <constraint firstItem="TAD-xh-iJf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cob-mY-WOB"/>
+                <constraint firstItem="TAD-xh-iJf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-20" id="UFw-7W-7Ca"/>
+                <constraint firstAttribute="trailing" secondItem="TAD-xh-iJf" secondAttribute="trailing" id="qGE-D0-Dmg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>

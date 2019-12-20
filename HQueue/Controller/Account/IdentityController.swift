@@ -21,11 +21,14 @@ class IdentityController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var identityNumberField: UITextField!
     @IBOutlet weak var ktpImg: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var imgPickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: view.frame.height)
         
         self.isModalInPresentation = true
         let rightBarButton = UIBarButtonItem(title: "Lanjut", style: .plain, target: self, action: #selector(self.nextAction))
@@ -43,14 +46,13 @@ class IdentityController: UIViewController, UIImagePickerControllerDelegate, UIN
             ktpImg.image != nil
         {
             let vc = CredentialController()
-            let vcWithNavCtrl = UINavigationController(rootViewController: vc)
             vc.dataFromSecondPage = secondRegisterPageData(
                 address: addressField.text ?? "No value",
                 identityNumber: identityNumberField.text ?? "No Value",
                 ktpImg: ktpImg.image!
             )
             vc.dataFromFirstPage = self.dataFromFirstPage
-            self.navigationController?.present(vcWithNavCtrl, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         } else {
             let alertController = UIAlertController(
                 title: "Form Belum Lengkap",

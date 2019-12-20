@@ -15,7 +15,7 @@
                 <outlet property="insuranceField" destination="dYU-WN-L2e" id="T34-M5-LTK"/>
                 <outlet property="motherField" destination="vFx-ZM-g3h" id="jUN-Qk-ijz"/>
                 <outlet property="nameField" destination="Ukg-dN-a5R" id="us7-Ui-fqf"/>
-                <outlet property="scrollView" destination="vyf-RG-D0M" id="j8f-fz-HkR"/>
+                <outlet property="scrollView" destination="k6h-GO-0Qq" id="WGc-BK-JyW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,33 +24,30 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyf-RG-D0M">
-                    <rect key="frame" x="-20" y="5" width="454" height="896"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6h-GO-0Qq">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZX-jC-sb5">
-                            <rect key="frame" x="20" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pablo-come-back-later" translatesAutoresizingMaskIntoConstraints="NO" id="ojB-cQ-E2p">
-                                    <rect key="frame" x="0.0" y="44" width="414" height="197"/>
+                                    <rect key="frame" x="0.0" y="44" width="414" height="197.00000000000006"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="197" id="xp9-49-0td"/>
+                                        <constraint firstAttribute="height" constant="197" id="vOr-5a-0va"/>
                                     </constraints>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayo isi data diri anda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9M-mX-WYR">
-                                    <rect key="frame" x="0.0" y="256" width="414" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="LXR-JW-ZJW"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isi data pasien" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9M-mX-WYR">
+                                    <rect key="frame" x="0.0" y="256" width="414" height="21.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="textColor" red="0.11764705882352941" green="0.25882352941176467" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3nF-M3-Zii">
-                                    <rect key="frame" x="22" y="293" width="370" height="418"/>
+                                    <rect key="frame" x="20" y="292.5" width="374" height="345"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBA-wl-sXv" userLabel="Field - Nama Lengkap">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="Ak9-HN-iax">
                                                     <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -69,11 +66,11 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="pDj-VY-XZd"/>
+                                                <constraint firstAttribute="height" constant="53" id="3nD-RR-BFS"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kh-fa-0fZ" userLabel="Field - Nama Lengkap">
-                                            <rect key="frame" x="0.0" y="73" width="370" height="53"/>
+                                            <rect key="frame" x="0.0" y="73" width="374" height="53"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="AU8-NH-rHJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -92,11 +89,11 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="3qs-eC-rWb"/>
+                                                <constraint firstAttribute="height" constant="53" id="Inj-o0-MjW"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGk-H6-OOc" userLabel="Field - Nama Lengkap">
-                                            <rect key="frame" x="0.0" y="146" width="370" height="53"/>
+                                            <rect key="frame" x="0.0" y="146" width="374" height="53"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="9IA-8f-lFw">
                                                     <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -115,11 +112,11 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="5fP-wq-dfZ"/>
+                                                <constraint firstAttribute="height" constant="53" id="qzR-EF-dYU"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLx-0A-JeS" userLabel="Field - Nama Lengkap">
-                                            <rect key="frame" x="0.0" y="219" width="370" height="53"/>
+                                            <rect key="frame" x="0.0" y="219" width="374" height="53"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="oTz-DT-uhh">
                                                     <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -138,11 +135,11 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="HcY-pO-2CJ"/>
+                                                <constraint firstAttribute="height" constant="53" id="QGc-e9-N8l"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ql-VK-Bl7" userLabel="Field - Nama Lengkap">
-                                            <rect key="frame" x="0.0" y="292" width="370" height="53"/>
+                                            <rect key="frame" x="0.0" y="292" width="374" height="53"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="m0r-jO-uag">
                                                     <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -161,11 +158,11 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="aHE-Ek-MoD"/>
+                                                <constraint firstAttribute="height" constant="53" id="mhC-8U-sPe"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtl-DD-Ja4" userLabel="Field - Nama Lengkap">
-                                            <rect key="frame" x="0.0" y="365" width="370" height="53"/>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtl-DD-Ja4" userLabel="Field - Nama Lengkap">
+                                            <rect key="frame" x="0.0" y="345" width="374" height="53"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-employee_card" translatesAutoresizingMaskIntoConstraints="NO" id="g84-26-vhk">
                                                     <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -184,7 +181,7 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="e3S-Yw-jYx"/>
+                                                <constraint firstAttribute="height" constant="53" id="Nmp-GW-PRa"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -192,36 +189,34 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="3nF-M3-Zii" secondAttribute="trailing" constant="22" id="9HW-To-YGh"/>
-                                <constraint firstItem="3nF-M3-Zii" firstAttribute="top" secondItem="H9M-mX-WYR" secondAttribute="bottom" constant="15" id="Jz2-3i-S80"/>
-                                <constraint firstItem="3nF-M3-Zii" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" constant="22" id="Rco-D3-P3G"/>
-                                <constraint firstItem="ojB-cQ-E2p" firstAttribute="left" secondItem="yZX-jC-sb5" secondAttribute="left" id="VTM-Qk-bKZ"/>
-                                <constraint firstItem="ojB-cQ-E2p" firstAttribute="top" secondItem="yZX-jC-sb5" secondAttribute="top" constant="44" id="Zks-hm-nLv"/>
-                                <constraint firstAttribute="trailing" secondItem="H9M-mX-WYR" secondAttribute="trailing" id="fvk-6s-2kZ"/>
-                                <constraint firstAttribute="trailing" secondItem="ojB-cQ-E2p" secondAttribute="trailing" id="hBM-lh-4z9"/>
-                                <constraint firstItem="H9M-mX-WYR" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" id="mCR-iQ-IH9"/>
-                                <constraint firstItem="H9M-mX-WYR" firstAttribute="top" secondItem="ojB-cQ-E2p" secondAttribute="bottom" constant="15" id="vdS-jj-ib2"/>
+                                <constraint firstAttribute="trailing" secondItem="ojB-cQ-E2p" secondAttribute="trailing" id="3XX-ea-rVE"/>
+                                <constraint firstAttribute="trailing" secondItem="H9M-mX-WYR" secondAttribute="trailing" id="7Z2-g7-ZVU"/>
+                                <constraint firstItem="3nF-M3-Zii" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" constant="20" id="7aW-nN-Qyy"/>
+                                <constraint firstItem="ojB-cQ-E2p" firstAttribute="top" secondItem="yZX-jC-sb5" secondAttribute="top" constant="44" id="DNU-Ao-PnB"/>
+                                <constraint firstItem="H9M-mX-WYR" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" id="K5O-Il-eS6"/>
+                                <constraint firstAttribute="trailing" secondItem="3nF-M3-Zii" secondAttribute="trailing" constant="20" id="PnA-mN-P8x"/>
+                                <constraint firstItem="3nF-M3-Zii" firstAttribute="top" secondItem="H9M-mX-WYR" secondAttribute="bottom" constant="15" id="XYL-Yi-pac"/>
+                                <constraint firstItem="ojB-cQ-E2p" firstAttribute="leading" secondItem="yZX-jC-sb5" secondAttribute="leading" id="r0I-6U-cNy"/>
+                                <constraint firstItem="H9M-mX-WYR" firstAttribute="top" secondItem="ojB-cQ-E2p" secondAttribute="bottom" constant="15" id="wgI-GM-880"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="yZX-jC-sb5" secondAttribute="bottom" id="0vg-0L-Suu"/>
-                        <constraint firstItem="yZX-jC-sb5" firstAttribute="bottom" secondItem="X33-p0-DMG" secondAttribute="bottom" id="GcD-aD-FTm"/>
-                        <constraint firstItem="yZX-jC-sb5" firstAttribute="top" secondItem="8l3-Ap-zle" secondAttribute="top" id="LYn-Qe-yqK"/>
-                        <constraint firstItem="yZX-jC-sb5" firstAttribute="leading" secondItem="X33-p0-DMG" secondAttribute="leading" constant="20" id="Nvd-e8-H1J"/>
-                        <constraint firstAttribute="trailing" secondItem="yZX-jC-sb5" secondAttribute="trailing" constant="20" id="Ryv-QH-HpY"/>
-                        <constraint firstItem="yZX-jC-sb5" firstAttribute="centerX" secondItem="vyf-RG-D0M" secondAttribute="centerX" id="c9S-aN-ckb"/>
+                        <constraint firstAttribute="trailing" secondItem="yZX-jC-sb5" secondAttribute="trailing" id="6E0-8M-JEh"/>
+                        <constraint firstItem="yZX-jC-sb5" firstAttribute="top" secondItem="k6h-GO-0Qq" secondAttribute="top" id="IzJ-wr-auE"/>
+                        <constraint firstItem="yZX-jC-sb5" firstAttribute="centerX" secondItem="k6h-GO-0Qq" secondAttribute="centerX" id="M9k-Hq-sY7"/>
+                        <constraint firstAttribute="bottom" secondItem="yZX-jC-sb5" secondAttribute="bottom" id="SAY-MX-nAk"/>
+                        <constraint firstItem="yZX-jC-sb5" firstAttribute="centerY" secondItem="k6h-GO-0Qq" secondAttribute="centerY" id="cme-Zw-Tho"/>
+                        <constraint firstItem="yZX-jC-sb5" firstAttribute="leading" secondItem="k6h-GO-0Qq" secondAttribute="leading" id="lZ2-H5-XOr"/>
                     </constraints>
-                    <viewLayoutGuide key="contentLayoutGuide" id="8l3-Ap-zle"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="X33-p0-DMG"/>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vyf-RG-D0M" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="7h3-GT-k81"/>
-                <constraint firstItem="vyf-RG-D0M" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="AZg-rT-ggS"/>
-                <constraint firstItem="vyf-RG-D0M" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1.09662" id="nPk-oL-a9u"/>
-                <constraint firstItem="vyf-RG-D0M" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="pbd-a7-nZV"/>
+                <constraint firstItem="k6h-GO-0Qq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CoP-us-xnr"/>
+                <constraint firstAttribute="trailing" secondItem="k6h-GO-0Qq" secondAttribute="trailing" id="I3n-b0-kTp"/>
+                <constraint firstItem="k6h-GO-0Qq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Oqr-xR-ll4"/>
+                <constraint firstAttribute="bottom" secondItem="k6h-GO-0Qq" secondAttribute="bottom" id="kG6-rU-8pP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
