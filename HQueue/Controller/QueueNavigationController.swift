@@ -14,7 +14,6 @@ class QueueNavigationController: UINavigationController {
 
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
-        UserDefaults.standard.removeObject(forKey: UserEnv.didOnBoarding.rawValue)
     }
     
     override func viewDidLoad() {

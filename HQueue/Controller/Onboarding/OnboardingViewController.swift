@@ -12,9 +12,15 @@ class OnboardingViewController: UIViewController {
 
     var counter         = 0
     var titles          = [
-        "Halo, Selamat Datang di HQueue",
-        "Hqueue mempermudah anda dalam melakukan proses untuk berobat ke rumah",
+        "Halo, Selamat Datang di Antridoc",
+        "Antridoc mempermudah anda dalam melakukan proses untuk berobat ke rumah",
         "Anda dapat melakukan registrasi dimana saja dan kapan saja tanpa harus antri dan datang ke rumah sakit"
+    ]
+    
+    var images: [UIImage] = [
+        #imageLiteral(resourceName: "pablo-welcome"),
+        #imageLiteral(resourceName: "pablo-coffee-break"),
+        #imageLiteral(resourceName: "done-5")
     ]
     
     var headerImg       = UIImageView()
@@ -39,6 +45,7 @@ class OnboardingViewController: UIViewController {
             counter += 1
             pageControl.currentPage = counter
             titleLbl.text = titles[counter]
+            headerImg.image = images[counter]
         }
         if counter >= titles.count - 1 {
             nextBtn.setTitle("Mulai", for: .normal)
@@ -48,8 +55,6 @@ class OnboardingViewController: UIViewController {
     }
     
     @objc func closeOnBoard() {
-        UserDefaults.standard.set(true, forKey: UserEnv.didOnBoarding.rawValue)
-        print(#function, UserDefaults.standard.bool(forKey: UserEnv.didOnBoarding.rawValue))
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
         .map({$0 as? UIWindowScene})

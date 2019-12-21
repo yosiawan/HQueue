@@ -25,13 +25,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowSince.coordinateSpace.bounds)
         window?.windowScene = windowSince
         
-        print(#function, UserDefaults.standard.bool(forKey: UserEnv.didOnBoarding.rawValue))
-        
-        if !UserDefaults.standard.bool(forKey: UserEnv.didOnBoarding.rawValue) {
+        if UserDefaults.standard.bool(forKey: UserEnv.didOnBoarding.rawValue) {
+
+            window?.rootViewController = mainNav
+            
+        }else{
+            UserDefaults.standard.set(true,forKey: UserEnv.didOnBoarding.rawValue)
+            UserDefaults.standard.synchronize()
+            
             // Show on boarding view
             window?.rootViewController = onBoardingVC
-        }else{
-            window?.rootViewController = mainNav
         }
         
         window?.makeKeyAndVisible()

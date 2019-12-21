@@ -11,16 +11,17 @@ import UIKit
 extension OnboardingViewController {
     
     func setOnboardingConstraints() {
-        self.view.backgroundColor = .HQueueCream
+        self.view.backgroundColor = #colorLiteral(red: 0.9824120402, green: 0.9236081243, blue: 0.863768816, alpha: 1)
 
         var constraints = [NSLayoutConstraint]()
         
         self.view.addSubview(headerImg)
-        headerImg.image = UIImage(named: "pablo-augmented-reality")
+        headerImg.image = #imageLiteral(resourceName: "pablo-welcome")
+        headerImg.contentMode = .scaleAspectFill
         headerImg.translatesAutoresizingMaskIntoConstraints = false
         let headerImgConstraints = [
-            headerImg.heightAnchor.constraint(equalToConstant: 274),
-            headerImg.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            headerImg.heightAnchor.constraint(equalToConstant: 275),
+            headerImg.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 36),
             headerImg.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             headerImg.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
         ]
@@ -42,7 +43,6 @@ extension OnboardingViewController {
         self.view.addSubview(pageControl)
         self.pageControl.numberOfPages = titles.count
         self.pageControl.currentPage = counter
-//        self.pageControl.tintColor = UIColor.redColor()
         self.pageControl.pageIndicatorTintColor = .HQueueGreyFont
         self.pageControl.currentPageIndicatorTintColor = .red
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +54,9 @@ extension OnboardingViewController {
 
         self.view.addSubview(titleLbl)
         titleLbl.text = titles[counter]
+        titleLbl.textAlignment = .center
         titleLbl.numberOfLines = 3
+        titleLbl.font = .init(descriptor: .preferredFontDescriptor(withTextStyle: .headline), size: 17)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         let titleLblConstraints = [
             titleLbl.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 50),
@@ -74,7 +76,7 @@ extension OnboardingViewController {
         let nextBtnConstraints = [
             nextBtn.widthAnchor.constraint(equalToConstant: 170),
             nextBtn.heightAnchor.constraint(equalToConstant: 44),
-            nextBtn.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 150),
+            nextBtn.bottomAnchor.constraint(equalTo: skipBtn.topAnchor, constant: -20),
             nextBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
         ]
         constraints.append(contentsOf: nextBtnConstraints)
@@ -86,7 +88,7 @@ extension OnboardingViewController {
         let skipBtnConstraints = [
             skipBtn.widthAnchor.constraint(equalToConstant: 170),
             skipBtn.heightAnchor.constraint(equalToConstant: 44),
-            skipBtn.topAnchor.constraint(equalTo: nextBtn.bottomAnchor, constant: 10),
+            skipBtn.bottomAnchor.constraint(equalTo: whiteBox.bottomAnchor, constant: -40),
             skipBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
         ]
         constraints.append(contentsOf: skipBtnConstraints)
