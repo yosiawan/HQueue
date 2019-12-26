@@ -127,12 +127,12 @@ class PatientList: UITableViewController {
     func fetchData() {
         networkManager.getPatient { data, error in
             if error != "" {
-                //print(#function, error)
+                print(#function, error)
             }
 
             if let data = data {
                 self.patients = data
-                //print(#function, data)
+                print(#function, data)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

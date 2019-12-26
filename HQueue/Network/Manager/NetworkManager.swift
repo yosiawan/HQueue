@@ -56,6 +56,7 @@ struct NetworkManager {
                         }
                         completion(data, nil)
                     } catch {
+//                        print(#function, errorDecode)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                 case .failure(let networkFailureError):
@@ -291,12 +292,12 @@ struct NetworkManager {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
                     }
-                    
+                    print(#function, String( bytes: responseData, encoding: .utf8)  )
                     do {
                         let data = try JSONDecoder().decode([Patient].self, from: responseData)
                         completion(data, nil)
                     }catch let errorDecode{
-                    print(#function, errorDecode)
+                        print(#function, errorDecode)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                     

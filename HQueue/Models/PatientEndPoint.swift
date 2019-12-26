@@ -17,7 +17,7 @@ extension PatientAPI: EndPointType {
     var path: String {
         switch self {
         case .getPatient:
-            return "/patient"
+            return "/patient/index"
         }
     }
     

@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class AccountController: UIViewController {
     
     var networkManager: NetworkManager!
     var profile: HUser?
+    
+   
 
     @IBOutlet var loggedView: UIView!
     @IBOutlet var guestView: UIView!
@@ -91,8 +94,18 @@ class AccountController: UIViewController {
     }
     
     @IBAction func toPatientList(_ sender: Any) {
-        let vc = PatientList()
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        self.checkBiometricAuth { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    let vc = PatientList()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }else{
+                print(#function, "false")
+            }
+        }
+    
     }
     
     @IBAction func logoutAction(_ sender: Any) {
@@ -111,4 +124,30 @@ class AccountController: UIViewController {
             }
         }
     }
+    
+    // Biometric Auth
+    @objc func checkBiometricAuth(_ completion: @escaping(_ isSuccess: Bool )->()) {
+        
+        let localAuth = LAContext()
+        localAuth.localizedFallbackTitle = "Please use your Passcode"
+        
+        var authError: NSError?
+        let reseon = "Authenticate is required for you to continue"
+        
+        if localAuth.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: &authError) {
+            
+            let biometricType = localAuth.biometryType == LABiometryType.faceID ? "Face ID" : "Touch ID"
+            print("Biometric Type: \(biometricType)")
+            
+            localAuth.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: reseon) { (success, error) in
+        
+                completion(success)
+
+            }
+            
+        } else {
+            print("Biometric isnt supported")
+        }
+    }
+       
 }
