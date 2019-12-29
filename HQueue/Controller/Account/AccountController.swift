@@ -38,7 +38,13 @@ class AccountController: UIViewController {
             
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didRegisterd), name: NSNotification.Name(rawValue: UserEnv.didRegistered.rawValue), object: nil)
+        
         setupView()
+    }
+    
+    @objc func didRegisterd() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func editProfileAction() {
@@ -84,7 +90,7 @@ class AccountController: UIViewController {
         vc.navigationBar.shadowImage = UIImage()
         vc.navigationBar.isTranslucent = false
         vc.view.backgroundColor = .white
-        
+
         self.present(vc, animated: true, completion: nil)
     }
     

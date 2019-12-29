@@ -101,6 +101,7 @@ extension QueueEntity: Decodable {
             identityNumber: try container.decode(String.self, forKey: .identity_number),
             dob: try container.decode(String.self, forKey: .dob),
             gender: try container.decode(Bool.self, forKey: .gender),
+            bloodType: try container.decode(String.self, forKey: .blood_type),
             address: nil,
             id: nil)
         

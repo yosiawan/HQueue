@@ -25,7 +25,7 @@ extension HQAuthResponse: Decodable {
 }
 */
 
-struct HQAuth {
+public struct HQAuth {
     let name: String
     let email: String
     let token: String?
@@ -40,7 +40,7 @@ extension HQAuth: Decodable {
         case phoneNumber = "phone_number"
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let hqauthContainer = try decoder.container(keyedBy: HQAuthCodingKeys.self)
         name = try hqauthContainer.decode(String.self, forKey: .name)
         email = try hqauthContainer.decode(String.self, forKey: .email)

@@ -8,15 +8,6 @@
 
 import UIKit
 
-struct firstRegisterPageData {
-    var name: String
-    var mother: String
-    var gender: String
-    var birthDate: String
-    var bloodType: String
-    //var insurance: String
-}
-
 class RegisterController: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
@@ -82,7 +73,7 @@ class RegisterController: UIViewController {
         view.endEditing(true)
     }
     
-    // MARK: Gender Select
+    // MARK: DOB Select
     
     var selectDOB: UIDatePicker?
     var selectDOBPickerAccessory: UIToolbar?
@@ -123,7 +114,7 @@ class RegisterController: UIViewController {
         view.endEditing(true)
     }
     
-    // MARK: Gender Select
+    // MARK: Blood Type Select
     
     var selectBloodType: DropDownPicker?
     var selectBloodTypePickerAccessory: UIToolbar?
@@ -215,18 +206,19 @@ class RegisterController: UIViewController {
             genderField.text != "" &&
             birthField.text != "" &&
             bloodField.text != ""
-            //insuranceField.text != ""
         {
             let viewController = IdentityController()
-//            let vcWithNavCtrl = UINavigationController(rootViewController: viewController)
-            viewController.dataFromFirstPage = firstRegisterPageData(
-                name: nameField.text ?? "No Value",
-                mother: motherField.text ?? "No Value",
-                gender: genderField.text ?? "No Value",
-                birthDate: birthField.text ?? "No Value",
-                bloodType: bloodField.text ?? "No Value"
-                //insurance: insuranceField.text ?? "No Value"
-            )
+
+            viewController.patient = Patient(
+                fullName: nameField.text!,
+                motherName: motherField.text!,
+                identityNumber: nil,
+                dob: birthField.text!,
+                gender: genderField.text == "Perempuan",
+                bloodType: bloodField.text!,
+                address: nil,
+                id: nil,
+                photoIdentity: nil)
             self.navigationController?.pushViewController(viewController, animated: true)
         } else {
             let alertController = UIAlertController(

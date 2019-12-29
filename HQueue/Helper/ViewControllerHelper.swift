@@ -102,4 +102,5 @@ enum UserEnv: String {
     case isInQueue = "com.antridoc.is_in_queue"
     case didOnBoarding = "com.antridoc.did_OnBoarding"
     case deviceToken = "com.antridoc.device_token"
+    case didRegistered = "com.antridoc.did_registerd"
 }

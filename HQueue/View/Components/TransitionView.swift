@@ -9,11 +9,12 @@
 import UIKit
 
 class TransitionView: UIView {
+    @IBOutlet var content: UIView!
     
-    let transitionImg = UIImageView()
-    let transitionTitleLabel = UILabel()
-    let transitionMessageLabel = UILabel()
-    let trasitionBtn = UIButton()
+    @IBOutlet weak var imgTransition: UIImageView!
+    @IBOutlet weak var titleTransition: UILabel!
+    @IBOutlet weak var mesaggeTransition: UILabel!
+    @IBOutlet weak var btnTransition: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,18 +26,34 @@ class TransitionView: UIView {
         self.backgroundColor = .purple
     }
     
-    func wekeupView(target: UIViewController, title: String, message: String?, btnLabel: String? ) {
+    func showTransitionView(
+        title: String,
+        message: String,
+        btnLabel: String = "Selesai",
+        img: UIImage?
+    ) {
+        titleTransition.text = title
+        mesaggeTransition.text = message
+        btnTransition.setTitle(btnLabel, for: .normal)
+        if let imgView = img {
+            imgTransition.image = imgView
+        }
         
-        target.view.addSubview(self)
-        self.leadingAnchor.constraint(equalTo: target.view.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: target.view.trailingAnchor).isActive = true
-        self.topAnchor.constraint(equalTo: target.view.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: target.view.bottomAnchor).isActive = true
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
         
+        keyWindow?.addSubview(content)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    @IBAction func dismisAction(_ sender: Any) {
+        removeFromSuperview()
+    }
 }

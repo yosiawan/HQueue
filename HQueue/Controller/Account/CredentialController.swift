@@ -10,8 +10,8 @@ import UIKit
 
 class CredentialController: UIViewController {
     
-    var dataFromFirstPage: firstRegisterPageData!
-    var dataFromSecondPage: secondRegisterPageData!
+    var patient: Patient!
+    var user: HQAuth!
     var networkManager: NetworkManager!
 
     @IBOutlet weak var phoneNumField: UITextField!
@@ -44,27 +44,15 @@ class CredentialController: UIViewController {
             confirmPassField.text == passField.text
         {
             // SUBMIT HERE
-            let newAuth = HQAuth(
-                name: dataFromFirstPage.name,
-                email: emailField.text ?? "No Value",
+            self.user = HQAuth(
+                name: self.patient.fullName,
+                email: emailField.text!,
                 token: nil,
-                phoneNumber: phoneNumField.text ?? "No Value"
-            )
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            let dataPatient = Patient(
-                fullName: dataFromFirstPage.name,
-                motherName: dataFromFirstPage.mother,
-                identityNumber: dataFromSecondPage.identityNumber,
-                dob: dataFromFirstPage.birthDate,
-                gender: true,
-                address: dataFromSecondPage.address,
-                id: nil
-            )
+                phoneNumber: phoneNumField.text!)
             networkManager.sigupAndCretePatient(
-                newAuth: newAuth,
+                newAuth: self.user,
                 newPass: passField.text!,
-                patientData: dataPatient
+                patientData: patient
             ) { (auth, error) in
                 if let auth = auth {
                     // do something with new User data
@@ -72,15 +60,23 @@ class CredentialController: UIViewController {
                     DispatchQueue.main.async {
                         let alertController = UIAlertController(
                             title: "Registrasi Sukses",
-                            message: error,
+                            message: "Mohon check email anda untuk verifikasi",
                             preferredStyle: .alert
                         )
-                        let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in }
+                        let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in
+                            
+                            self.setIsLogged(name: auth.name, email: auth.email, token: auth.token!)
+                            
+                            NotificationCenter.default.post(name: .init(UserEnv.didRegistered.rawValue), object: nil)
+                            
+                            self.dismiss(animated: true, completion: nil)
+                            
+                        }
                         alertController.addAction(tutup)
                         self.present(alertController, animated: true, completion: nil)
                     }
                 }
-                
+
                 if let error = error {
                     print("Error ", error)
                     DispatchQueue.main.async {
@@ -95,6 +91,15 @@ class CredentialController: UIViewController {
                     }
                 }
             }
+        } else if confirmPassField.text != passField.text {
+            let alertController = UIAlertController(
+                title: "Password Tidak Sama",
+                message: "Mohon ulangi pengisian password",
+                preferredStyle: .alert
+            )
+            let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in }
+            alertController.addAction(tutup)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             let alertController = UIAlertController(
                 title: "Form Belum Lengkap",

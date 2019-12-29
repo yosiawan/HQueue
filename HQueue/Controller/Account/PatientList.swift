@@ -58,7 +58,6 @@ class PatientList: UITableViewController {
         print("Fetch data patient", patients[indexPath.row])
         // Configure the cell...
         cell.patientLabel.text = patients[indexPath.row].fullName
-        
         return cell
     }
     
@@ -116,7 +115,7 @@ class PatientList: UITableViewController {
             self.navigationController?.popViewController(animated: true)
         }else{
             let vc = PatientDetail()
-            //vc.patient = items[indexPath.row]
+            vc.patient = patients[indexPath.row]
             vc.delegate = self
             let nav = UINavigationController(rootViewController: vc)
             self.present(nav, animated: true, completion: nil)

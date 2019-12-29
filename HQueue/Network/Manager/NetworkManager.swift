@@ -67,13 +67,15 @@ struct NetworkManager {
     }
     
     func sigupAndCretePatient(newAuth: HQAuth, newPass: String, patientData: Patient, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> Void) {
-        router.request(.signup(email: newAuth.email, name: newAuth.name, password: newPass, phoneNumber: newAuth.phoneNumber), completion: {data, response, error in
+        router.request(.signup(user: newAuth, password: newPass, patient: patientData), completion: {data, response, error in
             if error != nil {
+                print(#function, error)
                 completion(nil, NetworkResponse.failed.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
                 let result =  self .handleNetworkResponse(response)
+                print(#function, response)
                 switch result {
                     case .success:
                         guard let responseData = data else {
@@ -81,13 +83,15 @@ struct NetworkManager {
                             return
                         }
                         do {
-                            //print( String(bytes: responseData, encoding: .utf8) )
+                            print( String(bytes: responseData, encoding: .utf8) )
                             let data = try JSONDecoder().decode(HQAuth.self, from: responseData)
                             completion(data, nil)
-                        } catch {
+                        } catch let errorDecode {
+                            print( #function, errorDecode )
                             completion(nil, NetworkResponse.unableToDecode.rawValue)
                         }
                     case .failure(let networkFailureError):
+                        print(#function, networkFailureError)
                         completion(nil, networkFailureError)
                 }
             }
@@ -292,7 +296,7 @@ struct NetworkManager {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
                     }
-                    print(#function, String( bytes: responseData, encoding: .utf8)  )
+                    //print(#function, String( bytes: responseData, encoding: .utf8)  )
                     do {
                         let data = try JSONDecoder().decode([Patient].self, from: responseData)
                         completion(data, nil)

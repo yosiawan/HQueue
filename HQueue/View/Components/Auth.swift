@@ -10,7 +10,7 @@ import Foundation
 
 public enum HQAuthAPI {
     case signin(email: String, password: String)
-    case signup(email: String, name: String, password: String, phoneNumber: String)
+    case signup(user: HQAuth, password: String, patient: Patient)
     case addDeviceToken(token: String, deviceToken: String)
     case getProfile
     case postProfile(user: HUser)
@@ -45,8 +45,20 @@ extension HQAuthAPI: EndPointType {
         switch self {
         case .signin(let email, let password):
             return .requestParameters(bodyParameters: ["email": email, "password": password], urlParameters: nil)
-        case .signup(let email, let name, let password, let phoneNumber):
-            return .requestParameters(bodyParameters: ["email": email, "name": name, "password": password, "c_password": password, "phone_number": phoneNumber], urlParameters: nil)
+        case .signup(let user, let password, let patient):
+            return .requestParameters(bodyParameters: [
+                "email": user.email,
+                "name": user.name,
+                "password": password,
+                "c_password": password,
+                "phone_number": user.phoneNumber,
+                "full_name": patient.fullName,
+                "mother_name": patient.motherName,
+                "dob": patient.dob,
+                "gender": patient.gender,
+                "blood_type": patient.bloodType,
+                "address": patient.address
+            ], urlParameters: nil)
         case .addDeviceToken(let token, let deviceToken):
             return .requestParametersAndHeaders(bodyParameters: ["device_token": deviceToken], urlParameters: nil, additionalHeaders: ["Authorization" : "Bearer \(token)"])
         case .getProfile:

@@ -19,6 +19,8 @@ class PatientCell: UITableViewCell {
         
         initialView.layer.cornerRadius = initialView.frame.height / 2
         
+        self.selectionStyle = .none
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

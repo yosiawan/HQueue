@@ -7,15 +7,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransitionView" customModule="Antridoc" customModuleProvider="target">
             <connections>
-                <outlet property="finishButton" destination="JsF-ZK-rFy" id="Cuv-j8-3KL"/>
-                <outlet property="messageLabel" destination="FKD-Fa-OOM" id="2Nl-SX-nXV"/>
-                <outlet property="subjectTitle" destination="rBZ-p8-h5q" id="LNx-mn-WVn"/>
-                <outlet property="transitionButon" destination="JsF-ZK-rFy" id="gxT-3q-dgW"/>
-                <outlet property="transitionImg" destination="wNQ-bg-icI" id="d06-IC-wf6"/>
-                <outlet property="transitionMessageLabel" destination="FKD-Fa-OOM" id="idq-8H-dey"/>
-                <outlet property="transitionTitleLabel" destination="rBZ-p8-h5q" id="vD0-VP-o0o"/>
+                <outlet property="btnTransition" destination="JsF-ZK-rFy" id="iG3-PY-Daq"/>
+                <outlet property="content" destination="i5M-Pr-FkT" id="C8i-eS-HsS"/>
+                <outlet property="imgTransition" destination="wNQ-bg-icI" id="ksg-X5-dS5"/>
+                <outlet property="mesaggeTransition" destination="FKD-Fa-OOM" id="Rge-Bm-BvC"/>
+                <outlet property="titleTransition" destination="rBZ-p8-h5q" id="QpH-Bf-3zm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -53,6 +51,9 @@
                     <state key="normal" title="Selesai">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="dismisAction:" destination="-1" eventType="touchUpInside" id="KCg-9e-Rp1"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

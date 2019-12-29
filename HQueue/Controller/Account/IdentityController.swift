@@ -8,15 +8,9 @@
 
 import UIKit
 
-struct secondRegisterPageData {
-    var address: String
-    var identityNumber: String
-    var ktpImg: UIImage
-}
-
 class IdentityController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    var dataFromFirstPage: firstRegisterPageData!
+    var patient: Patient!
     
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var identityNumberField: UITextField!
@@ -42,17 +36,26 @@ class IdentityController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func nextAction(_ sender: Any) {
         
         if addressField.text != "" &&
+            addressField.text!.count >= 15 &&
             identityNumberField.text != "" &&
             ktpImg.image != nil
         {
             let vc = CredentialController()
-            vc.dataFromSecondPage = secondRegisterPageData(
-                address: addressField.text ?? "No value",
-                identityNumber: identityNumberField.text ?? "No Value",
-                ktpImg: ktpImg.image!
-            )
-            vc.dataFromFirstPage = self.dataFromFirstPage
+            vc.patient = self.patient
+            vc.patient.address = addressField.text!
+            vc.patient.identityNumber = identityNumberField.text!
             self.navigationController?.pushViewController(vc, animated: true)
+        } else if addressField.text!.count < 15  {
+            
+            let alertController = UIAlertController(
+                title: "Alamat belum lengkap",
+                message: "Minimal karakter 15, untuk alamat",
+                preferredStyle: .alert
+            )
+            let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in }
+            alertController.addAction(tutup)
+            self.present(alertController, animated: true, completion: nil)
+        
         } else {
             let alertController = UIAlertController(
                 title: "Form Belum Lengkap",
