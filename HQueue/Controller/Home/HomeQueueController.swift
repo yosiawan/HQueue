@@ -116,7 +116,7 @@ class HomeQueueController: UIViewController {
     func fetchCurrentQueue() {
         let networkManager = NetworkManager()
         self.setIsInQueue(false)
-        if self.isLogged() {
+        if self.isLogged() && self.ifIsVerifed() {
             networkManager.getCurrentQueue { queue, error in
                 if error != nil {
                     DispatchQueue.main.async {

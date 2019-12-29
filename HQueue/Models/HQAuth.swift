@@ -30,6 +30,7 @@ public struct HQAuth {
     let email: String
     let token: String?
     let phoneNumber: String
+    let verified: Bool
 }
 
 extension HQAuth: Decodable {
@@ -38,6 +39,7 @@ extension HQAuth: Decodable {
         case email = "email"
         case token = "token"
         case phoneNumber = "phone_number"
+        case verified = "verified"
     }
     
     public init(from decoder: Decoder) throws {
@@ -46,5 +48,6 @@ extension HQAuth: Decodable {
         email = try hqauthContainer.decode(String.self, forKey: .email)
         token = try hqauthContainer.decode(String.self, forKey: .token)
         phoneNumber = try hqauthContainer.decode(String.self, forKey: .phoneNumber)
+        verified = try hqauthContainer.decode(Bool.self, forKey: .verified)
     }
 }

@@ -186,6 +186,7 @@
 		7F2B170E23811F2900C6171F /* PoliCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoliCell.xib; sourceTree = "<group>"; };
 		7F2B1712238121B200C6171F /* Poli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poli.swift; sourceTree = "<group>"; };
 		7F3033EC23B4D71C009C5ED8 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		7F3033F123B8B3CF009C5ED8 /* AntridocRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AntridocRelease.entitlements; sourceTree = "<group>"; };
 		7F3DA09023AB8E0D00CFAE50 /* FormHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHelper.swift; sourceTree = "<group>"; };
 		7F4593A1239D4D6000E4C4BE /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		7F4593A3239D4F1A00E4C4BE /* QueueEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QueueEndPoint.swift; path = HQueue/Models/QueueEndPoint.swift; sourceTree = SOURCE_ROOT; };
@@ -474,6 +475,7 @@
 		95091E492372B02B00EA0782 /* HQueue */ = {
 			isa = PBXGroup;
 			children = (
+				7F3033F123B8B3CF009C5ED8 /* AntridocRelease.entitlements */,
 				7F1111FE237E9D3B007CA7EE /* Helper */,
 				7F5FE06B237586CF004569C4 /* Models */,
 				95091E922372CFBE00EA0782 /* Network */,
@@ -1139,7 +1141,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = HQueue/HQueue.entitlements;
+				CODE_SIGN_ENTITLEMENTS = HQueue/AntridocRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGFK6PG7Z9;

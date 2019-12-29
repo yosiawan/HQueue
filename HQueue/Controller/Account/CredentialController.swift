@@ -48,7 +48,9 @@ class CredentialController: UIViewController {
                 name: self.patient.fullName,
                 email: emailField.text!,
                 token: nil,
-                phoneNumber: phoneNumField.text!)
+                phoneNumber: phoneNumField.text!,
+                verified: false
+            )
             networkManager.sigupAndCretePatient(
                 newAuth: self.user,
                 newPass: passField.text!,
@@ -65,7 +67,7 @@ class CredentialController: UIViewController {
                         )
                         let tutup = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in
                             
-                            self.setIsLogged(name: auth.name, email: auth.email, token: auth.token!)
+                            self.setIsLogged(auth: auth)
                             
                             NotificationCenter.default.post(name: .init(UserEnv.didRegistered.rawValue), object: nil)
                             

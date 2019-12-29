@@ -20,7 +20,9 @@ struct NetworkManager {
         switch response.statusCode {
         case 200...299:
             return .success
-        case 400...499:
+        case 406:
+            return .failure(NetworkResponse.existingEmail.rawValue)
+        case 400...409:
             return .failure(NetworkResponse.authenticationError.rawValue)
         case 500...599:
             return .failure(NetworkResponse.badRequest.rawValue)
@@ -472,6 +474,7 @@ enum NetworkResponse: String {
     case failed = "Request failed"
     case noData = "Response returned with no data to decode"
     case unableToDecode = "Cannot decode"
+    case existingEmail = "Email sudah didaftarkan sebemunya"
 }
 
 enum Result<String> {

@@ -101,7 +101,7 @@ class Login: UIViewController {
                 self.presetAlert(text: error)
             }
             if let auth = auth {
-                self.setIsLogged(name: auth.name, email: auth.email, token: auth.token!)
+                self.setIsLogged(auth: auth)
                 DispatchQueue.main.async {
                     self.navigationController?.popToRootViewController(animated: true)
                 }

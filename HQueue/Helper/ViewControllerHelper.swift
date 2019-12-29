@@ -79,10 +79,11 @@ extension UIViewController {
         UserDefaults.standard.set(val, forKey: UserEnv.isInQueue.rawValue)
     }
     
-    func setIsLogged(name: String, email: String, token: String) {
-        UserDefaults.standard.set(name, forKey: UserEnv.authName.rawValue)
-        UserDefaults.standard.set(email, forKey: UserEnv.authEmail.rawValue)
-        UserDefaults.standard.set(token, forKey: UserEnv.authToken.rawValue)
+    func setIsLogged(auth: HQAuth) {
+        UserDefaults.standard.set(auth.name, forKey: UserEnv.authName.rawValue)
+        UserDefaults.standard.set(auth.email, forKey: UserEnv.authEmail.rawValue)
+        UserDefaults.standard.set(auth.token, forKey: UserEnv.authToken.rawValue)
+        UserDefaults.standard.set(auth.verified, forKey: UserEnv.authVerify.rawValue)
         UserDefaults.standard.set(true, forKey: UserEnv.isLogged.rawValue)
     }
     
@@ -90,14 +91,20 @@ extension UIViewController {
            UserDefaults.standard.removeObject(forKey: UserEnv.authName.rawValue)
            UserDefaults.standard.removeObject(forKey: UserEnv.authEmail.rawValue)
            UserDefaults.standard.removeObject(forKey: UserEnv.authToken.rawValue)
+           UserDefaults.standard.removeObject(forKey: UserEnv.authVerify.rawValue)
            UserDefaults.standard.set(false, forKey: UserEnv.isLogged.rawValue)
-       }
+    }
+    
+    func ifIsVerifed() -> Bool {
+        return UserDefaults.standard.bool(forKey: UserEnv.authVerify.rawValue)
+    }
 }
 
 enum UserEnv: String {
     case isLogged = "com.antridoc.is_logged"
     case authName = "com.antridoc.auth.name"
     case authEmail = "com.antridoc.auth.email"
+    case authVerify = "com.antridoc.auth.verify"
     case authToken = "com.antridoc.auth.token"
     case isInQueue = "com.antridoc.is_in_queue"
     case didOnBoarding = "com.antridoc.did_OnBoarding"
