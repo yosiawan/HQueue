@@ -70,6 +70,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        // let urlContex = URLContexts.first
+        
+        // detail how to use this stuff
+        // https://stackoverflow.com/questions/58077094/how-do-you-pass-data-from-a-custom-url-scheme-to-views-in-swiftui
+    }
 
 
 }

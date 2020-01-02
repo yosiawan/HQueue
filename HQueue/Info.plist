@@ -18,6 +18,21 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLIconFile</key>
+			<string>AppIcon</string>
+			<key>CFBundleURLName</key>
+			<string>com.antridoc.emailferifed</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>antridoc</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -29,6 +44,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Aplikasi ini membutuhkan akses ke kamera Anda</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>To access user profile related information you must authenticate</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -71,7 +88,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>light</string>
-	<key>NSFaceIDUsageDescription</key>
-	<string>To access user profile related information you must authenticate</string>
 </dict>
 </plist>
