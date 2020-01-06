@@ -112,10 +112,10 @@ class AccountController: UIViewController {
     @IBAction func logoutAction(_ sender: Any) {
         
         self.presentAlert(
-            alert: .init(title: "Konfirmasi", message: "Apakah kamu yakin?", preferredStyle: .alert),
+            alert: .init(title: nil, message: "Apakah kamu yakin, ingin keluar?", preferredStyle: .actionSheet),
             actions: [
-                .init(title: "Batal", style: .default, handler: nil),
-                .init(title: "Oke", style: .default, handler: { action in
+                .init(title: "Batal", style: .cancel, handler: nil),
+                .init(title: "Keluar Sekarang", style: .destructive, handler: { action in
                     self.setIsLogout()
                     self.navigationItem.setRightBarButton(nil, animated: false)
                     self.navigationController?.popToRootViewController(animated: true)
