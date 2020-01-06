@@ -28,6 +28,17 @@ class PatientDetail: UIViewController {
     
     var delegate: PatientList!
 
+    fileprivate func fillForm() {
+        // Fill form
+        self.nameField.text = patient.fullName
+        self.motherNameField.text = patient.motherName
+        //self.phoneField.text =
+        self.genderField.text = patient.getGenderString()
+        self.dobField.text = patient.dob
+        self.bloodTypeField.text = patient.bloodType
+        self.addressField.text = patient.address
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,14 +48,7 @@ class PatientDetail: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissModal))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setEditState))
         
-        // Fill form
-        self.nameField.text = patient.fullName
-        self.motherNameField.text = patient.motherName
-        //self.phoneField.text =
-        self.genderField.text = patient.getGenderString()
-        self.dobField.text = patient.dob
-        self.bloodTypeField.text = patient.bloodType
-        self.addressField.text = patient.address
+        fillForm()
         
         // Setup Selects
         setupGenderSelect()
@@ -53,11 +57,44 @@ class PatientDetail: UIViewController {
         
         notificationKeyboardObserver()
         hideKeyboarWhenTapView()
-        
+    }
+    
+    func isChangeData() -> Bool {
+        return (
+        self.nameField.text != patient.fullName ||
+        self.motherNameField.text != patient.motherName ||
+        //self.phoneField.text =
+        self.genderField.text != patient.getGenderString() ||
+        self.dobField.text != patient.dob ||
+        self.bloodTypeField.text != patient.bloodType ||
+            self.addressField.text != patient.address
+        )
     }
     
     @objc func dismissModal() {
-        dismiss(animated: true)
+        self.dismiss(animated: true)
+    }
+    
+    @objc func willCancelEditing() -> Void {
+        if isChangeData() {
+            return self.presentAlert(
+                alert: .init(title: "Abaikan perubahan?", message: nil, preferredStyle: .actionSheet),
+                actions: [
+                    .init(title: "Batalkan Perubahan", style: .destructive, handler: { (action) in
+                        self.fillForm()
+                        self.didCancleTheChanges()
+                    }),
+                    .init(title: "Lanjutkan Perubahan", style: .cancel, handler: nil),
+                    
+            ], comletion: nil)
+        }
+        return self.didCancleTheChanges()
+    }
+    
+    func didCancleTheChanges() {
+        self.setDefaultState()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.setEditState))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(self.dismissModal))
     }
     
     @objc func setEditState() {
@@ -70,9 +107,11 @@ class PatientDetail: UIViewController {
         self.bloodTypeField.isEnabled = true
         self.addressField.isEnabled = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(setDoneState))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(willCancelEditing))
+        self.nameField.becomeFirstResponder()
     }
     
-    @objc func setDoneState() {
+    @objc func setDefaultState() {
         self.isEdit = false
         self.nameField.isEnabled = false
         self.phoneField.isEnabled = false
@@ -81,7 +120,10 @@ class PatientDetail: UIViewController {
         self.dobField.isEnabled = false
         self.bloodTypeField.isEnabled = false
         self.addressField.isEnabled = false
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(dismissModal))
+    }
+    
+    @objc func setDoneState() {
+        //
     }
     
     // MARK: Gender Select
