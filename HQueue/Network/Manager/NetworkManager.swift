@@ -68,16 +68,16 @@ struct NetworkManager {
         })
     }
     
-    func sigupAndCretePatient(newAuth: HQAuth, newPass: String, patientData: Patient, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> Void) {
-        router.request(.signup(user: newAuth, password: newPass, patient: patientData), completion: {data, response, error in
+    func sigup(newAuth: HQAuth, newPass: String, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> Void) {
+        router.request(.signup(user: newAuth, password: newPass), completion: {data, response, error in
             if error != nil {
-                print(#function, error)
+                //print(#function, error)
                 completion(nil, NetworkResponse.failed.rawValue)
             }
             
             if let response = response as? HTTPURLResponse {
                 let result =  self .handleNetworkResponse(response)
-                print(#function, response)
+                //print(#function, response)
                 switch result {
                     case .success:
                         guard let responseData = data else {
@@ -85,8 +85,14 @@ struct NetworkManager {
                             return
                         }
                         do {
-                            print( String(bytes: responseData, encoding: .utf8) )
+                            //print( #function, String(bytes: responseData, encoding: .utf8) )
                             let data = try JSONDecoder().decode(HQAuth.self, from: responseData)
+                            
+                            if let authToken = data.token,
+                            let deviceToken = UserDefaults.standard.string(forKey: UserEnv.deviceToken.rawValue) {
+                                self.addDeviceToken(authToken: authToken, deviceToken: deviceToken)
+                            }
+                            
                             completion(data, nil)
                         } catch let errorDecode {
                             print( #function, errorDecode )
@@ -115,11 +121,11 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        //print( String(bytes: responseData, encoding: .utf8) )
+                        print( String(bytes: responseData, encoding: .utf8) )
                         let data = try JSONDecoder().decode(HUser.self, from: responseData)
                         completion(data, nil)
-                    } catch {
-                        //print(#function, decoderError )
+                    } catch let decoderError {
+                        print(#function, decoderError )
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                 case .failure(let networkFailureError):
@@ -474,7 +480,7 @@ enum NetworkResponse: String {
     case failed = "Request failed"
     case noData = "Response returned with no data to decode"
     case unableToDecode = "Cannot decode"
-    case existingEmail = "Email sudah didaftarkan sebemunya"
+    case existingEmail = "Email atau nomor telpon sudah didaftarkan sebemunya"
 }
 
 enum Result<String> {

@@ -28,6 +28,6 @@ extension HUser: Decodable {
         name = try container.decode(String.self, forKey: .name)
         email = try container.decode(String.self, forKey: .email)
         phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
-        deviceToken = try container.decode(String.self, forKey: .deviceToken)
+        deviceToken = try? container.decode(String.self, forKey: .deviceToken)
     }
 }

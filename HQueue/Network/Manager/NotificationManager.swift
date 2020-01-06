@@ -11,6 +11,7 @@ import UserNotifications
 
 enum ActionIdentifiersNotif {
   static let updateQueueCategory = "UPDATE_QUEUE"
+  static let userEmailVerified = "USER_EMAIL_VERIFIED"
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
@@ -63,13 +64,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func handleActionNotification(_ data: [String : AnyObject]) {
+        print(#function, data)
         if let action = data["category"] as? String {
-
+            
             UIApplication.shared.applicationIconBadgeNumber = 0
 
             switch action {
             case ActionIdentifiersNotif.updateQueueCategory:
                 NotificationCenter.default.post(name: NSNotification.Name(ActionIdentifiersNotif.updateQueueCategory), object: nil, userInfo: nil)
+            case ActionIdentifiersNotif.userEmailVerified:
+                UserDefaults.standard.set(true, forKey: UserEnv.authVerify.rawValue)
             default:
                 break
             }

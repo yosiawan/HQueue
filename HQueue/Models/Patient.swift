@@ -45,8 +45,8 @@ extension Patient: Decodable {
         dob = try container.decode(String.self, forKey: .dob)
         gender = try container.decode(Bool.self, forKey: .gender)
         bloodType = try container.decode(String.self, forKey: .bloodType)
-        address = try container.decode(String.self, forKey: .address)
+        address = try? container.decode(String.self, forKey: .address)
         id = try container.decode(Int.self, forKey: .id)
-        photoIdentity = try container.decode(String.self, forKey: .photoIDentity)
+        photoIdentity = try? container.decode(String.self, forKey: .photoIDentity)
     }
 }

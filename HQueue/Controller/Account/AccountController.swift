@@ -85,13 +85,8 @@ class AccountController: UIViewController {
     }
 
     @IBAction func signupAction(_ sender: Any) {
-        let vc = UINavigationController(rootViewController: RegisterController())
-        vc.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        vc.navigationBar.shadowImage = UIImage()
-        vc.navigationBar.isTranslucent = false
-        vc.view.backgroundColor = .white
-
-        self.present(vc, animated: true, completion: nil)
+        let vc = CredentialController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func signinAction(_ sender: Any) {
@@ -115,9 +110,19 @@ class AccountController: UIViewController {
     }
     
     @IBAction func logoutAction(_ sender: Any) {
-        self.setIsLogout()
-        self.navigationItem.setRightBarButton(nil, animated: false)
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        self.presentAlert(
+            alert: .init(title: "Konfirmasi", message: "Apakah kamu yakin?", preferredStyle: .alert),
+            actions: [
+                .init(title: "Batal", style: .default, handler: nil),
+                .init(title: "Oke", style: .default, handler: { action in
+                    self.setIsLogout()
+                    self.navigationItem.setRightBarButton(nil, animated: false)
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
+            ],
+            comletion: nil)
+        
     }
     
     func fetchingData() {

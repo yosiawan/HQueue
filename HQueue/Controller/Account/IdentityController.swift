@@ -41,9 +41,9 @@ class IdentityController: UIViewController, UIImagePickerControllerDelegate, UIN
             ktpImg.image != nil
         {
             let vc = CredentialController()
-            vc.patient = self.patient
-            vc.patient.address = addressField.text!
-            vc.patient.identityNumber = identityNumberField.text!
+//            vc.patient = self.patient
+//            vc.patient.address = addressField.text!
+//            vc.patient.identityNumber = identityNumberField.text!
             self.navigationController?.pushViewController(vc, animated: true)
         } else if addressField.text!.count < 15  {
             

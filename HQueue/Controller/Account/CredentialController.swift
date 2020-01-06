@@ -10,10 +10,11 @@ import UIKit
 
 class CredentialController: UIViewController {
     
-    var patient: Patient!
+    // var patient: Patient!
     var user: HQAuth!
     var networkManager: NetworkManager!
 
+    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var phoneNumField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
@@ -38,23 +39,23 @@ class CredentialController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        if phoneNumField.text != "" &&
+        if nameField.text != "" &&
+            phoneNumField.text != "" &&
             emailField.text != "" &&
             passField.text != "" &&
             confirmPassField.text == passField.text
         {
             // SUBMIT HERE
             self.user = HQAuth(
-                name: self.patient.fullName,
+                name: nameField.text!,
                 email: emailField.text!,
                 token: nil,
                 phoneNumber: phoneNumField.text!,
                 verified: false
             )
-            networkManager.sigupAndCretePatient(
+            networkManager.sigup(
                 newAuth: self.user,
-                newPass: passField.text!,
-                patientData: patient
+                newPass: passField.text!
             ) { (auth, error) in
                 if let auth = auth {
                     // do something with new User data
