@@ -1,18 +1,16 @@
 //
-//  PatientDetail.swift
+//  PatienNewForm.swift
 //  HQueue
 //
-//  Created by Faridho Luedfi on 14/11/19.
-//  Copyright © 2019 Apple Dev. Academy. All rights reserved.
+//  Created by Faridho Luedfi on 07/01/20.
+//  Copyright © 2020 Apple Dev. Academy. All rights reserved.
 //
 
 import UIKit
 
-class PatientDetail: UIViewController {
+class PatienNewForm: UINavigationController {
     
     var networkManager: NetworkManager!
-    
-    @IBOutlet var fieldGroups: [UITextField]!
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var identityNumberFields: UITextField!
@@ -30,7 +28,7 @@ class PatientDetail: UIViewController {
     
     var isEdit = false
     
-    var delegate: PatientList!
+    //var delegate: PatientList!
 
     fileprivate func fillForm() {
         // Fill form
@@ -83,9 +81,7 @@ class PatientDetail: UIViewController {
     }
     
     @objc func dismissModal() {
-        self.dismiss(animated: true) {
-            self.delegate.fetchData()
-        }
+        self.dismiss(animated: true)
     }
     
     @objc func willCancelEditing() -> Void {
@@ -152,8 +148,8 @@ class PatientDetail: UIViewController {
         patient.address = addressField.text!
         
         networkManager.updatePatient(patient: patient) { (data, error) in
-            if let error = error {
-                
+            if error != "" {
+                print(#function, error)
                 DispatchQueue.main.async {
                     self.presentAlert(
                         alert: .init(
@@ -168,7 +164,6 @@ class PatientDetail: UIViewController {
             
             if data != nil {
                 DispatchQueue.main.async {
-                    self.didCancleTheChanges()
                     self.loadingView.stopAnimating()
                 }
             }

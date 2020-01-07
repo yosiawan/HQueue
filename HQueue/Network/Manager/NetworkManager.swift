@@ -21,7 +21,7 @@ struct NetworkManager {
         case 200...299:
             return .success
         case 406:
-            return .failure(NetworkResponse.existingEmail.rawValue)
+            return .failure(NetworkResponse.formValidate.rawValue)
         case 400...409:
             return .failure(NetworkResponse.authenticationError.rawValue)
         case 500...599:
@@ -320,6 +320,42 @@ struct NetworkManager {
         }
     }
     
+    func updatePatient(patient: Patient, completion: @escaping(_ data: Patient?, _ error: String?) -> ()) {
+        routerPatient.request(.updatePatient(patient: patient)) { (data, response, error) in
+            if error != nil {
+                completion(nil, NetworkResponse.failed.rawValue)
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                print( String(bytes: data!, encoding: .utf8) )
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let data = try JSONDecoder().decode(PatientResponseForm.self, from: responseData)
+                        completion(data.data, nil)
+                    }catch let errorDecode{
+                        print(#function, errorDecode)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
+                    do {
+                        let errorValidator = try JSONDecoder().decode(PatientResponseError.self, from: data!)
+
+                        completion(nil, errorValidator.error.first?.value.first)
+                    } catch {
+                    completion(nil, networkFailurError)
+                    }
+                }
+            }
+        }
+    }
+    
     func registerQueue(patienId: String, doctorScheduleId: String, insuranceId: String?, completion: @escaping(_ data: QueueResponse?, _ error: String?) -> ()) {
         routerQueue.request(.registerQueue(patientId: patienId, doctorScheduleId: doctorScheduleId, insuranceId: insuranceId)) { data, response, error in
             if error != nil {
@@ -480,7 +516,7 @@ enum NetworkResponse: String {
     case failed = "Request failed"
     case noData = "Response returned with no data to decode"
     case unableToDecode = "Cannot decode"
-    case existingEmail = "Email atau nomor telpon sudah didaftarkan sebemunya"
+    case formValidate = "Email atau nomor telpon sudah didaftarkan sebemunya"
 }
 
 enum Result<String> {

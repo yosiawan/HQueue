@@ -59,6 +59,9 @@
 		7F5FE06F2375873F004569C4 /* HQAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FE06E2375873F004569C4 /* HQAuth.swift */; };
 		7F6173282398F35800F3B760 /* PatientEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6173272398F35800F3B760 /* PatientEndPoint.swift */; };
 		7F61732C239BA8A900F3B760 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61732B239BA8A900F3B760 /* URLHelper.swift */; };
+		7F642ED223C4AD1700721147 /* ValidationErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F642ED123C4AD1700721147 /* ValidationErrorResponse.swift */; };
+		7F642ED523C4B80C00721147 /* PatienNewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F642ED323C4B80C00721147 /* PatienNewForm.swift */; };
+		7F642ED623C4B80C00721147 /* PatienNewForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F642ED423C4B80C00721147 /* PatienNewForm.xib */; };
 		7F8F1793237EB9E90058AA22 /* AsuransiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1791237EB9E90058AA22 /* AsuransiList.swift */; };
 		7F8F1794237EB9E90058AA22 /* AsuransiList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8F1792237EB9E90058AA22 /* AsuransiList.xib */; };
 		7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1795237EBBCF0058AA22 /* Asuransi.swift */; };
@@ -66,6 +69,7 @@
 		7F8F179A237EBFF10058AA22 /* AsuransiTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */; };
 		7F987552238E7A5800082985 /* HUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987550238E778100082985 /* HUser.swift */; };
 		7F987554238EA41000082985 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987553238EA41000082985 /* Doctor.swift */; };
+		7F9C9B8823C43D0F0017D276 /* TextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9C9B8723C43D0F0017D276 /* TextFieldHelper.swift */; };
 		7FA5FB48238530580081DE82 /* HospitalEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */; };
 		7FA5FB4A23869FA90081DE82 /* MediaHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5FB4923869FA90081DE82 /* MediaHandler.swift */; };
 		7FC411C6239F94C700AF53BE /* TransitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC411C4239F94C700AF53BE /* TransitionView.xib */; };
@@ -205,6 +209,9 @@
 		7F5FE06E2375873F004569C4 /* HQAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQAuth.swift; sourceTree = "<group>"; };
 		7F6173272398F35800F3B760 /* PatientEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientEndPoint.swift; path = HQueue/Models/PatientEndPoint.swift; sourceTree = SOURCE_ROOT; };
 		7F61732B239BA8A900F3B760 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
+		7F642ED123C4AD1700721147 /* ValidationErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorResponse.swift; sourceTree = "<group>"; };
+		7F642ED323C4B80C00721147 /* PatienNewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatienNewForm.swift; sourceTree = "<group>"; };
+		7F642ED423C4B80C00721147 /* PatienNewForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatienNewForm.xib; sourceTree = "<group>"; };
 		7F8F1791237EB9E90058AA22 /* AsuransiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsuransiList.swift; sourceTree = "<group>"; };
 		7F8F1792237EB9E90058AA22 /* AsuransiList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiList.xib; sourceTree = "<group>"; };
 		7F8F1795237EBBCF0058AA22 /* Asuransi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asuransi.swift; sourceTree = "<group>"; };
@@ -212,6 +219,7 @@
 		7F8F1798237EBFF10058AA22 /* AsuransiTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiTableCell.xib; sourceTree = "<group>"; };
 		7F987550238E778100082985 /* HUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUser.swift; sourceTree = "<group>"; };
 		7F987553238EA41000082985 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		7F9C9B8723C43D0F0017D276 /* TextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHelper.swift; sourceTree = "<group>"; };
 		7FA5FB47238530580081DE82 /* HospitalEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalEndPoint.swift; path = HQueue/View/Home/HospitalEndPoint.swift; sourceTree = SOURCE_ROOT; };
 		7FA5FB4923869FA90081DE82 /* MediaHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaHandler.swift; sourceTree = "<group>"; };
 		7FC411C4239F94C700AF53BE /* TransitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransitionView.xib; sourceTree = "<group>"; };
@@ -343,6 +351,7 @@
 				7F61732B239BA8A900F3B760 /* URLHelper.swift */,
 				7F02E47123A6362B0089BBF0 /* DateHelper.swift */,
 				7F3DA09023AB8E0D00CFAE50 /* FormHelper.swift */,
+				7F9C9B8723C43D0F0017D276 /* TextFieldHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -377,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				7F283DA4237D155900724AC9 /* PatientDetail.xib */,
+				7F642ED423C4B80C00721147 /* PatienNewForm.xib */,
 				7F283D9A237C12C400724AC9 /* PatientList.xib */,
 				95091E8A2372C52B00EA0782 /* Login.xib */,
 				7F5FE0442374036A004569C4 /* AccountController.xib */,
@@ -400,6 +410,7 @@
 				95091ECF2382980D00EA0782 /* ForgotPass.swift */,
 				7F283D99237C12C400724AC9 /* PatientList.swift */,
 				7F283DA3237D155900724AC9 /* PatientDetail.swift */,
+				7F642ED323C4B80C00721147 /* PatienNewForm.swift */,
 				7F283D9F237C15B800724AC9 /* PatientCell.swift */,
 				95ABE70223A0D13C00022B47 /* QueueHistoryController.swift */,
 			);
@@ -445,6 +456,7 @@
 				7F987553238EA41000082985 /* Doctor.swift */,
 				7F987550238E778100082985 /* HUser.swift */,
 				7F4593A1239D4D6000E4C4BE /* Queue.swift */,
+				7F642ED123C4AD1700721147 /* ValidationErrorResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -777,6 +789,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F5FE04E2374127B004569C4 /* IdentityController.xib in Resources */,
+				7F642ED623C4B80C00721147 /* PatienNewForm.xib in Resources */,
 				7F2B171023811F2900C6171F /* PoliCell.xib in Resources */,
 				7FC411C6239F94C700AF53BE /* TransitionView.xib in Resources */,
 				7F5FE05A23741674004569C4 /* RegisterController.xib in Resources */,
@@ -833,6 +846,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F642ED223C4AD1700721147 /* ValidationErrorResponse.swift in Sources */,
 				7F283DA5237D155900724AC9 /* PatientDetail.swift in Sources */,
 				95091E982374023200EA0782 /* EndPointType.swift in Sources */,
 				7F5FE05323741573004569C4 /* CredentialController.swift in Sources */,
@@ -869,6 +883,7 @@
 				7F5FE05D23742B44004569C4 /* FieldForm.swift in Sources */,
 				B73FC6A123795A83000B4A67 /* QueueNumberArea.swift in Sources */,
 				7F02E47223A6362B0089BBF0 /* DateHelper.swift in Sources */,
+				7F642ED523C4B80C00721147 /* PatienNewForm.swift in Sources */,
 				95ABE70723A0EE4500022B47 /* QueueHistoryCellView.swift in Sources */,
 				95ABE70523A0D23F00022B47 /* QueueHistoryCell.swift in Sources */,
 				7F5FE05923741674004569C4 /* RegisterController.swift in Sources */,
@@ -882,6 +897,7 @@
 				95ABE70123A0D0E000022B47 /* QueueHistoryView.swift in Sources */,
 				7FA5FB4A23869FA90081DE82 /* MediaHandler.swift in Sources */,
 				95091ED22382A23600EA0782 /* ForgotPassView.swift in Sources */,
+				7F9C9B8823C43D0F0017D276 /* TextFieldHelper.swift in Sources */,
 				7F02E47623A729400089BBF0 /* QueueNavigationController.swift in Sources */,
 				95091EA02374030300EA0782 /* ParameterEncoding.swift in Sources */,
 				95ABE70323A0D13C00022B47 /* QueueHistoryController.swift in Sources */,

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,8 +13,10 @@
                 <outlet property="bloodTypeField" destination="Ark-kf-1W3" id="4Cu-fD-lQI"/>
                 <outlet property="dobField" destination="j2N-0C-Bc8" id="bOc-4N-mQW"/>
                 <outlet property="genderField" destination="KMZ-B2-imf" id="nrh-ho-Gcc"/>
+                <outlet property="identityNumberFields" destination="Rkh-1P-TuA" id="zko-Be-hOh"/>
+                <outlet property="loadingView" destination="LNI-hb-FRj" id="J1O-ie-fNd"/>
                 <outlet property="motherNameField" destination="t7c-Ob-Pvv" id="vY1-GT-qwn"/>
-                <outlet property="nameField" destination="Rkh-1P-TuA" id="7cz-k2-J5Y"/>
+                <outlet property="nameField" destination="xiN-xl-itS" id="115-vT-eaw"/>
                 <outlet property="phoneField" destination="BWv-nN-LDI" id="QWa-SR-pxZ"/>
                 <outlet property="scrollView" destination="Kmh-0i-CUM" id="hmn-AJ-I3d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -37,18 +39,18 @@
                             <rect key="frame" x="20" y="0.0" width="414" height="838"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Qan-Rj-BZs">
-                                    <rect key="frame" x="20" y="20" width="374" height="468"/>
+                                    <rect key="frame" x="20" y="20" width="374" height="551"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3X-aj-vjL">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Lengkap" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rkh-1P-TuA">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor Identitas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rkh-1P-TuA">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="3F6-Wb-CvR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O0h-an-duW">
                                                     <rect key="frame" x="0.0" y="50" width="374" height="1"/>
@@ -72,8 +74,41 @@
                                                 <constraint firstItem="Rkh-1P-TuA" firstAttribute="leading" secondItem="O0a-h2-CRO" secondAttribute="trailing" constant="15" id="enT-Gk-6ph"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKC-r6-e0w">
+                                            <rect key="frame" x="0.0" y="83" width="374" height="53"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Lengkap" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xiN-xl-itS">
+                                                    <rect key="frame" x="57" y="0.0" width="317" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="6wq-3T-0Fe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9B-Kl-V7r">
+                                                    <rect key="frame" x="0.0" y="50" width="374" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.71551150080000003" blue="0.1650761664" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-profile" translatesAutoresizingMaskIntoConstraints="NO" id="udY-w9-ypk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="PNy-rN-h8f"/>
+                                                        <constraint firstAttribute="height" constant="42" id="iiL-tc-zLh"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="53" id="06p-GH-q3O"/>
+                                                <constraint firstItem="udY-w9-ypk" firstAttribute="top" secondItem="gKC-r6-e0w" secondAttribute="top" id="OOV-g2-f3y"/>
+                                                <constraint firstItem="xiN-xl-itS" firstAttribute="leading" secondItem="udY-w9-ypk" secondAttribute="trailing" constant="15" id="Op1-dz-Lhb"/>
+                                                <constraint firstAttribute="trailing" secondItem="xiN-xl-itS" secondAttribute="trailing" id="Yoc-ad-7cH"/>
+                                                <constraint firstItem="udY-w9-ypk" firstAttribute="leading" secondItem="gKC-r6-e0w" secondAttribute="leading" id="eSy-5Q-SIh"/>
+                                                <constraint firstItem="xiN-xl-itS" firstAttribute="top" secondItem="gKC-r6-e0w" secondAttribute="top" id="zvY-6p-jlG"/>
+                                            </constraints>
+                                        </view>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-wl-xOw">
-                                            <rect key="frame" x="0.0" y="68" width="374" height="53"/>
+                                            <rect key="frame" x="0.0" y="151" width="374" height="53"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor Telepon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BWv-nN-LDI">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
@@ -106,7 +141,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1M-g4-eT5">
-                                            <rect key="frame" x="0.0" y="83" width="374" height="53"/>
+                                            <rect key="frame" x="0.0" y="166" width="374" height="53"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Ibu kandung" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7c-Ob-Pvv">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
@@ -139,7 +174,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARe-UE-grQ">
-                                            <rect key="frame" x="0.0" y="166" width="374" height="53"/>
+                                            <rect key="frame" x="0.0" y="249" width="374" height="53"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jenis Kelamin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KMZ-B2-imf">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
@@ -172,7 +207,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIq-ok-D2q">
-                                            <rect key="frame" x="0.0" y="249" width="374" height="53"/>
+                                            <rect key="frame" x="0.0" y="332" width="374" height="53"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tanggal Lahir" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2N-0C-Bc8">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
@@ -205,7 +240,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-kz-0FQ">
-                                            <rect key="frame" x="0.0" y="332" width="374" height="53"/>
+                                            <rect key="frame" x="0.0" y="415" width="374" height="53"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Golongan Darah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ark-kf-1W3">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
@@ -238,7 +273,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-l8-IQE">
-                                            <rect key="frame" x="0.0" y="415" width="374" height="53"/>
+                                            <rect key="frame" x="0.0" y="498" width="374" height="53"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcW-Bt-6d3">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
@@ -294,13 +329,20 @@
                         <constraint firstItem="v1c-pt-bV6" firstAttribute="leading" secondItem="Kmh-0i-CUM" secondAttribute="leading" constant="20" id="cLG-51-BeA"/>
                     </constraints>
                 </scrollView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LNI-hb-FRj">
+                    <rect key="frame" x="0.0" y="20" width="414" height="856"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Kmh-0i-CUM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-20" id="4hX-Uc-jvf"/>
+                <constraint firstItem="LNI-hb-FRj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Deb-ut-l6K"/>
                 <constraint firstItem="Kmh-0i-CUM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="KjZ-RQ-2m1"/>
                 <constraint firstItem="Kmh-0i-CUM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ye1-Gr-g4q"/>
+                <constraint firstItem="LNI-hb-FRj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="cRT-Nt-WdZ"/>
+                <constraint firstItem="LNI-hb-FRj" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cwX-Xq-cuI"/>
                 <constraint firstAttribute="bottom" secondItem="Kmh-0i-CUM" secondAttribute="bottom" constant="14" id="igW-vZ-EVW"/>
+                <constraint firstAttribute="bottom" secondItem="LNI-hb-FRj" secondAttribute="bottom" constant="20" symbolic="YES" id="nJi-Db-uqk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="104.46428571428571"/>

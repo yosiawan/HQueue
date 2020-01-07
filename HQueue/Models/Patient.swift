@@ -8,6 +8,27 @@
 
 import Foundation
 
+public struct PatientResponseForm {
+    let success: Bool
+    let message: String
+    var data: Patient
+}
+
+extension PatientResponseForm: Decodable {
+    enum PatientResponseKeys: String, CodingKey {
+        case success = "success"
+        case message = "message"
+        case data = "data"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: PatientResponseKeys.self)
+        success = try container.decode(Bool.self, forKey: .success)
+        message = try container.decode(String.self, forKey: .message)
+        data = try container.decode(Patient.self, forKey: .data)
+    }
+}
+
 public struct Patient {
     var fullName: String
     var motherName: String
@@ -46,7 +67,7 @@ extension Patient: Decodable {
         gender = try container.decode(Bool.self, forKey: .gender)
         bloodType = try container.decode(String.self, forKey: .bloodType)
         address = try? container.decode(String.self, forKey: .address)
-        id = try container.decode(Int.self, forKey: .id)
+        id = try? container.decode(Int.self, forKey: .id)
         photoIdentity = try? container.decode(String.self, forKey: .photoIDentity)
     }
 }
