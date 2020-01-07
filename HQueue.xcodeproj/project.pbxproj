@@ -1127,6 +1127,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS-DA.HQueue";
 				PRODUCT_NAME = Antridoc;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1149,6 +1150,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS-DA.HQueue";
 				PRODUCT_NAME = Antridoc;
 				PROVISIONING_PROFILE_SPECIFIER = "";
