@@ -14,6 +14,7 @@ class HospitalList: UITableViewController {
     var currentPage = 1
     
     @IBOutlet var viewCardHandler: UIView!
+    @IBOutlet weak var viewCardHandlerContent: UIView!
     @IBOutlet weak var btnCardHandler: UIButton!
     @IBOutlet var superView: UITableView!
     

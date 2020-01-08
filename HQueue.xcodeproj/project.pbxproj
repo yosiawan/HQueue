@@ -62,6 +62,7 @@
 		7F642ED223C4AD1700721147 /* ValidationErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F642ED123C4AD1700721147 /* ValidationErrorResponse.swift */; };
 		7F642ED523C4B80C00721147 /* PatienNewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F642ED323C4B80C00721147 /* PatienNewForm.swift */; };
 		7F642ED623C4B80C00721147 /* PatienNewForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F642ED423C4B80C00721147 /* PatienNewForm.xib */; };
+		7F642ED823C5B88700721147 /* CardHendler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F642ED723C5B88700721147 /* CardHendler.swift */; };
 		7F8F1793237EB9E90058AA22 /* AsuransiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1791237EB9E90058AA22 /* AsuransiList.swift */; };
 		7F8F1794237EB9E90058AA22 /* AsuransiList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8F1792237EB9E90058AA22 /* AsuransiList.xib */; };
 		7F8F1796237EBBCF0058AA22 /* Asuransi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F1795237EBBCF0058AA22 /* Asuransi.swift */; };
@@ -212,6 +213,7 @@
 		7F642ED123C4AD1700721147 /* ValidationErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorResponse.swift; sourceTree = "<group>"; };
 		7F642ED323C4B80C00721147 /* PatienNewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatienNewForm.swift; sourceTree = "<group>"; };
 		7F642ED423C4B80C00721147 /* PatienNewForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatienNewForm.xib; sourceTree = "<group>"; };
+		7F642ED723C5B88700721147 /* CardHendler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHendler.swift; sourceTree = "<group>"; };
 		7F8F1791237EB9E90058AA22 /* AsuransiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsuransiList.swift; sourceTree = "<group>"; };
 		7F8F1792237EB9E90058AA22 /* AsuransiList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsuransiList.xib; sourceTree = "<group>"; };
 		7F8F1795237EBBCF0058AA22 /* Asuransi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asuransi.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				7F02E45A23A20D380089BBF0 /* PaddingLabel.swift */,
 				95ABE70423A0D23F00022B47 /* QueueHistoryCell.swift */,
 				95ABE70623A0EE4500022B47 /* QueueHistoryCellView.swift */,
+				7F642ED723C5B88700721147 /* CardHendler.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -920,6 +923,7 @@
 				B73FC6A923796C8A000B4A67 /* ButtonRS.swift in Sources */,
 				95091EDC2383F18B00EA0782 /* DoctorListView.swift in Sources */,
 				B73FC69F237956A8000B4A67 /* AccountThumbnail.swift in Sources */,
+				7F642ED823C5B88700721147 /* CardHendler.swift in Sources */,
 				95091ED02382980D00EA0782 /* ForgotPass.swift in Sources */,
 				95091E4D2372B02B00EA0782 /* SceneDelegate.swift in Sources */,
 				7F02E45B23A20D380089BBF0 /* PaddingLabel.swift in Sources */,
