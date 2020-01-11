@@ -38,8 +38,9 @@ class PatientList: UITableViewController {
     
     @objc func addDataAction() {
         let vc = PatienNewForm()
-//        let nav = UINavigationController(rootViewController: vc)
-        self.present(vc, animated: true, completion: nil)
+        vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -59,7 +60,10 @@ class PatientList: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PatientCell", for: indexPath) as! PatientCell
         print("Fetch data patient", patients[indexPath.row])
         // Configure the cell...
-        cell.patientLabel.text = patients[indexPath.row].fullName
+        cell.resetCell()
+        let patientName = patients[indexPath.row].fullName
+        cell.initialLabel.text = String(patientName.character(at: 0)!)
+        cell.patientLabel.text = patientName
         return cell
     }
     

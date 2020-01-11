@@ -356,6 +356,42 @@ struct NetworkManager {
         }
     }
     
+    func addPatient(patient: Patient, completion: @escaping(_ data: Patient?, _ error: String?) -> ()) {
+        routerPatient.request(.addPatient(patient: patient)) { (data, response, error) in
+            if error != nil {
+                completion(nil, NetworkResponse.failed.rawValue)
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                print( String(bytes: data!, encoding: .utf8) )
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let data = try JSONDecoder().decode(PatientResponseForm.self, from: responseData)
+                        completion(data.data, nil)
+                    }catch let errorDecode{
+                        print(#function, errorDecode)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    
+                case .failure(let networkFailurError):
+                    do {
+                        let errorValidator = try JSONDecoder().decode(PatientResponseError.self, from: data!)
+
+                        completion(nil, errorValidator.error.first?.value.first)
+                    } catch {
+                    completion(nil, networkFailurError)
+                    }
+                }
+            }
+        }
+    }
+    
     func registerQueue(patienId: String, doctorScheduleId: String, insuranceId: String?, completion: @escaping(_ data: QueueResponse?, _ error: String?) -> ()) {
         routerQueue.request(.registerQueue(patientId: patienId, doctorScheduleId: doctorScheduleId, insuranceId: insuranceId)) { data, response, error in
             if error != nil {

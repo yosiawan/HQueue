@@ -183,9 +183,15 @@ class DoctorDetail: UIViewController {
     
     // MARK: - Navigation
     @objc func pushToPatientList() {
-        let vc = PatientList()
-        vc.perviousController = self
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        if self.isLogged() && self.ifIsVerifed() {
+            let vc = PatientList()
+            vc.perviousController = self
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = AccountController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

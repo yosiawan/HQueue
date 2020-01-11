@@ -11,6 +11,7 @@ import Foundation
 public enum PatientAPI {
     case getPatient
     case updatePatient(patient: Patient)
+    case addPatient(patient: Patient)
 }
 
 extension PatientAPI: EndPointType {
@@ -21,6 +22,8 @@ extension PatientAPI: EndPointType {
             return "/patient/index"
         case .updatePatient(let patient):
             return "/patient/update/\(patient.id!)"
+        case .addPatient:
+            return "/patient/store"
         }
     }
     
@@ -28,7 +31,7 @@ extension PatientAPI: EndPointType {
        switch self {
        case .getPatient:
         return .get
-       case .updatePatient:
+       case .updatePatient, .addPatient:
         return .post
        }
     }
@@ -38,7 +41,7 @@ extension PatientAPI: EndPointType {
        switch self {
        case .getPatient:
         return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: bearerToken)
-       case .updatePatient(let patient):
+       case .updatePatient(let patient), .addPatient(let patient):
         return .requestParametersAndHeaders(bodyParameters: self.fillBody(patient), urlParameters: nil, additionalHeaders: bearerToken)
        }
     }

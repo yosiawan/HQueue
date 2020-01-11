@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PatienNewForm: UINavigationController {
+class PatienNewForm: UIViewController {
     
     var networkManager: NetworkManager!
     
@@ -24,7 +24,7 @@ class PatienNewForm: UINavigationController {
     
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
-    var isEdit = false
+    var delegate: PatientList!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,8 @@ class PatienNewForm: UINavigationController {
         self.networkManager = NetworkManager()
         
         // Setup Toolbar
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissModal))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setEditState))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissModal))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveData))
         
         // Setup Loading
         // todo gmana caranya disable semua button ketika loading
@@ -50,50 +50,76 @@ class PatienNewForm: UINavigationController {
     }
     
     @objc func dismissModal() {
-        self.dismiss(animated: true)
+        self.dismiss(animated: true) {
+            self.delegate.fetchData()
+        }
     }
     
-    @objc func willCancelEditing() -> Void {
+    func isValidForm() -> Bool {
         
-    }
-    
-    func didCancleTheChanges() {
-        self.setDefaultState()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.setEditState))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(self.dismissModal))
-    }
-    
-    @objc func setEditState() {
-        self.isEdit = true
-        self.identityNumberFields.isEnabled = true
-        self.nameField.isEnabled = true
-        self.phoneField.isEnabled = true
-        self.motherNameField.isEnabled = true
-        self.genderField.isEnabled = true
-        self.dobField.isEnabled = true
-        self.bloodTypeField.isEnabled = true
-        self.addressField.isEnabled = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(setDoneState))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(willCancelEditing))
-        self.nameField.becomeFirstResponder()
-    }
-    
-    @objc func setDefaultState() {
-        self.isEdit = false
-        self.identityNumberFields.isEnabled = false
-        self.nameField.isEnabled = false
-        self.phoneField.isEnabled = false
-        self.motherNameField.isEnabled = false
-        self.genderField.isEnabled = false
-        self.dobField.isEnabled = false
-        self.bloodTypeField.isEnabled = false
-        self.addressField.isEnabled = false
+        return (
+            self.identityNumberFields.text != "" &&
+            self.nameField.text != "" &&
+            self.motherNameField.text != "" &&
+            self.genderField.text != "" &&
+            self.dobField.text != "" &&
+            self.bloodTypeField.text != "" &&
+            self.addressField.text != ""
+        )
     }
     
     // MARK: Update Data Patient
-    @objc func setDoneState() {
+    @objc func saveData() {
         DispatchQueue.main.async {
             self.loadingView.startAnimating()
+        }
+        
+        guard self.isValidForm() else {
+            DispatchQueue.main.async { self.loadingView.stopAnimating() }
+            
+            self.presentAlert(
+                alert: .init(
+                    title: "Validasi Form",
+                    message: "Field tidak boleh kosong",
+                    preferredStyle: .alert),
+                actions: nil,
+                comletion: nil)
+            
+            return
+        }
+        
+        let newPatinet = Patient(
+            fullName: nameField.text!,
+            motherName: motherNameField.text!,
+            identityNumber: identityNumberFields.text!,
+            dob: dobField.text!,
+            gender: genderField.text! == "Perempuan",
+            bloodType: bloodTypeField.text!,
+            address: addressField.text!,
+            id: nil,
+            photoIdentity: nil)
+        
+        self.networkManager.addPatient(patient: newPatinet) { (data, error) in
+            if let error = error {
+                
+                DispatchQueue.main.async {
+                    self.presentAlert(
+                        alert: .init(
+                            title: "Validasi",
+                            message: error,
+                            preferredStyle: .alert),
+                        actions: nil,
+                        comletion: nil)
+                    self.loadingView.stopAnimating()
+                }
+            }
+            
+            if data != nil {
+                DispatchQueue.main.async {
+                    self.loadingView.stopAnimating()
+                    self.dismissModal()
+                }
+            }
         }
         
     }

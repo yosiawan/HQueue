@@ -22,6 +22,11 @@ class PatientCell: UITableViewCell {
         self.selectionStyle = .none
         
     }
+    
+    func resetCell() {
+        initialLabel.text = "-"
+        patientLabel.text = "Nama Pasient"
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -14,7 +14,7 @@
                 <outlet property="dobField" destination="tvf-PS-nJs" id="JqN-qy-vRB"/>
                 <outlet property="genderField" destination="g0Y-EY-peQ" id="FII-4b-l26"/>
                 <outlet property="identityNumberFields" destination="bEQ-4A-qDm" id="DPB-ja-0Cq"/>
-                <outlet property="loadingView" destination="2vZ-Dc-rID" id="Jcr-MU-f2r"/>
+                <outlet property="loadingView" destination="WpH-hR-WSn" id="pPS-7E-7nE"/>
                 <outlet property="motherNameField" destination="Dgg-8P-6Bp" id="FtS-cV-yF6"/>
                 <outlet property="nameField" destination="AGH-kN-mkI" id="kmF-mX-qBr"/>
                 <outlet property="phoneField" destination="sNL-pI-6yf" id="lOg-SX-4gZ"/>
@@ -39,7 +39,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rou-jA-tHv">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor Identitas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bEQ-4A-qDm">
+                                                <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor Identitas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bEQ-4A-qDm">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="aYa-67-DnY"/>
@@ -72,7 +72,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-aM-CaN">
                                             <rect key="frame" x="0.0" y="83" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Lengkap" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AGH-kN-mkI">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Lengkap" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AGH-kN-mkI">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="SSP-t8-vqB"/>
@@ -105,7 +105,7 @@
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cse-5k-EKX">
                                             <rect key="frame" x="0.0" y="151" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor Telepon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sNL-pI-6yf">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor Telepon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sNL-pI-6yf">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="Vyb-Uk-I7z"/>
@@ -138,7 +138,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adD-Tr-bJl">
                                             <rect key="frame" x="0.0" y="166" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Ibu kandung" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dgg-8P-6Bp">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Ibu kandung" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dgg-8P-6Bp">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="Hbe-Ju-6Sj"/>
@@ -171,7 +171,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIq-Wz-BPc">
                                             <rect key="frame" x="0.0" y="249" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jenis Kelamin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0Y-EY-peQ">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jenis Kelamin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0Y-EY-peQ">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="drx-rq-cFD"/>
@@ -204,7 +204,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciL-WL-S4x">
                                             <rect key="frame" x="0.0" y="332" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tanggal Lahir" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tvf-PS-nJs">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tanggal Lahir" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tvf-PS-nJs">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="MN7-IX-IIy"/>
@@ -237,7 +237,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdO-4f-kRL">
                                             <rect key="frame" x="0.0" y="415" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Golongan Darah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2mk-td-Kbz">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Golongan Darah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2mk-td-Kbz">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="Jmq-OM-zho"/>
@@ -270,7 +270,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6x-pk-aFh">
                                             <rect key="frame" x="0.0" y="498" width="374" height="53"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TwO-v2-aQz">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TwO-v2-aQz">
                                                     <rect key="frame" x="57" y="0.0" width="317" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="zdm-dc-WsU"/>
@@ -324,19 +324,16 @@
                         <constraint firstItem="6Ar-11-M1K" firstAttribute="centerX" secondItem="B9v-l6-nML" secondAttribute="centerX" id="zfE-q5-dCb"/>
                     </constraints>
                 </scrollView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2vZ-Dc-rID">
-                    <rect key="frame" x="0.0" y="20" width="414" height="856"/>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="WpH-hR-WSn">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="B9v-l6-nML" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="7" id="6gx-GX-SPz"/>
                 <constraint firstItem="B9v-l6-nML" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-21" id="E0n-JS-eGn"/>
-                <constraint firstAttribute="bottom" secondItem="2vZ-Dc-rID" secondAttribute="bottom" constant="20" symbolic="YES" id="IG9-Kg-bAe"/>
-                <constraint firstItem="2vZ-Dc-rID" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PZf-2A-ht6"/>
-                <constraint firstItem="2vZ-Dc-rID" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="PnX-A5-ovA"/>
                 <constraint firstAttribute="trailing" secondItem="B9v-l6-nML" secondAttribute="trailing" constant="-19" id="bul-Dh-3NZ"/>
-                <constraint firstItem="2vZ-Dc-rID" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="eG1-Qb-LA5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="B9v-l6-nML" secondAttribute="bottom" id="gwM-6c-9Px"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
