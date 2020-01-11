@@ -29,7 +29,6 @@ class PatientDetail: UIViewController {
     var patient: Patient!
     
     var isEdit = false
-    
     var delegate: PatientList!
 
     fileprivate func fillForm() {

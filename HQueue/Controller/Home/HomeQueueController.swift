@@ -64,8 +64,10 @@ class HomeQueueController: UIViewController {
         if self.isLogged() {
             let nameuser = UserDefaults.standard.string(forKey: UserEnv.authName.rawValue)!
             self.userLabel.text = "Halo, \(nameuser)"
+        self.accountBtn.setTitle(String(nameuser.character(at: 0)!), for: .normal)
         }else{
             self.userLabel.text = "Halo, Sobat Sehat"
+            self.accountBtn.setTitle("A", for: .normal)
         }
     }
     

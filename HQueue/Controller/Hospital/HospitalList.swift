@@ -55,7 +55,7 @@ class HospitalList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HospitalCell", for: indexPath) as! HospitalCell
-        
+        cell.resetView()
         cell.setHospitalCard(hospitals[indexPath.row])
         
         return cell

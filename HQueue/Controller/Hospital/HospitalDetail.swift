@@ -26,7 +26,7 @@ class HospitalDetail: UIViewController {
         hospitalPhone.text = hospital.phoneNumber
         self.navigationItem.titleView = UIView()
         if let imgUrlString = hospital.photo {
-            hospitalImage.downloaded(from: "http://167.71.203.148/storage/hospitals/\(imgUrlString)", contentMode: .scaleAspectFill)
+            hospitalImage.downloaded(from: imgUrlString, contentMode: .scaleAspectFill)
         }
     }
     

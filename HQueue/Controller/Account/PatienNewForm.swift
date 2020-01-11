@@ -24,23 +24,7 @@ class PatienNewForm: UINavigationController {
     
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
-    var patient: Patient!
-    
     var isEdit = false
-    
-    //var delegate: PatientList!
-
-    fileprivate func fillForm() {
-        // Fill form
-        self.identityNumberFields.text = patient.identityNumber
-        self.nameField.text = patient.fullName
-        self.motherNameField.text = patient.motherName
-        //self.phoneField.text =
-        self.genderField.text = patient.getGenderString()
-        self.dobField.text = patient.dob
-        self.bloodTypeField.text = patient.bloodType
-        self.addressField.text = patient.address
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +35,6 @@ class PatienNewForm: UINavigationController {
         // Setup Toolbar
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissModal))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setEditState))
-        
-        fillForm()
         
         // Setup Loading
         // todo gmana caranya disable semua button ketika loading
@@ -67,37 +49,12 @@ class PatienNewForm: UINavigationController {
         hideKeyboarWhenTapView()
     }
     
-    func isChangeData() -> Bool {
-        return (
-        self.identityNumberFields.text != patient.identityNumber ||
-        self.nameField.text != patient.fullName ||
-        self.motherNameField.text != patient.motherName ||
-        //self.phoneField.text =
-        self.genderField.text != patient.getGenderString() ||
-        self.dobField.text != patient.dob ||
-        self.bloodTypeField.text != patient.bloodType ||
-            self.addressField.text != patient.address
-        )
-    }
-    
     @objc func dismissModal() {
         self.dismiss(animated: true)
     }
     
     @objc func willCancelEditing() -> Void {
-        if isChangeData() {
-            return self.presentAlert(
-                alert: .init(title: "Abaikan perubahan?", message: nil, preferredStyle: .actionSheet),
-                actions: [
-                    .init(title: "Batalkan Perubahan", style: .destructive, handler: { (action) in
-                        self.fillForm()
-                        self.didCancleTheChanges()
-                    }),
-                    .init(title: "Lanjutkan Perubahan", style: .cancel, handler: nil),
-                    
-            ], comletion: nil)
-        }
-        return self.didCancleTheChanges()
+        
     }
     
     func didCancleTheChanges() {
@@ -139,35 +96,6 @@ class PatienNewForm: UINavigationController {
             self.loadingView.startAnimating()
         }
         
-        patient.identityNumber = identityNumberFields.text!
-        patient.fullName = nameField.text!
-        patient.motherName = motherNameField.text!
-        patient.gender = genderField.text == "Perempuan"
-        patient.dob = dobField.text!
-        patient.bloodType = bloodTypeField.text!
-        patient.address = addressField.text!
-        
-        networkManager.updatePatient(patient: patient) { (data, error) in
-            if error != "" {
-                print(#function, error)
-                DispatchQueue.main.async {
-                    self.presentAlert(
-                        alert: .init(
-                            title: "Validasi",
-                            message: error,
-                            preferredStyle: .alert),
-                        actions: nil,
-                        comletion: nil)
-                    self.loadingView.stopAnimating()
-                }
-            }
-            
-            if data != nil {
-                DispatchQueue.main.async {
-                    self.loadingView.stopAnimating()
-                }
-            }
-        }
     }
     
     // MARK: Gender Select

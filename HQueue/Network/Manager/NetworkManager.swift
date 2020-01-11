@@ -71,7 +71,7 @@ struct NetworkManager {
     func sigup(newAuth: HQAuth, newPass: String, completion: @escaping(_ auth: HQAuth?, _ error: String?) -> Void) {
         router.request(.signup(user: newAuth, password: newPass), completion: {data, response, error in
             if error != nil {
-                //print(#function, error)
+                print(#function, error)
                 completion(nil, NetworkResponse.failed.rawValue)
             }
             
@@ -85,7 +85,7 @@ struct NetworkManager {
                             return
                         }
                         do {
-                            //print( #function, String(bytes: responseData, encoding: .utf8) )
+                            print( #function, String(bytes: responseData, encoding: .utf8) )
                             let data = try JSONDecoder().decode(HQAuth.self, from: responseData)
                             
                             if let authToken = data.token,
@@ -121,11 +121,11 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        print( String(bytes: responseData, encoding: .utf8) )
+                        //print( String(bytes: responseData, encoding: .utf8) )
                         let data = try JSONDecoder().decode(HUser.self, from: responseData)
                         completion(data, nil)
-                    } catch let decoderError {
-                        print(#function, decoderError )
+                    } catch { //let decoderError {
+                        //print(#function, decoderError )
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                 case .failure(let networkFailureError):
@@ -511,7 +511,7 @@ struct NetworkManager {
 enum NetworkResponse: String {
     case success
     case authenticationError = "You need to be authenticated"
-    case badRequest = "Bad request"
+    case badRequest = "Koneksi Bermasalah, mohon coba beberapa saat lagi."
     case outdated = "Link has expired"
     case failed = "Request failed"
     case noData = "Response returned with no data to decode"

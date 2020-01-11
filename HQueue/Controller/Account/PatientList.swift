@@ -37,7 +37,9 @@ class PatientList: UITableViewController {
     }
     
     @objc func addDataAction() {
-        
+        let vc = PatienNewForm()
+//        let nav = UINavigationController(rootViewController: vc)
+        self.present(vc, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -126,7 +128,7 @@ class PatientList: UITableViewController {
     func fetchData() {
         networkManager.getPatient { data, error in
             if error != "" {
-                print(#function, error)
+                //print(#function, error)
             }
 
             if let data = data {
