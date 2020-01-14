@@ -242,7 +242,7 @@ struct NetworkManager {
                     }
                     
                     do {
-                        //print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode([Doctor].self, from: responseData)
                         //print(#function, data)
                         completion(data, nil)
@@ -399,6 +399,8 @@ struct NetworkManager {
             }
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
+                print(#function, result)
+                print(#function, String( bytes: data!, encoding: .utf8)  )
                 switch result {
                 case .success:
                     guard let responseData = data else {
@@ -431,6 +433,7 @@ struct NetworkManager {
             
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
+                //print(#function, String( bytes: data!, encoding: .utf8)  )
                 switch result {
                 case .success:
                     guard let responseData = data else {
@@ -439,7 +442,7 @@ struct NetworkManager {
                     }
                     
                     do {
-                        //print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode(QueueResponse.self, from: responseData)
                         completion(data, nil)
                     }catch let errorDecode{
@@ -470,7 +473,7 @@ struct NetworkManager {
                     }
                     
                     do {
-                        //print(#function, String( bytes: responseData, encoding: .utf8)  )
+                        print(#function, String( bytes: responseData, encoding: .utf8)  )
                         let data = try JSONDecoder().decode([QueueEntity].self, from: responseData)
                         completion(data, nil)
                     }catch let errorDecode{

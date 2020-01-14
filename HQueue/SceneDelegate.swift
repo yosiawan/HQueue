@@ -20,6 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let homeVC = HomeQueueController()
         let mainNav = UINavigationController(rootViewController: homeVC)
+        mainNav.navigationBar.tintColor = .HQueueDarkBlue
+        mainNav.navigationBar.barTintColor = .white
         let onBoardingVC = OnboardingViewController()
         
         window = UIWindow(frame: windowSince.coordinateSpace.bounds)

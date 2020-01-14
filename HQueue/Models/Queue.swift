@@ -8,6 +8,14 @@
 
 import Foundation
 
+enum QueueStatus: Int, Decodable {
+    case waiting = 0
+    case checkIn = 1
+    case checkOut = 2
+    case skipped = 3
+    case terminate = 4
+}
+
 struct QueueResponse {
     let success: Bool
     let message: String
@@ -33,6 +41,7 @@ struct QueueEntity {
     let queueId: String
     let submitTime: Date
     var queueRemaining: Int
+    let processStatus: QueueStatus
     let poliName: String?
     let patient: Patient
     let insurance: Asuransi?
@@ -79,6 +88,7 @@ extension QueueEntity: Decodable {
         case doctor_fullname = "doctor_fullname"
         case poli_fullname = "poli_fullname"
         case queue_remaining = "queue_remaining"
+        case doctor_avatar = "doctor_avatar"
     }
     
     init(from decoder: Decoder) throws {
@@ -86,6 +96,7 @@ extension QueueEntity: Decodable {
         let submitTimeIsoString = try container.decode(String.self, forKey: .submit_time)
         
         queueId = try container.decode(String.self, forKey: .queue_id)
+        processStatus = try container.decode(QueueStatus.self, forKey: .process_status)
         submitTime = QueueEntity.getSubmiteTimeInDateFormat(isoString: submitTimeIsoString)!
         if let reamingNumber = try? container.decode(Int.self, forKey: .queue_remaining) {
             queueRemaining = reamingNumber
@@ -121,12 +132,14 @@ extension QueueEntity: Decodable {
             timeEnd: try container.decode(String.self, forKey: .time_end),
             id: try container.decode(String.self, forKey: .doctor_schedule_id),
             doctorId: try container.decode(String.self, forKey: .doctor_id),
-            isAvailable: false
+            isAvailable: false, queueRemaining: try container.decode(Int.self, forKey: .queue_remaining)
         )
         
         doctor = Doctor(
             name: try container.decode(String.self, forKey: .doctor_fullname),
-            schedule: []
+            schedule: [],
+            avatar: try container.decode(String.self, forKey: .doctor_avatar)
+            
         )
         
         if let insuranceId = try container.decode(String?.self, forKey: .insurance_id), let insuranceName = try container.decode(String?.self, forKey: .insurance_fullname) {
@@ -192,12 +205,16 @@ extension QueueEstimation: Decodable {
         queueRemaining = try container.decode(Int.self, forKey: .queue_remaining)
     }
     
-    func getCurrentEstimate() -> String? {
+    func getCurrentEstimate(openTimeSchedule: String) -> String? {
+        print(#function + "-openTimeScheduleString", openTimeSchedule)
+        let open = Date()
+        open.changeFromString(dateString: openTimeSchedule, format: "HH:mm:ss")
+        print(#function + "-openTimeSchedule", open)
+        
         var currentEstimateTime = Date()
         print(#function + "-estimateTime", time)
-        currentEstimateTime = time.addingTimeInterval( TimeInterval(estimation * 60) )
+        currentEstimateTime = time.addingTimeInterval( TimeInterval(estimation * queueRemaining) )
         print(#function + "-currentEstimateTime", currentEstimateTime)
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm"
         return currentEstimateTime.changeToString(format: "H:mm")

@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
         didSet {
             
             if let hospitalImgUrl = self.queueEntity.hospital.photo {
-                self.hospitalImg.downloaded(from: "http://167.71.203.148/storage/hospitals/\(hospitalImgUrl)", contentMode: .scaleAspectFill)
+                self.hospitalImg.downloaded(from: hospitalImgUrl, contentMode: .scaleAspectFill)
             }
             
             // TODO: - Menampilkan img doctor dan insurance
@@ -78,7 +78,6 @@ class DetailViewController: UIViewController {
         self.setupView()
         
         self.fetchCurrentQueue()
-        self.fetchQueueEstimationTime()
     }
     
     //MARK: Setup View
@@ -120,6 +119,7 @@ class DetailViewController: UIViewController {
             if let queue = data?.data, data!.success {
                 DispatchQueue.main.async {
                     self.queueEntity = queue
+                    self.fetchQueueEstimationTime()
                 }
             } else {
                 DispatchQueue.main.async {
@@ -141,18 +141,19 @@ class DetailViewController: UIViewController {
     }
     
     func fetchQueueEstimationTime() {
-        networkManager.getEstimation { (data, error) in
-            if error != nil {
-                print(#function, error as Any)
-            }
-            
-            if let estimation = data?.data {
-                DispatchQueue.main.async {
-                    self.sisaAntrianVal.text = String( estimation.queueRemaining )
-                    self.estimasiGiliranVal.text = estimation.getCurrentEstimate()
+        if let queueCurrent: QueueEntity = self.queueEntity {
+            networkManager.getEstimation { (data, error) in
+                if error != nil {
+                    print(#function, error as Any)
+                }
+                
+                if let estimation = data?.data {
+                    DispatchQueue.main.async {
+                        self.sisaAntrianVal.text = String( estimation.queueRemaining )
+                        self.estimasiGiliranVal.text = estimation.getCurrentEstimate(openTimeSchedule: queueCurrent.doctorSchedule.timeStart)
+                    }
                 }
             }
-            
         }
     }
     

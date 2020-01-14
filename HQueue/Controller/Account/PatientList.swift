@@ -136,12 +136,28 @@ class PatientList: UITableViewController {
             }
 
             if let data = data {
-                self.patients = data
-                print(#function, data)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                if data.count != 0 {
+                    self.patients = data
+                    print(#function, data)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                    self.presentAlert(
+                        alert: .init(title: "Belum Ada Data Pasien", message: "Tambahkan data pasien agar dapat mengambil antrian di rumah sakit", preferredStyle: .alert),
+                        actions: [
+                            .init(title: "Lain kali", style: .default, handler: { (action) in
+                                self.navigationController?.popViewController(animated: true)
+                            }),
+                            .init(title: "Tambah", style: .default, handler: { (action) in
+                                self.addDataAction()
+                            }),
+                            
+                        ],
+                        comletion: nil)
+                    }
                 }
-
             }
         }
     }

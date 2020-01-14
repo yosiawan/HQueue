@@ -35,18 +35,21 @@ extension DoctorResponse: Decodable {
 struct Doctor {
     let name: String
     let schedule: [DoctorScedule]
+    let avatar: String
 }
 
 extension Doctor: Decodable {
     enum DoctorCodingKeys: String, CodingKey {
         case name = "full_name"
         case schedule = "schedule"
+        case avatar = "avatar"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: DoctorCodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         schedule = try container.decode([DoctorScedule].self, forKey: .schedule)
+        avatar = try container.decode(String.self, forKey: .avatar)
     }
 }
 
@@ -57,6 +60,7 @@ struct DoctorScedule {
     let id: String
     let doctorId: String
     let isAvailable: Bool
+    var queueRemaining: Int
 }
 
 extension DoctorScedule: Decodable {
@@ -67,6 +71,7 @@ extension DoctorScedule: Decodable {
             case timeEnd = "time_end"
             case doctorId = "doctor_id"
             case isAvailable = "is_available"
+            case queueRemaining = "queue_remaining"
         }
         
         init(from decoder: Decoder) throws {
@@ -77,5 +82,6 @@ extension DoctorScedule: Decodable {
             timeEnd = try container.decode(String.self, forKey: .timeEnd)
             doctorId = try container.decode(String.self, forKey: .doctorId)
             isAvailable = try container.decode(Bool.self, forKey: .isAvailable)
+            queueRemaining = try container.decode(Int.self, forKey: .queueRemaining)
         }
 }

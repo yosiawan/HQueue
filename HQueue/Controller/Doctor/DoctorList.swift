@@ -97,6 +97,11 @@ extension DoctorList: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: doctorListCellIdentifier, for: indexPath) as! DoctorListCell
+        
+        cell.doctorImg.image = #imageLiteral(resourceName: "doctor-default-img")
+
+        cell.doctorImg.downloaded(from: doctors[indexPath.row].avatar)
+        cell.doctorImg.contentMode = .scaleAspectFill
         cell.doctorName.text = doctors[indexPath.row].name
         cell.labelJadwal1.text = "\(doctors[indexPath.row].schedule[0].timeStart) - \(doctors[indexPath.row].schedule[0].timeEnd)"
         return cell

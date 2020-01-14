@@ -60,6 +60,11 @@ class DoctorDetail: UIViewController {
     
     func setupView(_ doctor: Doctor) {
         doctorName.text = doctor.name
+        doctorImg.downloaded(from: doctor.avatar)
+        doctorImg.layer.cornerRadius = doctorImg.frame.height / 2
+        doctorImg.layer.masksToBounds = true
+        doctorImg.contentMode = .scaleToFill
+        print(#function, doctor.schedule)
     }
     
     // MARK: - Fetch Data
@@ -225,6 +230,7 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
+            print(#function, currentDoctor)
             return currentDoctor.schedule.count
         }else{
             return currentInsurances.count
@@ -239,6 +245,7 @@ extension DoctorDetail: UICollectionViewDelegate, UICollectionViewDataSource {
                 cell.isUserInteractionEnabled = false
                 cell.view.alpha = 0.6
             }
+            cell.antrianLbl.text = String( currentDoctor.schedule[indexPath.row].queueRemaining )
             cell.timeLbl.text = "\(currentDoctor.schedule[indexPath.row].timeStart) - \(currentDoctor.schedule[indexPath.row].timeEnd)"
             return cell
         }

@@ -18,9 +18,11 @@ extension DoctorDetail {
         layout2.scrollDirection = .horizontal
 
         //  MARK: - Doctor Image
-        doctorImg.layer.cornerRadius = 25
+        
+        doctorImg.layer.cornerRadius = 57
+        doctorImg.layer.masksToBounds = true
         doctorImg.image = UIImage(named: "doctor-default-img")
-        doctorImg.contentMode = .scaleAspectFit
+        doctorImg.contentMode = .scaleAspectFill
         self.view.addSubview(doctorImg)
         doctorImg.translatesAutoresizingMaskIntoConstraints = false
         doctorImg.heightAnchor.constraint(equalToConstant: CGFloat(114)).isActive = true

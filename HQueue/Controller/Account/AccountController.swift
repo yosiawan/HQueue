@@ -27,8 +27,12 @@ class AccountController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
     
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loadingView.backgroundColor = .HQueueCreamSemiTransparant
         
         self.networkManager = NetworkManager()
         
@@ -126,12 +130,25 @@ class AccountController: UIViewController {
     }
     
     func fetchingData() {
+        DispatchQueue.main.async {
+            self.loadingView.startAnimating()
+        }
         self.networkManager.getProfile { (data, error) in
             if error != nil {
                 //print("Account - get profile", error)
+                self.presentAlert(
+                    alert: .init(title: "Koneksi Bermasalah", message: "Koneksi sendang bermasalah, silahkan coba beberapa saat lagi.", preferredStyle: .alert),
+                    actions: nil,
+                    comletion: nil)
+                DispatchQueue.main.async {
+                    self.loadingView.stopAnimating()
+                }
             }
             if let data = data {
                 self.profile = data
+                DispatchQueue.main.async {
+                    self.loadingView.stopAnimating()
+                }
             }
         }
     }

@@ -12,6 +12,7 @@
                 <outlet property="dataPatientTrigger" destination="Quy-EL-mA5" id="axm-Zd-1rh"/>
                 <outlet property="emailField" destination="F5V-fm-vJR" id="3EN-vg-LBZ"/>
                 <outlet property="guestView" destination="i5M-Pr-FkT" id="f37-K9-Ouw"/>
+                <outlet property="loadingView" destination="6jb-Ao-kQb" id="Wed-VZ-I27"/>
                 <outlet property="loggedView" destination="HCK-bp-mAf" id="15a-M1-GbJ"/>
                 <outlet property="loginButton" destination="jzb-NW-C2t" id="YtY-Kx-vcC"/>
                 <outlet property="nameField" destination="S9t-eW-7Yk" id="XN0-1E-o0x"/>
@@ -282,6 +283,9 @@
                         <action selector="logoutAction:" destination="-1" eventType="touchUpInside" id="8rF-wE-ghx"/>
                     </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6jb-Ao-kQb">
+                    <rect key="frame" x="0.0" y="20" width="414" height="856"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -290,13 +294,17 @@
                 <constraint firstItem="Quy-EL-mA5" firstAttribute="top" secondItem="mC4-RP-xef" secondAttribute="bottom" constant="30" id="Chz-Wh-Wrb"/>
                 <constraint firstItem="Q5a-eb-LVb" firstAttribute="leading" secondItem="8Nf-Cc-1Yx" secondAttribute="leading" constant="20" id="GLw-Nc-dLY"/>
                 <constraint firstItem="mC4-RP-xef" firstAttribute="top" secondItem="gCA-cd-bSG" secondAttribute="bottom" constant="60" id="NKa-Yo-wmr"/>
+                <constraint firstAttribute="bottom" secondItem="6jb-Ao-kQb" secondAttribute="bottom" constant="20" symbolic="YES" id="OxL-6i-ltK"/>
                 <constraint firstItem="DEJ-dj-xZd" firstAttribute="centerX" secondItem="HCK-bp-mAf" secondAttribute="centerX" id="WJZ-fu-omn"/>
                 <constraint firstItem="Q5a-eb-LVb" firstAttribute="top" secondItem="8Nf-Cc-1Yx" secondAttribute="top" id="b1p-t7-A7p"/>
                 <constraint firstItem="mC4-RP-xef" firstAttribute="leading" secondItem="8Nf-Cc-1Yx" secondAttribute="leading" constant="20" id="bXK-M3-3Ok"/>
                 <constraint firstItem="8Nf-Cc-1Yx" firstAttribute="trailing" secondItem="Quy-EL-mA5" secondAttribute="trailing" constant="20" id="diQ-7s-DMz"/>
+                <constraint firstItem="6jb-Ao-kQb" firstAttribute="trailing" secondItem="8Nf-Cc-1Yx" secondAttribute="trailing" id="e2r-jA-FWK"/>
                 <constraint firstItem="Quy-EL-mA5" firstAttribute="leading" secondItem="8Nf-Cc-1Yx" secondAttribute="leading" constant="20" id="gnH-Gv-nk9"/>
                 <constraint firstItem="gCA-cd-bSG" firstAttribute="top" secondItem="Q5a-eb-LVb" secondAttribute="bottom" constant="40" id="hJs-jZ-iig"/>
                 <constraint firstItem="8Nf-Cc-1Yx" firstAttribute="trailing" secondItem="Q5a-eb-LVb" secondAttribute="trailing" constant="20" id="jgO-rA-J2K"/>
+                <constraint firstItem="6jb-Ao-kQb" firstAttribute="top" secondItem="HCK-bp-mAf" secondAttribute="top" constant="20" symbolic="YES" id="mIY-sZ-jyb"/>
+                <constraint firstItem="6jb-Ao-kQb" firstAttribute="leading" secondItem="8Nf-Cc-1Yx" secondAttribute="leading" id="zQl-0Z-GbD"/>
                 <constraint firstItem="8Nf-Cc-1Yx" firstAttribute="bottom" secondItem="DEJ-dj-xZd" secondAttribute="bottom" constant="30" id="zjt-7B-1Fd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="8Nf-Cc-1Yx"/>

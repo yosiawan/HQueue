@@ -96,7 +96,9 @@ class HomeQueueController: UIViewController {
         super.viewDidAppear(animated)
 
         checkAuth()
+        
         fetchCurrentQueue()
+        fetchCurrentQueueWithTimeInterval()
         
         
     }
@@ -109,13 +111,19 @@ class HomeQueueController: UIViewController {
     }
     
     //MARK: Fetch Current Queue
+    var timerFetchCurrentQueue = Timer()
+    func fetchCurrentQueueWithTimeInterval() {
+        if self.isLogged() && self.ifIsVerifed() {
+            timerFetchCurrentQueue = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(fetchCurrentQueue), userInfo: nil, repeats: true)
+        }
+    }
     
     @objc func fetchCurrentQueueNotificationHandler(_ notification: Notification?) {
         print("fetchCurrentQueueNotificationHandler")
         self.fetchCurrentQueue()
     }
     
-    func fetchCurrentQueue() {
+    @objc func fetchCurrentQueue() {
         let networkManager = NetworkManager()
         self.setIsInQueue(false)
         if self.isLogged() && self.ifIsVerifed() {
@@ -134,9 +142,15 @@ class HomeQueueController: UIViewController {
                 }
                 
                 if let dataQueue = queue?.data, queue!.success {
+                    print(#function, dataQueue)
                     DispatchQueue.main.async {
-                        self.setIsInQueue(true)
-                        self.setupQueueData(queueEntity: dataQueue)
+                        if dataQueue.processStatus.rawValue < QueueStatus.checkOut.rawValue {
+                            self.setIsInQueue(true)
+                            self.setupQueueData(queueEntity: dataQueue)
+                        } else {
+                            self.setIsInQueue(false)
+                            self.presentAlert(alert: .init(title: "Antrian telah selesai", message: "Antrian anda telah selesai", preferredStyle: .alert), actions: nil, comletion: nil)
+                        }
                     }
                 } else {
                     DispatchQueue.main.async {

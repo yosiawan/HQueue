@@ -33,6 +33,7 @@ class HospitalCell: UITableViewCell {
         self.addressLabel.text = hospital.address
         if let imgUrlString = hospital.photo {
             self.imageHospital.downloaded(from: imgUrlString)
+            self.imageHospital.contentMode = .scaleAspectFill
         }
     }
 
